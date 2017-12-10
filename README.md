@@ -13,6 +13,7 @@ sudo apt-get install --no-install-recommends --no-install-suggests -y \
   apt-transport-https \
   git \
   gnupg \
+  python-apt \
   python-dev \
   python-pip \
   python-setuptools \
@@ -43,5 +44,5 @@ vi group_vars/all.yml
 
 ### Run
 ```shell
-ansible-playbook -i inventory playbooks/provisioning.yml --diff --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --ask-sudo-pass
 ```
