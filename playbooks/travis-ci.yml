@@ -17,19 +17,21 @@
     - skype
     - sublime
     - hipchat
-
+    - i3_utils_bin
 
 ###
 ### Uninstall test (reverse order)
 ###
 - hosts: localhost
   vars:
+    diff_highlight: 'remove'
     font_ubuntu: 'remove'
     docker: 'remove'
     docker_compose: 'remove'
     skype: 'remove'
     sublime: 'remove'
     hipchat: 'remove'
+    i3_utils_bin: 'remove'
   roles:
     - diff-highlight
     - font-ubuntu
@@ -38,6 +40,7 @@
     - skype
     - sublime
     - hipchat
+    - i3_utils_bin
 
 - hosts: localhost
   vars:

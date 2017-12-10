@@ -1,0 +1,20 @@
+---
+
+i3_utils_bin_packages:
+  - alsa-utils
+  - dbus
+  - exiv2
+  - grabc
+  - i3lock
+  - imagemagick
+  - libnotify-bin
+  - maim
+  - procps
+  - psmisc
+  - scrot
+  - slop
+  - sxiv
+  - x11-utils
+  - xbacklight
+  - xdotool
+  - zenity

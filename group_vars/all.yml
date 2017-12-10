@@ -44,4 +44,4 @@ docker_compose: 'install'
 skype:          'install'
 sublime:        'install'
 hipchat:        'install'
-
+i3_utils_bin:   'install'

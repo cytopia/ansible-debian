@@ -1,0 +1,25 @@
+---
+
+- name: ensure i3-utils-bin are removed
+  file:
+    state: absent
+    path: "/usr/local/bin/{{ item }}"
+  become: yes
+  with_items:
+    - system-hibernate
+    - system-reboot
+    - system-shutdown
+    - system-suspend
+    - xcolorpick
+    - ximage
+    - xkiller
+    - xlock
+    - xscreenshot
+    - xf86-audio
+    - xf86-backlight
+
+- name: ensure ximage desktop file is removed
+  file:
+    state: absent
+    path: /usr/share/applications/ximage.desktop
+  become: yes
