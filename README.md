@@ -1,5 +1,7 @@
 # Ansible Debian
 
+[![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
+
 Ansible setup to provision your workstation.
 
 ## Prepare
