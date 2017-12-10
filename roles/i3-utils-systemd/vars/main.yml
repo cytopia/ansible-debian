@@ -1,0 +1,9 @@
+---
+
+i3_utils_systemd_packages:
+  - alsa-utils
+  - i3lock
+  - imagemagick
+  - libnotify-bin
+  - procps
+  - scrot

@@ -1,0 +1,13 @@
+---
+
+- name: ensure i3-utils-systemd close-lid is removed
+  file:
+    state: absent
+    path: /usr/lib/systemd/logind.conf.d/70-close_lid.conf
+  become: yes
+
+- name: ensure i3-utils-systemd suspend is removed
+  file:
+    state: absent
+    path: /usr/lib/systemd/system/suspend.service
+  become: yes

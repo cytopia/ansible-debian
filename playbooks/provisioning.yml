@@ -3,21 +3,22 @@
 ###
 ### Boot strap System
 ###
-- hosts: localhost
-  roles:
-    - apt-repo-meta
-    - apt-meta
+#- hosts: localhost
+#  roles:
+#    - apt-repo-meta
+#    - apt-meta
 
 ###
 ### Install/Configure Packages
 ###
 - hosts: localhost
   roles:
-    - diff-highlight
-    - font-ubuntu
-    - docker
-    - docker-compose
-    - skype
-    - sublime
-    - hipchat
-    - i3_utils_bin
+      #    - diff-highlight
+      #    - font-ubuntu
+      #    - docker
+      #    - docker-compose
+      #    - skype
+      #    - sublime
+      #    - hipchat
+      #    - i3_utils_bin
+    - i3-utils-systemd

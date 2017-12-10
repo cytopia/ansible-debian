@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: i3_utils_systemd == 'install'
+
+- include_tasks: uninstall.yml
+  when: i3_utils_systemd == 'remove'
