@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: diff_highlight == 'install'
+
+- include_tasks: uninstall.yml
+  when: diff_highlight == 'remove'

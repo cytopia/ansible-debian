@@ -1,0 +1,9 @@
+---
+
+- name: ensure diff-highlight is downloaded
+  get_url:
+    url: https://raw.githubusercontent.com/K-Phoen/Config/master/bin/diff-highlight
+    dest: "{{ diff_highlight_path }}"
+    mode: 0755
+    force: yes
+  become: yes

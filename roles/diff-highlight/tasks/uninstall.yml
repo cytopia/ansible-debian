@@ -1,0 +1,7 @@
+---
+
+- name: ensure diff-highlight is removed
+  file:
+    state: absent
+    path: "{{ diff_highlight_path }}"
+  become: yes

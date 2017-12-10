@@ -13,6 +13,7 @@
 ###
 - hosts: localhost
   roles:
+    - diff-highlight
     - font-ubuntu
     - docker
     - docker-compose

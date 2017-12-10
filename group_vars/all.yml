@@ -38,6 +38,7 @@ apt_packages:
 ### Any other value will ignore the package (neither install nor uninstall)
 
 font_ubuntu:    'install'
+diff_highlight: 'install'
 docker:         'install'
 docker_compose: 'install'
 skype:          'install'

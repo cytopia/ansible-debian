@@ -10,6 +10,7 @@
 
 - hosts: localhost
   roles:
+    - diff-highlight
     - font-ubuntu
     - docker
     - docker-compose
@@ -30,6 +31,7 @@
     sublime: 'remove'
     hipchat: 'remove'
   roles:
+    - diff-highlight
     - font-ubuntu
     - docker
     - docker-compose
