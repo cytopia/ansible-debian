@@ -15,11 +15,19 @@ sudo apt-get install --no-install-recommends --no-install-suggests -y \
   gnupg \
   python-dev \
   python-pip \
-  python-setuptools
+  python-setuptools \
+  sudo
 
 sudo pip install wheel
 sudo pip install ansible
 ```
+### Sudo permissions
+
+Make sure your user is allowed run sudo
+```
+usermod -aG sudo <username>
+```
+
 ### Clone repository
 ```
 git clone https://github.com/cytopia/ansible-debian
