@@ -26,7 +26,8 @@ apt_packages:
 #  - fonts-open-sans
   - fonts-opensymbol
   - fonts-symbola
-  - ttf-mscorefonts-installer
+  #  - ttf-mscorefonts-installer (use fonts-liberation instead)
+  - fonts-liberation
   - ttf-wqy-zenhei
 
 
