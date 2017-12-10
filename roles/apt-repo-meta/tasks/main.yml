@@ -1,0 +1,24 @@
+---
+
+- name: ensure apt keys are managed
+  apt_key:
+    state: "{{ apt_repo_state }}"
+    id: "{{ item.id | default(omit) }}"
+    file: "{{ item.file | default(omit) }}"
+    keyserver: "{{ item.keyserver | default(omit) }}"
+    url: "{{ item.url | default(omit) }}"
+    validate_certs: yes
+  become: yes
+  with_items:
+    - "{{ apt_repo_keys }}"
+
+- name: ensure apt repositories are managed
+  apt_repository:
+    state: "{{ apt_repo_state }}"
+    repo: "{{ item.repo }}"
+    filename: "{{ item.file }}"
+    validate_certs: yes
+    update_cache: yes
+  become: yes
+  with_items:
+    - "{{ apt_repo_repositories }}"

@@ -1,0 +1,21 @@
+---
+
+- name: find ubuntu font directory
+  find:
+    path: "{{ ubuntu_font_path }}"
+    pattern: '^ubuntu-font-family-[.0-9]+$'
+    file_type: directory
+    use_regex: yes
+  register: ubuntu_font_dirs
+
+- name: ensure ubuntu font directory is removed
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items:
+    - "{{ ubuntu_font_dirs.files | default([]) }}"
+  when: ubuntu_font_dirs.files is defined
+
+- name: ensure font cache is updates
+  command: fc-cache -fv
+  changed_when: False

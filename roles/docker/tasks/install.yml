@@ -1,0 +1,17 @@
+---
+
+- name: ensure docker repo is present
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_keys:
+      - "{{ docker_apt_key }}"
+    apt_repo_repositories:
+      - "{{ docker_apt_repo }}"
+
+- name: ensure docker is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ docker_package_name }}"

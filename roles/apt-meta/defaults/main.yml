@@ -1,0 +1,9 @@
+---
+
+# State is latest by default
+apt_state: latest
+
+# Array of packages to install
+apt_packages: []
+#  - package 1
+#  - package2

@@ -1,0 +1,46 @@
+---
+
+###
+### Debian apt repositories
+###
+apt_repo_repositories:
+  - file: debian-main
+    repo: deb http://ftp.de.debian.org/debian/ stretch main contrib non-free
+  - file: debian-updates
+    repo: deb http://ftp.de.debian.org/debian/ stretch-updates main contrib non-free
+  - file: debian-security
+    repo: deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+  - file: debian-backports
+    repo: deb http://ftp.debian.org/debian stretch-backports main contrib non-free
+
+###
+### Debian packages
+###
+apt_packages:
+  - dunst
+  # Fonts
+  - fonts-arphic-uming
+  - fonts-arphic-ukai
+  - fonts-ipafont-mincho
+  - fonts-ipafont-gothic
+#  - fonts-open-sans
+  - fonts-opensymbol
+  - fonts-symbola
+  - ttf-mscorefonts-installer
+  - ttf-wqy-zenhei
+
+
+###
+### Select packages to install
+###
+### 'install': Install the package
+### 'remove':  Uninstall the package
+### Any other value will ignore the package (neither install nor uninstall)
+
+font_ubuntu:    'install'
+docker:         'install'
+docker_compose: 'install'
+skype:          'install'
+sublime:        'install'
+hipchat:        'install'
+

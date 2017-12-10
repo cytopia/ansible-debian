@@ -1,0 +1,45 @@
+---
+
+###
+### Install test
+###
+- hosts: localhost
+  roles:
+    - apt-repo-meta
+    - apt-meta
+
+- hosts: localhost
+  roles:
+    - font-ubuntu
+    - docker
+    - docker-compose
+    - skype
+    - sublime
+    - hipchat
+
+
+###
+### Uninstall test (reverse order)
+###
+- hosts: localhost
+  vars:
+    font_ubuntu: 'remove'
+    docker: 'remove'
+    docker_compose: 'remove'
+    skype: 'remove'
+    sublime: 'remove'
+    hipchat: 'remove'
+  roles:
+    - font-ubuntu
+    - docker
+    - docker-compose
+    - skype
+    - sublime
+    - hipchat
+
+- hosts: localhost
+  vars:
+    apt_repo_state: absent
+  roles:
+    - apt-meta
+    - apt-repo-meta

@@ -1,0 +1,14 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+before_script:
+  - docker build -t ansible-debian-python2 -f Dockerfile.python2 .
+  - docker build -t ansible-debian-python3 -f Dockerfile.python3 .
+
+script:
+  - docker run --rm -t ansible-debian-python2
+  - docker run --rm -t ansible-debian-python3

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: docker == 'install'
+
+- include_tasks: uninstall.yml
+  when: docker == 'remove'

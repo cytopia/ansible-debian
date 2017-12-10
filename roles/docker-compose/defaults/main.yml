@@ -1,0 +1,4 @@
+---
+
+# 'install', 'remove' or 'ignore'
+docker_compose: 'ignore'

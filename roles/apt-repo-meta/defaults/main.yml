@@ -1,0 +1,16 @@
+---
+
+# State is present by default
+apt_repo_state: present
+
+# Array of repositories to add
+apt_repo_repositories: []
+# - file: filename
+#   repo: deb http://repo/ stretch main
+
+# Array of apt keys to add (all are optional)
+apt_repo_keys: []
+# - url:
+#   keyserver:
+#   id:
+#   file:

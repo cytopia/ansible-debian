@@ -1,0 +1,21 @@
+---
+
+###
+### Boot strap System
+###
+- hosts: localhost
+  roles:
+    - apt-repo-meta
+    - apt-meta
+
+###
+### Install/Configure Packages
+###
+- hosts: localhost
+  roles:
+    - font-ubuntu
+    - docker
+    - docker-compose
+    - skype
+    - sublime
+    - hipchat

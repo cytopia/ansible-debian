@@ -1,0 +1,25 @@
+# vim:set ft=dockerfile:
+FROM debian:stretch
+MAINTAINER "cytopia" <cytopia@everythingcli.org>
+
+RUN set -x \
+	&& apt-get update \
+	&& apt-get install --no-install-recommends --no-install-suggests -y \
+		apt-transport-https \
+		gnupg \
+		python3-dev \
+		python3-pip \
+		python3-setuptools \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& apt-get purge -y --autoremove \
+	&& update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+RUN set -x \
+	&& pip3 install wheel \
+	&& pip3 install ansible
+
+COPY ./ /ansible
+
+WORKDIR /ansible
+
+ENTRYPOINT ["ansible-playbook", "-i", "inventory", "travis-ci.yml", "--diff", "-v"]

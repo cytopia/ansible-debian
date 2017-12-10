@@ -33,5 +33,5 @@ vi group_vars/all.yml
 
 ### Run
 ```shell
-ansible-playbook -i inventory provisioning.yml --diff --ask-sudo-pass
+ansible-playbook -i inventory playbooks/provisioning.yml --diff --ask-sudo-pass
 ```

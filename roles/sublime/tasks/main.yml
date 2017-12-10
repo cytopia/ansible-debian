@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: sublime == 'install'
+
+- include_tasks: uninstall.yml
+  when: sublime == 'remove'
