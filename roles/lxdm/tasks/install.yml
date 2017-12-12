@@ -1,0 +1,18 @@
+---
+
+- name: ensure lxdm is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ lxdm_packages }}"
+      - lxdm
+
+- name: ensure lxdm.conf is present
+  template:
+    src: templates/lxdm.conf.j2
+    dest: /etc/lxdm/lxdm.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: yes

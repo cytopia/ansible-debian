@@ -51,9 +51,18 @@ hipchat:              'install'
 i3blocks_modules:     'install'
 i3_utils_bin:         'install'
 i3_utils_systemd:     'install'
+lxdm:                 'install'
 skype:                'install'
 sublime:              'install'
 sxiv:                 'install'
+
+
+###
+### Settings for packages
+###
+lxdm_dpi: 132
+lxdm_gtk_theme: Arc-Darker
+lxdm_show_user_list: no
 
 
 ###

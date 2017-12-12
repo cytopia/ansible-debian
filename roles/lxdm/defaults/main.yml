@@ -1,0 +1,18 @@
+---
+
+# 'install', 'remove' or 'ignore'
+lxdm: 'ignore'
+
+# Integer only
+lxdm_dpi: 96
+
+# Find available themes via
+# $ ls -1 /usr/share/lxdm/themes/
+lxdm_theme: Industrial
+
+# Find available gtk-themes via:
+# $ ls -1 /usr/share/themes/
+lxdm_gtk_theme: Clearlooks
+
+# Show users instead of having to type the username
+lxdm_show_user_list: yes

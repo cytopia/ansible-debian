@@ -1,0 +1,9 @@
+---
+
+- name: ensure lxdm is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - lxdm

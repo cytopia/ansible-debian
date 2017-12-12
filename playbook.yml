@@ -54,3 +54,11 @@
     - xdg
     - xdg-open
     - xdg-mime
+
+- hosts: localhost
+  roles:
+    - lxdm
+  tags:
+    - lxdm
+    - dm
+    - display-manager
