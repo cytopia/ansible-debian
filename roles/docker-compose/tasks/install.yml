@@ -5,10 +5,12 @@
     url: https://api.github.com/repos/docker/compose/releases/latest
     method: GET
   register: docker_json
+  check_mode: no
 
 - name: set latest docker compose version
   set_fact:
     docker_compose_version: "{{ docker_json.json.name }}"
+  check_mode: no
 
 - name: ensure docker compose is downloaded
   get_url:
