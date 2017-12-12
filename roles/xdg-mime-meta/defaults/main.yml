@@ -1,0 +1,8 @@
+---
+
+xdg_mime_defaults: []
+#  - desktop_file: sxiv.desktop
+#    mime_types:
+#      - image/jpg
+#      - image/png
+#      - image/tiff
