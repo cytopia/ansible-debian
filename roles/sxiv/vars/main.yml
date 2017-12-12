@@ -1,0 +1,7 @@
+---
+
+sxiv_package: sxiv
+sxiv_packages:
+  - exiv2
+
+sxiv_wrapper_name: sxiv-wrapper.sh

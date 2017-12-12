@@ -1,0 +1,15 @@
+---
+
+- name: ensure sxiv is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ sxiv_package }}"
+
+- name: ensure sxiv wrapper is removed
+  file:
+    path: "/usr/local/bin/{{ sxiv_wrapper_name }}"
+    state: absent
+  become: yes

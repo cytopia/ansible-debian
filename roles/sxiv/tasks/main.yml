@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: sxiv == 'install'
+
+- include_tasks: uninstall.yml
+  when: sxiv == 'remove'

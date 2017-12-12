@@ -1,0 +1,30 @@
+---
+
+- name: ensure sxiv packages are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ sxiv_package }}"
+      - "{{ sxiv_packages }}"
+
+- name: ensure sxiv wrapper is downloaded
+  get_url:
+    url: https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/bin/ximage
+    dest: "/usr/local/bin/{{ sxiv_wrapper_name }}"
+    mode: 0755
+    force: yes
+  become: yes
+
+- name: ensure applications folder exist
+  file:
+    state: directory
+    path: /usr/share/applications
+    mode: 0755
+
+- name: ensure sxiv desktop file is present
+  template:
+    src: usr/share/applications/sxiv.desktop.j2
+    dest: /usr/share/applications/sxiv.desktop
+    mode: 0644
+  become: yes
