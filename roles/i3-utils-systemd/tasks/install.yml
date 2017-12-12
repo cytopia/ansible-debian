@@ -39,6 +39,7 @@
     state: file
     suffix: temp
   changed_when: False
+  check_mode: no
   register: i3_utils_systemd_tmp
 
 - name: ensure i3-utils-systemd suspend is downloaded
@@ -48,6 +49,7 @@
     mode: 0644
     force: yes
   changed_when: False
+  check_mode: no
 
 - name: ensure i3-utils-systemd suspend is using correct username
   lineinfile:
@@ -55,6 +57,7 @@
     regexp: '^User=REPLACE_ME$'
     line: "User={{ lookup('env','USER') }}"
   changed_when: False
+  check_mode: no
 
 - name: ensure i3-utils-systemd suspend is in place
   copy:
@@ -68,3 +71,4 @@
     state: absent
     path: "{{ i3_utils_systemd_tmp.path }}"
   changed_when: False
+  check_mode: no
