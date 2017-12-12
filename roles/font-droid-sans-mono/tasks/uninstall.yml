@@ -1,0 +1,7 @@
+---
+
+- name: ensure fonts are removed
+  file:
+    state: absent
+    path: "{{ font_droid_sans_mono_font_path }}"
+  notify: update font-cache

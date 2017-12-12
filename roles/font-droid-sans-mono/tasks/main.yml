@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: font_droid_sans_mono == 'install'
+
+- include_tasks: uninstall.yml
+  when: font_droid_sans_mono == 'remove'
