@@ -1,0 +1,25 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - fontconfig
+
+- name: ensure font directory exists
+  file:
+    path: "{{ font_san_francisco_font_path }}"
+    state: directory
+    mode: 0755
+  notify: update font-cache
+
+- name: ensure fonts are downloaded
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ font_san_francisco_font_path }}/{{ item | basename | replace('%20', ' ') }}"
+    mode: 0644
+    force: yes
+  with_items:
+    - "{{ font_san_francisco_urls }}"
+  notify: update font-cache
