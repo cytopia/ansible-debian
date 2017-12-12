@@ -15,26 +15,26 @@
     follow_redirects: yes
     return_content: yes
   register: font_ubuntu_raw
+  check_mode: no
 
 - name: set ubuntu font url
   set_fact:
     font_ubuntu_zip: "{{ font_ubuntu_raw.content | regex_search(qry) }}"
   vars:
     qry: 'https://assets.ubuntu.com/.*-ubuntu-font-family-[.0-9]+\.zip'
+  check_mode: no
 
 - name: ensure font directory exists
   file:
-    path: "{{ ubuntu_font_path }}"
+    path: "{{ font_ubuntu_font_path }}"
     state: directory
     mode: 0755
+  notify: update font-cache
 
 - name: ensure ubuntu font is downloaded
   unarchive:
     src: "{{ font_ubuntu_zip }}"
-    dest: "{{ ubuntu_font_path }}"
+    dest: "{{ font_ubuntu_font_path }}"
     remote_src: yes
     mode: 0755
-
-- name: ensure font cache is updates
-  command: fc-cache -fv
-  changed_when: False
+  notify: update font-cache
