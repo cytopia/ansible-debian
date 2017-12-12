@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: thunar == 'install'
+
+- include_tasks: uninstall.yml
+  when: thunar == 'remove'

@@ -55,7 +55,7 @@ lxdm:                 'install'
 skype:                'install'
 sublime:              'install'
 sxiv:                 'install'
-
+thunar:               'install'
 
 ###
 ### Settings for packages

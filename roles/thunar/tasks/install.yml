@@ -1,0 +1,9 @@
+---
+
+- name: ensure thunar is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - thunar
+      - "{{ thunar_packages }}"

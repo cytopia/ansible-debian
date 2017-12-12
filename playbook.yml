@@ -25,9 +25,11 @@
     - i3blocks-modules
     - i3-utils-bin
     - i3-utils-systemd
+    - lxdm
     - skype
     - sublime
     - sxiv
+    - thunar
 
 
 ###
@@ -54,11 +56,3 @@
     - xdg
     - xdg-open
     - xdg-mime
-
-- hosts: localhost
-  roles:
-    - lxdm
-  tags:
-    - lxdm
-    - dm
-    - display-manager
