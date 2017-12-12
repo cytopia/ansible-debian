@@ -1,0 +1,11 @@
+---
+
+font_font_awesome_font_path: "{{ lookup('env','HOME') }}/.local/share/fonts/font-awesome"
+
+font_font_awesome_urls:
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/FontAwesome.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.eot
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.svg
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.ttf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.woff
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.woff2

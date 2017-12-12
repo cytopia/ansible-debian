@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: font_font_awesome == 'install'
+
+- include_tasks: uninstall.yml
+  when: font_font_awesome == 'remove'
