@@ -1,0 +1,27 @@
+---
+
+font_terminus_font_path: "{{ lookup('env','HOME') }}/.local/share/fonts/terminus"
+
+font_terminus_bold_urls:
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Bold/complete/Terminess%20(TTF)%20Bold%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Bold/complete/Terminess%20(TTF)%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Bold/complete/Terminess%20(TTF)%20Bold%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Bold/complete/Terminess%20(TTF)%20Bold%20Nerd%20Font%20Complete.ttf
+
+font_terminus_bold_italic_urls:
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/BoldItalic/complete/Terminess%20(TTF)%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/BoldItalic/complete/Terminess%20(TTF)%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/BoldItalic/complete/Terminess%20(TTF)%20Bold%20Italic%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/BoldItalic/complete/Terminess%20(TTF)%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
+
+font_terminus_italic_urls:
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Italic/complete/Terminess%20(TTF)%20Italic%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Italic/complete/Terminess%20(TTF)%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Italic/complete/Terminess%20(TTF)%20Italic%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Italic/complete/Terminess%20(TTF)%20Italic%20Nerd%20Font%20Complete.ttf
+
+font_terminus_regular_urls:
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Regular/complete/Terminess%20(TTF)%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Regular/complete/Terminess%20(TTF)%20Nerd%20Font%20Complete%20Mono.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Regular/complete/Terminess%20(TTF)%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
+  - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Terminus/terminus-ttf-4.40.1/Regular/complete/Terminess%20(TTF)%20Nerd%20Font%20Complete.ttf
