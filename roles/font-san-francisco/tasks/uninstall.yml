@@ -1,9 +1,7 @@
 ---
 
-- name: ensure ubuntu font directory is removed
+- name: ensure fonts are removed
   file:
-    path: "{{ item.path }}"
     state: absent
-  with_items:
-    - "{{ font_san_francisco_font_dirs.files | default([]) }}"
+    path: "{{ font_san_francisco_font_path }}"
   notify: update font-cache
