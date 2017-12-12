@@ -1,0 +1,24 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ i3blocks_modules_packages }}"
+
+- name: ensure ./local/share directory exists
+  file:
+    state: directory
+    path: "{{ i3blocks_modules_path }}"
+    mode: 0755
+  check_mode: no
+
+- name: ensure i3blocks-modules is cloned
+  git:
+    repo: https://github.com/cytopia/i3blocks-modules
+    clone: yes
+    dest: "{{ i3blocks_modules_path }}"
+    force: yes
+    update: yes
+    depth: 1
