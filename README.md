@@ -52,9 +52,6 @@ Before you can start there are a few tools required that must be present on the 
 ```shell
 apt-get update
 apt-get install --no-install-recommends --no-install-suggests -y \
-  apt-transport-https \
-  git \
-  gnupg \
   sudo
 ```
 

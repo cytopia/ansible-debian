@@ -27,12 +27,19 @@ WORKDIR /ansible
 RUN set -x \
 	&& ROLES="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
 	&& ( \
-		echo "# META install"; \
+		echo "# ---- Bootstrap ----"; \
 		echo "- hosts: localhost"; \
+		echo "  vars:"; \
+		echo "    apt_packages:"; \
+		echo "      - apt-transport-https"; \
+		echo "      - apt-utils"; \
+		echo "      - git"; \
+		echo "      - gnupg"; \
 		echo "  roles:"; \
 		echo "    - apt-repo-meta"; \
 		echo "    - apt-meta"; \
-		echo "# NORM install"; \
+		\
+		echo "# ---- Pre-defined Roles ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
@@ -43,8 +50,13 @@ RUN set -x \
 			echo "    - ${r}"; \
 		done; \
 		\
+		echo "# ---- Custom packages ----"; \
+		echo "- hosts: localhost"; \
+		echo "  roles:"; \
+		echo "    - apt-meta"; \
 		\
-		echo "# NORM remove"; \
+		\
+		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
@@ -54,7 +66,8 @@ RUN set -x \
 		for r in ${ROLES}; do \
 			echo "    - ${r}"; \
 		done; \
-		echo "# META remove"; \
+		\
+		echo "# ---- (DELETE) Custom packages"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		echo "    apt_state: absent"; \

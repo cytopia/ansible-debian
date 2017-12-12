@@ -1,20 +1,22 @@
 ---
 
 ###
-### Boot strap System
+### Bootstrap System
 ###
 - hosts: localhost
+  vars:
+    apt_packages:
+      - apt-transport-https
+      - apt-utils
+      - git
+      - gnupg
   roles:
     - apt-repo-meta
     - apt-meta
-  tags:
-    - apt-update
-    - bootstrap
-    - repo
-    - repository
+
 
 ###
-### Install Packages
+### Install Role Packages
 ###
 - hosts: localhost
   roles:
@@ -33,6 +35,14 @@
 
 
 ###
+### Install Custom apt Packages
+###
+- hosts: localhost
+  roles:
+    - apt-meta
+
+
+###
 ### Install fonts
 ###
 - hosts: localhost
@@ -45,6 +55,7 @@
   tags:
     - font
     - fonts
+
 
 ###
 ### Set default applications
