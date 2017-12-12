@@ -3,22 +3,54 @@
 ###
 ### Boot strap System
 ###
-#- hosts: localhost
-#  roles:
-#    - apt-repo-meta
-#    - apt-meta
+- hosts: localhost
+  roles:
+    - apt-repo-meta
+    - apt-meta
+  tags:
+    - apt-update
+    - bootstrap
+    - repo
+    - repository
 
 ###
-### Install/Configure Packages
+### Install Packages
 ###
 - hosts: localhost
   roles:
-      #    - diff-highlight
-      #    - font-ubuntu
-      #    - docker
-      #    - docker-compose
-      #    - skype
-      #    - sublime
-      #    - hipchat
-      #    - i3_utils_bin
+    - diff-highlight
+    - docker
+    - docker-compose
+    - hipchat
+    - i3blocks-modules
+    - i3-utils-bin
     - i3-utils-systemd
+    - skype
+    - sublime
+    - sxiv
+
+
+###
+### Install fonts
+###
+- hosts: localhost
+  roles:
+    - font-droid-sans-mono
+    - font-font-awesome
+    - font-san-francisco
+    - font-terminus
+    - font-ubuntu
+  tags:
+    - font
+    - fonts
+
+###
+### Set default applications
+###
+- hosts: localhost
+  roles:
+    - xdg-mime-meta
+  tags:
+    - xdg
+    - xdg-open
+    - xdg-mime

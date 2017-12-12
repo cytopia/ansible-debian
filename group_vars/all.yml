@@ -13,6 +13,7 @@ apt_repo_repositories:
   - file: debian-backports
     repo: deb http://ftp.debian.org/debian stretch-backports main contrib non-free
 
+
 ###
 ### Debian packages
 ###
@@ -38,12 +39,49 @@ apt_packages:
 ### 'remove':  Uninstall the package
 ### Any other value will ignore the package (neither install nor uninstall)
 
-font_ubuntu:      'install'
-diff_highlight:   'install'
-docker:           'install'
-docker_compose:   'install'
-skype:            'install'
-sublime:          'install'
-hipchat:          'install'
-i3_utils_bin:     'install'
-i3_utils_systemd: 'install'
+diff_highlight:       'install'
+docker:               'install'
+docker_compose:       'install'
+font_font_awesome:    'install'
+font_droid_sans_mono: 'install'
+font_san_francisco:   'install'
+font_terminus:        'install'
+font_ubuntu:          'install'
+hipchat:              'install'
+i3blocks_modules:     'install'
+i3_utils_bin:         'install'
+i3_utils_systemd:     'install'
+skype:                'install'
+sublime:              'install'
+sxiv:                 'install'
+
+
+###
+### Set your preferred default applications
+###
+xdg_mime_defaults:
+  - desktop_file: Thunar.desktop
+    mime_types:
+      - inode/directory
+  - desktop_file: chromium.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+  - desktop_file: sxiv.desktop
+    mime_types:
+      - image/bmp
+      - image/gif
+      - image/jpeg
+      - image/jpg
+      - image/png
+      - image/tiff
+      - image/x-bmp
+      - image/x-portable-anymap
+      - image/x-portable-bitmap
+      - image/x-portable-graymap
+      - image/x-tga
+      - image/x-xpixmap
