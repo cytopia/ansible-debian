@@ -5,10 +5,13 @@ language: python
 services:
   - docker
 
+env:
+  matrix:
+    - python=2
+    - python=3
+
 before_script:
-  - docker build -t ansible-debian-python2 -f Dockerfile.python2 .
-  - docker build -t ansible-debian-python3 -f Dockerfile.python3 .
+  - docker build -t ansible-debian-python${python} -f Dockerfile.python${python} .
 
 script:
-  - docker run --rm -t ansible-debian-python2
-  - docker run --rm -t ansible-debian-python3
+  - docker run --rm -t ansible-debian-python${python}

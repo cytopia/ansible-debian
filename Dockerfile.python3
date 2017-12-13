@@ -40,7 +40,7 @@ RUN set -x \
 		echo "# ---- Pythonstrap ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
-		echo "    python_default: 2"; \
+		echo "    python_default: 3"; \
 		echo "  roles:"; \
 		echo "    - python-meta"; \
 		\
