@@ -52,15 +52,32 @@ Before you can start there are a few tools required that must be present on the 
 ```shell
 apt-get update
 apt-get install --no-install-recommends --no-install-suggests -y \
+  sudo
+```
+
+##### 2. Install Python requirements
+
+Either go with Python2
+```
+apt-get install --no-install-recommends --no-install-suggests -y \
   python-apt \
   python-dev \
   python-pip \
   python-setuptools \
-  sudo
+pip install wheel
+pip install ansible
+```
+Or go with Python3
+```
+apt-get install --no-install-recommends --no-install-suggests -y \
+  python3-apt \
+  python3-dev \
+  python3-pip \
+  python3-setuptools \
 pip3 install wheel
 pip3 install ansible
 ```
-##### 2. Sudo permissions
+##### 3. Sudo permissions
 
 Make sure your user is allowed run sudo
 ```
