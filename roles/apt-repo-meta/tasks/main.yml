@@ -11,6 +11,7 @@
   become: yes
   with_items:
     - "{{ apt_repo_keys }}"
+  notify: update apt repository cache
 
 - name: ensure apt repositories are managed
   apt_repository:
@@ -22,3 +23,7 @@
   become: yes
   with_items:
     - "{{ apt_repo_repositories }}"
+  notify: update apt repository cache
+
+# Make sure the handler runs now and not at the end of the playbook
+- meta: flush_handlers
