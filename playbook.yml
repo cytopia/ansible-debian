@@ -10,6 +10,7 @@
       - apt-utils
       - git
       - gnupg
+      - python
   roles:
     - apt-repo-meta
     - apt-meta
