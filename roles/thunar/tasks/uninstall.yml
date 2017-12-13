@@ -6,6 +6,20 @@
   vars:
     apt_state: absent
     apt_packages:
-      - thunar
-      - thunar-volman
-      - thunar-archive-plugin
+      - "{{ thunar_package_name }}"
+
+- name: ensure thunar volman is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ thunar_volman_package_name }}"
+
+- name: ensure thunar archive plugin is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ thunar_archive_plugin_package_name }}"

@@ -5,5 +5,22 @@
     name: apt-meta
   vars:
     apt_packages:
-      - thunar
-      - "{{ thunar_packages }}"
+      - "{{ thunar_package_name }}"
+
+- name: ensure thunar volman is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ thunar_volman_package_name }}"
+      - "{{ thunar_volman_packages }}"
+  when: thunar_volman_enable == yes
+
+- name: ensure thunar archive plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ thunar_archive_plugin_package_name }}"
+      - "{{ thunar_archive_plugin_packages }}"
+  when: thunar_archive_plugin_enable == yes
