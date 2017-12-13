@@ -4,10 +4,10 @@
   apt:
     state: "{{ apt_state }}"
     name: "{{ item }}"
+    force_apt_get: yes
     update_cache: yes
     cache_valid_time: 3600
-    autoclean: yes
-    autoremove: yes
     install_recommends: no
   become: yes
   with_items: "{{ apt_packages }}"
+  notify: clean apt
