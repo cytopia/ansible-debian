@@ -63,7 +63,7 @@ thunar:               'install'
 ###
 python_2: yes
 python_3: yes
-python_default: 3
+python_default: 2
 
 lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker

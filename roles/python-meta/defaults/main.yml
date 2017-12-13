@@ -4,16 +4,13 @@ python_2: yes
 python_3: yes
 python_default: 2
 
-python_2_apt_pachages:
+python_2_apt_packages:
   - python
   - python-pip
-python_3_apt_pachages:
+python_3_apt_packages:
   - python3
   - python3-pip
 
 python_pip_packages:
   - wheel
-  - configparser
-
-
-
+  - setuptools
