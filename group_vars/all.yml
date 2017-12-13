@@ -57,12 +57,20 @@ sublime:              'install'
 sxiv:                 'install'
 thunar:               'install'
 
+
 ###
 ### Settings for packages
 ###
+python_2: yes
+python_3: yes
+python_default: 3
+
 lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
+
+thunar_volman_enable: yes
+thunar_archive_plugin_enable: yes
 
 
 ###

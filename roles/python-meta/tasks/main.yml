@@ -1,0 +1,63 @@
+---
+
+- name: ensure either python2 or python3 is enabled
+  assert:
+    that:
+      - python_2 or python_3
+    msg: either python2 or python3 must be enabled (or both)
+
+- name: ensure that python default version is enabled
+  assert:
+    that:
+      - (python_default == 2 and python_2) or (python_default == 3 and python_3)
+    msg: selected python default version must also be enabled to install
+
+- name: ensure python3 is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ python_3_apt_pachages }}"
+  when: python_3
+
+- name: ensure python2 is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ python_2_apt_pachages }}"
+  when: python_2
+
+- name: ensure python3 is set as default
+  alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python3
+  become: yes
+  when: python_default == 3
+
+- name: ensure python2 is set as default
+  alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python2
+  become: yes
+  when: python_default == 2
+
+- name: ensure python3 pip packages are installed
+  pip:
+    state: latest
+    name: "{{ item }}"
+    executable: pip3
+  become: yes
+  with_items:
+    - "{{ python_pip_packages }}"
+
+- name: ensure python2 pip packages are installed
+  pip:
+    state: latest
+    name: "{{ item }}"
+    executable: pip
+  become: yes
+  with_items:
+    - "{{ python_pip_packages }}"

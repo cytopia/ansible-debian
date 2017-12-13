@@ -39,6 +39,11 @@ RUN set -x \
 		echo "    - apt-repo-meta"; \
 		echo "    - apt-meta"; \
 		\
+		echo "# ---- Pythonstrap ----"; \
+		echo "- hosts: localhost"; \
+		echo "  roles:"; \
+		echo "    - python-meta"; \
+		\
 		echo "# ---- Pre-defined Roles ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \

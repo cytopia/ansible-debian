@@ -16,6 +16,14 @@
 
 
 ###
+### Pythonstrap System
+###
+- hosts: localhost
+  roles:
+    - python-meta
+
+
+###
 ### Install Role Packages
 ###
 - hosts: localhost
