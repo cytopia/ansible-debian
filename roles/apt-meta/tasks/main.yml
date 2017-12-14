@@ -9,7 +9,7 @@
 #
 - name: ensure python2 is present
   apt:
-    state: "{{ apt_state }}"
+    state: latest
     name: python
     force_apt_get: yes
     update_cache: yes
