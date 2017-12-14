@@ -13,12 +13,11 @@
   vars:
     apt_packages:
 
-# Workaround to install packages with python2 default interpreter
 - name: ensure thunar volman is installed
   include_role:
-    name: python-meta
+    name: apt-meta
   vars:
-    python_2_apt_packages:
+    apt_packages
       - "{{ thunar_volman_package_name }}"
       - "{{ thunar_volman_packages }}"
   when: thunar_volman_enable == yes

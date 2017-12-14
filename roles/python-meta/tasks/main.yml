@@ -12,23 +12,6 @@
       - (python_default == 2 and python_2) or (python_default == 3 and python_3)
     msg: selected python default version must also be enabled to install
 
-
-# It is currently a bug on debian stretch that python-* packages fail
-# if python3 was used as a default python intepreter.
-- name: ensure python2 is presnet
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - python
-- name: ensure python2 is used to install dependencies
-  alternatives:
-    name: python
-    link: /usr/bin/python
-    path: /usr/bin/python2
-    priority: 1
-  become: yes
-
 - name: ensure python2 packages are installed
   include_role:
     name: apt-meta
