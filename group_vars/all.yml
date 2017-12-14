@@ -72,6 +72,18 @@ lxdm_show_user_list: no
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
 
+# 'stable' or 'unstable'
+skype_channel: stable
+
+# 'stable' or 'dev'
+sublime_channel: stable
+
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+docker_channel: stretch
+
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+hipchat_channel: stretch
+
 
 ###
 ### Set your preferred default applications

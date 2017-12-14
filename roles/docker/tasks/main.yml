@@ -1,5 +1,11 @@
 ---
 
+- name: assert that docker repository channel is set correctly
+  assert:
+    that:
+      - docker_channel == 'wheezy' or docker_channel == 'jessie' or docker_channel == 'stretch' or docker_channel == 'buster'
+    msg: docker_channel must be 'wheezy', 'jessie', 'stretch' or 'buster'
+
 - include_tasks: install.yml
   when: docker == 'install'
 

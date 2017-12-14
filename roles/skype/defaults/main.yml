@@ -3,11 +3,5 @@
 # 'install', 'remove' or 'ignore'
 skype: 'ignore'
 
-skype_apt_repo:
-  file: skype
-  repo: deb [arch=amd64] https://repo.skype.com/deb stable main
-
-# ID: curl https://repo.skype.com/data/SKYPE-GPG-KEY | gpg --list-packets
-skype_apt_key:
-  url: https://repo.skype.com/data/SKYPE-GPG-KEY
-  id: 1F3045A5DF7587C3
+# Choose 'stable' or 'unstable' channel
+skype_channel: stable

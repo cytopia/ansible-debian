@@ -3,11 +3,4 @@
 # 'install', 'remove' or 'ignore'
 hipchat: 'ignore'
 
-hipchat_apt_repo:
-  file: skype
-  repo: deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client stretch main
-
-  # ID: curl https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public | gpg --list-packets
-hipchat_apt_key:
-  url: https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public
-  id: EBA59E53CC64091D
+hipchat_channel: stretch

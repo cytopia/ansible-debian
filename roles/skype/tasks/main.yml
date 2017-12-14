@@ -1,5 +1,11 @@
 ---
 
+- name: assert that skype repository channel is set correctly
+  assert:
+    that:
+      - skype_channel == 'stable' or skype_channel == 'unstable'
+    msg: skype_channel must be 'stable' or 'unstable'
+
 - include_tasks: install.yml
   when: skype == 'install'
 

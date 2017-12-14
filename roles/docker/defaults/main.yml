@@ -3,11 +3,4 @@
 # 'install', 'remove' or 'ignore'
 docker: 'ignore'
 
-docker_apt_repo:
-  file: docker
-  repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
-
-# ID: curl https://download.docker.com/linux/debian/gpg | gpg --list-packets
-docker_apt_key:
-  url: https://download.docker.com/linux/debian/gpg
-  id: 8D81803C0EBFCD88
+docker_channel: stretch
