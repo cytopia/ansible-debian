@@ -12,12 +12,6 @@
     name: apt-meta
   vars:
     apt_packages:
-
-- name: ensure thunar volman is installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages
       - "{{ thunar_volman_package_name }}"
       - "{{ thunar_volman_packages }}"
   when: thunar_volman_enable == yes
