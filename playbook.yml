@@ -28,6 +28,7 @@
 ###
 - hosts: localhost
   roles:
+    - chromium
     - diff-highlight
     - docker
     - docker-compose
@@ -40,6 +41,7 @@
     - sublime
     - sxiv
     - thunar
+    - xorg
 
 
 ###
@@ -64,6 +66,19 @@
     - font
     - fonts
 
+
+###
+### Install themes/icons
+###
+- hosts: localhost
+  roles:
+    - icon-moka
+    - theme-arc
+  tags:
+    - theme
+    - themes
+    - icon
+    - icons
 
 ###
 ### Set default applications

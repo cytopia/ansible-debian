@@ -39,6 +39,7 @@ apt_packages:
 ### 'remove':  Uninstall the package
 ### Any other value will ignore the package (neither install nor uninstall)
 
+chromium:             'install'
 diff_highlight:       'install'
 docker:               'install'
 docker_compose:       'install'
@@ -51,11 +52,14 @@ hipchat:              'install'
 i3blocks_modules:     'install'
 i3_utils_bin:         'install'
 i3_utils_systemd:     'install'
+icon_moka:            'install'
 lxdm:                 'install'
 skype:                'install'
 sublime:              'install'
 sxiv:                 'install'
+theme_arc:            'install'
 thunar:               'install'
+xorg:                 'install'
 
 
 ###
