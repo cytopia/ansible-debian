@@ -16,10 +16,25 @@
     force: yes
   become: yes
 
+- name: ensure udev is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - udev
+
+- name: ensure udev rules directory exist
+  file:
+    path: "{{ xbacklight_udev_rules_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: ensure udev rules are present
   copy:
     src: files/90-backlight.rules
-    dest: /etc/udev/rules.d/90-backlight.rules
+    dest: "{{ xbacklight_udev_rules_dir }}/90-backlight.rules"
     owner: root
     group: root
     mode: 0644
