@@ -1,0 +1,7 @@
+---
+
+- name: ensure xbacklight is removed
+  file:
+    state: absent
+    path: "{{ xbacklight_path }}"
+  become: yes

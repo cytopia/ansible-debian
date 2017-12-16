@@ -59,6 +59,7 @@ sublime:              'install'
 sxiv:                 'install'
 theme_arc:            'install'
 thunar:               'install'
+xbacklight:           'install'
 xorg:                 'install'
 
 
