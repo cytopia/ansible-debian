@@ -27,11 +27,6 @@ apt_packages:
   - fonts-symbola
   - fonts-liberation
   - ttf-wqy-zenhei
-  # ---- Firmwares ----
-  - firmware-linux
-  - firmware-microcode
-  - firmware-iwlwifi
-  - intel-microcode
 
 
 ###

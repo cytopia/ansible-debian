@@ -31,8 +31,8 @@ apt_packages:
   - ttf-wqy-zenhei
   # ---- Firmwares ----
   - intel-microcode
+  - firmware-misc-nonfree
   - firmware-linux
-  - firmware-microcode
   - firmware-iwlwifi
   - firmware-crystalhd
   # ---- i3-wm ----
@@ -92,7 +92,7 @@ apt_packages:
   - dbus
   - dbus-user-session
   - dbus-x11
-  - policykit
+  - policykit-1
   # ---- misc ----
   - manpages
   - man-db
