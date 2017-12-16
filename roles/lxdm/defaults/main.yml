@@ -4,6 +4,8 @@
 lxdm: 'ignore'
 
 # Integer only
+# DPI should be multiple of 96
+# Lenovo T470p has default of 210 DPI
 lxdm_dpi: 96
 
 # Find available themes via
