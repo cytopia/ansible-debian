@@ -114,7 +114,6 @@ apt_packages:
   - less
   - lsb-release
   - rsync
-  - coreutils
   - moreutils
 
 
