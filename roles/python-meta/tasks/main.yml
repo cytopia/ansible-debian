@@ -42,6 +42,7 @@
     name: "{{ item }}"
     executable: pip2
   become: yes
+  when: python_2
   with_items:
     - "{{ python_pip_packages }}"
 
@@ -51,5 +52,6 @@
     name: "{{ item }}"
     executable: pip3
   become: yes
+  when: python_3
   with_items:
     - "{{ python_pip_packages }}"
