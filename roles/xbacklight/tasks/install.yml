@@ -30,6 +30,7 @@
     owner: root
     group: root
     mode: 0755
+  become: yes
 
 - name: ensure udev rules are present
   copy:
@@ -38,6 +39,7 @@
     owner: root
     group: root
     mode: 0644
+  become: yes
 
 - name: set username
   set_fact:
