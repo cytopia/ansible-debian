@@ -3,7 +3,7 @@
 ###
 ### Bootstrap System
 ###
-- hosts: localhost
+- hosts: all
   vars:
     apt_packages:
       - apt-transport-https
@@ -18,7 +18,7 @@
 ###
 ### Pythonstrap System
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - python-meta
 
@@ -26,7 +26,7 @@
 ###
 ### Install Role Packages
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - chromium
     - diff-highlight
@@ -48,7 +48,7 @@
 ###
 ### Install Custom apt Packages
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - apt-meta
 
@@ -56,7 +56,7 @@
 ###
 ### Install fonts
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - font-droid-sans-mono
     - font-font-awesome
@@ -71,7 +71,7 @@
 ###
 ### Install themes/icons
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - icon-moka
     - theme-arc
@@ -84,7 +84,7 @@
 ###
 ### Set default applications
 ###
-- hosts: localhost
+- hosts: all
   roles:
     - xdg-mime-meta
   tags:

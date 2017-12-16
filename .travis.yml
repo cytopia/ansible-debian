@@ -7,11 +7,13 @@ services:
 
 env:
   matrix:
-    - python=2
-    - python=3
+    - python=2 host=localhost
+    - python=2 host=lenovo-i3
+    - python=3 host=localhost
+    - python=3 host=lenovo-i3
 
 before_script:
   - docker build -t ansible-debian-python${python} -f Dockerfile.python${python} .
 
 script:
-  - docker run --rm -t ansible-debian-python${python}
+  - docker run --rm -e MY_HOST=${host} -t ansible-debian-python${python}

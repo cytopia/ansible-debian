@@ -12,12 +12,12 @@ Get your system back under control. Manage packages not provided by default and 
 
 ##### Provision your system
 ```
-ansible-playbook -i inventory playbook.yml --diff --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass
 ```
 
 ##### See what would change (dry-run)
 ```
-ansible-playbook -i inventory playbook.yml --diff --check --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass --check
 ```
 
 ## Features

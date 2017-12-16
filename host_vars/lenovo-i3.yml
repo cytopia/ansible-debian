@@ -15,9 +15,106 @@ apt_repo_repositories:
 
 
 ###
-### Debian packages (add your custom packages here)
+### Debian packages
 ###
-apt_packages: []
+apt_packages:
+  # ---- Fonts ----
+  - fonts-arphic-uming
+  - fonts-arphic-ukai
+  - fonts-ipafont-mincho
+  - fonts-ipafont-gothic
+  #- fonts-open-sans
+  - fonts-opensymbol
+  - fonts-symbola
+  #- ttf-mscorefonts-installer (use fonts-liberation instead)
+  - fonts-liberation
+  - ttf-wqy-zenhei
+  # ---- Firmwares ----
+  - firmware-linux
+  - firmware-microcode
+  - firmware-iwlwifi
+  - intel-microcode
+  # ---- i3-wm ----
+  - i3-wm
+  - i3lock
+  - i3blocks
+  - xss-lock
+  - dunst
+  - rofi
+  - compton
+  - feh
+  - scrot
+  - maim
+  - slop
+  - libnotify-bin
+  - acpi
+  - gnome-calculator
+  - lm-sensors
+  - iw
+  - wireless-tools
+  - keepassx
+  - redshift
+  - redshift-gtk
+  - arandr
+  # ---- audio ----
+  - alsa-utils
+  - alsa-oss
+  - pulseaudio
+  - pulseaudio-module-bluetooth
+  - pulseaudio-utils
+  # ---- chat ----
+  - weechat
+  # ---- terminal ----
+  - rxvt-unicode-256color
+  - tmux
+  # ---- network manager ----
+  - arping
+  - network-manager
+  - network-manager-gnome
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  # ---- codecs ----
+  - x264
+  # ---- network utils ----
+  - dnsutils
+  - jxplorer
+  - mariadb-client
+  - net-tools
+  - netcat
+  - netcat-openbsd
+  - openssh-client
+  - redis-tools
+  - socat
+  - swaks
+  - traceroute
+  # ---- dbus ----
+  - dbus
+  - dbus-user-session
+  - dbus-x11
+  - policykit
+  # ---- misc ----
+  - manpages
+  - man-db
+  - ffmpeg
+  - imagemagick
+  - curl
+  - gawk
+  - htop
+  - tree
+  - cpufrequtils
+  - gnupg2
+  - gnupg-agent
+  - keychain
+  - pinentry-tty
+  - bzip2
+  - zip
+  - unzip
+  - lsof
+  - less
+  - lsb-release
+  - rsync
+  - coreutils
+  - moreutils
 
 
 ###
@@ -58,7 +155,7 @@ python_2: yes
 python_3: yes
 python_default: 2
 
-lxdm_dpi: 96
+lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
 
