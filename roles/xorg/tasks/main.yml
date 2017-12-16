@@ -1,0 +1,20 @@
+---
+
+- name: assert that xorg gpu is set correctly
+  assert:
+    that:
+      - "xorg_gpu in xorg_supported_gpus"
+    msg: "xorg_gpu must be set to one of them : {{ xorg_supported_gpus | join(', ') }}"
+
+- name: assert that xorg touchpad is set correctly
+  assert:
+    that:
+      - "xorg_touchpad_driver == 'synaptics' or xorg_touchpad_driver == 'libinput'"
+    msg: "xorg_touchpad_driver must be 'synaptics' or 'libinput'"
+  when: xorg_touchpad_driver == True
+
+- include_tasks: install.yml
+  when: xorg == 'install'
+
+- include_tasks: uninstall.yml
+  when: xorg == 'remove'

@@ -1,0 +1,22 @@
+---
+
+xorg_package_name: xorg
+
+xorg_required_packages:
+  - xinit
+  - xauth
+
+xorg_supported_gpus:
+  - amdgpu
+  - ati
+  - intel
+  - modesetting
+  - nouveau
+  - nvidia
+  - radeon
+
+xorg_config_dir: /etc/X11/xorg.conf.d
+
+xorg_config_gpu: 20-graphics.conf
+xorg_config_keyboard: 30-keyboard.conf
+xorg_config_touchpad: 40-touchpad.conf

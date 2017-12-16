@@ -1,0 +1,124 @@
+# {{ ansible_managed }}
+
+{% if xorg_touchpad_driver == 'synaptics' %}
+# https://wiki.archlinux.org/index.php/Touchpad_Synaptics
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "synaptics"
+	MatchIsTouchpad "on"
+	MatchDevicePath "/dev/input/event*"
+
+	############################################################
+	# Buttons
+	############################################################
+	Option "TapButton1" "1"
+	Option "TapButton2" "3"
+	Option "TapButton3" "2"
+
+	############################################################
+	# Scrolling
+	############################################################
+	Option "VertTwoFingerScroll" "on"
+	Option "HorizTwoFingerScroll" "off"
+	Option "VertEdgeScroll" "off"
+	Option "HorizEdgeScroll" "on"
+	Option "CircularScrolling" "off"
+	Option "CircScrollTrigger" "2"
+
+    #Option "VertScrollDelta" "-75"
+    #Option "HorizScrollDelta" "-75"
+
+
+	# Coasting configuration
+	# (kinetic scrolling)
+	Option "CornerCoasting" "0"
+	Option "CoastingSpeed" "20"
+	Option "CoastingFriction" "50"
+
+	############################################################
+	# Touchpad Pressure
+	############################################################
+	# When pressure drops below this value, it counts as a release
+	Option "FingerLow" "1"
+	# When pressure drp[s below this value, it counts as a touch
+	# High must be higher than low
+	Option "FingerHigh" "5"
+
+	############################################################
+	# Tapping
+	############################################################
+	Option "TapAndDragGesture" "on"
+	Option "MaxTapTime" "125"
+
+	############################################################
+	# Palm Detection
+	############################################################
+	# prevents too many intentional clicks
+	Option "PalmDetect" "1"
+	Option "PalmMinWidth" "8"
+	Option "PalmMinZ" "100"
+
+
+	#
+	# Misc
+	#
+	Option "EmulateTwoFingerMinZ" "40"
+	Option "EmulateTwoFingerMinW" "8"
+	Option "CoastingSpeed" "0"
+	#Option "MinSpeed" "1"
+	#Option "MaxSpeed" "1"
+	#Option "AccelerationProfile" "2"
+	#Option "ConstantDeceleration" "4"
+	#Option "LockedDrags" "1"
+
+
+EndSection
+{% elif xorg_touchpad_driver == 'libinput' %}
+# https://wiki.archlinux.org/index.php/Libinput
+# $ xinput list | grep Touchpad
+# $ xinput list-props $(xinput list | grep Touchpad | grep -Eo 'id=[0-9]+' | head -1 | grep -Eo '[0-9]+')
+#
+# Apply on-the-fly
+# $ xinput --set-prop 11 'libinput Accel Speed' 0.6
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+	MatchDevicePath "/dev/input/event*"
+
+	############################################################
+	# Pointer Acceleration
+	############################################################
+	Option "AccelProfile" "adaptive"
+	Option "AccelSpeed" "0.5"
+
+	############################################################
+	# Clicking
+	############################################################
+	# Two-finger click/tap for right-click
+	Option	"ClickMethod" "clickfinger"
+
+	############################################################
+	# Tapping
+	############################################################
+	# Allow tapping
+    Option "Tapping" "on"
+
+	# Set 1/2/3-finger taps to left/right/middle set TappingButtonMap to lrm,
+	Option "TappingButtonMap" "lrm"
+
+	############################################################
+	# Scrolling
+	############################################################
+	Option "ScrollMethod" "twofinger"
+	Option "NaturalScrolling" "true"
+	Option "HorizontalScrolling" "false"
+
+	############################################################
+	# Misc
+	############################################################
+	# Semi/Auto-Lock touchpad while typing
+	Option "PalmDetection" "True"
+
+EndSection
+{% endif %}

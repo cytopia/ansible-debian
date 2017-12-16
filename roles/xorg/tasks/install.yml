@@ -1,0 +1,136 @@
+---
+
+###
+### Xorg
+###
+- name: ensure xorg is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ xorg_package_name }}"
+      - "{{ xorg_required_packages }}"
+      - "{{ xorg_additional_packages }}"
+
+- name: ensure xorg config dir exists
+  file:
+    state: directory
+    path: "{{ xorg_config_dir }}"
+    mode: 0755
+    owner: root
+    group: root
+  become: yes
+
+
+###
+### Xorg GPU
+###
+- name: ensure xorg gpu driver is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "xserver-xorg-video-{{ xorg_gpu }}"
+
+- name: ensure xorg gpu additional packages are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ xorg_gpu_vaapi_packages }}"
+      - "{{ xorg_gpu_vdpau_packages }}"
+      - "{{ xorg_gpu_vulkan_packages }}"
+      - "{{ xorg_gpu_mesa_packages }}"
+
+- name: ensure xorg gpu config is present
+  template:
+    src: "templates/xorg.conf.d/{{ xorg_config_gpu }}.j2"
+    dest: "{{ xorg_config_dir }}/{{ xorg_config_gpu }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- name: ensure xorg gpu VDPAU_DRIVER va_gl session config is present
+  template:
+    src: "templates/Xsession.d/20vdpau-va-gl.j2"
+    dest: /etc/X11/Xsession.d/20vdpau-va-gl
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+
+###
+### Xorg Keyboard
+###
+- name: ensure xorg keyboard config is present
+  template:
+    src: "templates/xorg.conf.d/{{ xorg_config_keyboard }}.j2"
+    dest: "{{ xorg_config_dir }}/{{ xorg_config_keyboard }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+
+###
+### Xorg Touchpad
+###
+- name: ensure xorg touchpad synaptics driver is removed when not required
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - xserver-xorg-input-synaptics
+  when: xorg_touchpad_enable == True and xorg_touchpad_driver != 'synaptics'
+
+- name: ensure correct xorg touchpad driver is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - xserver-xorg-input-synaptics
+  when: xorg_touchpad_enable == True and xorg_touchpad_driver == 'synaptics'
+
+- name: ensure xorg touchpad config is present
+  template:
+    src: "templates/xorg.conf.d/{{ xorg_config_touchpad }}.j2"
+    dest: "{{ xorg_config_dir }}/{{ xorg_config_touchpad }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  when: xorg_touchpad_enable == True
+
+
+###
+### Xorg cleanup: Remove unmanaged config files
+###
+
+- name: set all wanted available configuraiton files
+  set_fact:
+    xorg_wanted_config_files: "['{{ xorg_config_dir }}/{{ xorg_config_gpu }}', '{{ xorg_config_dir }}/{{ xorg_config_keyboard }}', {% if xorg_touchpad_enable %}'{{ xorg_config_dir }}/{{ xorg_config_touchpad }}'{% endif %}]"
+
+- name: gather all available xorg configuraiton files
+  find:
+    paths: "{{ xorg_config_dir }}"
+    file_type: any
+  register: xorg_avail_config_files
+
+- name: prepend absolute path to available xorg configuration files
+  set_fact:
+    xorg_avail_config_files_abs: "{{ xorg_avail_config_files.files | default([]) | json_query('[].path') }}"
+
+- name: get array of unmanaged files to remove
+  set_fact:
+    xorg_remove_config_files_abs: "{{ xorg_avail_config_files_abs | difference(xorg_wanted_config_files) }}"
+
+- name: ensure unwanted xorg config files are removed
+  file:
+    state: absent
+    path: "{{ item }}"
+  become: yes
+  with_items:
+    - "{{ xorg_remove_config_files_abs }}"
