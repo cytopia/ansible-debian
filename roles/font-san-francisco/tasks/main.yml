@@ -5,3 +5,7 @@
 
 - include_tasks: uninstall.yml
   when: font_ubuntu == 'remove'
+
+
+# Make sure the handler runs now and not at the end of the playbook
+- meta: flush_handlers
