@@ -30,10 +30,11 @@ apt_packages:
   - fonts-liberation
   - ttf-wqy-zenhei
   # ---- Firmwares ----
+  - intel-microcode
   - firmware-linux
   - firmware-microcode
   - firmware-iwlwifi
-  - intel-microcode
+  - firmware-crystalhd
   # ---- i3-wm ----
   - i3-wm
   - i3lock
