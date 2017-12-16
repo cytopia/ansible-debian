@@ -1,0 +1,6 @@
+---
+
+neovim_package_name: neovim
+
+neovim_packages:
+  - xsel

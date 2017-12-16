@@ -37,6 +37,7 @@
     - i3-utils-bin
     - i3-utils-systemd
     - lxdm
+    - neovim
     - skype
     - sublime
     - sxiv
