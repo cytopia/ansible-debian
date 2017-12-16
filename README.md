@@ -26,7 +26,12 @@ See [roles/](roles/) directory for all available packages. If you are missing on
 
 ## Customization
 
-In order to customize your workstation or Debian infrastructure, you can edit `group_vars/all.yml`, which will affect all managed hosts, or simply copy it to `host_vars/<hostname>`.
+In order to customize your workstation or Debian infrastructure, you can create profiles for each of your machines
+1. Copy [group_vars/all.yml](group_vars/all.yml) to `host_vars/<name>.yml`
+2. Customize `host_vars/<name>.yml`
+3. Add `<name>` to [inventory](inventory)
+4. Run: `ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass`
+
 
 ##### Enable/Disable Management
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
@@ -34,13 +39,13 @@ Look for the package section and set them to a desired state. `install` or `remo
 $ vi group_vars/all.yml
 
 ...
-font_ubuntu:      'install'
-diff_highlight:   'install'
-docker:           'install'
-docker_compose:   'install'
-skype:            'install'
-sublime:          'install'
-hipchat:          'install'
+font_ubuntu:      'ignore'
+diff_highlight:   'ignore'
+docker:           'ignore'
+docker_compose:   'ignore'
+skype:            'ignore'
+sublime:          'ignore'
+hipchat:          'ignore'
 ...
 ```
 
