@@ -1,0 +1,9 @@
+---
+
+- name: ensure moka icons are removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ icon_moka_package_name }}"
