@@ -1,12 +1,5 @@
 ---
 
-- name: ensure requirements are installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - fontconfig
-
 - name: ensure font directory exists
   file:
     path: "{{ font_san_francisco_font_path }}"

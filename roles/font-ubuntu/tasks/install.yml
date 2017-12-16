@@ -5,7 +5,6 @@
     name: apt-meta
   vars:
     apt_packages:
-      - fontconfig
       - unzip
 
 - name: fetch ubuntu font info

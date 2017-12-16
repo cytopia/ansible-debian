@@ -1,11 +1,17 @@
 ---
 
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - fontconfig
+
 - include_tasks: install.yml
   when: font_ubuntu == 'install'
 
 - include_tasks: uninstall.yml
   when: font_ubuntu == 'remove'
-
 
 # Make sure the handler runs now and not at the end of the playbook
 - meta: flush_handlers
