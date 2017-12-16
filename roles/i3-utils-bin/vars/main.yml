@@ -15,6 +15,5 @@ i3_utils_bin_packages:
   - slop
   - sxiv
   - x11-utils
-  - xbacklight
   - xdotool
   - zenity

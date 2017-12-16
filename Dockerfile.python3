@@ -5,10 +5,9 @@ MAINTAINER "cytopia" <cytopia@everythingcli.org>
 RUN set -x \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		apt-transport-https \
-		gnupg \
 		python3-apt \
 		python3-dev \
+		python3-jmespath \
 		python3-pip \
 		python3-setuptools \
 	&& rm -rf /var/lib/apt/lists/* \
@@ -27,12 +26,26 @@ WORKDIR /ansible
 RUN set -x \
 	&& ROLES="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
 	&& ( \
-		echo "# META install"; \
+		echo "# ---- Bootstrap ----"; \
 		echo "- hosts: localhost"; \
+		echo "  vars:"; \
+		echo "    apt_packages:"; \
+		echo "      - apt-transport-https"; \
+		echo "      - apt-utils"; \
+		echo "      - git"; \
+		echo "      - gnupg"; \
 		echo "  roles:"; \
 		echo "    - apt-repo-meta"; \
 		echo "    - apt-meta"; \
-		echo "# NORM install"; \
+		\
+		echo "# ---- Pythonstrap ----"; \
+		echo "- hosts: localhost"; \
+		echo "  vars:"; \
+		echo "    python_default: 3"; \
+		echo "  roles:"; \
+		echo "    - python-meta"; \
+		\
+		echo "# ---- Pre-defined Roles ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
@@ -43,8 +56,13 @@ RUN set -x \
 			echo "    - ${r}"; \
 		done; \
 		\
+		echo "# ---- Custom packages ----"; \
+		echo "- hosts: localhost"; \
+		echo "  roles:"; \
+		echo "    - apt-meta"; \
 		\
-		echo "# NORM remove"; \
+		\
+		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
@@ -54,7 +72,8 @@ RUN set -x \
 		for r in ${ROLES}; do \
 			echo "    - ${r}"; \
 		done; \
-		echo "# META remove"; \
+		\
+		echo "# ---- (DELETE) Custom packages"; \
 		echo "- hosts: localhost"; \
 		echo "  vars:"; \
 		echo "    apt_state: absent"; \
@@ -71,7 +90,7 @@ RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
 		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --diff -v"; \
+		echo "ansible-playbook -i inventory travis-ci.yml --diff"; \
 		echo "#ansible-playbook -i inventory travis-ci.yml --diff --check -v"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh

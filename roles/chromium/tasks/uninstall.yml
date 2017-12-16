@@ -1,0 +1,9 @@
+---
+
+- name: ensure chromium is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ chromium_package_name }}"

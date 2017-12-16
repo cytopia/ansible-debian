@@ -1,0 +1,6 @@
+---
+
+- name: ensure i3blocks-modules is removed
+  file:
+    state: absent
+    path: "{{ i3blocks_modules_path }}"

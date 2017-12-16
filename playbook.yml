@@ -1,24 +1,93 @@
 ---
 
 ###
-### Boot strap System
+### Bootstrap System
 ###
-#- hosts: localhost
-#  roles:
-#    - apt-repo-meta
-#    - apt-meta
+- hosts: localhost
+  vars:
+    apt_packages:
+      - apt-transport-https
+      - apt-utils
+      - git
+      - gnupg
+  roles:
+    - apt-repo-meta
+    - apt-meta
+
 
 ###
-### Install/Configure Packages
+### Pythonstrap System
 ###
 - hosts: localhost
   roles:
-      #    - diff-highlight
-      #    - font-ubuntu
-      #    - docker
-      #    - docker-compose
-      #    - skype
-      #    - sublime
-      #    - hipchat
-      #    - i3_utils_bin
+    - python-meta
+
+
+###
+### Install Role Packages
+###
+- hosts: localhost
+  roles:
+    - chromium
+    - diff-highlight
+    - docker
+    - docker-compose
+    - hipchat
+    - i3blocks-modules
+    - i3-utils-bin
     - i3-utils-systemd
+    - lxdm
+    - skype
+    - sublime
+    - sxiv
+    - thunar
+    - xbacklight
+    - xorg
+
+
+###
+### Install Custom apt Packages
+###
+- hosts: localhost
+  roles:
+    - apt-meta
+
+
+###
+### Install fonts
+###
+- hosts: localhost
+  roles:
+    - font-droid-sans-mono
+    - font-font-awesome
+    - font-san-francisco
+    - font-terminus
+    - font-ubuntu
+  tags:
+    - font
+    - fonts
+
+
+###
+### Install themes/icons
+###
+- hosts: localhost
+  roles:
+    - icon-moka
+    - theme-arc
+  tags:
+    - theme
+    - themes
+    - icon
+    - icons
+
+###
+### Set default applications
+###
+- hosts: localhost
+  roles:
+    - xdg-mime-meta
+  tags:
+    - xdg
+    - xdg-open
+    - xdg-mime

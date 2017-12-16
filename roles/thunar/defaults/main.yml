@@ -1,0 +1,8 @@
+---
+
+# 'install', 'remove' or 'ignore'
+thunar: 'ignore'
+
+# Enable Thunar plugins
+thunar_volman_enable: yes
+thunar_archive_plugin_enable: yes

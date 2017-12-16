@@ -1,0 +1,9 @@
+---
+
+chromium_package_name: chromium
+
+chromium_packages:
+  - upower
+  - opus-tools
+  - speex
+  - firmware-crystalhd

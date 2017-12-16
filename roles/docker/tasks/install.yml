@@ -15,3 +15,15 @@
   vars:
     apt_packages:
       - "{{ docker_package_name }}"
+
+- name: set username
+  set_fact:
+    docker_username: "User={{ lookup('env','USER') }}"
+
+- name: ensure user is added to docker group
+  user:
+    name: "{{ docker_username }}"
+    groups: docker
+    append: yes
+    update_password: on_create
+  become: yes

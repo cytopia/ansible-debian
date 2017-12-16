@@ -1,0 +1,54 @@
+---
+
+- name: ensure debian default xbacklight is uninstalled
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - xbacklight
+
+- name: ensure wavexx xbacklight is downloaded
+  get_url:
+    url: https://raw.githubusercontent.com/wavexx/acpilight/master/xbacklight
+    dest: "{{ xbacklight_path }}"
+    mode: 0755
+    force: yes
+  become: yes
+
+- name: ensure udev is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - udev
+
+- name: ensure udev rules directory exist
+  file:
+    path: "{{ xbacklight_udev_rules_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+
+- name: ensure udev rules are present
+  copy:
+    src: files/90-backlight.rules
+    dest: "{{ xbacklight_udev_rules_dir }}/90-backlight.rules"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- name: set username
+  set_fact:
+    xbacklight_username: "User={{ lookup('env','USER') }}"
+
+- name: ensure user is added to video group
+  user:
+    name: "{{ xbacklight_username }}"
+    groups: video
+    append: yes
+    update_password: on_create
+  become: yes

@@ -1,0 +1,9 @@
+---
+
+- name: ensure arc theme is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ theme_arc_package_name }}"
+      - "{{ theme_arc_packages }}"

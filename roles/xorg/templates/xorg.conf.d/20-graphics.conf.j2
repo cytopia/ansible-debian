@@ -1,0 +1,65 @@
+# {{ ansible_managed }}
+
+# XAA (replaced by EXA)
+# EXA (replaced by UXA)
+# UXA (replaced by SNA)
+# SNA
+
+# Glamor requires a 3D driver with support for shaders
+
+# The driver is broken up in three parts: kernel driver (i915), userspace driver (Mesa) and DDX (xf86-video-intel).
+
+# https://www.reddit.com/r/archlinux/comments/4cojj9/it_is_probably_time_to_ditch_xf86videointel/
+# https://packages.debian.org/sid/x11/xserver-xorg-video-intel
+
+###
+### Module Settings
+###
+Section "Module"
+	Load "dri3"
+	Load "glx"
+{% if xorg_gpu == 'modesetting' %}
+	Load "glamoregl"
+	Load "modesetting"
+{% endif %}
+EndSection
+
+
+###
+### Device Settings
+###
+Section "Device"
+	Identifier	"{{ xorg_gpu }} graphics"
+	Driver		"{{ xorg_gpu }}"
+
+	# DRI3 support
+	#Option		"DRI" "3"
+
+{% if xorg_gpu == 'intel' %}
+
+	# Enable backlight control via xbacklight
+	Option		"Backlight" "intel_backlight"
+
+	# Acceleration
+	Option		"AccelMethod" "SNA"
+
+	# Intel Based vSync
+	# TearFree is a tearing prevention option which prevents tearing
+	# by using the hardware page flipping mechanism:
+	# On Intel the SNA acceleration method causes tearing for some people.
+	# https://wiki.archlinux.org/index.php/intel_graphics#Tear-free_video
+	Option		"TearFree"    "true"
+
+	# TearFree may not work when SwapbuffersWait is false.
+	Option		"SwapbuffersWait" "true"
+{% else %}
+
+	# Acceleration
+	Option		"AccelMethod" "glamor"
+
+	# ColorTiling and ColorTiling2D are supposed to be enabled by default.
+	# Tiled mode can provide significant performance benefits with 3D applications.
+	#Option		"ColorTiling" "on"
+	#Option		"ColorTiling2D" "on"
+{% endif %}
+EndSection

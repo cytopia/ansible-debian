@@ -1,0 +1,8 @@
+---
+
+# Python versions to enable
+python_2: yes
+python_3: yes
+
+# Default system python version
+python_default: 2

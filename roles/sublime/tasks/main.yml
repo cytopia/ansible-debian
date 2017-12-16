@@ -1,5 +1,11 @@
 ---
 
+- name: assert that sublime repository channel is set correctly
+  assert:
+    that:
+      - sublime_channel == 'stable' or sublime_channel == 'dev'
+    msg: sublime_channel must be 'stable' or 'dev'
+
 - include_tasks: install.yml
   when: sublime == 'install'
 

@@ -1,0 +1,32 @@
+---
+
+thunar_package_name:
+  - thunar
+
+# Volman
+thunar_volman_package_name:
+  - thunar-volman
+thunar_volman_packages:
+  - eject
+  - gvfs
+  - gvfs-backends
+  - gvfs-bin
+  - gvfs-common
+  - gvfs-daemons
+  - gvfs-fuse
+  - gvfs-libs
+  - fuse
+  - fusesmb
+
+# Archiver Plugin
+thunar_archive_plugin_package_name:
+  - thunar-archive-plugin
+thunar_archive_plugin_packages:
+  - xarchiver
+  - bzip2
+  - p7zip-full
+  - xz-utils
+  - zip
+  - unzip
+  - rar
+  - xdg-utils

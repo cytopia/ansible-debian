@@ -1,0 +1,18 @@
+---
+
+- name: ensure font directory exists
+  file:
+    path: "{{ font_droid_sans_mono_font_path }}"
+    state: directory
+    mode: 0755
+  notify: update font-cache
+
+- name: ensure fonts are downloaded
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ font_droid_sans_mono_font_path }}/{{ item | basename | replace('%20', ' ') }}"
+    mode: 0644
+    force: yes
+  with_items:
+    - "{{ font_droid_sans_mono_urls }}"
+  notify: update font-cache

@@ -1,3 +1,12 @@
 ---
 
 hipchat_package_name: hipchat4
+
+hipchat_apt_repo:
+  file: hipchat
+  repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ hipchat_channel }} main"
+
+# ID: curl https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public | gpg --list-packets
+hipchat_apt_key:
+  url: https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public
+  id: EBA59E53CC64091D

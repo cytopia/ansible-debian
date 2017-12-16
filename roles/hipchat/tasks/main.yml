@@ -1,5 +1,11 @@
 ---
 
+- name: assert that hipchat repository channel is set correctly
+  assert:
+    that:
+      - hipchat_channel == 'wheezy' or hipchat_channel == 'jessie' or hipchat_channel == 'stretch' or hipchat_channel == 'buster'
+    msg: hipchat_channel must be 'wheezy', 'jessie', 'stretch' or 'buster'
+
 - include_tasks: install.yml
   when: hipchat == 'install'
 

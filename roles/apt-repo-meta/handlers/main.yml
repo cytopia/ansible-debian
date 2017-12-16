@@ -1,0 +1,7 @@
+---
+
+- name: update apt repository cache
+  apt:
+    cache_valid_time: 1
+    update_cache: yes
+  become: yes

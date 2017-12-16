@@ -1,0 +1,5 @@
+---
+
+xbacklight_path: /usr/local/bin/xbacklight
+
+xbacklight_udev_rules_dir: /etc/udev/rules.d
