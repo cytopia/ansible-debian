@@ -1,17 +1,8 @@
 ---
 
+# Python versions to enable
 python_2: yes
 python_3: yes
+
+# Default system python version
 python_default: 2
-
-python_2_apt_packages:
-  - python
-  - python-pip
-  - python-setuptools
-python_3_apt_packages:
-  - python3
-  - python3-pip
-  - python3-setuptools
-
-python_pip_packages:
-  - wheel
