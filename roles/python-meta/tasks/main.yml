@@ -40,7 +40,7 @@
   pip:
     state: latest
     name: "{{ item }}"
-    executable: pip
+    executable: pip2
   become: yes
   with_items:
     - "{{ python_pip_packages }}"

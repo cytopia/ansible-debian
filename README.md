@@ -62,6 +62,7 @@ Either go with Python2
 apt-get install --no-install-recommends --no-install-suggests -y \
   python-apt \
   python-dev \
+  python-jmespath \
   python-pip \
   python-setuptools \
 pip install wheel
@@ -72,6 +73,7 @@ Or go with Python3
 apt-get install --no-install-recommends --no-install-suggests -y \
   python3-apt \
   python3-dev \
+  python3-jmespath \
   python3-pip \
   python3-setuptools \
 pip3 install wheel
