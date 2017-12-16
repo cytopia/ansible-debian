@@ -1,0 +1,6 @@
+---
+
+chromium_package_name: chromium
+
+chromium_packages:
+  - upower

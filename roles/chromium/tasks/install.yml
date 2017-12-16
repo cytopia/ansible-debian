@@ -1,0 +1,9 @@
+---
+
+- name: ensure chromium is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ chromium_package_name }}"
+      - "{{ chromium_packages }}"
