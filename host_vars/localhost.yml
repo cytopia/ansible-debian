@@ -59,6 +59,7 @@ theme_arc:            'install'
 thunar:               'install'
 xbacklight:           'install'
 xorg:                 'install'
+zathura:              'install'
 
 
 ###
