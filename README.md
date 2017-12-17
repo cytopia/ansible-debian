@@ -34,6 +34,7 @@ Additionally you can manage the following:
 
 * Python system default version (Python2 or Python3)
 * xdg default applications
+* custom apt packages can be added per profile
 
 
 ## Customization
