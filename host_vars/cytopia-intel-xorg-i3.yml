@@ -93,6 +93,26 @@ apt_packages:
   - dbus-user-session
   - dbus-x11
   - policykit-1
+  # ---- dev ----
+  - tig
+  - exuberant-ctags
+  - shellcheck
+  - pylint
+  - pylint3
+  - python-pep8
+  - python3-pep8
+  - yamllint
+  - devscripts
+  - pep8
+  - ack
+  - ack-grep
+  - silversearcher-ag
+  - dos2unix
+  - w3m
+  - w3m-img
+  - binutils
+  - php-cli
+
   # ---- misc ----
   - manpages
   - man-db
