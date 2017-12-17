@@ -206,3 +206,11 @@ xdg_mime_defaults:
       - image/x-portable-graymap
       - image/x-tga
       - image/x-xpixmap
+  - desktop_file: zathura.desktop
+    mime_types:
+      - application/pdf
+      - application/postscript
+      - application/eps
+      - application/x-eps
+      - image/eps
+      - image/x-eps
