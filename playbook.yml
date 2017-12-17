@@ -33,6 +33,7 @@
     - docker
     - docker-compose
     - hipchat
+    - fzf
     - i3blocks-modules
     - i3-utils-bin
     - i3-utils-systemd

@@ -1,0 +1,13 @@
+---
+
+# 'install', 'remove' or 'ignore'
+fzf: 'ignore'
+
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: Yes
+
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: No
+
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: No

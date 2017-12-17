@@ -1,0 +1,47 @@
+---
+
+- name: ensure ./local/share directory exists
+  file:
+    state: directory
+    path: "{{ fzf_path }}"
+    mode: 0755
+  check_mode: no
+
+- name: ensure fzf is cloned
+  git:
+    repo: https://github.com/junegunn/fzf
+    clone: yes
+    dest: "{{ fzf_path }}"
+    force: yes
+    update: yes
+    depth: 1
+
+- name: ensure fzf requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ fzf_shared_packages }}"
+
+- name: set fzf install command generate rc
+  set_fact:
+    fzf_cmd_rc: "{% if fzf_update_rc %}--update-rc{% else %}--no-update-rc{% endif %}"
+  check_mode: no
+
+- name: set fzf install command shell completion
+  set_fact:
+    fzf_cmd_comp: "{% if fzf_completion %}--completion{% else %}--no-completion{% endif %}"
+  check_mode: no
+
+- name: set fzf install command key bindings
+  set_fact:
+    fzf_cmd_key: "{% if fzf_key_bindings %}--key-bindings{% else %}--no-key-bindings{% endif %}"
+  check_mode: no
+
+- name: ensure fzf install script is run
+  command: "{{ fzf_path }}/install --bin --64"
+  changed_when: False
+
+- name: ensure fzf configure script is run
+  command: "{{ fzf_path }}/install {{ fzf_cmd_rc }} {{ fzf_cmd_comp }} {{ fzf_cmd_key }}"
+  changed_when: False

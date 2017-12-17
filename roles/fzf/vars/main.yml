@@ -1,0 +1,6 @@
+---
+
+fzf_path: "{{ lookup('env','HOME') }}/.local/share/fzf"
+
+fzf_shared_packages:
+  - wget

@@ -34,6 +34,7 @@ font_droid_sans_mono: 'ignore'
 font_san_francisco:   'ignore'
 font_terminus:        'ignore'
 font_ubuntu:          'ignore'
+fzf:                  'ignore'
 hipchat:              'ignore'
 i3blocks_modules:     'ignore'
 i3_utils_bin:         'ignore'
@@ -77,6 +78,16 @@ docker_channel: stretch
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 hipchat_channel: stretch
+
+
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: Yes
+
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: No
+
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: No
 
 
 ###

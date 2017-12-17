@@ -1,0 +1,10 @@
+---
+
+- name: ensure fzf configuration is removed
+  command: "{{ fzf_path }}/uninstall"
+  changed_when: False
+
+- name: ensure fzf is removed
+  file:
+    state: absent
+    path: "{{ fzf_path }}"
