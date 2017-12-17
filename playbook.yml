@@ -38,6 +38,7 @@
     - i3-utils-systemd
     - lxdm
     - neovim
+    - ranger
     - skype
     - sublime
     - sxiv

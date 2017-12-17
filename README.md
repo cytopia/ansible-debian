@@ -1,5 +1,45 @@
 # Ansible Debian
 
+---
+TODO:
+Move to /usr/share/wallpapers/<prefix>-
+Change login-background
+https://unix.stackexchange.com/questions/364454/unable-to-change-background-in-mate-desktop
+```
+update-alternatives --install /usr/share/images/desktop-base/login-background.svg desktop-login-background /absolute/path/of/your/image 50
+update-alternatives --set desktop-login-background /absolute/path/of/your/image
+```
+choose i3
+sudo update-alternatives --config x-window-manager
+
+choose lxdm
+:~$ sudo update-alternatives --config x-session-manager
+
+Lock screen with lxdm:
+```
+lxdm -c USER_SWITCH
+xss-lock -- /usr/bin/lxdm -c USER_SWITCH
+```
+intel-microcode vs amd64-microcode
+firmware-linux
+firmware-iwlwifi
+
+
+TELEGRAM:
+ - requires: `pulseaudio`
+
+
+Make sure GPU suppport is installed:
+
+libva-drm1
+libva-glx1
+libva-x11-1
+libva1
+
+
+---
+
+
 **[TL;DR](#tldr)** | **[Features](#features)** | **[Customization](#customization)** | **[Requirements](#requirements)**
 
 [![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)

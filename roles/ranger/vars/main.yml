@@ -1,0 +1,22 @@
+---
+
+ranger_package_name: ranger
+
+ranger_shared_packages:
+  - file
+  - highlight
+  - mediainfo
+  # provides pdftotext
+  - poppler-utils
+  - w3m
+
+ranger_exclusive_packages:
+  # provides img2txt
+  - caca-utils
+  - odt2txt
+  - w3m-img
+
+ranger_python2_packages:
+  - python-chardet
+ranger_python3_packages:
+  - python3-chardet

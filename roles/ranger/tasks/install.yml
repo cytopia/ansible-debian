@@ -1,0 +1,19 @@
+---
+
+- name: ensure ranger is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ ranger_package_name }}"
+      - "{{ ranger_shared_packages }}"
+      - "{{ ranger_exclusive_packages }}"
+
+- name: ensure ranger python packages are installed
+  include_role:
+    name: python-meta
+  vars:
+    python_2_apt_packages:
+      - "{{ ranger_python2_packages }}"
+    python_3_apt_packages:
+      - "{{ ranger_python3_packages }}"
