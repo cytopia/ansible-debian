@@ -22,27 +22,40 @@ ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-p
 
 ## Features
 
+* Profiles (via `host_vars/`) can be created for different machines
+* Random choices are tested every night via  [travis](https://travis-ci.org/cytopia/ansible-debian) to ensure everything works as expected
+* The following packages can be managed (installed or removed) or ignored in case you don't require them
+
+> `chromium` `diff-highlight` `docker` `docker-compose` `font-droid-sans-mono` `font-font-awesome` `font-san-francisco` `font-terminus` `font-ubuntu` `fzf` `hipchat` `i3blocks-modules` `i3-utils-bin` `i3-utils-systemd` `icon-moka` `lxdm` `neovim` `ranger` `skype` `sublime` `sxiv` `theme-arc` `thunar` `xbacklight` `xdg-mime-meta` `xorg` `zathura`
+
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
+
+Additionally you can manage the following:
+
+* Python system default version (Python2 or Python3)
+* xdg default applications
+
 
 ## Customization
 
-In order to customize your workstation or Debian infrastructure, you can create profiles for each of your machines
+In order to customize your workstation or Debian infrastructure, you can create profiles for each of your machines. This is achieved by having different `host_vars`.
+
 1. Copy [group_vars/all.yml](group_vars/all.yml) to `host_vars/<name>.yml`
 2. Customize `host_vars/<name>.yml`
-3. Add `<name>` to [inventory](inventory)
+3. Add `<name>` to the [inventory](inventory) file
 4. Run: `ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass`
 
 
 ##### Enable/Disable Management
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
 ```yml
-$ vi group_vars/all.yml
+$ vi host_vars/<name>.yml
 
 ...
-font_ubuntu:      'ignore'
-diff_highlight:   'ignore'
-docker:           'ignore'
-docker_compose:   'ignore'
+font_ubuntu:      'install'
+diff_highlight:   'install'
+docker:           'remove'
+docker_compose:   'remove'
 skype:            'ignore'
 sublime:          'ignore'
 hipchat:          'ignore'
