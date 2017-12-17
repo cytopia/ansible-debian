@@ -7,5 +7,3 @@
     apt_state: absent
     apt_packages:
       - "{{ neovim_package_name }}"
-      - python-neovim
-      - python3-neovim

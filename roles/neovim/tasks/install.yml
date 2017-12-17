@@ -12,7 +12,5 @@
   include_role:
     name: python-meta
   vars:
-    python_2_apt_packages:
-      - python-neovim
-    python_3_apt_packages:
-      - python3-neovim
+    python_pip_packages:
+      - neovim
