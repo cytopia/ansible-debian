@@ -10,12 +10,23 @@ apt_repo_repositories:
     repo: deb http://ftp.de.debian.org/debian/ stretch-updates main
   - file: debian-security
     repo: deb http://security.debian.org/debian-security stretch/updates main
+  - file: debian-backports
+    repo: deb http://ftp.debian.org/debian stretch-backports main
 
 
 ###
-### Debian packages (add your custom packages here)
+### Debian packages
 ###
-apt_packages: []
+apt_packages:
+  # ---- Fonts ----
+  - fonts-arphic-uming
+  - fonts-arphic-ukai
+  - fonts-ipafont-mincho
+  - fonts-ipafont-gothic
+  - fonts-opensymbol
+  - fonts-symbola
+  - fonts-liberation
+  - ttf-wqy-zenhei
 
 
 ###
@@ -25,32 +36,32 @@ apt_packages: []
 ### 'remove':  Uninstall the package
 ### Any other value will ignore the package (neither install nor uninstall)
 
-chromium:             'ignore'
-diff_highlight:       'ignore'
-docker:               'ignore'
-docker_compose:       'ignore'
-font_font_awesome:    'ignore'
-font_droid_sans_mono: 'ignore'
-font_san_francisco:   'ignore'
-font_terminus:        'ignore'
-font_ubuntu:          'ignore'
-fzf:                  'ignore'
-hipchat:              'ignore'
-i3blocks_modules:     'ignore'
-i3_utils_bin:         'ignore'
-i3_utils_systemd:     'ignore'
-icon_moka:            'ignore'
-lxdm:                 'ignore'
-neovim:               'ignore'
-ranger:               'ignore'
-skype:                'ignore'
-sublime:              'ignore'
-sxiv:                 'ignore'
-theme_arc:            'ignore'
-thunar:               'ignore'
-xbacklight:           'ignore'
-xorg:                 'ignore'
-zathura:              'ignore'
+chromium:             'install'
+diff_highlight:       'install'
+docker:               'install'
+docker_compose:       'install'
+font_font_awesome:    'install'
+font_droid_sans_mono: 'install'
+font_san_francisco:   'install'
+font_terminus:        'install'
+font_ubuntu:          'install'
+fzf:                  'install'
+hipchat:              'install'
+i3blocks_modules:     'install'
+i3_utils_bin:         'install'
+i3_utils_systemd:     'install'
+icon_moka:            'install'
+lxdm:                 'install'
+neovim:               'install'
+ranger:               'install'
+skype:                'install'
+sublime:              'install'
+sxiv:                 'install'
+theme_arc:            'install'
+thunar:               'install'
+xbacklight:           'install'
+xorg:                 'install'
+zathura:              'install'
 
 
 ###
@@ -60,8 +71,8 @@ python_2: yes
 python_3: yes
 python_default: 2
 
-lxdm_dpi: 96
-lxdm_gtk_theme: Industrial
+lxdm_dpi: 132
+lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
 
 thunar_volman_enable: yes

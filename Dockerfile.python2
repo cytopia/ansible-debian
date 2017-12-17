@@ -27,7 +27,7 @@ RUN set -x \
 	&& ROLES="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
 	&& ( \
 		echo "# ---- Bootstrap ----"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  vars:"; \
 		echo "    apt_packages:"; \
 		echo "      - apt-transport-https"; \
@@ -39,14 +39,14 @@ RUN set -x \
 		echo "    - apt-meta"; \
 		\
 		echo "# ---- Pythonstrap ----"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  vars:"; \
 		echo "    python_default: 2"; \
 		echo "  roles:"; \
 		echo "    - python-meta"; \
 		\
 		echo "# ---- Pre-defined Roles ----"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
 			echo "    - $(echo $r | sed 's/-/_/g'): 'install'"; \
@@ -57,13 +57,13 @@ RUN set -x \
 		done; \
 		\
 		echo "# ---- Custom packages ----"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  roles:"; \
 		echo "    - apt-meta"; \
 		\
 		\
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  vars:"; \
 		for r in ${ROLES}; do \
 			echo "    - $(echo $r | sed 's/-/_/g'): 'remove'"; \
@@ -74,7 +74,7 @@ RUN set -x \
 		done; \
 		\
 		echo "# ---- (DELETE) Custom packages"; \
-		echo "- hosts: localhost"; \
+		echo "- hosts: all"; \
 		echo "  vars:"; \
 		echo "    apt_state: absent"; \
 		echo "    apt_repo_state: absent"; \
@@ -90,8 +90,7 @@ RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
 		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --diff"; \
-		echo "#ansible-playbook -i inventory travis-ci.yml --diff --check -v"; \
+		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh
 

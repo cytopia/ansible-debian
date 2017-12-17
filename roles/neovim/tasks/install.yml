@@ -1,0 +1,16 @@
+---
+
+- name: ensure neovim is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ neovim_package_name }}"
+      - "{{ neovim_packages }}"
+
+- name: ensure neovim python packages are installed
+  include_role:
+    name: python-meta
+  vars:
+    python_pip_packages:
+      - neovim

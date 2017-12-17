@@ -12,35 +12,53 @@ Get your system back under control. Manage packages not provided by default and 
 
 ##### Provision your system
 ```
-ansible-playbook -i inventory playbook.yml --diff --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass
 ```
 
 ##### See what would change (dry-run)
 ```
-ansible-playbook -i inventory playbook.yml --diff --check --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass --check
 ```
 
 ## Features
 
+* Profiles (via `host_vars/`) can be created for different machines
+* Random choices are tested every night via  [travis](https://travis-ci.org/cytopia/ansible-debian) to ensure everything works as expected
+* The following packages can be managed (installed or removed) or ignored in case you don't require them
+
+> `chromium` `diff-highlight` `docker` `docker-compose` `font-droid-sans-mono` `font-font-awesome` `font-san-francisco` `font-terminus` `font-ubuntu` `fzf` `hipchat` `i3blocks-modules` `i3-utils-bin` `i3-utils-systemd` `icon-moka` `lxdm` `neovim` `ranger` `skype` `sublime` `sxiv` `theme-arc` `thunar` `xbacklight` `xdg-mime-meta` `xorg` `zathura`
+
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
+
+Additionally you can manage the following:
+
+* Python system default version (Python2 or Python3)
+* xdg default applications
+
 
 ## Customization
 
-In order to customize your workstation or Debian infrastructure, you can edit `group_vars/all.yml`, which will affect all managed hosts, or simply copy it to `host_vars/<hostname>`.
+In order to customize your workstation or Debian infrastructure, you can create profiles for each of your machines. This is achieved by having different `host_vars`.
+
+1. Copy [group_vars/all.yml](group_vars/all.yml) to `host_vars/<name>.yml`
+2. Customize `host_vars/<name>.yml`
+3. Add `<name>` to the [inventory](inventory) file
+4. Run: `ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass`
+
 
 ##### Enable/Disable Management
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
 ```yml
-$ vi group_vars/all.yml
+$ vi host_vars/<name>.yml
 
 ...
 font_ubuntu:      'install'
 diff_highlight:   'install'
-docker:           'install'
-docker_compose:   'install'
-skype:            'install'
-sublime:          'install'
-hipchat:          'install'
+docker:           'remove'
+docker_compose:   'remove'
+skype:            'ignore'
+sublime:          'ignore'
+hipchat:          'ignore'
 ...
 ```
 

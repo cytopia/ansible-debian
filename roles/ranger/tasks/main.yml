@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: ranger == 'install'
+
+- include_tasks: uninstall.yml
+  when: ranger == 'remove'

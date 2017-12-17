@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: zathura == 'install'
+
+- include_tasks: uninstall.yml
+  when: zathura == 'remove'
