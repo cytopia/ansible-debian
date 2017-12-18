@@ -1,8 +1,9 @@
 ---
 
 apt_repo_requirements:
-  - apt-transport-http
+  - apt-transport-https
+  - apt-utils
   - ca-certificates
   - curl
-  - gnupg2
+  - gnupg
   - software-properties-common

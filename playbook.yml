@@ -6,10 +6,7 @@
 - hosts: all
   vars:
     apt_packages:
-      - apt-transport-https
-      - apt-utils
       - git
-      - gnupg
   roles:
     - apt-repo-meta
     - apt-meta
@@ -50,14 +47,6 @@
 
 
 ###
-### Install Custom apt Packages
-###
-- hosts: all
-  roles:
-    - apt-meta
-
-
-###
 ### Install fonts
 ###
 - hosts: all
@@ -84,6 +73,15 @@
     - themes
     - icon
     - icons
+
+
+###
+### Install Custom apt Packages
+###
+- hosts: all
+  roles:
+    - apt-meta
+
 
 ###
 ### Set default applications
