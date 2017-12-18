@@ -133,6 +133,21 @@ lxdm_show_user_list: no
 ...
 ```
 
+Choose your GPU and touchpad driver:
+```yml
+$ vi host_vars/<name>.yml
+
+# Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
+xorg_gpu: modesetting
+# Enable VDPAU_DRIVER=va_gl systemwide
+xorg_gpu_vdpau_va_gl_enable: yes
+
+# 'libinput' or 'synaptics'
+xorg_touchpad_enable: yes
+xorg_touchpad_driver: 'synaptics'
+...
+```
+
 
 ## Requirements
 

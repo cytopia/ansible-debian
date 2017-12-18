@@ -92,6 +92,15 @@ fzf_completion: No
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
 fzf_key_bindings: No
 
+# Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
+xorg_gpu: modesetting
+# Enable VDPAU_DRIVER=va_gl systemwide
+xorg_gpu_vdpau_va_gl_enable: yes
+
+# 'libinput' or 'synaptics'
+xorg_touchpad_enable: yes
+xorg_touchpad_driver: 'synaptics'
+
 
 ###
 ### Set your preferred default applications
