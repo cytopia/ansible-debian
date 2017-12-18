@@ -1,0 +1,34 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - unzip
+      - "{{ telegram_required_packages }}"
+
+- name: ensure opt directory exists
+  file:
+    path: "{{ telegram_opt_path }}"
+    state: directory
+    mode: 0755
+  become: yes
+
+- name: ensure telegram is downloaded
+  unarchive:
+    src: "{{ telegram_download_url }}"
+    dest: "{{ telegram_opt_path }}"
+    remote_src: yes
+    mode: 0755
+  become: yes
+
+- name: ensure telegram is symlinked to bin path
+  file:
+    state: link
+    src: "{{ telegram_opt_path }}/Telegram/Telegram"
+    dest: "{{ telegram_bin_path }}/Telegram"
+    owner: root
+    group: root
+  become: yes
+

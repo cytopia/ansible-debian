@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: telegram == 'install'
+
+- include_tasks: uninstall.yml
+  when: telegram == 'remove'
