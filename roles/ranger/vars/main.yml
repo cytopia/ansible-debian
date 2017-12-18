@@ -5,6 +5,7 @@ ranger_package_name: ranger
 ranger_shared_packages:
   - file
   - highlight
+  - libimage-exiftool-perl
   - mediainfo
   # provides pdftotext
   - poppler-utils
