@@ -1,6 +1,6 @@
 # Ansible Debian
 
-**[TL;DR](#tldr)** | **[Features](#features)** | **[Customization](#customization)** | **[Requirements](#requirements)**
+**[TL;DR](#tldr)** | **[Features](#features)** | **[Custom profiles](#custom-profiles)** | **[Options](#options)** | **[Requirements](#requirements)**
 
 [![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
 
@@ -8,7 +8,10 @@ Well-tested and customizable [Ansible](https://www.ansible.com) setup to provisi
 
 Get your system back under control. Manage packages not provided by default and keep track of repositories as well as of installed software. Any bundled package offers the possibility to fully manage them, i.e. make sure they are installed or removed. Of course you can also simply ignore them, in case you want to manage them yourself.
 
+
 ## TL;DR
+
+Make sure your system meets the **[requirements](#requirements)** before you start.
 
 ##### Provision your system
 ```
@@ -19,6 +22,7 @@ ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-p
 ```
 ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass --check
 ```
+
 
 ## Features
 
@@ -33,21 +37,47 @@ See [roles/](roles/) directory for all available packages. If you are missing on
 Additionally you can manage the following:
 
 * Python system default version (Python2 or Python3)
-* xdg default applications
-* custom apt packages can be added per profile
+* Xdg default applications
+* Custom apt packages can be added per profile
 
 
-## Customization
+## Custom profiles
 
 In order to customize your workstation or Debian infrastructure, you can create profiles for each of your machines. This is achieved by having different `host_vars`.
 
-1. Copy [group_vars/all.yml](group_vars/all.yml) to `host_vars/<name>.yml`
-2. Customize `host_vars/<name>.yml`
-3. Add `<name>` to the [inventory](inventory) file
-4. Run: `ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass`
+The [group_vars/all.yml](group_vars/all.yml) file holds all possible configuration values and will be applied to all hostnames that are added to the [inventory](inventory) file. However [group_vars/all.yml](group_vars/all.yml) has all features disabled by default, so need to create your own **profile**. This is achieved by adding a new *host* to the [inventory](inventory) file and add an appropriate host variable file that you can customize.
 
+##### 1. Create your *profile*
+
+First you will have to think of a name for your profile. The following uses `<name>` as a placeholder for the name you will come up with.
+
+1. Copy [group_vars/all.yml](group_vars/all.yml) to `host_vars/<name>.yml`
+2. Add `<name>` to the [inventory](inventory) file:
+```ini
+[category]
+<name>    ansible_connection=local
+```
+
+##### 2. Customize your *profile*
+
+Open `host_vars/<name>.yml` see the comments and adjust the file to your needs.
+
+##### 3. Provision your *profile*
+
+Run the following command to see what would happen:
+```shell
+$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass --check
+```
+Run the following command to actually apply your profile:
+```shell
+$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass
+```
+
+
+## Options
 
 ##### Enable/Disable Management
+
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
 ```yml
 $ vi host_vars/<name>.yml
@@ -62,6 +92,47 @@ sublime:          'ignore'
 hipchat:          'ignore'
 ...
 ```
+##### Package options
+
+Many packages also come with options that you can tweak. You can for example define the Python version your system should provide and which one it should use as its default:
+```yml
+$ vi host_vars/<name>.yml
+
+...
+python_2: yes
+python_3: yes
+python_default: 2
+...
+```
+
+Another customization could be the default program to use when opening speficif file types:
+```yml
+$ vi host_vars/<name>.yml
+
+...
+xdg_mime_defaults:
+  - desktop_file: chromium.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+...
+```
+
+Or to set your **DPI** and other options for `lxdm`
+```yml
+$ vi host_vars/<name>.yml
+
+...
+lxdm_dpi: 132
+lxdm_gtk_theme: Arc-Darker
+lxdm_show_user_list: no
+...
+```
+
 
 ## Requirements
 
