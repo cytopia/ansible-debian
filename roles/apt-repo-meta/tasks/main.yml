@@ -1,12 +1,5 @@
 ---
 
-- name: ensure requirements are installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - "{{ apt_repo_requirements }}"
-
 - name: ensure apt keys are managed
   apt_key:
     state: "{{ apt_repo_state }}"

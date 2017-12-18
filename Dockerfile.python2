@@ -30,6 +30,7 @@ RUN set -x \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
 		echo "    apt_packages:"; \
+		echo "      - apt-transport-https"; \
 		echo "      - apt-utils"; \
 		echo "      - ca-certificates"; \
 		echo "      - curl"; \

@@ -1,4 +1,0 @@
----
-
-apt_repo_requirements:
-  - apt-transport-https

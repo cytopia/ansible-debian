@@ -6,6 +6,7 @@
 - hosts: all
   vars:
     apt_packages:
+      - apt-transport-https
       - apt-utils
       - ca-certificates
       - curl
