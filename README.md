@@ -15,12 +15,12 @@ Make sure your system meets the **[requirements](#requirements)** before you sta
 
 ##### Provision your system
 ```
-ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-sudo-pass
 ```
 
 ##### See what would change (dry-run)
 ```
-ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass --check
+ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-sudo-pass --check
 ```
 
 
@@ -30,7 +30,7 @@ ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-p
 * Random choices are tested every night via  [travis](https://travis-ci.org/cytopia/ansible-debian) to ensure everything works as expected
 * The following packages can be managed (installed or removed) or ignored in case you don't require them
 
-> `chromium` `diff-highlight` `docker` `docker-compose` `font-droid-sans-mono` `font-font-awesome` `font-san-francisco` `font-terminus` `font-ubuntu` `fzf` `hipchat` `i3blocks-modules` `i3-utils-bin` `i3-utils-systemd` `icon-moka` `lxdm` `neovim` `ranger` `skype` `sublime` `sxiv` `theme-arc` `thunar` `xbacklight` `xdg-mime-meta` `xorg` `zathura`
+> `chromium` `diff-highlight` `docker` `docker-compose` `font-droid-sans-mono` `font-font-awesome` `font-san-francisco` `font-terminus` `font-ubuntu` `fzf` `hipchat` `i3blocks-modules` `i3-utils-bin` `i3-utils-systemd` `icon-moka` `lxdm` `neovim` `ranger` `skype` `sublime` `sxiv` `telegram` `theme-arc` `thunar` `xbacklight` `xdg-mime-meta` `xorg` `zathura`
 
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
 

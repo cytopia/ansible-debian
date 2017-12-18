@@ -6,7 +6,7 @@
 #
 # Customize:
 # ----------
-# 1. Copy group_vars/all.yml to host_vars/<name>.yml
+# 1. Copy host_vars/debian_<dist>.yml to host_vars/<name>.yml
 # 2. Customize host_vars/<name>.yml
 # 3. Add your <name> to an existing or new group to this 'inventory' file.
 # 4. Run the following for your specific profile:
@@ -18,13 +18,25 @@
 ### Default example (everything enabled)
 ###
 [default]
-# $ ansible-playbook -i inventory playbook.yml --diff --limit localhost --ask-sudo-pass
-localhost      ansible_connection=local
+# $ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-sudo-pass
+# $ ansible-playbook -i inventory playbook.yml --diff --limit debian-testing --ask-sudo-pass
+debian-stretch ansible_connection=local
+debian-testing ansible_connection=local
 
 
 ###
-### cytopia's machines
+### Example for customization:
 ###
-[cytopia]
-# $ ansible-playbook -i inventory playbook.yml --diff --limit intel-xorg-i3 --ask-sudo-pass
-cytopia-intel-xorg-i3  ansible_connection=local
+#
+# Groupname: john
+# Hostname:  johns-machine
+#
+# 1. Copy host_vars/debian_<dist>.yml to host_vars/johns-machine.yml
+# 2. Customize host_vars/johns-machine.yml
+# 3. Uncomment the two lines below to add yourself to the inventory
+# 4. Run the following for your specific profile:
+#
+# ansible-playbook -i inventory playbook.yml --diff --limit johns-machine --ask-sudo-pass
+
+#[john]
+# johns-machine ansible_connection=local

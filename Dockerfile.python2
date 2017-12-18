@@ -98,7 +98,7 @@ RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
 		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff"; \
+		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff -v"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh
 
