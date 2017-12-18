@@ -28,6 +28,14 @@ RUN set -x \
 	&& ( \
 		echo "# ---- Bootstrap ----"; \
 		echo "- hosts: all"; \
+		echo "  vars:"; \
+		echo "    apt_packages:"; \
+		echo "      - apt-utils"; \
+		echo "      - ca-certificates"; \
+		echo "      - curl"; \
+		echo "      - git"; \
+		echo "      - gnupg"; \
+		echo "      - software-properties-common"; \
 		echo "  roles:"; \
 		echo "    - apt-repo-meta"; \
 		echo "    - apt-meta"; \

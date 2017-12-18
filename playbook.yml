@@ -6,7 +6,12 @@
 - hosts: all
   vars:
     apt_packages:
+      - apt-utils
+      - ca-certificates
+      - curl
       - git
+      - gnupg
+      - software-properties-common
   roles:
     - apt-repo-meta
     - apt-meta
