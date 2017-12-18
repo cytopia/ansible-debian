@@ -67,6 +67,9 @@ lxdm_show_user_list: no
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
 
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: yes
+
 # 'stable' or 'unstable'
 skype_channel: stable
 
