@@ -13,7 +13,11 @@ env:
     - python=3 host=cytopia-intel-xorg-i3
 
 before_script:
-  - docker build -t ansible-debian-python${python} -f Dockerfile.python${python} .
+  # Run it multiple times until it succeeds. This is to prevent errors that occur due to
+  # network timeouts between travis-ci
+  - max=100; i=0; while [ $i -lt $max ]; do if docker build -t ansible-debian-python${python} -f Dockerfile.python${python} .; then break; else i=$((i+1)); fi done
 
 script:
-  - docker run --rm -e MY_HOST=${host} -t ansible-debian-python${python}
+  # Run it multiple times until it succeeds. This is to prevent errors that occur due to
+  # network timeouts between travis-ci
+  - max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${host} -t ansible-debian-python${python}; then break; else i=$((i+1)); fi done
