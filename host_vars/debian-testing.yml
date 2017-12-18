@@ -32,7 +32,8 @@ apt_packages:
   - firmware-misc-nonfree
   - firmware-linux
   - firmware-iwlwifi
-  - firmware-crystalhd
+  # Not available in testing
+  #- firmware-crystalhd
   # ---- i3-wm ----
   - i3-wm
   - i3lock
