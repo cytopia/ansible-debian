@@ -4,4 +4,4 @@
 skype: 'ignore'
 
 # Choose 'stable' or 'unstable' channel
-skype_channel: stable
+skype_repo_channel: stable

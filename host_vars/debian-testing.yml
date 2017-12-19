@@ -1,15 +1,22 @@
 ---
 
 ###
+### Custom variables
+###
+debian_dist: stretch
+
+
+
+###
 ### Debian apt repositories
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: deb http://ftp.de.debian.org/debian/ testing main contrib non-free
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
   - file: debian-updates
-    repo: deb http://ftp.de.debian.org/debian/ testing-updates main contrib non-free
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
   - file: debian-security
-    repo: deb http://security.debian.org/debian-security testing/updates main contrib non-free
+    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
 
 
 ###
@@ -32,7 +39,7 @@ apt_packages:
   - firmware-misc-nonfree
   - firmware-linux
   - firmware-iwlwifi
-  # Not available in testing
+  # Not available in buster
   #- firmware-crystalhd
   # ---- i3-wm ----
   - i3-wm
@@ -190,16 +197,18 @@ thunar_archive_plugin_enable: yes
 sxiv_default_image_viewer: yes
 
 # 'stable' or 'unstable'
-skype_channel: stable
+skype_repo_channel: stable
 
 # 'stable' or 'dev'
-sublime_channel: stable
+sublime_repo_channel: stable
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_channel: buster
+docker_repo_dist: "{{ debian_dist }}"
+# 'stable' or 'edge'
+docker_repo_channel: edge
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_channel: buster
+hipchat_repo_dist: "{{ debian_dist }}"
 
 
 # Add sourcing ~/.fzf.bash to your normal shell config?

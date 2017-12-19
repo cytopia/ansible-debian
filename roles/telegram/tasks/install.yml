@@ -5,7 +5,7 @@
     name: apt-meta
   vars:
     apt_packages:
-      - tar
+      - xz-utils
       - "{{ telegram_required_packages }}"
 
 - name: ensure opt directory exists

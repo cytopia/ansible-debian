@@ -72,16 +72,18 @@ thunar_archive_plugin_enable: yes
 sxiv_default_image_viewer: yes
 
 # 'stable' or 'unstable'
-skype_channel: stable
+skype_repo_channel: stable
 
 # 'stable' or 'dev'
-sublime_channel: stable
+sublime_repo_channel: stable
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_channel: stretch
+docker_repo_dist: stretch
+# 'stable' or 'edge'
+docker_repo_channel: stable
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_channel: stretch
+hipchat_repo_dist: stretch
 
 
 # Add sourcing ~/.fzf.bash to your normal shell config?

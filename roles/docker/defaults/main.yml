@@ -4,4 +4,7 @@
 docker: 'ignore'
 
 # 'buster', 'stretch', 'jessie', 'wheezy'
-docker_channel: stretch
+docker_repo_dist: stretch
+
+# 'stable' or 'edge' or both
+docker_repo_channel: stable

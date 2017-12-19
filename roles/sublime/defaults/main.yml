@@ -4,4 +4,4 @@
 sublime: 'ignore'
 
 # Choose 'stable' or 'dev' channel
-sublime_channel: stable
+sublime_repo_channel: stable
