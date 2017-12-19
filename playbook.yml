@@ -32,6 +32,7 @@
 - hosts: all
   roles:
     - chromium
+    - clipmenu
     - diff-highlight
     - docker
     - docker-compose
@@ -42,6 +43,7 @@
     - i3-utils-systemd
     - lxdm
     - neovim
+    - packer
     - ranger
     - skype
     - sublime

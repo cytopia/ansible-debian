@@ -1,0 +1,32 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - unzip
+
+- name: fetch packer info
+  uri:
+    url: https://www.packer.io/downloads.html
+    method: GET
+    follow_redirects: yes
+    return_content: yes
+  register: packer_info_raw
+  check_mode: no
+
+- name: set packer download url
+  set_fact:
+    packer_zip: "{{ packer_info_raw.content | regex_search(qry) }}"
+  vars:
+    qry: 'https://releases.*linux_amd64\.zip'
+  check_mode: no
+
+- name: ensure packer is downloaded
+  unarchive:
+    src: "{{ packer_zip }}"
+    dest: "{{ packer_path }}"
+    remote_src: yes
+    mode: 0755
+  become: yes

@@ -19,6 +19,12 @@ apt_packages: []
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip_packages: []
+
+
+###
 ### Select packages to install
 ###
 ### 'install': Install the package
@@ -26,6 +32,7 @@ apt_packages: []
 ### Any other value will ignore the package (neither install nor uninstall)
 
 chromium:             'ignore'
+clipmenu:             'ignore'
 diff_highlight:       'ignore'
 docker:               'ignore'
 docker_compose:       'ignore'
@@ -42,6 +49,7 @@ i3_utils_systemd:     'ignore'
 icon_moka:            'ignore'
 lxdm:                 'ignore'
 neovim:               'ignore'
+packer:               'ignore'
 ranger:               'ignore'
 skype:                'ignore'
 sublime:              'ignore'

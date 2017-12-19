@@ -1,0 +1,7 @@
+---
+
+clipmenu_bin_path: /usr/local/bin
+
+clipmenu_packages:
+  - suckless-tools
+  - xsel

@@ -45,6 +45,7 @@
   when: python_2
   with_items:
     - "{{ python_pip_packages }}"
+    - "{{ pip_packages }}"
 
 - name: ensure python3 pip packages are installed
   pip:
@@ -55,3 +56,4 @@
   when: python_3
   with_items:
     - "{{ python_pip_packages }}"
+    - "{{ pip_packages }}"

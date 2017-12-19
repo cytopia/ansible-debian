@@ -119,7 +119,6 @@ apt_packages:
   - w3m-img
   - binutils
   - php-cli
-
   # ---- misc ----
   - manpages
   - man-db
@@ -145,6 +144,14 @@ apt_packages:
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip_packages:
+  - awscli
+  - aws-adfs
+
+
+###
 ### Select packages to install
 ###
 ### 'install': Install the package
@@ -152,6 +159,7 @@ apt_packages:
 ### Any other value will ignore the package (neither install nor uninstall)
 
 chromium:             'install'
+clipmenu:             'install'
 diff_highlight:       'install'
 docker:               'install'
 docker_compose:       'install'
@@ -168,6 +176,7 @@ i3_utils_systemd:     'install'
 icon_moka:            'install'
 lxdm:                 'install'
 neovim:               'install'
+packer:               'install'
 ranger:               'install'
 skype:                'install'
 sublime:              'install'
