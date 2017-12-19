@@ -32,6 +32,7 @@ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-s
 
 ##### Tools 
 > [chromium](https://www.chromium.org/Home),
+> [clipmenu](https://github.com/cdown/clipmenu),
 > [diff-highlight](https://github.com/K-Phoen/Config/blob/master/bin/diff-highlight),
 > [docker](https://docs.docker.com/engine/installation/linux/docker-ce/debian),
 > [docker-compose](https://docs.docker.com/compose/install),
@@ -60,8 +61,8 @@ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-s
 > [font-san-francisco](https://github.com/supermarin/YosemiteSanFranciscoFont),
 > [font-terminus](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Terminus/font-info.md),
 > [font-ubuntu](https://design.ubuntu.com/font),
-> [theme-arc](https://github.com/horst3180/Arc-theme),
-> [icon-moka](https://snwh.org/moka)
+> [icon-moka](https://snwh.org/moka),
+> [theme-arc](https://github.com/horst3180/Arc-theme)
 
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
 

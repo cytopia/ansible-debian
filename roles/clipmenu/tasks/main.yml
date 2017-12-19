@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: clipmenu == 'install'
+
+- include_tasks: uninstall.yml
+  when: clipmenu == 'remove'

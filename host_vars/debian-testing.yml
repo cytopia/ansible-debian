@@ -158,6 +158,7 @@ pip_packages:
 ### Any other value will ignore the package (neither install nor uninstall)
 
 chromium:             'install'
+clipmenu:             'install'
 diff_highlight:       'install'
 docker:               'install'
 docker_compose:       'install'

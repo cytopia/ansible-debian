@@ -32,6 +32,7 @@ pip_packages: []
 ### Any other value will ignore the package (neither install nor uninstall)
 
 chromium:             'ignore'
+clipmenu:             'ignore'
 diff_highlight:       'ignore'
 docker:               'ignore'
 docker_compose:       'ignore'
