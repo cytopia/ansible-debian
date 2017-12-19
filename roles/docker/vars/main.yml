@@ -4,7 +4,7 @@ docker_package_name: docker-ce
 
 docker_apt_repo:
   file: docker
-  repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ docker_channel }} stable"
+  repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ docker_repo_dist }} {{ docker_repo_channel }}"
 
 # ID: curl https://download.docker.com/linux/debian/gpg | gpg --list-packets
 docker_apt_key:

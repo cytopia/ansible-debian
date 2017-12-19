@@ -8,8 +8,11 @@
     apt_packages:
       - apt-transport-https
       - apt-utils
+      - ca-certificates
+      - curl
       - git
       - gnupg
+      - software-properties-common
   roles:
     - apt-repo-meta
     - apt-meta
@@ -43,18 +46,11 @@
     - skype
     - sublime
     - sxiv
+    - telegram
     - thunar
     - xbacklight
     - xorg
     - zathura
-
-
-###
-### Install Custom apt Packages
-###
-- hosts: all
-  roles:
-    - apt-meta
 
 
 ###
@@ -84,6 +80,15 @@
     - themes
     - icon
     - icons
+
+
+###
+### Install Custom apt Packages
+###
+- hosts: all
+  roles:
+    - apt-meta
+
 
 ###
 ### Set default applications

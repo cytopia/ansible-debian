@@ -1,5 +1,11 @@
 ---
 
+- name: ensure users xdg mime directory exists
+  file:
+    state: directory
+    path: "{{ xdg_mime_config_dir }}"
+    mode: 0755
+
 - name: ensure xdg utilities are installed
   include_role:
     name: apt-meta

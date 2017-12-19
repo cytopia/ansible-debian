@@ -16,11 +16,14 @@
     force: yes
   become: yes
 
-- name: ensure applications folder exist
+- name: ensure applications directory exist
   file:
     state: directory
     path: /usr/share/applications
     mode: 0755
+    owner: root
+    group: root
+  become: yes
 
 - name: ensure sxiv desktop file is present
   template:
@@ -28,3 +31,12 @@
     dest: /usr/share/applications/sxiv.desktop
     mode: 0644
   become: yes
+
+- name: ensure sxiv default mime types are set
+  include_role:
+    name: xdg-mime-meta
+  vars:
+    xdg_mime_defaults:
+      - desktop_file: sxiv.desktop
+        mime_types: "{{ sxiv_default_mime_types }}"
+  when: sxiv_default_image_viewer

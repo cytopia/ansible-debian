@@ -3,4 +3,8 @@
 # 'install', 'remove' or 'ignore'
 docker: 'ignore'
 
-docker_channel: stretch
+# 'buster', 'stretch', 'jessie', 'wheezy'
+docker_repo_dist: stretch
+
+# 'stable' or 'edge' or both
+docker_repo_channel: stable

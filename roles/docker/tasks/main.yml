@@ -3,8 +3,14 @@
 - name: assert that docker repository channel is set correctly
   assert:
     that:
-      - docker_channel == 'wheezy' or docker_channel == 'jessie' or docker_channel == 'stretch' or docker_channel == 'buster'
-    msg: docker_channel must be 'wheezy', 'jessie', 'stretch' or 'buster'
+      - docker_repo_channel == 'stable' or docker_repo_channel == 'edge'
+    msg: docker_repo_channel must be 'stable' or 'edge'
+
+- name: assert that docker repository distribution is set correctly
+  assert:
+    that:
+      - docker_repo_channel == 'wheezy' or docker_repo_dist == 'jessie' or docker_repo_dist == 'stretch' or docker_repo_dist == 'buster'
+    msg: docker_repo_dist must be 'wheezy', 'jessie', 'stretch' or 'buster'
 
 - include_tasks: install.yml
   when: docker == 'install'

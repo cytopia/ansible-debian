@@ -46,6 +46,7 @@ ranger:               'ignore'
 skype:                'ignore'
 sublime:              'ignore'
 sxiv:                 'ignore'
+telegram:             'ignore'
 theme_arc:            'ignore'
 thunar:               'ignore'
 xbacklight:           'ignore'
@@ -67,17 +68,22 @@ lxdm_show_user_list: no
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
 
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: yes
+
 # 'stable' or 'unstable'
-skype_channel: stable
+skype_repo_channel: stable
 
 # 'stable' or 'dev'
-sublime_channel: stable
+sublime_repo_channel: stable
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_channel: stretch
+docker_repo_dist: stretch
+# 'stable' or 'edge'
+docker_repo_channel: stable
 
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_channel: stretch
+hipchat_repo_dist: stretch
 
 
 # Add sourcing ~/.fzf.bash to your normal shell config?
@@ -88,6 +94,15 @@ fzf_completion: No
 
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
 fzf_key_bindings: No
+
+# Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
+xorg_gpu: modesetting
+# Enable VDPAU_DRIVER=va_gl systemwide
+xorg_gpu_vdpau_va_gl_enable: yes
+
+# 'libinput' or 'synaptics'
+xorg_touchpad_enable: yes
+xorg_touchpad_driver: 'synaptics'
 
 
 ###

@@ -1,0 +1,3 @@
+---
+
+xdg_mime_config_dir: "{{ lookup('env','HOME') }}/.config"

@@ -2,7 +2,7 @@
 
 skype_apt_repo:
   file: skype
-  repo: "deb [arch=amd64] https://repo.skype.com/deb {{ skype_channel }} main"
+  repo: "deb [arch=amd64] https://repo.skype.com/deb {{ skype_repo_channel }} main"
 
 # ID: curl https://repo.skype.com/data/SKYPE-GPG-KEY | gpg --list-packets
 skype_apt_key:

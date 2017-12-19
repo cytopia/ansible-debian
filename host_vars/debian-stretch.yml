@@ -1,0 +1,256 @@
+---
+
+###
+### Custom variables
+###
+debian_dist: stretch
+
+
+
+###
+### Debian apt repositories
+###
+apt_repo_repositories:
+  - file: debian-main
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
+  - file: debian-updates
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
+  - file: debian-security
+    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
+  - file: debian-backports
+    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
+
+
+###
+### Debian packages (add your custom packages here)
+###
+apt_packages:
+  # ---- Fonts ----
+  - fonts-arphic-uming
+  - fonts-arphic-ukai
+  - fonts-ipafont-mincho
+  - fonts-ipafont-gothic
+  #- fonts-open-sans
+  - fonts-opensymbol
+  - fonts-symbola
+  #- ttf-mscorefonts-installer (use fonts-liberation instead)
+  - fonts-liberation
+  - ttf-wqy-zenhei
+  # ---- Firmwares ----
+  - intel-microcode
+  - firmware-misc-nonfree
+  - firmware-linux
+  - firmware-iwlwifi
+  - firmware-crystalhd
+  # ---- i3-wm ----
+  - i3-wm
+  - i3lock
+  - i3blocks
+  - xss-lock
+  - dunst
+  - rofi
+  - compton
+  - feh
+  - scrot
+  - maim
+  - slop
+  - libnotify-bin
+  - acpi
+  - gnome-calculator
+  - lm-sensors
+  - iw
+  - wireless-tools
+  - keepassx
+  - redshift
+  - redshift-gtk
+  - arandr
+  # ---- audio ----
+  - alsa-utils
+  - alsa-oss
+  - pulseaudio
+  - pulseaudio-module-bluetooth
+  - pulseaudio-utils
+  # ---- chat ----
+  - weechat
+  # ---- terminal ----
+  - rxvt-unicode-256color
+  - tmux
+  # ---- network manager ----
+  - arping
+  - network-manager
+  - network-manager-gnome
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  # ---- codecs ----
+  - x264
+  # ---- network utils ----
+  - dnsutils
+  - jxplorer
+  - mariadb-client
+  - net-tools
+  - netcat
+  - netcat-openbsd
+  - openssh-client
+  - redis-tools
+  - socat
+  - swaks
+  - traceroute
+  # ---- dbus ----
+  - dbus
+  - dbus-user-session
+  - dbus-x11
+  - policykit-1
+  # ---- dev ----
+  - tig
+  - exuberant-ctags
+  - shellcheck
+  - pylint
+  - pylint3
+  - python-pep8
+  - python3-pep8
+  - yamllint
+  - devscripts
+  - pep8
+  - ack
+  - ack-grep
+  - silversearcher-ag
+  - dos2unix
+  - w3m
+  - w3m-img
+  - binutils
+  - php-cli
+
+  # ---- misc ----
+  - manpages
+  - man-db
+  - ffmpeg
+  - imagemagick
+  - curl
+  - gawk
+  - htop
+  - tree
+  - cpufrequtils
+  - gnupg2
+  - gnupg-agent
+  - keychain
+  - pinentry-tty
+  - bzip2
+  - zip
+  - unzip
+  - lsof
+  - less
+  - lsb-release
+  - rsync
+  - moreutils
+
+
+###
+### Select packages to install
+###
+### 'install': Install the package
+### 'remove':  Uninstall the package
+### Any other value will ignore the package (neither install nor uninstall)
+
+chromium:             'install'
+diff_highlight:       'install'
+docker:               'install'
+docker_compose:       'install'
+font_font_awesome:    'install'
+font_droid_sans_mono: 'install'
+font_san_francisco:   'install'
+font_terminus:        'install'
+font_ubuntu:          'install'
+fzf:                  'install'
+hipchat:              'install'
+i3blocks_modules:     'install'
+i3_utils_bin:         'install'
+i3_utils_systemd:     'install'
+icon_moka:            'install'
+lxdm:                 'install'
+neovim:               'install'
+ranger:               'install'
+skype:                'install'
+sublime:              'install'
+sxiv:                 'install'
+telegram:             'install'
+theme_arc:            'install'
+thunar:               'install'
+xbacklight:           'install'
+xorg:                 'install'
+zathura:              'install'
+
+
+###
+### Settings for packages
+###
+python_2: yes
+python_3: yes
+python_default: 2
+
+lxdm_dpi: 132
+lxdm_gtk_theme: Arc-Darker
+lxdm_show_user_list: no
+
+thunar_volman_enable: yes
+thunar_archive_plugin_enable: yes
+
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: yes
+
+# 'stable' or 'unstable'
+skype_repo_channel: stable
+
+# 'stable' or 'dev'
+sublime_repo_channel: stable
+
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+docker_repo_dist: "{{ debian_dist }}"
+# 'stable' or 'edge'
+docker_repo_channel: stable
+
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+hipchat_repo_dist: "{{ debian_dist }}"
+
+
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: Yes
+
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: No
+
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: No
+
+# Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
+xorg_gpu: modesetting
+# Enable VDPAU_DRIVER=va_gl systemwide
+xorg_gpu_vdpau_va_gl_enable: yes
+
+# 'libinput' or 'synaptics'
+xorg_touchpad_enable: yes
+xorg_touchpad_driver: 'synaptics'
+
+
+###
+### Set your preferred default applications
+###
+xdg_mime_defaults:
+  - desktop_file: Thunar.desktop
+    mime_types:
+      - inode/directory
+  - desktop_file: chromium.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+  - desktop_file: zathura.desktop
+    mime_types:
+      - application/pdf
+      - application/postscript
+      - application/eps
+      - application/x-eps
+      - image/eps
+      - image/x-eps

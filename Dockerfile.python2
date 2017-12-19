@@ -32,8 +32,11 @@ RUN set -x \
 		echo "    apt_packages:"; \
 		echo "      - apt-transport-https"; \
 		echo "      - apt-utils"; \
+		echo "      - ca-certificates"; \
+		echo "      - curl"; \
 		echo "      - git"; \
 		echo "      - gnupg"; \
+		echo "      - software-properties-common"; \
 		echo "  roles:"; \
 		echo "    - apt-repo-meta"; \
 		echo "    - apt-meta"; \
@@ -60,6 +63,11 @@ RUN set -x \
 		echo "- hosts: all"; \
 		echo "  roles:"; \
 		echo "    - apt-meta"; \
+		\
+		echo "# ---- Mime types ----"; \
+		echo "- hosts: all"; \
+		echo "  roles:"; \
+		echo "    - xdg-mime-meta"; \
 		\
 		\
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
@@ -90,7 +98,7 @@ RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
 		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff"; \
+		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff -v"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh
 
