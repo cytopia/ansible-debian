@@ -19,6 +19,12 @@ apt_packages: []
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip_packages: []
+
+
+###
 ### Select packages to install
 ###
 ### 'install': Install the package

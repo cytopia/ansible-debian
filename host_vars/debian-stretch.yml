@@ -119,7 +119,6 @@ apt_packages:
   - w3m-img
   - binutils
   - php-cli
-
   # ---- misc ----
   - manpages
   - man-db
@@ -142,6 +141,14 @@ apt_packages:
   - lsb-release
   - rsync
   - moreutils
+
+
+###
+### Python pip packages (add your custom packages here)
+###
+pip_packages:
+  - awscli
+  - aws-adfs
 
 
 ###

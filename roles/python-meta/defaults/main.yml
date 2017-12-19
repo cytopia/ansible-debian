@@ -6,3 +6,6 @@ python_3: yes
 
 # Default system python version
 python_default: 2
+
+# Array of additional pip packages to install
+pip_packages: []

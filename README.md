@@ -30,7 +30,38 @@ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-s
 * Random choices are tested every night via  [travis](https://travis-ci.org/cytopia/ansible-debian) to ensure everything works as expected
 * The following packages can be managed (installed or removed) or ignored in case you don't require them
 
-> `chromium` `diff-highlight` `docker` `docker-compose` `font-droid-sans-mono` `font-font-awesome` `font-san-francisco` `font-terminus` `font-ubuntu` `fzf` `hipchat` `i3blocks-modules` `i3-utils-bin` `i3-utils-systemd` `icon-moka` `lxdm` `neovim` `ranger` `skype` `sublime` `sxiv` `telegram` `theme-arc` `thunar` `xbacklight` `xdg-mime-meta` `xorg` `zathura`
+##### Tools 
+> [chromium](https://www.chromium.org/Home),
+> [diff-highlight](https://github.com/K-Phoen/Config/blob/master/bin/diff-highlight),
+> [docker](https://docs.docker.com/engine/installation/linux/docker-ce/debian),
+> [docker-compose](https://docs.docker.com/compose/install),
+> [fzf](https://github.com/junegunn/fzf),
+> [hipchat](https://www.hipchat.com/downloads),
+> [i3blocks-modules](https://github.com/cytopia/i3blocks-modules),
+> [i3-utils-bin](https://github.com/cytopia/i3-utils-bin),
+> [i3-utils-systemd](https://github.com/cytopia/i3-utils-systemd),
+> [lxdm](https://wiki.archlinux.org/index.php/LXDM),
+> [neovim](https://github.com/neovim/neovim),
+> [packer](https://www.packer.io),
+> [ranger](https://github.com/ranger/ranger),
+> [skype](https://www.skype.com/en/get-skype),
+> [sublime](https://www.sublimetext.com),
+> [sxiv](https://github.com/muennich/sxiv),
+> [telegram](https://telegram.org),
+> [thunar](https://wiki.archlinux.org/index.php/Thunar),
+> [xbacklight](https://github.com/wavexx/acpilight),
+> [xdg-mime-meta](https://wiki.archlinux.org/index.php/Default_applications),
+> [xorg](https://www.x.org/wiki),
+> [zathura](https://pwmt.org/projects/zathura)
+
+##### Fonts / Themes
+> [font-droid-sans-mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono),
+> [font-font-awesome](http://fontawesome.io/icons),
+> [font-san-francisco](https://github.com/supermarin/YosemiteSanFranciscoFont),
+> [font-terminus](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Terminus/font-info.md),
+> [font-ubuntu](https://design.ubuntu.com/font),
+> [theme-arc](https://github.com/horst3180/Arc-theme),
+> [icon-moka](https://snwh.org/moka)
 
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
 
@@ -39,6 +70,7 @@ Additionally you can manage the following:
 * Python system default version (Python2 or Python3)
 * Xdg default applications
 * Custom apt packages can be added per profile
+* Custom pip packages can be added per profile
 
 
 ## Custom profiles
