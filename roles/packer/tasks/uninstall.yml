@@ -1,0 +1,7 @@
+---
+
+- name: ensure packer is removed
+  file:
+    state: absent
+    path: "{{ packer_path }}/packer "
+  become: yes
