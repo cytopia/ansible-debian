@@ -31,24 +31,26 @@ xorg_gpu_vdpau_va_gl_enable: yes
 
 # https://wiki.archlinux.org/index.php/Hardware_video_acceleration
 xorg_gpu_vaapi_packages:
-  - libva-drm1
+#  - libva-drm1 (provided automatically)
   - libva-egl1
   - libva-glx1
   - libva-tpi1
-  - libva-x11-1
+#  - libva-x11-1 (provided automatically)
+  - va-driver-all
   - vainfo
 xorg_gpu_vdpau_packages:
-  - libvdpau-va-gl1
-  - libvdpau1
-  - vdpau-va-driver
+#  - libvdpau-va-gl1
+#  - libvdpau1
+  - vdpau-driver-all
+#  - vdpau-va-driver (provided by va-driver-all)
   - vdpauinfo
 xorg_gpu_vulkan_packages:
   - vulkan-utils
 xorg_gpu_mesa_packages:
   - mesa-utils
   - mesa-utils-extra
-  - mesa-va-drivers
-  - mesa-vdpau-drivers
+#  - mesa-va-drivers (provided by va-driver-all)
+#  - mesa-vdpau-drivers (provided by vdpau-driver-all)
   - mesa-vulkan-drivers
 
 ###

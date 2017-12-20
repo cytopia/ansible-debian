@@ -24,7 +24,10 @@ WORKDIR /ansible
 
 # Ansible Playbook
 RUN set -x \
+	# Randomize roles to install each time the container is build (each travis run)
 	&& ROLES="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
+	\
+	# ---- Install playbook ----
 	&& ( \
 		echo "# ---- Bootstrap ----"; \
 		echo "- hosts: all"; \
@@ -69,7 +72,11 @@ RUN set -x \
 		echo "  roles:"; \
 		echo "    - xdg-mime-meta"; \
 		\
-		\
+	) > travis-ci-install.yml \
+	&& cat travis-ci-install.yml \
+	\
+	# ---- Remove playbook ----
+	&& ( \
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
@@ -81,15 +88,31 @@ RUN set -x \
 			echo "    - ${r}"; \
 		done; \
 		\
-	) > travis-ci.yml \
-	&& cat travis-ci.yml
+		echo "# ---- (DELETE) Custom packages"; \
+		echo "- hosts: all"; \
+		echo "  vars:"; \
+		echo "    apt_state: absent"; \
+		echo "    apt_repo_state: absent"; \
+		echo "  roles:"; \
+		echo "    - apt-meta"; \
+		echo "    - apt-repo-meta"; \
+		\
+	) > travis-ci-remove.yml \
+	&& cat travis-ci-remove.yml
+
 
 # Ansible Run
 RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
-		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff -v"; \
+		echo "cat travis-ci-install.yml"; \
+		echo "cat travis-ci-remove.yml"; \
+		\
+		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} --diff -v"; \
+		echo "apt list --installed"; \
+		\
+		echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
+		echo "apt list --installed"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh
 
