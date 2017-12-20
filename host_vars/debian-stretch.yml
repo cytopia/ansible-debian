@@ -132,7 +132,7 @@ apt_packages:
   - htop
   - tree
   - cpufrequtils
-  - gnupg2
+  - gnupg
   - gnupg-agent
   - keychain
   - pinentry-tty
