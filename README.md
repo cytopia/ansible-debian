@@ -15,12 +15,12 @@ Make sure your system meets the **[requirements](#requirements)** before you sta
 
 ##### Provision your system
 ```
-ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-sudo-pass
+ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass
 ```
 
 ##### See what would change (dry-run)
 ```
-ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-sudo-pass --check
+ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass --check
 ```
 
 
@@ -99,11 +99,11 @@ Open `host_vars/<name>.yml` see the comments and adjust the file to your needs.
 
 Run the following command to see what would happen:
 ```shell
-$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass --check
+$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-become-pass --check
 ```
 Run the following command to actually apply your profile:
 ```shell
-$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-sudo-pass
+$ ansible-playbook -i inventory playbook.yml --diff --limit <name> --ask-become-pass
 ```
 
 
