@@ -24,8 +24,8 @@ apt_repo_repositories:
 ###
 #apt_packages:
   # ---- GPU Card ----
-    - i965-va-driver
-    - i965-va-driver-shaders
+  - i965-va-driver
+  - i965-va-driver-shaders
   # ---- Fonts ----
   - fonts-arphic-uming
   - fonts-arphic-ukai
