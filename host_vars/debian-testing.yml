@@ -3,7 +3,7 @@
 ###
 ### Custom variables
 ###
-debian_dist: stretch
+debian_dist: buster
 
 
 
