@@ -77,13 +77,12 @@ RUN set -x \
 	\
 	# ---- Remove playbook ----
 	&& ( \
-		# Takes too much time on travis-ci therefore not checking
-		#echo "# ---- (DELETE) Custom packages"; \
-		#echo "- hosts: all"; \
-		#echo "  vars:"; \
-		#echo "    apt_state: absent"; \
-		#echo "  roles:"; \
-		#echo "    - apt-meta"; \
+		echo "# ---- (DELETE) Custom packages"; \
+		echo "- hosts: all"; \
+		echo "  vars:"; \
+		echo "    apt_state: absent"; \
+		echo "  roles:"; \
+		echo "    - apt-meta"; \
 		\
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: all"; \
@@ -112,13 +111,13 @@ RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
 		echo "cat travis-ci-install.yml"; \
-		echo "cat travis-ci-remove.yml"; \
+		#echo "cat travis-ci-remove.yml"; \
 		\
 		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} --diff -v"; \
 		echo "apt list --installed"; \
 		\
-		echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
-		echo "apt list --installed"; \
+		#echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
+		#echo "apt list --installed"; \
 	) > /ansible/run-tests.sh \
 	&& chmod +x /ansible/run-tests.sh
 
