@@ -77,6 +77,14 @@ RUN set -x \
 	\
 	# ---- Remove playbook ----
 	&& ( \
+		# Takes too much time on travis-ci therefore not checking
+		#echo "# ---- (DELETE) Custom packages"; \
+		#echo "- hosts: all"; \
+		#echo "  vars:"; \
+		#echo "    apt_state: absent"; \
+		#echo "  roles:"; \
+		#echo "    - apt-meta"; \
+		\
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
@@ -88,13 +96,11 @@ RUN set -x \
 			echo "    - ${r}"; \
 		done; \
 		\
-		echo "# ---- (DELETE) Custom packages"; \
+		echo "# ---- (DELETE) Repositories"; \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
-		echo "    apt_state: absent"; \
 		echo "    apt_repo_state: absent"; \
 		echo "  roles:"; \
-		echo "    - apt-meta"; \
 		echo "    - apt-repo-meta"; \
 		\
 	) > travis-ci-remove.yml \
