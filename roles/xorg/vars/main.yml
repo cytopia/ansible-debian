@@ -65,8 +65,19 @@ xorg_supported_gpus:
   - nvidia
   - radeon
 
-xorg_config_dir: /etc/X11/xorg.conf.d
+xorg_supported_gpu_accel_methods:
+  - XAA
+  - EXA
+  - UXA
+  - SNA
+  - glamor
 
+
+###
+### File paths
+###
+
+xorg_config_dir: /etc/X11/xorg.conf.d
 xorg_config_gpu: 20-graphics.conf
 xorg_config_keyboard: 30-keyboard.conf
 xorg_config_touchpad: 40-touchpad.conf

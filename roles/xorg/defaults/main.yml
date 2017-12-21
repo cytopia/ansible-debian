@@ -11,6 +11,9 @@ xorg: 'ignore'
 # see vars/main.yml for supported values
 xorg_gpu: modesetting
 
+# see vars/main.yml for supported values
+xorg_gpu_accel_method: glamor
+
 # Enable VDPAU_DRIVER=va_gl systemwide
 xorg_gpu_vdpau_va_gl_enable: yes
 
