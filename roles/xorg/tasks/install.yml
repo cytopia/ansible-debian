@@ -43,7 +43,7 @@
       - "{{ xorg_gpu_mesa_packages }}"
 
 - name: gather tentative gpu vaapi packages
-  shell: "apt show {{ item }}  2>/dev/null | grep -E '^Package:' | awk '{print $2}'"
+  shell: "apt search {{ item }} 2>/dev/null | grep -o '^{{ item }}/' | awk -F '/' '{print $1}'"
   register: reg_xorg_tentative_packages
   with_items:
     - "{{ xorg_gpu_vaapi_tentative_packages }}"
