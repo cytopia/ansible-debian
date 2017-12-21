@@ -24,6 +24,7 @@ xorg_additional_packages:
 # VAAPI
 # https://wiki.archlinux.org/index.php/Hardware_video_acceleration
 xorg_gpu_vaapi_packages:
+  - i965-va-driver
   #- libva-drm1 (provided automatically)
   - libva-egl1
   - libva-glx1
@@ -31,6 +32,12 @@ xorg_gpu_vaapi_packages:
   #- libva-x11-1 (provided automatically)
   - va-driver-all
   - vainfo
+
+# VAAPI drivers that might or might not be present (Debian: stable vs testing)
+# tentative packages are only installed if they exist
+xorg_gpu_vaapi_tentative_packages:
+  # Only available from Debian testing onwards
+  - i965-va-driver-shaders
 
 # VDPAU
 xorg_gpu_vdpau_packages:
