@@ -13,6 +13,14 @@ apt_repo_repositories:
 
 
 ###
+### System Python versions
+###
+python_2: yes
+python_3: yes
+python_default: 2
+
+
+###
 ### Debian packages (add your custom packages here)
 ###
 apt_packages: []
@@ -65,49 +73,53 @@ zathura:              'ignore'
 ###
 ### Settings for packages
 ###
-python_2: yes
-python_3: yes
-python_default: 2
 
-lxdm_dpi: 96
-lxdm_gtk_theme: Industrial
-lxdm_show_user_list: no
-
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
-
-# Make sxiv default program for pictures
-sxiv_default_image_viewer: yes
-
-# 'stable' or 'unstable'
-skype_repo_channel: stable
-
-# 'stable' or 'dev'
-sublime_repo_channel: stable
-
+# ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 docker_repo_dist: stretch
 # 'stable' or 'edge'
 docker_repo_channel: stable
 
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: stretch
-
-
+# ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
 fzf_update_rc: Yes
-
 # Enable/Disable fuzzy completion (bash & zsh)?
 fzf_completion: No
-
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
 fzf_key_bindings: No
 
+# ---- HipChat ----
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+hipchat_repo_dist: stretch
+
+# ---- LXDM ----
+lxdm_dpi: 96
+lxdm_gtk_theme: Industrial
+lxdm_show_user_list: no
+
+# ---- Skype ----
+# 'stable' or 'unstable'
+skype_repo_channel: stable
+
+# ---- Sublime ----
+# 'stable' or 'dev'
+sublime_repo_channel: stable
+
+# ---- sxiv ----
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: yes
+
+# ---- Thunar ----
+thunar_volman_enable: yes
+thunar_archive_plugin_enable: yes
+
+# ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
 xorg_gpu: modesetting
+# Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
+xorg_gpu_accel_method: glamor
 # Enable VDPAU_DRIVER=va_gl systemwide
 xorg_gpu_vdpau_va_gl_enable: yes
-
 # 'libinput' or 'synaptics'
 xorg_touchpad_enable: yes
 xorg_touchpad_driver: 'synaptics'

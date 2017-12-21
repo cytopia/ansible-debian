@@ -12,142 +12,33 @@ debian_dist: stretch
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main"
   - file: debian-updates
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main"
   - file: debian-security
-    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
+    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main"
   - file: debian-backports
-    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
+    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main"
+
+
+###
+### System Python versions
+###
+python_2: yes
+python_3: yes
+python_default: 2
 
 
 ###
 ### Debian packages (add your custom packages here)
 ###
-apt_packages:
-  # ---- GPU Card ----
-  - i965-va-driver
-  #- i965-va-driver-shaders (requires debian testing)
-  # ---- Fonts ----
-  - fonts-arphic-uming
-  - fonts-arphic-ukai
-  - fonts-ipafont-mincho
-  - fonts-ipafont-gothic
-  #- fonts-open-sans (requires debian testing)
-  - fonts-opensymbol
-  - fonts-symbola
-  #- ttf-mscorefonts-installer (use fonts-liberation instead)
-  - fonts-liberation
-  - ttf-wqy-zenhei
-  # ---- Firmwares ----
-  - intel-microcode
-  - firmware-misc-nonfree
-  - firmware-linux
-  - firmware-iwlwifi
-  - firmware-crystalhd
-  # ---- i3-wm ----
-  - i3-wm
-  - i3lock
-  - i3blocks
-  - xss-lock
-  - dunst
-  - rofi
-  - compton
-  - feh
-  - scrot
-  - maim
-  - slop
-  - acpi
-  - gnome-calculator
-  - lm-sensors
-  - iw
-  - wireless-tools
-  - keepassx
-  - redshift
-  - redshift-gtk
-  - arandr
-  # ---- audio ----
-  - alsa-utils
-  - alsa-oss
-  - pulseaudio
-  - pulseaudio-module-bluetooth
-  - pulseaudio-utils
-  # ---- chat ----
-  - weechat
-  # ---- terminal ----
-  - rxvt-unicode-256color
-  - tmux
-  # ---- network manager ----
-  - arping
-  - network-manager
-  - network-manager-gnome
-  - network-manager-openvpn
-  - network-manager-openvpn-gnome
-  # ---- codecs ----
-  - x264
-  # ---- network utils ----
-  - dnsutils
-  - jxplorer
-  - mariadb-client
-  - net-tools
-  - netcat
-  - netcat-openbsd
-  - openssh-client
-  - redis-tools
-  - socat
-  - swaks
-  - traceroute
-  # ---- dbus ----
-  - dbus
-  - dbus-user-session
-  - dbus-x11
-  - policykit-1
-  # ---- dev ----
-  - tig
-  - exuberant-ctags
-  - shellcheck
-  - pylint
-  - pylint3
-  - python-pep8
-  - python3-pep8
-  - yamllint
-  - devscripts
-  - pep8
-  - ack
-  - ack-grep
-  - silversearcher-ag
-  - dos2unix
-  - binutils
-  - php-cli
-  # ---- misc ----
-  - manpages
-  - man-db
-  - ffmpeg
-  - imagemagick
-  - gawk
-  - htop
-  - tree
-  - cpufrequtils
-  - gnupg
-  - gnupg-agent
-  - keychain
-  - pinentry-tty
-  - bzip2
-  - zip
-  - unzip
-  - lsof
-  - less
-  - lsb-release
-  - rsync
-  - moreutils
+apt_packages: []
 
 
 ###
 ### Python pip packages (add your custom packages here)
 ###
-pip_packages:
-  - awscli
-  - aws-adfs
+pip_packages: []
 
 
 ###
@@ -191,49 +82,53 @@ zathura:              'install'
 ###
 ### Settings for packages
 ###
-python_2: yes
-python_3: yes
-python_default: 2
 
-lxdm_dpi: 132
-lxdm_gtk_theme: Arc-Darker
-lxdm_show_user_list: no
-
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
-
-# Make sxiv default program for pictures
-sxiv_default_image_viewer: yes
-
-# 'stable' or 'unstable'
-skype_repo_channel: stable
-
-# 'stable' or 'dev'
-sublime_repo_channel: stable
-
+# ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 docker_repo_dist: "{{ debian_dist }}"
 # 'stable' or 'edge'
 docker_repo_channel: stable
 
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: "{{ debian_dist }}"
-
-
+# ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
 fzf_update_rc: Yes
-
 # Enable/Disable fuzzy completion (bash & zsh)?
 fzf_completion: No
-
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
 fzf_key_bindings: No
 
+# ---- HipChat ----
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+hipchat_repo_dist: "{{ debian_dist }}"
+
+# ---- LXDM ----
+lxdm_dpi: 96
+lxdm_gtk_theme: Industrial
+lxdm_show_user_list: no
+
+# ---- Skype ----
+# 'stable' or 'unstable'
+skype_repo_channel: stable
+
+# ---- Sublime ----
+# 'stable' or 'dev'
+sublime_repo_channel: stable
+
+# ---- sxiv ----
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: yes
+
+# ---- Thunar ----
+thunar_volman_enable: yes
+thunar_archive_plugin_enable: yes
+
+# ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
 xorg_gpu: modesetting
+# Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
+xorg_gpu_accel_method: glamor
 # Enable VDPAU_DRIVER=va_gl systemwide
 xorg_gpu_vdpau_va_gl_enable: yes
-
 # 'libinput' or 'synaptics'
 xorg_touchpad_enable: yes
 xorg_touchpad_driver: 'synaptics'

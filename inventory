@@ -1,9 +1,6 @@
 #
 # Inventory file
 #
-# Grouping: <username>
-# Naming:   <PREFIX>-<GPU>-<X>-<WM>
-#
 # Customize:
 # ----------
 # 1. Copy host_vars/debian_<dist>.yml to host_vars/<name>.yml
@@ -15,13 +12,27 @@
 
 
 ###
-### Default example (everything enabled)
+### Default example
 ###
-[default]
+### * Every package enabled
+### * No contrib; No non-free repository
+### * No custom packages
+###
+[debian]
 # $ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass
 # $ ansible-playbook -i inventory playbook.yml --diff --limit debian-testing --ask-become-pass
 debian-stretch ansible_connection=local
 debian-testing ansible_connection=local
+
+
+###
+### Cytopia's profile
+###
+[cytopia]
+# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-stretch --ask-become-pass
+# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-testing --ask-become-pass
+cytopia-stretch ansible_connection=local
+cytopia-testing ansible_connection=local
 
 
 ###
