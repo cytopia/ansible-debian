@@ -3,8 +3,8 @@
 **[TL;DR](#tldr)** | **[Features](#features)** | **[Create custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[License](#license)**
 
 [![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
-<img witdh="24" heigh="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
-<img witdh="24" heigh="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/debian.png" alt="Debian" title="Debian" />
+<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
+<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/debian.png" alt="Debian" title="Debian" />
 
 Well-tested and customizable **[Ansible](https://www.ansible.com)** setup to provision your workstation with Debian.
 
