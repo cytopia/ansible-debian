@@ -1,11 +1,68 @@
 ---
 
+###
+### Xorg Packages
+###
+
 xorg_package_name: xorg
 
 xorg_required_packages:
   - xinit
   - xauth
 
+xorg_additional_packages:
+  - fontconfig
+  - xbindkeys
+  - xbindkeys-config
+  - xclip
+  - xdg-utils
+  - xdotool
+  - xinput
+  - xsel
+
+
+# VAAPI
+# https://wiki.archlinux.org/index.php/Hardware_video_acceleration
+xorg_gpu_vaapi_packages:
+  - i965-va-driver
+  #- libva-drm1 (provided automatically)
+  - libva-egl1
+  - libva-glx1
+  - libva-tpi1
+  #- libva-x11-1 (provided automatically)
+  - va-driver-all
+  - vainfo
+
+# VAAPI drivers that might or might not be present (Debian: stable vs testing)
+# tentative packages are only installed if they exist
+xorg_gpu_vaapi_tentative_packages:
+  # Only available from Debian testing onwards
+  - i965-va-driver-shaders
+
+# VDPAU
+xorg_gpu_vdpau_packages:
+  #- libvdpau-va-gl1
+  #- libvdpau1
+  - vdpau-driver-all
+  #- vdpau-va-driver (provided by va-driver-all)
+  - vdpauinfo
+
+# Vulkan
+xorg_gpu_vulkan_packages:
+  - vulkan-utils
+
+# Mesa
+xorg_gpu_mesa_packages:
+  - mesa-utils
+  - mesa-utils-extra
+  #- mesa-va-drivers (provided by va-driver-all)
+  #- mesa-vdpau-drivers (provided by vdpau-driver-all)
+  - mesa-vulkan-drivers
+
+
+###
+### Assert arrays for selection choices
+###
 xorg_supported_gpus:
   - amdgpu
   - ati
@@ -15,8 +72,19 @@ xorg_supported_gpus:
   - nvidia
   - radeon
 
-xorg_config_dir: /etc/X11/xorg.conf.d
+xorg_supported_gpu_accel_methods:
+  - XAA
+  - EXA
+  - UXA
+  - SNA
+  - glamor
 
+
+###
+### File paths
+###
+
+xorg_config_dir: /etc/X11/xorg.conf.d
 xorg_config_gpu: 20-graphics.conf
 xorg_config_keyboard: 30-keyboard.conf
 xorg_config_touchpad: 40-touchpad.conf

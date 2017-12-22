@@ -5,53 +5,18 @@ xorg: 'ignore'
 
 
 ###
-### xorg
-###
-
-# Default Xorg packages
-xorg_additional_packages:
-  - fontconfig
-  - xbindkeys
-  - xbindkeys-config
-  - xclip
-  - xdg-utils
-  - xdotool
-  - xinput
-  - xsel
-
-###
 ### xorg gpu
 ###
 
 # see vars/main.yml for supported values
 xorg_gpu: modesetting
 
+# see vars/main.yml for supported values
+xorg_gpu_accel_method: glamor
+
 # Enable VDPAU_DRIVER=va_gl systemwide
 xorg_gpu_vdpau_va_gl_enable: yes
 
-# https://wiki.archlinux.org/index.php/Hardware_video_acceleration
-xorg_gpu_vaapi_packages:
-  - i965-va-driver
-  #- i965-va-driver-shaders (requires debian testin)
-  - libva-drm1
-  - libva-egl1
-  - libva-glx1
-  - libva-tpi1
-  - libva-x11-1
-  - vainfo
-xorg_gpu_vdpau_packages:
-  - libvdpau-va-gl1
-  - libvdpau1
-  - vdpau-va-driver
-  - vdpauinfo
-xorg_gpu_vulkan_packages:
-  - vulkan-utils
-xorg_gpu_mesa_packages:
-  - mesa-utils
-  - mesa-utils-extra
-  - mesa-va-drivers
-  - mesa-vdpau-drivers
-  - mesa-vulkan-drivers
 
 ###
 ### xorg touchpad

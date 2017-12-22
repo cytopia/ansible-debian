@@ -10,6 +10,7 @@ RUN set -x \
 		python-jmespath \
 		python-pip \
 		python-setuptools \
+		sudo \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get purge -y --autoremove \
 	&& update-alternatives --install /usr/bin/python python /usr/bin/python2 1
@@ -18,13 +19,29 @@ RUN set -x \
 	&& pip install wheel \
 	&& pip install ansible
 
-COPY ./ /ansible
+# Add user with password-less sudo
+RUN set -x \
+	&& useradd -m -s /bin/bash cytopia \
+	&& echo "cytopia ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/cytopia
 
-WORKDIR /ansible
+# Copy files
+COPY ./ /home/cytopia/ansible
+RUN set -x \
+	&& chown -R cytopia:cytopia /home/cytopia/ansible
+
+# Switch to user
+USER cytopia
+
+# Change working directory
+WORKDIR /home/cytopia/ansible
+
 
 # Ansible Playbook
 RUN set -x \
+	# Randomize roles to install each time the container is build (each travis run)
 	&& ROLES="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
+	\
+	# ---- Install playbook ----
 	&& ( \
 		echo "# ---- Bootstrap ----"; \
 		echo "- hosts: all"; \
@@ -49,13 +66,13 @@ RUN set -x \
 		echo "    - python-meta"; \
 		\
 		echo "# ---- Pre-defined Roles ----"; \
-		echo "- hosts: all"; \
-		echo "  vars:"; \
 		for r in ${ROLES}; do \
+			echo "- hosts: all"; \
+			echo "  vars:"; \
 			echo "    - $(echo $r | sed 's/-/_/g'): 'install'"; \
-		done; \
-		echo "  roles:"; \
-		for r in ${ROLES}; do \
+			echo "  roles:"; \
+			echo "    - ${r}"; \
+			echo "  tags:"; \
 			echo "    - ${r}"; \
 		done; \
 		\
@@ -69,6 +86,17 @@ RUN set -x \
 		echo "  roles:"; \
 		echo "    - xdg-mime-meta"; \
 		\
+	) > travis-ci-install.yml \
+	&& cat travis-ci-install.yml \
+	\
+	# ---- Remove playbook ----
+	&& ( \
+		echo "# ---- (DELETE) Custom packages"; \
+		echo "- hosts: all"; \
+		echo "  vars:"; \
+		echo "    apt_state: absent"; \
+		echo "  roles:"; \
+		echo "    - apt-meta"; \
 		\
 		echo "# ---- (DELETE) Pre-defined Roles ----"; \
 		echo "- hosts: all"; \
@@ -81,25 +109,33 @@ RUN set -x \
 			echo "    - ${r}"; \
 		done; \
 		\
-		echo "# ---- (DELETE) Custom packages"; \
+		echo "# ---- (DELETE) Repositories"; \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
-		echo "    apt_state: absent"; \
 		echo "    apt_repo_state: absent"; \
 		echo "  roles:"; \
-		echo "    - apt-meta"; \
 		echo "    - apt-repo-meta"; \
 		\
-	) > travis-ci.yml \
-	&& cat travis-ci.yml
+	) > travis-ci-remove.yml \
+	&& cat travis-ci-remove.yml
+
 
 # Ansible Run
 RUN set -x \
 	&& ( \
 		echo "#!/bin/sh -eux"; \
-		echo "cat travis-ci.yml"; \
-		echo "ansible-playbook -i inventory travis-ci.yml --limit \${MY_HOST} --diff -v"; \
-	) > /ansible/run-tests.sh \
-	&& chmod +x /ansible/run-tests.sh
+		echo "cat travis-ci-install.yml"; \
+		#echo "cat travis-ci-remove.yml"; \
+		\
+		echo "if ! set | grep '^extra=' >/dev/null 2>&1; then"; \
+		echo "    extra=\"\""; \
+		echo "fi"; \
+		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "apt list --installed"; \
+		\
+		#echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
+		#echo "apt list --installed"; \
+	) > run-tests.sh \
+	&& chmod +x run-tests.sh
 
 ENTRYPOINT ["./run-tests.sh"]

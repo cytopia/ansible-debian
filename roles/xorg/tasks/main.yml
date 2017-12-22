@@ -6,6 +6,12 @@
       - "xorg_gpu in xorg_supported_gpus"
     msg: "xorg_gpu must be set to one of them : {{ xorg_supported_gpus | join(', ') }}"
 
+- name: assert that xorg gpu accel method is set correctly
+  assert:
+    that:
+      - "xorg_gpu_accel_method in xorg_supported_gpu_accel_methods"
+    msg: "xorg_gpu_accel_method must be set to one of them : {{ xorg_supported_gpu_accel_methods | join(', ') }}"
+
 - name: assert that xorg touchpad is set correctly
   assert:
     that:

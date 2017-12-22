@@ -1,0 +1,31 @@
+---
+
+i3_gaps_git_path: /opt/i3-gaps
+i3_gaps_git_url: https://github.com/Airblader/i3
+
+i3_gaps_build_dependencies:
+  - curl
+  - git
+  - gcc
+  - automake
+  - make
+  # https://github.com/Airblader/i3/wiki/Compiling-&-Installing#debian-stretch
+  - libxcb-keysyms1-dev
+  - libpango1.0-dev
+  - libxcb-util0-dev
+  - xcb
+  - libxcb1-dev
+  - libxcb-icccm4-dev
+  - libyajl-dev
+  - libev-dev
+  - libxcb-xkb-dev
+  - libxcb-cursor-dev
+  - libxkbcommon-dev
+  - libxcb-xinerama0-dev
+  - libxkbcommon-x11-dev
+  - libstartup-notification0-dev
+  - libxcb-randr0-dev
+  - libxcb-xrm0
+  - libxcb-xrm-dev
+
+

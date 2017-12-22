@@ -30,29 +30,96 @@
 ### Install Role Packages
 ###
 - hosts: all
-  roles:
-    - chromium
-    - clipmenu
-    - diff-highlight
-    - docker
-    - docker-compose
-    - hipchat
-    - fzf
-    - i3blocks-modules
-    - i3-utils-bin
-    - i3-utils-systemd
-    - lxdm
-    - neovim
-    - packer
-    - ranger
-    - skype
-    - sublime
-    - sxiv
-    - telegram
-    - thunar
-    - xbacklight
-    - xorg
-    - zathura
+  roles: [chromium]
+  tags: chromium
+
+- hosts: all
+  roles: [clipmenu]
+  tags: clipmenu
+
+- hosts: all
+  roles: [diff-highlight]
+  tags: diff-highlight
+
+- hosts: all
+  roles: [docker]
+  tags: docker
+
+- hosts: all
+  roles: [docker-compose]
+  tags: docker-compose
+
+- hosts: all
+  roles: [hipchat]
+  tags: hipchat
+
+- hosts: all
+  roles: [fzf]
+  tags: fzf
+
+- hosts: all
+  roles: [i3-gaps]
+  tags: i3-utils-bin
+
+- hosts: all
+  roles: [i3-gaps]
+  tags: i3-gaps
+
+- hosts: all
+  roles: [i3-utils-systemd]
+  tags: i3-utils-systemd
+
+- hosts: all
+  roles: [i3blocks-modules]
+  tags: i3blocks-modules
+
+- hosts: all
+  roles: [lxdm]
+  tags: lxdm
+
+- hosts: all
+  roles: [neovim]
+  tags: neovim
+
+- hosts: all
+  roles: [packer]
+  tags: packer
+
+- hosts: all
+  roles: [ranger]
+  tags: ranger
+
+- hosts: all
+  roles: [skype]
+  tags: skype
+
+- hosts: all
+  roles: [sublime]
+  tags: sublime
+
+- hosts: all
+  roles: [sxiv]
+  tags: sxiv
+
+- hosts: all
+  roles: [telegram]
+  tags: telegram
+
+- hosts: all
+  roles: [thunar]
+  tags: thunar
+
+- hosts: all
+  roles: [xbacklight]
+  tags: xbacklight
+
+- hosts: all
+  roles: [xorg]
+  tags: xorg
+
+- hosts: all
+  roles: [zathura]
+  tags: zathura
 
 
 ###

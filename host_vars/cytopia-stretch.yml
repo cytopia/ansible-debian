@@ -12,13 +12,13 @@ debian_dist: stretch
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main"
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
   - file: debian-updates
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main"
+    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
   - file: debian-security
-    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main"
+    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
   - file: debian-backports
-    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main"
+    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
 
 
 ###
@@ -32,13 +32,123 @@ python_default: 2
 ###
 ### Debian packages (add your custom packages here)
 ###
-apt_packages: []
+apt_packages:
+  # ---- Fonts ----
+  - fonts-arphic-uming
+  - fonts-arphic-ukai
+  - fonts-ipafont-mincho
+  - fonts-ipafont-gothic
+  #- fonts-open-sans (requires debian testing)
+  - fonts-opensymbol
+  - fonts-symbola
+  #- ttf-mscorefonts-installer (use fonts-liberation instead)
+  - fonts-liberation
+  - ttf-wqy-zenhei
+  # ---- Firmwares ----
+  - intel-microcode
+  - firmware-misc-nonfree
+  - firmware-linux
+  - firmware-iwlwifi
+  - firmware-crystalhd
+  # ---- i3-wm ----
+  - i3-wm
+  - i3lock
+  - i3blocks
+  - xss-lock
+  - dunst
+  - rofi
+  - compton
+  - feh
+  - gnome-calculator
+  - iw
+  - wireless-tools
+  - keepassx
+  - redshift
+  - redshift-gtk
+  - arandr
+  - lxappearance
+  - qt4-qtconfig
+  # ---- audio ----
+  - alsa-utils
+  - alsa-oss
+  - pulseaudio
+  - pulseaudio-module-bluetooth
+  - pulseaudio-utils
+  # ---- chat ----
+  - weechat
+  # ---- terminal ----
+  - rxvt-unicode-256color
+  - tmux
+  # ---- network manager ----
+  - arping
+  - network-manager
+  - network-manager-gnome
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  # ---- codecs ----
+  - x264
+  - x265
+  # ---- network utils ----
+  - dnsutils
+  - jxplorer
+  - mariadb-client
+  - net-tools
+  - netcat
+  - netcat-openbsd
+  - openssh-client
+  - redis-tools
+  - socat
+  - swaks
+  - traceroute
+  # ---- dbus ----
+  - dbus
+  - dbus-user-session
+  - dbus-x11
+  - policykit-1
+  # ---- dev ----
+  - tig
+  - exuberant-ctags
+  - shellcheck
+  - pylint
+  - pylint3
+  - python-pep8
+  - python3-pep8
+  - yamllint
+  - devscripts
+  - pep8
+  - ack
+  - ack-grep
+  - silversearcher-ag
+  - dos2unix
+  - binutils
+  - php-cli
+  # ---- misc ----
+  - manpages
+  - man-db
+  - ffmpeg
+  - gawk
+  - htop
+  - tree
+  - gnupg
+  - gnupg-agent
+  - keychain
+  - pinentry-tty
+  - bzip2
+  - zip
+  - unzip
+  - lsof
+  - less
+  - lsb-release
+  - rsync
+  - moreutils
 
 
 ###
 ### Python pip packages (add your custom packages here)
 ###
-pip_packages: []
+pip_packages:
+  - awscli
+  - aws-adfs
 
 
 ###
@@ -103,8 +213,8 @@ fzf_key_bindings: No
 hipchat_repo_dist: "{{ debian_dist }}"
 
 # ---- LXDM ----
-lxdm_dpi: 96
-lxdm_gtk_theme: Industrial
+lxdm_dpi: 132
+lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
 
 # ---- Skype ----

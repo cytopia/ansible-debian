@@ -1,0 +1,10 @@
+---
+
+- include_tasks: install.yml
+  when: i3_gaps == 'install'
+
+- include_tasks: uninstall.yml
+  when: i3_gaps == 'remove'
+
+# Make sure the handler runs now and not at the end of the playbook
+- meta: flush_handlers

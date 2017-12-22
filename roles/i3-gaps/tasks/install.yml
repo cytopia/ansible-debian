@@ -1,0 +1,43 @@
+---
+
+- name: ensure i3-gaps build dependencies are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ i3_gaps_build_dependencies }}"
+
+- name: ensure git parent path exists
+  file:
+    path: "{{ i3_gaps_git_path | dirname }}"
+    state: directory
+    mode: 0755
+  become: yes
+
+- name: fetch i3-gaps latest version
+  shell: |
+    curl https://github.com/Airblader/i3/releases 2>/dev/null \
+    | grep -E '/Airblader/i3/releases/tag/[.0-9]+' \
+    | grep -Eo '[.0-9]+' \
+    | sort -V \
+    | tail -1
+  register: i3_gaps_release_tag
+  check_mode: no
+  changed_when: False
+
+- name: ensure i3-gaps is cloned
+  git:
+    repo: "{{ i3_gaps_git_url }}"
+    dest: "{{ i3_gaps_git_path }}"
+    version: "{{ i3_gaps_release_tag.stdout }}"
+    clone: yes
+    force: yes
+    recursive: yes
+    update: yes
+    depth: 1
+  become: yes
+  notify:
+    - autoreconf i3-gaps
+    - configure i3-gaps
+    - compile i3-gaps
+    - install i3-gaps

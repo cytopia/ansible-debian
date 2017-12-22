@@ -1,0 +1,10 @@
+---
+
+#- name: ensure i3-gaps is uninstalled
+#  command:
+#    make uninstall
+
+- name: ensure i3-gaps git directory is removed
+  file:
+    state: absent
+    path: "{{ i3_gaps_git_path }}"

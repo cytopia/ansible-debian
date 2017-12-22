@@ -42,6 +42,22 @@
       - "{{ xorg_gpu_vulkan_packages }}"
       - "{{ xorg_gpu_mesa_packages }}"
 
+- name: gather tentative gpu vaapi packages
+  shell: "apt search {{ item }} 2>/dev/null | grep -o '^{{ item }}/' | awk -F '/' '{print $1}'"
+  register: reg_xorg_tentative_packages
+  with_items:
+    - "{{ xorg_gpu_vaapi_tentative_packages }}"
+  check_mode: no
+  changed_when: False
+
+- name: ensure tentative gpu vaapi packages are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      # Filters .stdout into list and removes any empty items (which are non-existing packages)
+      - "{{ reg_xorg_tentative_packages | json_query('results[*].stdout') | difference(['']) }}"
+
 - name: ensure xorg gpu config is present
   template:
     src: "templates/xorg.conf.d/{{ xorg_config_gpu }}.j2"
