@@ -10,6 +10,7 @@ RUN set -x \
 		python3-jmespath \
 		python3-pip \
 		python3-setuptools \
+		sudo \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get purge -y --autoremove \
 	&& update-alternatives --install /usr/bin/python python /usr/bin/python3 1
@@ -18,9 +19,22 @@ RUN set -x \
 	&& pip3 install wheel \
 	&& pip3 install ansible
 
-COPY ./ /ansible
+# Add user with password-less sudo
+RUN set -x \
+	&& useradd -m -s /bin/bash cytopia \
+	&& echo "cytopia ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/cytopia
 
-WORKDIR /ansible
+# Copy files
+COPY ./ /home/cytopia/ansible
+RUN set -x \
+	&& chown -R cytopia:cytopia /home/cytopia/ansible
+
+# Switch to user
+USER cytopia
+
+# Change working directory
+WORKDIR /home/cytopia/ansible
+
 
 # Ansible Playbook
 RUN set -x \
@@ -52,13 +66,13 @@ RUN set -x \
 		echo "    - python-meta"; \
 		\
 		echo "# ---- Pre-defined Roles ----"; \
-		echo "- hosts: all"; \
-		echo "  vars:"; \
 		for r in ${ROLES}; do \
+			echo "- hosts: all"; \
+			echo "  vars:"; \
 			echo "    - $(echo $r | sed 's/-/_/g'): 'install'"; \
-		done; \
-		echo "  roles:"; \
-		for r in ${ROLES}; do \
+			echo "  roles:"; \
+			echo "    - ${r}"; \
+			echo "  tags:"; \
 			echo "    - ${r}"; \
 		done; \
 		\
@@ -113,12 +127,15 @@ RUN set -x \
 		echo "cat travis-ci-install.yml"; \
 		#echo "cat travis-ci-remove.yml"; \
 		\
-		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} --diff -v"; \
+		echo "if ! set | grep '^extra=' >/dev/null 2>&1; then"; \
+		echo "    extra=\"\""; \
+		echo "fi"; \
+		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} \${extra} --diff -v"; \
 		echo "apt list --installed"; \
 		\
 		#echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
 		#echo "apt list --installed"; \
-	) > /ansible/run-tests.sh \
-	&& chmod +x /ansible/run-tests.sh
+	) > run-tests.sh \
+	&& chmod +x run-tests.sh
 
 ENTRYPOINT ["./run-tests.sh"]
