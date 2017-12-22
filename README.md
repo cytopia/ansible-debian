@@ -19,7 +19,7 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
 1. **[TL;DR](#tldr)**
 2. **[Features](#features)**
     1. [Available tools](#available-tools)
-    2. [Fonts / Themes](#fonts-themes)
+    2. [Fonts / Themes](#fonts--themes)
     3. [Sensible customizations](#sensible-customizations)
 3. **[Create custom profiles](#create-custom-profiles)**
     1. [Assumption](#assumption)
@@ -31,7 +31,7 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     1. [Testing with Python2](#testing-with-python2)
     2. [Testing with Python3](#testing-with-python3)
 5. **[Options](#options)**
-    1. [Enable/Disable Management](#enable-disable-management)
+    1. [Enable / Disable Management](#enable--disable-management)
     2. [Package options](#package-options)
 6. **[Requirements](#requirements)**
     1. [Install system requirements](#install-system-requirements)
@@ -194,7 +194,7 @@ docker run --rm -e MY_HOST=dell-xps-i3wm -t ansible-debian-python3
 
 ## Options
 
-#### Enable/Disable Management
+#### Enable / Disable Management
 
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
 ```yml
