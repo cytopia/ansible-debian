@@ -58,16 +58,20 @@
   tags: fzf
 
 - hosts: all
-  roles: [i3blocks-modules]
-  tags: i3blocks-modules
+  roles: [i3-gaps]
+  tags: i3-utils-bin
 
 - hosts: all
-  roles: [i3-utils-bin]
-  tags: i3-utils-bin
+  roles: [i3-gaps]
+  tags: i3-gaps
 
 - hosts: all
   roles: [i3-utils-systemd]
   tags: i3-utils-systemd
+
+- hosts: all
+  roles: [i3blocks-modules]
+  tags: i3blocks-modules
 
 - hosts: all
   roles: [lxdm]

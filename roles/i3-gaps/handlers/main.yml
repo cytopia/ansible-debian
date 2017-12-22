@@ -1,0 +1,29 @@
+---
+
+- name: autoreconf i3-gaps
+  command: "{{ item }}"
+  args:
+    chdir: "{{ i3_gaps_git_path }}"
+  with_items:
+    - autoreconf --force --install
+    - rm -rf build/
+    - mkdir -p build
+  become: yes
+
+- name: configure i3-gaps
+  command: ../configure --disable-sanitizers
+  args:
+    chdir: "{{ i3_gaps_git_path }}/build"
+  become: yes
+
+- name: compile i3-gaps
+  command: make -j2
+  args:
+    chdir: "{{ i3_gaps_git_path }}/build"
+  become: yes
+
+- name: install i3-gaps
+  command: make install
+  args:
+    chdir: "{{ i3_gaps_git_path }}/build"
+  become: yes

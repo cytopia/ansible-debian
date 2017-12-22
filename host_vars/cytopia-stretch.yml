@@ -87,6 +87,7 @@ apt_packages:
   - network-manager-openvpn-gnome
   # ---- codecs ----
   - x264
+  - x265
   # ---- network utils ----
   - dnsutils
   - jxplorer
@@ -169,9 +170,10 @@ font_terminus:        'install'
 font_ubuntu:          'install'
 fzf:                  'install'
 hipchat:              'install'
-i3blocks_modules:     'install'
+i3_gaps:              'install'
 i3_utils_bin:         'install'
 i3_utils_systemd:     'install'
+i3blocks_modules:     'install'
 icon_moka:            'install'
 lxdm:                 'install'
 neovim:               'install'
