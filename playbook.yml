@@ -110,6 +110,10 @@
   tags: thunar
 
 - hosts: all
+  roles: [thunar-custom-actions]
+  tags: thunar-custom-actions
+
+- hosts: all
   roles: [timemachine]
   tags: timemachine
 

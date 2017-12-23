@@ -1,0 +1,31 @@
+---
+
+thunar_custom_actions_bin_path: /usr/local/bin/
+
+thunar_custom_actions_packages:
+  - curl
+  - ffmpeg
+  - gawk
+  - gist
+  - gpg
+  - imagemagick
+  - openssl
+  - pinentry-gtk2
+  - xclip
+  - zenity
+
+thunar_custom_actions_tools:
+  - thunar-convert-to-jpg.sh
+  - thunar-convert-to-png.sh
+  - thunar-gpg-decrypt.sh
+  - thunar-gpg-encrypt.sh
+  - thunar-gpg-info.sh
+  - thunar-gpg-sign.sh
+  - thunar-gpg-verify-signature.sh
+  - thunar-media-info.sh
+  - thunar-openssl-encrypt-decrypt.sh
+  - thunar-paste-to-gist.sh
+  - thunar-paste-to-pastebin.sh
+  - thunar-upload-to-imgur.sh
+  - thunar-upload-to-postimage.sh
+  - thunar-video-to-gif.sh
