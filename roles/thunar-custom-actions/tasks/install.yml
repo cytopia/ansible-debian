@@ -15,4 +15,4 @@
     force: yes
   become: yes
   with_items:
-    - "{{ thunar_custom_actions_tools }}
+    - "{{ thunar_custom_actions_tools }}"
