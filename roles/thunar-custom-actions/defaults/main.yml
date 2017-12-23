@@ -1,0 +1,4 @@
+---
+
+# 'install', 'remove' or 'ignore'
+thunar_custom_actions: 'ignore'
