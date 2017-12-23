@@ -1,0 +1,6 @@
+---
+
+timemachine_path: /usr/local/bin/timemachine
+
+timemachine_packages:
+  - rsync

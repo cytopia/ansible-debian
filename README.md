@@ -84,6 +84,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
 > [sxiv](https://github.com/muennich/sxiv),
 > [telegram](https://telegram.org),
 > [thunar](https://wiki.archlinux.org/index.php/Thunar),
+> [timemachine](https://github.com/cytopia/linux-timemachine),
 > [xbacklight](https://github.com/wavexx/acpilight),
 > [xdg-mime-meta](https://wiki.archlinux.org/index.php/Default_applications),
 > [xorg](https://www.x.org/wiki),

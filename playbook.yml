@@ -110,6 +110,10 @@
   tags: thunar
 
 - hosts: all
+  roles: [timemachine]
+  tags: timemachine
+
+- hosts: all
   roles: [xbacklight]
   tags: xbacklight
 
