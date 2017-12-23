@@ -64,40 +64,160 @@ This Ansible repository allows you to provision your Debian machines and keeping
 This is a base idempotent provisioning with sensible defaults that can be slightly adjusted. It is only meant as a **buildfiles** bootstrap. In order to customize the applications itself, you will still have to apply your personal **dotfiles** on top of that.
 
 #### Available tools 
-> [chromium](https://www.chromium.org/Home),
-> [clipmenu](https://github.com/cdown/clipmenu),
-> [diff-highlight](https://github.com/K-Phoen/Config/blob/master/bin/diff-highlight),
-> [docker](https://docs.docker.com/engine/installation/linux/docker-ce/debian),
-> [docker-compose](https://docs.docker.com/compose/install),
-> [fzf](https://github.com/junegunn/fzf),
-> [hipchat](https://www.hipchat.com/downloads),
-> [i3-gaps](https://github.com/Airblader/i3),
-> [i3-utils-bin](https://github.com/cytopia/i3-utils-bin),
-> [i3-utils-systemd](https://github.com/cytopia/i3-utils-systemd),
-> [i3blocks-modules](https://github.com/cytopia/i3blocks-modules),
-> [lxdm](https://wiki.archlinux.org/index.php/LXDM),
-> [neovim](https://github.com/neovim/neovim),
-> [packer](https://www.packer.io),
-> [ranger](https://github.com/ranger/ranger),
-> [skype](https://www.skype.com/en/get-skype),
-> [sublime](https://www.sublimetext.com),
-> [sxiv](https://github.com/muennich/sxiv),
-> [telegram](https://telegram.org),
-> [thunar](https://wiki.archlinux.org/index.php/Thunar),
-> [timemachine](https://github.com/cytopia/linux-timemachine),
-> [xbacklight](https://github.com/wavexx/acpilight),
-> [xdg-mime-meta](https://wiki.archlinux.org/index.php/Default_applications),
-> [xorg](https://www.x.org/wiki),
-> [zathura](https://pwmt.org/projects/zathura)
+<table>
+ <thead>
+  <tr>
+   <th width="200">Tool</th>
+   <th>Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a href="https://www.chromium.org/Home">chromium</a></td>
+   <td>Chromium from standard Debian repository and additional packages to make sure it has everything it requires to run smoothly</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cdown/clipmenu">clipmenu</a></td>
+   <td>Clipboard manager with <code>dmenu</code> or <code>rofi</code> integration</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/K-Phoen/Config/blob/master/bin/diff-highlight">diff-highlight</a></td>
+   <td>Tool for awesome <code>git diff</code> output</td>
+  </tr>
+  <tr>
+   <td><a href="https://docs.docker.com/engine/installation/linux/docker-ce/debian">docker</a></td>
+   <td>Docker repo and package and also making sure user is added to <code>docker</code> group</td>
+  </tr>
+  <tr>
+   <td><a href="https://docs.docker.com/compose/install">docker-compose</a></td>
+   <td>Downloads latest <code>docker-compose</code> binary</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/junegunn/fzf">fzf</a></td>
+   <td>Command line fuzzy finder</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
+   <td>HipChat repo and package</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/Airblader/i3">i3-gaps</a></td>
+   <td>i3wm on steroids</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cytopia/i3-utils-bin">i3-utils-bin</a></td>
+   <td>Tools for i3wm</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cytopia/i3-utils-systemd">i3-utils-systemd</a></td>
+   <td>Systemd files for i3wm</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cytopia/i3blocks-modules">i3blocks-modules</a></td>
+   <td>Awesome i3blocks modules</td>
+  </tr>
+  <tr>
+   <td><a href="https://wiki.archlinux.org/index.php/LXDM">lxdm</a></td>
+   <td>Leight-weight login manager</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/neovim/neovim">neovim</a></td>
+   <td>vim on steroids</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.packer.io">packer</a></td>
+   <td>HashiCorp's packer to build automated machines</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/ranger/ranger">ranger</a></td>
+   <td>Command line file manager with inline image preview (can also be used as <a href="https://www.everythingcli.org/use-ranger-as-a-file-explorer-in-vim/">vim file manager</a>)</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.skype.com/en/get-skype">skype</a></td>
+   <td>Skype repo and package</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.sublimetext.com">sublime</a></td>
+   <td>Sublime repo and package</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/muennich/sxiv">sxiv</a></td>
+   <td>Small, fast and low-dependency image viewer with vim binding</td>
+  </tr>
+  <tr>
+   <td><a href="https://telegram.org">telegram</a></td>
+   <td>Telegram desktop repo and package</td>
+  </tr>
+  <tr>
+   <td><a href="https://wiki.archlinux.org/index.php/Thunar">thunar</a></td>
+   <td>Thunar and its requirements</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cytopia/thunar-custom-actions">thunar-custom-actions</a></td>
+   <td>Thunar custom actions</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/cytopia/linux-timemachine">timemachine</a></td>
+   <td>OSX like timemachine for the command line</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/wavexx/acpilight">xbacklight</a></td>
+   <td>Modern cross-GPU xbacklight replacement</td>
+  </tr>
+  <tr>
+   <td><a href="https://wiki.archlinux.org/index.php/Default_applications">xdg-mime-meta</a></td>
+   <td>Defines default applications for xdg-open</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.x.org/wiki">xorg</a></td>
+   <td>Xorg and its dependencies as well as GPU and touchpad configurations</td>
+  </tr>
+  <tr>
+   <td><a href="https://pwmt.org/projects/zathura">zathura</a></td>
+   <td>Small, fast and low-dependency pdf viewer with vim bindings</td>
+  </tr>
+ </tbody>
+</table>
 
 #### Fonts / Themes
-> [font-droid-sans-mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono),
-> [font-font-awesome](http://fontawesome.io/icons),
-> [font-san-francisco](https://github.com/supermarin/YosemiteSanFranciscoFont),
-> [font-terminus](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Terminus/font-info.md),
-> [font-ubuntu](https://design.ubuntu.com/font),
-> [icon-moka](https://snwh.org/moka),
-> [theme-arc](https://github.com/horst3180/Arc-theme)
+<table>
+ <thead>
+  <tr>
+   <th width="200">Tool</th>
+   <th>Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono">font-droid-sans-mono</a></td>
+   <td>DroidSansMono Nerdfont with many glyphs and unicode symbols</td>
+  </tr>
+  <tr>
+   <td><a href="http://fontawesome.io/icons">font-font-awesome</a></td>
+   <td>FontAwesome as a system font</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/supermarin/YosemiteSanFranciscoFont">font-san-francisco</a></td>
+   <td>OSX Yosemite San Francisco font</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Terminus/font-info.md">font-terminus</a></td>
+   <td>Terminus Nerdfont with many glyphcs and unicode symbols</td>
+  </tr>
+  <tr>
+   <td><a href="https://design.ubuntu.com/font">font-ubuntu</a></td>
+   <td>Ubuntu's official font</td>
+  </tr>
+  <tr>
+   <td><a href="https://snwh.org/moka">icon-moka</a></td>
+   <td>Moka icon themes (for thunar or nautilus)</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/horst3180/Arc-theme">theme-arc</a></td>
+   <td>Arc theme for GTK2, GTK3, Chrome and others</td>
+  </tr>
+ </tbody>
+</table>
 
 See [roles/](roles/) directory for all available packages. If you are missing one, open up an issue or a pull request.
 
