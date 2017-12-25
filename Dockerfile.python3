@@ -60,8 +60,6 @@ RUN set -x \
 		\
 		echo "# ---- Pythonstrap ----"; \
 		echo "- hosts: all"; \
-		echo "  vars:"; \
-		echo "    python_default: 2"; \
 		echo "  roles:"; \
 		echo "    - python-meta"; \
 		\
@@ -69,7 +67,7 @@ RUN set -x \
 		for r in ${ROLES}; do \
 			echo "- hosts: all"; \
 			echo "  vars:"; \
-			echo "    - $(echo $r | sed 's/-/_/g'): 'install'"; \
+			echo "    $(echo $r | sed 's/-/_/g'): 'install'"; \
 			echo "  roles:"; \
 			echo "    - ${r}"; \
 			echo "  tags:"; \
@@ -95,7 +93,7 @@ RUN set -x \
 		for r in ${ROLES}; do \
 			echo "- hosts: all"; \
 			echo "  vars:"; \
-			echo "    - $(echo $r | sed 's/-/_/g'): 'remove'"; \
+			echo "    $(echo $r | sed 's/-/_/g'): 'remove'"; \
 			echo "  roles:"; \
 			echo "    - ${r}"; \
 			echo "  tags:"; \
@@ -130,10 +128,10 @@ RUN set -x \
 		echo "if ! set | grep '^extra=' >/dev/null 2>&1; then"; \
 		echo "    extra=\"\""; \
 		echo "fi"; \
-		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} \${extra} -e python_default=3 --diff -v"; \
 		echo "apt list --installed"; \
 		\
-		echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} \${extra} -e python_default=3 --diff -v"; \
 		#echo "apt list --installed"; \
 	) > run-tests.sh \
 	&& chmod +x run-tests.sh
