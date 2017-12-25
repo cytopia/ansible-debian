@@ -1,6 +1,6 @@
 ---
 
-i3_gaps_git_path: /opt/i3-gaps
+i3_gaps_git_path: "{{ lookup('env','HOME') }}/.cache/i3-gaps-git"
 i3_gaps_git_url: https://github.com/Airblader/i3
 
 i3_gaps_build_dependencies:
