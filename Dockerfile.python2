@@ -91,23 +91,23 @@ RUN set -x \
 	\
 	# ---- Remove playbook ----
 	&& ( \
+		echo "# ---- (DELETE) Pre-defined Roles ----"; \
+		for r in ${ROLES}; do \
+			echo "- hosts: all"; \
+			echo "  vars:"; \
+			echo "    - $(echo $r | sed 's/-/_/g'): 'remove'"; \
+			echo "  roles:"; \
+			echo "    - ${r}"; \
+			echo "  tags:"; \
+			echo "    - ${r}"; \
+		done; \
+		\
 		echo "# ---- (DELETE) Custom packages"; \
 		echo "- hosts: all"; \
 		echo "  vars:"; \
 		echo "    apt_state: absent"; \
 		echo "  roles:"; \
 		echo "    - apt-meta"; \
-		\
-		echo "# ---- (DELETE) Pre-defined Roles ----"; \
-		echo "- hosts: all"; \
-		echo "  vars:"; \
-		for r in ${ROLES}; do \
-			echo "    - $(echo $r | sed 's/-/_/g'): 'remove'"; \
-		done; \
-		echo "  roles:"; \
-		for r in ${ROLES}; do \
-			echo "    - ${r}"; \
-		done; \
 		\
 		echo "# ---- (DELETE) Repositories"; \
 		echo "- hosts: all"; \
@@ -133,7 +133,7 @@ RUN set -x \
 		echo "ansible-playbook -i inventory travis-ci-install.yml --limit \${MY_HOST} \${extra} --diff -v"; \
 		echo "apt list --installed"; \
 		\
-		#echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} --diff -v"; \
+		echo "ansible-playbook -i inventory travis-ci-remove.yml --limit \${MY_HOST} \${extra} --diff -v"; \
 		#echo "apt list --installed"; \
 	) > run-tests.sh \
 	&& chmod +x run-tests.sh
