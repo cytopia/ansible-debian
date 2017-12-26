@@ -159,6 +159,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>OSX like timemachine for the command line</td>
   </tr>
   <tr>
+   <td><a href="http://rxvt.sourceforge.net">urxvt</a></td>
+   <td>Small, fast and leight-weight 256 color unicode terminal emulator</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/wavexx/acpilight">xbacklight</a></td>
    <td>Modern cross-GPU xbacklight replacement</td>
   </tr>

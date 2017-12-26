@@ -76,7 +76,6 @@ apt_packages:
   # ---- chat ----
   - weechat
   # ---- terminal ----
-  - rxvt-unicode-256color
   - tmux
   # ---- network manager ----
   - arping
@@ -186,6 +185,7 @@ theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
 timemachine:           'install'
+urxvt:                 'install'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
