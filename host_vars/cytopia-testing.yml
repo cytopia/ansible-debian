@@ -12,11 +12,11 @@ debian_dist: buster
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   - file: debian-updates
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   - file: debian-security
-    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
 
 
 ###
