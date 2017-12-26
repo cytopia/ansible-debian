@@ -28,15 +28,13 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     4. [Customize your profile](#customize-your-profile)
     5. [Provision your profile](#provision-your-profile)
 4. **[Test your profile](#test-your-profile)**
-    1. [Testing with Python2](#testing-with-python2)
-    2. [Testing with Python3](#testing-with-python3)
+    1. [Testing inside Docker](#testing-inside-docker)
 5. **[Options](#options)**
     1. [Enable / Disable Management](#enable--disable-management)
     2. [Package options](#package-options)
 6. **[Requirements](#requirements)**
     1. [Install system requirements](#install-system-requirements)
-    2. [Install Python requirements](#install-python-requirements)
-    3. [Sudo permissions](#sudo-permissions)
+    2. [Sudo permissions](#sudo-permissions)
 7. **[Stability](#stability)**
 8. **[License](#license)**
 
@@ -225,7 +223,6 @@ See [roles/](roles/) directory for all available packages. If you are missing on
 
 Additionally you can (but don't have to) manage the following:
 
-* Python default system version (Python2 or Python3)
 * [Xdg](https://wiki.archlinux.org/index.php/Default_applications) default applications
 * Custom apt packages can be added per profile
 * Custom pip packages can be added per profile
@@ -287,28 +284,15 @@ $ ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-
 ## Test your profile
 Before actually running any new profile on your own system, you can and you should test that beforehand in a **Docker container** in order to see if everything works as expected.
 
-Depending on your choice of desired default system Python version (Python2 or Python3), you have to choose the appropriate Docker image.
-
-#### Testing with Python2
+#### Testing inside Docker
 
 First build the Docker image:
 ```
-docker build -t ansible-debian-python2 -f Dockerfile.python2 .
+docker build -t ansible-debian .
 ```
 Then you can run your profile inside a Docker container.
 ```
-docker run --rm -e MY_HOST=dell-xps-i3wm -t ansible-debian-python2
-```
-
-#### Testing with Python3
-
-First build the Docker image:
-```
-docker build -t ansible-debian-python3 -f Dockerfile.python3 .
-```
-Then you can run your profile inside a Docker container.
-```
-docker run --rm -e MY_HOST=dell-xps-i3wm -t ansible-debian-python3
+docker run --rm -e MY_HOST=dell-xps-i3wm -t ansible-debian
 ```
 
 
@@ -334,14 +318,13 @@ hipchat:          'ignore'
 ```
 #### Package options
 
-Many packages also come with options that you can tweak. You can for example define the Python version your system should provide and which one it should use as its default:
+Many packages also come with options that you can tweak. You can for example define the Python version your system should provide:
 ```yml
 $ vi host_vars/<name>.yml
 
 ...
 python_2: yes
 python_3: yes
-python_default: 2
 ...
 ```
 
@@ -394,36 +377,20 @@ xorg_touchpad_driver: 'synaptics'
 Before you can start there are a few tools required that must be present on the system. Just copy-paste those commands as root into your terminal.
 
 #### Install system requirements
-```shell
+```
 apt-get update
-apt-get install --no-install-recommends --no-install-suggests -y \
-  sudo
-```
-
-#### Install Python requirements
-
-Either go with Python2
-```
 apt-get install --no-install-recommends --no-install-suggests -y \
   python-apt \
   python-dev \
   python-jmespath \
   python-pip \
   python-setuptools \
+  sudo
+
 pip install wheel
 pip install ansible
 ```
-Or go with Python3
-```
-apt-get install --no-install-recommends --no-install-suggests -y \
-  python3-apt \
-  python3-dev \
-  python3-jmespath \
-  python3-pip \
-  python3-setuptools \
-pip3 install wheel
-pip3 install ansible
-```
+
 #### Sudo permissions
 
 Make sure your user is allowed run sudo
@@ -434,10 +401,9 @@ usermod -aG sudo <username>
 
 ## Stability
 
-In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/cytopia/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside two Docker container. The first one uses Python2 as default and the second one uses Python3. The following test cases have been defined:
+In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/cytopia/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside a Docker container. The following test cases have been defined:
 
 * Each run randomizes the order of roles to install
-* Each run is done with Python2 and Python3
 * Each run is done for Debian stable and Debian testing
 * Each run is done against all defined profiles (repositories: main vs main, extra and non-free)
 

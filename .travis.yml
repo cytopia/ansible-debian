@@ -8,22 +8,18 @@ services:
 env:
   matrix:
     # Default Debian profile
-    - python=2 dist=debian-stretch
-    - python=2 dist=debian-testing
-    - python=3 dist=debian-stretch
-    - python=3 dist=debian-testing
+    - dist=debian-stretch
+    - dist=debian-testing
     # Cytopia's profile
-    - python=2 dist=cytopia-stretch
-    - python=2 dist=cytopia-testing
-    - python=3 dist=cytopia-stretch
-    - python=3 dist=cytopia-testing
+    - dist=cytopia-stretch
+    - dist=cytopia-testing
 
 before_script:
   # Run it multiple times until it succeeds. This is to prevent errors that occur due to
   # network timeouts between travis-ci
-  - max=100; i=0; while [ $i -lt $max ]; do if docker build -t ansible-debian-python${python} -f Dockerfile.python${python} .; then break; else i=$((i+1)); fi done
+  - max=100; i=0; while [ $i -lt $max ]; do if docker build -t ansible-debian .; then break; else i=$((i+1)); fi done
 
 script:
   # Run it multiple times until it succeeds. This is to prevent errors that occur due to
   # network timeouts between travis-ci
-  - max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${dist} -t ansible-debian-python${python}; then break; else i=$((i+1)); fi done
+  - max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${dist} -t ansible-debian; then break; else i=$((i+1)); fi done

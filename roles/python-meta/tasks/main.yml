@@ -6,12 +6,6 @@
       - python_2 or python_3
     msg: either python2 or python3 must be enabled (or both)
 
-- name: ensure that python default version is enabled
-  assert:
-    that:
-      - (python_default == '2' and python_2) or (python_default == '3' and python_3)
-    msg: "selected python default version ('{{ python_default }}') must also be enabled to install"
-
 - name: ensure python2 packages are installed
   include_role:
     name: apt-meta
@@ -27,14 +21,6 @@
     apt_packages:
       - "{{ python_3_apt_packages }}"
   when: python_3
-
-- name: ensure python default version is set
-  alternatives:
-    name: python
-    link: /usr/bin/python
-    path: "/usr/bin/python{{ python_default }}"
-    priority: 1
-  become: yes
 
 - name: ensure python2 pip packages are installed
   pip:
