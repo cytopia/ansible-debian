@@ -30,10 +30,26 @@
     mode: 0755
   notify: update font-cache
 
+# Unarchive module seems buggy:
+# When directory already exists user cannot
+# chown group, even if it is his own, therefore run as root.
+- name: get current user
+  shell: "whoami"
+  register: font_ubuntu_user
+  check_mode: no
+  changed_when: False
+- name: get current user group
+  shell: "getent group {{ font_ubuntu_user.stdout }} | awk -F ':' '{print $1}'"
+  register: font_ubuntu_group
+  check_mode: no
+  changed_when: False
 - name: ensure ubuntu font is downloaded
   unarchive:
     src: "{{ font_ubuntu_zip }}"
     dest: "{{ font_ubuntu_font_path }}"
     remote_src: yes
-    mode: 0755
+    owner: "{{ font_ubuntu_user.stdout }}"
+    group: "{{ font_ubuntu_group.stdout }}"
+    #mode: 0755
+  become: yes
   notify: update font-cache
