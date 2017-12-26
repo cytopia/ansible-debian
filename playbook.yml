@@ -16,6 +16,8 @@
   roles:
     - apt-repo-meta
     - apt-meta
+  tags:
+    - bootstrap-system
 
 
 ###
@@ -24,6 +26,8 @@
 - hosts: all
   roles:
     - python-meta
+  tags:
+    - bootstrap-python
 
 
 ###
@@ -134,13 +138,37 @@
 ### Install fonts
 ###
 - hosts: all
-  roles:
-    - font-droid-sans-mono
-    - font-font-awesome
-    - font-san-francisco
-    - font-terminus
-    - font-ubuntu
+  roles: [font-droid-sans-mono]
   tags:
+    - font-droid-sans-mono
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-font-awesome]
+  tags:
+    - font-font-awesome
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-san-francisco]
+  tags:
+    - font-san-francisco
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-terminus]
+  tags:
+    - font-terminus
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-ubuntu]
+  tags:
+    - font-ubuntu
     - font
     - fonts
 
@@ -149,14 +177,18 @@
 ### Install themes/icons
 ###
 - hosts: all
-  roles:
-    - icon-moka
-    - theme-arc
+  roles: [icon-moka]
   tags:
-    - theme
-    - themes
+    - icon-moka
     - icon
     - icons
+
+- hosts: all
+  roles: [theme-arc]
+  tags:
+    - theme-arc
+    - theme
+    - themes
 
 
 ###
@@ -165,6 +197,8 @@
 - hosts: all
   roles:
     - apt-meta
+  tags:
+    - apt
 
 
 ###
