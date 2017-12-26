@@ -45,22 +45,29 @@ RUN set -x \
 		echo "if ! set | grep '^extra=' >/dev/null 2>&1; then"; \
 		echo "    extra=\"\""; \
 		echo "fi"; \
+		echo "if ! set | grep '^random=' >/dev/null 2>&1; then"; \
+		echo "    random=\"0\""; \
+		echo "fi"; \
 		echo; \
 		# ---------- Installation (role by role) ----------
-		echo "# [INSTALL] Bootstrap roles"; \
-		echo "ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${extra} --diff -v"; \
-		echo "ansible-playbook -i inventory playbook.yml -t bootstrap-python --limit \${MY_HOST} \${extra} --diff -v"; \
-		echo; \
-		echo "# [INSTALL] Pre-defined roles (randomized)"; \
-		for r in ${ROLES_INSTALL}; do \
-			echo "ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${extra} --diff -v"; \
-		done; \
-		echo; \
-		echo "# [INSTALL] Custom apt packages"; \
-		echo "ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${extra} --diff -v"; \
-		echo; \
-		echo "# [INSTALL] Default applications"; \
-		echo "ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "if [ \"${random}\" = \"1\" ]; then"; \
+			echo "# [INSTALL] Bootstrap roles"; \
+			echo "ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${extra} --diff -v"; \
+			echo "ansible-playbook -i inventory playbook.yml -t bootstrap-python --limit \${MY_HOST} \${extra} --diff -v"; \
+			echo; \
+			echo "# [INSTALL] Pre-defined roles (randomized)"; \
+			for r in ${ROLES_INSTALL}; do \
+				echo "ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${extra} --diff -v"; \
+			done; \
+			echo; \
+			echo "# [INSTALL] Custom apt packages"; \
+			echo "ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${extra} --diff -v"; \
+			echo; \
+			echo "# [INSTALL] Default applications"; \
+			echo "ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "else"; \
+			echo "ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${extra} --diff -v"; \
+		echo "fi"; \
 		echo; \
 		echo "apt list --installed > install1.txt"; \
 		echo; \

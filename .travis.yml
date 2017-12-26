@@ -8,11 +8,15 @@ services:
 env:
   matrix:
     # Default Debian profile
-    - dist=debian-stretch
-    - dist=debian-testing
+    - random=0 dist=debian-stretch
+    - random=1 dist=debian-stretch
+    - random=0 dist=debian-testing
+    - random=1 dist=debian-testing
     # Cytopia's profile
-    - dist=cytopia-stretch
-    - dist=cytopia-testing
+    - random=0 dist=cytopia-stretch
+    - random=1 dist=cytopia-stretch
+    - random=0 dist=cytopia-testing
+    - random=1 dist=cytopia-testing
 
 before_script:
   # Run it multiple times until it succeeds. This is to prevent errors that occur due to
@@ -22,4 +26,4 @@ before_script:
 script:
   # Run it multiple times until it succeeds. This is to prevent errors that occur due to
   # network timeouts between travis-ci
-  - max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${dist} -t ansible-debian; then break; else i=$((i+1)); fi done
+  - max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${dist} -e random=${random} -t ansible-debian; then break; else i=$((i+1)); fi done
