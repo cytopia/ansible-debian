@@ -62,7 +62,7 @@
   tags: fzf
 
 - hosts: all
-  roles: [i3-gaps]
+  roles: [i3-utils-bin]
   tags: i3-utils-bin
 
 - hosts: all
