@@ -1,0 +1,14 @@
+---
+
+- name: ensure dbeaver is uninstalled
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ dbeaver_package_name }}"
+
+- name: ensure dbeaver deb directory is removed
+  file:
+    state: absent
+    path: "{{ dbeaver_deb_path }}"

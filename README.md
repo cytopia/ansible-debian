@@ -79,6 +79,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Clipboard manager with <code>dmenu</code> or <code>rofi</code> integration</td>
   </tr>
   <tr>
+   <td><a href="https://dbeaver.jkiss.org">dbeaver</a></td>
+   <td>Universal SQL Client</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/K-Phoen/Config/blob/master/bin/diff-highlight">diff-highlight</a></td>
    <td>Tool for awesome <code>git diff</code> output</td>
   </tr>

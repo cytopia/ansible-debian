@@ -42,6 +42,10 @@
   tags: clipmenu
 
 - hosts: all
+  roles: [dbeaver]
+  tags: dbeaver
+
+- hosts: all
   roles: [diff-highlight]
   tags: diff-highlight
 

@@ -155,6 +155,7 @@ pip_packages:
 
 chromium:              'install'
 clipmenu:              'install'
+dbeaver:               'install'
 diff_highlight:        'install'
 docker:                'install'
 docker_compose:        'install'

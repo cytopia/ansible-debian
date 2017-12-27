@@ -1,0 +1,22 @@
+---
+
+- name: ensure dbeaver requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ dbeaver_required_packages }}"
+
+- name: ensure dbeaver deb path exists
+  file:
+    path: "{{ dbeaver_deb_path | dirname }}"
+    state: directory
+    mode: 0755
+
+- name: ensure dbeaver deb is downloaded
+  get_url:
+    url: "{{ dbeaver_deb_url }}"
+    dest: "{{ dbeaver_deb_path }}"
+    mode: 0644
+    force: yes
+  notify: install dbeaver
