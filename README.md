@@ -420,7 +420,7 @@ usermod -aG sudo <username>
 
 In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/cytopia/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside a Docker container. The following test cases have been defined:
 
-* Each run is done randomized and in order
+* Each run is done randomized and in order as well as for each role separately
 * Each run is done for Debian stable and Debian testing
 * Each run is done against all defined profiles (repositories: main vs main, extra and non-free)
 
