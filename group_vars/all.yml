@@ -57,6 +57,7 @@ i3blocks_modules:      'ignore'
 icon_moka:             'ignore'
 lxdm:                  'ignore'
 neovim:                'ignore'
+network_manager:       'ignore'
 packer:                'ignore'
 ranger:                'ignore'
 skype:                 'ignore'
@@ -99,6 +100,17 @@ hipchat_repo_dist: stretch
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
 lxdm_show_user_list: no
+
+# ---- NetworkManager ----
+network_manager_nm_applet: Yes
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2pt: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
 
 # ---- Skype ----
 # 'stable' or 'unstable'

@@ -1,0 +1,29 @@
+---
+
+- name: ensure network-manager and its plugins are removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ network_manager_package_name }}"
+      - "{{ network_manager_additional_packages }}"
+      - "{{ network_manager_gnome_package }}"
+      # Plugin packages
+      - "{{ network_manager_plugin_package_openvpn }}"
+      - "{{ network_manager_plugin_package_iodine }}"
+      - "{{ network_manager_plugin_package_l2tp }}"
+      - "{{ network_manager_plugin_package_openconnect }}"
+      - "{{ network_manager_plugin_package_pptp }}"
+      - "{{ network_manager_plugin_package_ssh }}"
+      - "{{ network_manager_plugin_package_strongswan }}"
+      - "{{ network_manager_plugin_package_vpnc }}"
+      # Plugin Gnome packages
+      - "{{ network_manager_plugin_gnome_package_openvpn }}"
+      - "{{ network_manager_plugin_gnome_package_iodine }}"
+      - "{{ network_manager_plugin_gnome_package_l2tp }}"
+      - "{{ network_manager_plugin_gnome_package_openconnect }}"
+      - "{{ network_manager_plugin_gnome_package_pptp }}"
+      - "{{ network_manager_plugin_gnome_package_ssh }}"
+      - "{{ network_manager_plugin_gnome_package_strongswan }}"
+      - "{{ network_manager_plugin_gnome_package_vpnc }}"

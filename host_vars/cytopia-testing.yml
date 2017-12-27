@@ -76,11 +76,7 @@ apt_packages:
   # ---- terminal ----
   - tmux
   # ---- network manager ----
-  - arping
-  - network-manager
-  - network-manager-gnome
-  - network-manager-openvpn
-  - network-manager-openvpn-gnome
+  #- arping
   # ---- codecs ----
   - x264
   - x265
@@ -173,6 +169,7 @@ i3blocks_modules:      'install'
 icon_moka:             'install'
 lxdm:                  'install'
 neovim:                'install'
+network_manager:       'install'
 packer:                'install'
 ranger:                'install'
 skype:                 'install'
@@ -215,6 +212,17 @@ hipchat_repo_dist: "{{ debian_dist }}"
 lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
+
+# ---- NetworkManager ----
+network_manager_nm_applet: Yes
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2pt: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
 
 # ---- Skype ----
 # 'stable' or 'unstable'

@@ -1,0 +1,98 @@
+---
+
+#- name: ensure network-manager is installed
+#  include_role:
+#    name: apt-meta
+#  vars:
+#    apt_packages:
+#      - "{{ network_manager_package_name }}"
+#      - "{{ network_manager_additional_packages }}"
+#
+#- name: ensure network-manager gnome frontend is installed
+#  include_role:
+#    name: apt-meta
+#  vars:
+#    apt_packages:
+#      - "{{ network_manager_gnome_package }}"
+#  when: network_manager_nm_applet == Yes
+
+- name: ensure network-manager openvpn plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_openvpn }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_openvpn }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_openvpn == Yes
+
+- name: ensure network-manager iodine plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_iodine }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_iodine }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_iodine == Yes
+
+- name: ensure network-manager l2tp plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_l2tp }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_l2tp }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_l2tp == Yes
+
+- name: ensure network-manager openconnect plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_openconnect }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_openconnect }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_openconnect == Yes
+
+- name: ensure network-manager pptp plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_pptp }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_pptp }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_pptp == Yes
+
+- name: ensure network-manager ssh plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_ssh }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_ssh }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_ssh == Yes
+
+- name: ensure network-manager strongswan plugin is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_strongswan }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_strongswan }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_strongswan == Yes
+
+- name: ensure network-manager strongswan vpnc is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_plugin_package_vpnc }}"
+      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_vpnc }}{% else %}[]{% endif %}"
+  when: network_manager_plugin_vpnc == Yes
+
+- name: ensure NetworkManager.conf is present
+  copy:
+    src: files/NetworkManager.conf
+    dest: /etc/NetworkManager/NetworkManager.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: yes

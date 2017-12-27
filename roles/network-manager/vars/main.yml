@@ -1,0 +1,27 @@
+---
+
+network_manager_package_name: network-manager
+
+network_manager_additional_packages:
+  - network-manager-config-connectivity-debian
+
+# Plugin packages
+network_manager_plugin_package_openvpn: network-manager-openvpn
+network_manager_plugin_package_iodine: network-manager-iodine
+network_manager_plugin_package_l2tp: network-manager-l2tp
+network_manager_plugin_package_openconnect: network-manager-openconnect
+network_manager_plugin_package_pptp: network-manager-pptp
+network_manager_plugin_package_ssh: network-manager-ssh
+network_manager_plugin_package_strongswan: network-manager-strongswan
+network_manager_plugin_package_vpnc: network-manager-vpnc
+
+# Gnome packages
+network_manager_gnome_package: network-manager-gnome
+network_manager_plugin_gnome_package_openvpn: network-manager-openvpn-gnome
+network_manager_plugin_gnome_package_iodine: network-manager-iodine-gnome
+network_manager_plugin_gnome_package_l2tp: network-manager-l2tp-gnome
+network_manager_plugin_gnome_package_openconnect: network-manager-openconnect-gnome
+network_manager_plugin_gnome_package_pptp: network-manager-pptp-gnome
+network_manager_plugin_gnome_package_ssh: network-manager-ssh-gnome
+network_manager_plugin_gnome_package_strongswan: strongswan-nm
+network_manager_plugin_gnome_package_vpnc: network-manager-vpnc-gnome

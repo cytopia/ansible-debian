@@ -86,6 +86,10 @@
   tags: neovim
 
 - hosts: all
+  roles: [network-manager]
+  tags: network-manager
+
+- hosts: all
   roles: [packer]
   tags: packer
 

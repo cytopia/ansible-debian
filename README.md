@@ -123,6 +123,11 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>vim on steroids</td>
   </tr>
   <tr>
+  <tr>
+   <td><a href="https://wiki.archlinux.org/index.php/NetworkManager">network-manager</a></td>
+   <td>Gnome's LAN and WIFI network manager with optional system tray</td>
+  </tr>
+  <tr>
    <td><a href="https://www.packer.io">packer</a></td>
    <td>HashiCorp's packer to build automated machines</td>
   </tr>
