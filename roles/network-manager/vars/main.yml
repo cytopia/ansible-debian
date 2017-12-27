@@ -2,8 +2,8 @@
 
 network_manager_package_name: network-manager
 
-network_manager_additional_packages:
-  - network-manager-config-connectivity-debian
+network_manager_additional_packages: []
+#  - network-manager-config-connectivity-debian
 
 # Required for nm-applet for passwords to be stored in gnome keyring
 network_manager_shared_gnome_packages:

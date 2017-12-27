@@ -220,7 +220,7 @@ lxdm_show_user_list: no
 network_manager_nm_applet: Yes
 network_manager_plugin_openvpn: Yes
 network_manager_plugin_iodine: No
-network_manager_plugin_l2pt: No
+network_manager_plugin_l2tp: No
 network_manager_plugin_openconnect: No
 network_manager_plugin_pptp: No
 network_manager_plugin_ssh: No
