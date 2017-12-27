@@ -1,0 +1,6 @@
+---
+
+firefox_url: https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US
+firefox_path: /opt
+firefox_bin_path: /usr/local/bin/firefox
+firefox_desktop_path: /usr/share/applications/firefox-quantum.desktop

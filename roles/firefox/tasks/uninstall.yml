@@ -1,0 +1,19 @@
+---
+
+- name: ensure firefox directory is removed
+  file:
+    path: "{{ firefox_path }}"
+    state: absent
+  become: yes
+
+- name: ensure firefox symlink is removed
+  file:
+    path: "{{ firefox_bin_path }}"
+    state: absent
+  become: yes
+
+- name: ensure firefox desktop application file is removed
+  file:
+    path: "{{ firefox_desktop_path }}"
+    state: absent
+  become: yes

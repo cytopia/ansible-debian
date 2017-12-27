@@ -58,6 +58,10 @@
   tags: docker-compose
 
 - hosts: all
+  roles: [firefox]
+  tags: firefox
+
+- hosts: all
   roles: [hipchat]
   tags: hipchat
 
