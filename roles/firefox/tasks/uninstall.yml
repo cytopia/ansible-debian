@@ -2,7 +2,7 @@
 
 - name: ensure firefox directory is removed
   file:
-    path: "{{ firefox_path }}"
+    path: "{{ firefox_path }}/firefox"
     state: absent
   become: yes
 
