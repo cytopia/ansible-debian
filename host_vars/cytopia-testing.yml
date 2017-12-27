@@ -68,6 +68,7 @@ apt_packages:
   # ---- audio ----
   - alsa-utils
   - alsa-oss
+  #- blueman
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
