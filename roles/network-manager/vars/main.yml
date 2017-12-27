@@ -5,6 +5,10 @@ network_manager_package_name: network-manager
 network_manager_additional_packages:
   - network-manager-config-connectivity-debian
 
+# Required for nm-applet for passwords to be stored in gnome keyring
+network_manager_shared_gnome_packages:
+  - gnome-keyring
+
 # Plugin packages
 network_manager_plugin_package_openvpn: network-manager-openvpn
 network_manager_plugin_package_iodine: network-manager-iodine

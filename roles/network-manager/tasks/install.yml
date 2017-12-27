@@ -1,21 +1,46 @@
 ---
 
-#- name: ensure network-manager is installed
-#  include_role:
-#    name: apt-meta
-#  vars:
-#    apt_packages:
-#      - "{{ network_manager_package_name }}"
-#      - "{{ network_manager_additional_packages }}"
-#
-#- name: ensure network-manager gnome frontend is installed
-#  include_role:
-#    name: apt-meta
-#  vars:
-#    apt_packages:
-#      - "{{ network_manager_gnome_package }}"
-#  when: network_manager_nm_applet == Yes
+###
+### Network manager
+###
+- name: ensure network-manager is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_package_name }}"
+      - "{{ network_manager_additional_packages }}"
 
+
+###
+### Configuration
+###
+- name: ensure NetworkManager.conf is present
+  copy:
+    src: files/NetworkManager.conf
+    dest: /etc/NetworkManager/NetworkManager.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+
+###
+### nm-applet
+###
+- name: ensure network-manager gnome frontend is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ network_manager_gnome_package }}"
+      - "{{ network_manager_shared_gnome_packages }}"
+  when: network_manager_nm_applet == Yes
+
+
+###
+### Network manager plugins
+###
 - name: ensure network-manager openvpn plugin is installed
   include_role:
     name: apt-meta
@@ -87,12 +112,3 @@
       - "{{ network_manager_plugin_package_vpnc }}"
       - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_vpnc }}{% else %}[]{% endif %}"
   when: network_manager_plugin_vpnc == Yes
-
-- name: ensure NetworkManager.conf is present
-  copy:
-    src: files/NetworkManager.conf
-    dest: /etc/NetworkManager/NetworkManager.conf
-    owner: root
-    group: root
-    mode: 0644
-  become: yes
