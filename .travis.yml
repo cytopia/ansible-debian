@@ -61,7 +61,7 @@ script:
         TOTAL="$( echo "${ROLES}" | wc -l )";
         START=1;
         for r in ${ROLES}; do
-            printf "========== Run %s / %s ==========\n" "${START}" "${TOTAL}";
+            printf "========== Run %s / %s (%s) ==========\n" "${START}" "${TOTAL}" "${r}";
             max=100; i=0; while [ $i -lt $max ]; do if docker run --rm -e MY_HOST=${dist} -e tag=${r} -t ansible-debian; then break; else i=$((i+1)); fi done;
             START=$((START+1));
         done;

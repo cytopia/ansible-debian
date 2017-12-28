@@ -14,10 +14,18 @@
       - gnupg
       - software-properties-common
   roles:
-    - apt-repo-meta
     - apt-meta
   tags:
     - bootstrap-system
+    - bootstrap-system-apt
+
+- hosts: all
+  vars:
+  roles:
+    - apt-repo-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt-repo
 
 
 ###

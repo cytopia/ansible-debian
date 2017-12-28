@@ -76,18 +76,9 @@ RUN set -x \
 		# ---------- [1] Only run a specific tag ----------
 		echo "if [ \"\${tag}\" != \"\" ]; then"; \
 			echo "	role=\"\$( echo \"\${tag}\" | sed 's/-/_/g' )\""; \
-			echo "	# [install] 1st run (only tag)"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-python -e \"pip_packages=[]\""; \
+			echo "	# [install] (only tag)"; \
+			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system-apt-repo"; \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag}"; \
-			echo "	apt list --installed > install1.txt"; \
-			echo "	# [install] 2nd run (only tag)"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag}"; \
-			echo "	apt list --installed > install2.txt"; \
-			echo "	# Validate"; \
-			echo "	diff install1.txt install2.txt"; \
-			echo "	# [uninstall]"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag} -e \${role}=remove"; \
 		echo; \
 		echo "else"; \
 		echo; \
