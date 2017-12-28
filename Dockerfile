@@ -34,6 +34,11 @@ USER cytopia
 # Change working directory
 WORKDIR /home/cytopia/ansible
 
+# Systemd cannot be checked inside Docker, so replace it with a dummy role
+RUN set -x \
+	&& mkdir roles/dummy \
+	&& sed -i'' 's/systemd-meta/dummy/g' playbook.yml
+
 # Randomize roles to install each time the container is build (each travis run)
 RUN set -x \
 	&& ROLES_INSTALL="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \

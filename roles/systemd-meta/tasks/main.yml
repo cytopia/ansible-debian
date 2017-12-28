@@ -1,0 +1,22 @@
+---
+
+- name: ensure systemd services are enabled and started
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: True
+    masked: False
+  become: Yes
+  with_items:
+    - "{{ systemd_enabled }}"
+
+- name: ensure systemd services are stopped and maksed
+  systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: False
+    masked: True
+  become: Yes
+  with_items:
+    - "{{ systemd_disabled }}"
+

@@ -20,6 +20,14 @@ apt_repo_repositories:
 
 
 ###
+### Systemd services
+###
+systemd_enabled: []
+
+systemd_disabled: []
+
+
+###
 ### System Python versions
 ###
 python_2: yes

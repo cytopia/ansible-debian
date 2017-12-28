@@ -227,3 +227,13 @@
     - xdg
     - xdg-open
     - xdg-mime
+
+
+###
+### Manager systemd services
+###
+- hosts: all
+  roles:
+    - systemd-meta
+  tags:
+    - systemd

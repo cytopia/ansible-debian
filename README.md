@@ -156,6 +156,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Small, fast and low-dependency image viewer with vim binding</td>
   </tr>
   <tr>
+   <td><a href="https://freedesktop.org/wiki/Software/systemd/">systemd</a></td>
+   <td>Manage enabled, disabled and masked systemd services</td>
+  </tr>
+  <tr>
    <td><a href="https://telegram.org">telegram</a></td>
    <td>Telegram desktop repo and package</td>
   </tr>

@@ -22,6 +22,21 @@ apt_repo_repositories:
 
 
 ###
+### Systemd services
+###
+systemd_enabled: []
+
+# https://github.com/Airblader/dotfiles-manjaro/blob/master/SETUP
+systemd_disabled:
+  - exim4.service
+  - ModemManager.services
+  - nfs-common.service
+  - rpcbind.service
+  - rpcbind.target
+  - binfmt-support.service
+
+
+###
 ### System Python versions
 ###
 python_2: yes
