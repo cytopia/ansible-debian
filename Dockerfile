@@ -77,8 +77,6 @@ RUN set -x \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag}"; \
 			echo "	apt list --installed > install1.txt"; \
 			echo "	# [install] 2nd run (only tag)"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system "; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-python "; \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag}"; \
 			echo "	apt list --installed > install2.txt"; \
 			echo "	# Validate"; \
