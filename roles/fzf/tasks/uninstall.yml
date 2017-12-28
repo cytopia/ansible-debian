@@ -1,8 +1,14 @@
 ---
 
+- name: check if fzf uninstall script exists
+  stat:
+    path: "{{ fzf_path }}/uninstall"
+  register: fzf_uninstall_path
+
 - name: ensure fzf configuration is removed
   command: "{{ fzf_path }}/uninstall"
   changed_when: False
+  when: fzf_uninstall_path.stat.exists
 
 - name: ensure fzf is removed
   file:
