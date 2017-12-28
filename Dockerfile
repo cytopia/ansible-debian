@@ -77,8 +77,8 @@ RUN set -x \
 		echo "if [ \"\${tag}\" != \"\" ]; then"; \
 			echo "	role=\"\$( echo \"\${tag}\" | sed 's/-/_/g' )\""; \
 			echo "	# [install] 1st run (only tag)"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system "; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-python "; \
+			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system"; \
+			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-python -e \"pip_packages=[]\""; \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag}"; \
 			echo "	apt list --installed > install1.txt"; \
 			echo "	# [install] 2nd run (only tag)"; \
@@ -86,9 +86,7 @@ RUN set -x \
 			echo "	apt list --installed > install2.txt"; \
 			echo "	# Validate"; \
 			echo "	diff install1.txt install2.txt"; \
-			echo "	# [uninstall] 1st run"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag} -e \${role}=remove"; \
-			echo "	# [uninstall] 2nd run"; \
+			echo "	# [uninstall]"; \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t \${tag} -e \${role}=remove"; \
 		echo; \
 		echo "else"; \
@@ -111,10 +109,10 @@ RUN set -x \
 			echo "		# [INSTALL] Default applications"; \
 			echo "		ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${verbose} --diff"; \
 			echo; \
+			# ---------- [3] Install in normal playbook order ----------
 			echo "	# In order"; \
 			echo "	else"; \
 			echo; \
-			# ---------- [3] Install in normal playbook order ----------
 			echo "		# [INSTALL] Normal playbook"; \
 			echo "		ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff"; \
 			echo "	fi"; \
@@ -132,10 +130,11 @@ RUN set -x \
 			echo "	# Validate"; \
 			echo "	diff install1.txt install2.txt"; \
 			echo; \
-			# ---------- Uninstallation ----------
+			# ---------- Uninstallation (twice) ----------
 			echo "	# [REMOVE] Pre-defined roles (randomized)"; \
 			for r in ${ROLES_REMOVE}; do \
 				del="$(echo $r | sed 's/-/_/g')=remove"; \
+				echo "	ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
 				echo "	ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
 			done; \
 			echo; \
