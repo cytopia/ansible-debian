@@ -112,7 +112,6 @@ apt_packages:
   - dbus
   - dbus-user-session
   - dbus-x11
-  - policykit-1
   # ---- dev ----
   - tig
   - exuberant-ctags
