@@ -4,6 +4,13 @@
 ### Bootstrap System
 ###
 - hosts: all
+  roles:
+    - apt-repo-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt-repo
+
+- hosts: all
   vars:
     apt_packages:
       - apt-utils
@@ -17,14 +24,6 @@
   tags:
     - bootstrap-system
     - bootstrap-system-apt
-
-- hosts: all
-  vars:
-  roles:
-    - apt-repo-meta
-  tags:
-    - bootstrap-system
-    - bootstrap-system-apt-repo
 
 
 ###
