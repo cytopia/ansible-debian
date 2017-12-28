@@ -6,3 +6,7 @@ python_3: yes
 
 # Array of additional pip packages to install
 pip_packages: []
+
+# Array of additional python[23] apt packaes
+python_2_apt_additional_packages: []
+python_3_apt_additional_packages: []

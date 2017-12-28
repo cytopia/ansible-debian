@@ -12,6 +12,7 @@
   vars:
     apt_packages:
       - "{{ python_2_apt_packages }}"
+      - "{{ python_2_apt_additional_packages }}"
   when: python_2
 
 - name: ensure python3 packages are installed
@@ -20,6 +21,7 @@
   vars:
     apt_packages:
       - "{{ python_3_apt_packages }}"
+      - "{{ python_3_apt_additional_packages }}"
   when: python_3
 
 - name: ensure python2 pip packages are installed
