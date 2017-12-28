@@ -16,7 +16,6 @@
       - apt-utils
       - ca-certificates
       - curl
-      - git
       - gnupg
       - software-properties-common
   roles:
