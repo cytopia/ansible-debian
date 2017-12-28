@@ -2,7 +2,10 @@
 
 network_manager_package_name: network-manager
 
-network_manager_additional_packages: []
+network_manager_additional_packages:
+  - iputils-arping
+  - isc-dhcp-client
+  - wpasupplicant
 #  - network-manager-config-connectivity-debian
 
 # Required for nm-applet for passwords to be stored in gnome keyring
