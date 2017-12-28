@@ -1,0 +1,13 @@
+---
+
+dbeaver_package_name: dbeaver-ce
+
+dbeaver_required_packages:
+  - openjdk-8-jre-headless
+
+dbeaver_deb: dbeaver-ce_latest_amd64.deb
+dbeaver_deb_path: "{{ lookup('env','HOME') }}/.cache/dbeaver/{{ dbeaver_deb }}"
+dbeaver_deb_url: "https://dbeaver.jkiss.org/files/{{ dbeaver_deb }}"
+
+# TODO: Are fonts required?
+# fonts-dejavu-extra, fonts-ipafont-gothic, fonts-ipafont-mincho, fonts-wqy-microhei, fonts-wqy-zenhei, fonts-indic

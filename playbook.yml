@@ -4,18 +4,25 @@
 ### Bootstrap System
 ###
 - hosts: all
+  roles:
+    - apt-repo-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt-repo
+
+- hosts: all
   vars:
     apt_packages:
-      - apt-transport-https
       - apt-utils
       - ca-certificates
       - curl
-      - git
       - gnupg
       - software-properties-common
   roles:
-    - apt-repo-meta
     - apt-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt
 
 
 ###
@@ -24,6 +31,8 @@
 - hosts: all
   roles:
     - python-meta
+  tags:
+    - bootstrap-python
 
 
 ###
@@ -38,6 +47,10 @@
   tags: clipmenu
 
 - hosts: all
+  roles: [dbeaver]
+  tags: dbeaver
+
+- hosts: all
   roles: [diff-highlight]
   tags: diff-highlight
 
@@ -50,6 +63,10 @@
   tags: docker-compose
 
 - hosts: all
+  roles: [firefox]
+  tags: firefox
+
+- hosts: all
   roles: [hipchat]
   tags: hipchat
 
@@ -58,7 +75,7 @@
   tags: fzf
 
 - hosts: all
-  roles: [i3-gaps]
+  roles: [i3-utils-bin]
   tags: i3-utils-bin
 
 - hosts: all
@@ -80,6 +97,10 @@
 - hosts: all
   roles: [neovim]
   tags: neovim
+
+- hosts: all
+  roles: [network-manager]
+  tags: network-manager
 
 - hosts: all
   roles: [packer]
@@ -118,6 +139,10 @@
   tags: timemachine
 
 - hosts: all
+  roles: [urxvt]
+  tags: urxvt
+
+- hosts: all
   roles: [xbacklight]
   tags: xbacklight
 
@@ -134,13 +159,37 @@
 ### Install fonts
 ###
 - hosts: all
-  roles:
-    - font-droid-sans-mono
-    - font-font-awesome
-    - font-san-francisco
-    - font-terminus
-    - font-ubuntu
+  roles: [font-droid-sans-mono]
   tags:
+    - font-droid-sans-mono
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-font-awesome]
+  tags:
+    - font-font-awesome
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-san-francisco]
+  tags:
+    - font-san-francisco
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-terminus]
+  tags:
+    - font-terminus
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-ubuntu]
+  tags:
+    - font-ubuntu
     - font
     - fonts
 
@@ -149,14 +198,18 @@
 ### Install themes/icons
 ###
 - hosts: all
-  roles:
-    - icon-moka
-    - theme-arc
+  roles: [icon-moka]
   tags:
-    - theme
-    - themes
+    - icon-moka
     - icon
     - icons
+
+- hosts: all
+  roles: [theme-arc]
+  tags:
+    - theme-arc
+    - theme
+    - themes
 
 
 ###
@@ -165,6 +218,8 @@
 - hosts: all
   roles:
     - apt-meta
+  tags:
+    - apt
 
 
 ###
@@ -177,3 +232,13 @@
     - xdg
     - xdg-open
     - xdg-mime
+
+
+###
+### Manager systemd services
+###
+- hosts: all
+  roles:
+    - systemd-meta
+  tags:
+    - systemd

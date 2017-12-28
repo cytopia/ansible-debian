@@ -12,13 +12,19 @@ debian_dist: stretch
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main"
   - file: debian-updates
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main"
   - file: debian-security
-    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main"
-  - file: debian-backports
-    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main"
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main"
+
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+systemd_disabled: []
 
 
 ###
@@ -26,7 +32,6 @@ apt_repo_repositories:
 ###
 python_2: yes
 python_3: yes
-python_default: 2
 
 
 ###
@@ -50,9 +55,11 @@ pip_packages: []
 
 chromium:              'install'
 clipmenu:              'install'
+dbeaver:               'install'
 diff_highlight:        'install'
 docker:                'install'
 docker_compose:        'install'
+firefox:               'install'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
@@ -67,6 +74,7 @@ i3blocks_modules:      'install'
 icon_moka:             'install'
 lxdm:                  'install'
 neovim:                'install'
+network_manager:       'install'
 packer:                'install'
 ranger:                'install'
 skype:                 'install'
@@ -77,6 +85,7 @@ theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
 timemachine:           'install'
+urxvt:                 'install'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -108,6 +117,17 @@ hipchat_repo_dist: "{{ debian_dist }}"
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
 lxdm_show_user_list: no
+
+# ---- NetworkManager ----
+network_manager_nm_applet: Yes
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2tp: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
 
 # ---- Skype ----
 # 'stable' or 'unstable'

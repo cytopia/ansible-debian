@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: firefox == 'install'
+
+- include_tasks: uninstall.yml
+  when: firefox == 'remove'

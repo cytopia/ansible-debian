@@ -1,0 +1,15 @@
+---
+
+# 'install', 'remove' or 'ignore'
+network_manager: 'ignore'
+
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2tp: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
+
+network_manager_nm_applet: Yes

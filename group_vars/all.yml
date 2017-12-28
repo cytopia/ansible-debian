@@ -5,11 +5,19 @@
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: deb http://ftp.de.debian.org/debian/ stretch main
+    repo: deb http://deb.debian.org/debian stretch main
   - file: debian-updates
-    repo: deb http://ftp.de.debian.org/debian/ stretch-updates main
+    repo: deb http://deb.debian.org/debian stretch-updates main
   - file: debian-security
-    repo: deb http://security.debian.org/debian-security stretch/updates main
+    repo: deb http://security.debian.org stretch/updates main
+
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+systemd_disabled: []
 
 
 ###
@@ -17,7 +25,6 @@ apt_repo_repositories:
 ###
 python_2: yes
 python_3: yes
-python_default: 2
 
 
 ###
@@ -41,9 +48,11 @@ pip_packages: []
 
 chromium:              'ignore'
 clipmenu:              'ignore'
+dbeaver:               'ignore'
 diff_highlight:        'ignore'
 docker:                'ignore'
 docker_compose:        'ignore'
+firefox:               'ignore'
 font_font_awesome:     'ignore'
 font_droid_sans_mono:  'ignore'
 font_san_francisco:    'ignore'
@@ -58,6 +67,7 @@ i3blocks_modules:      'ignore'
 icon_moka:             'ignore'
 lxdm:                  'ignore'
 neovim:                'ignore'
+network_manager:       'ignore'
 packer:                'ignore'
 ranger:                'ignore'
 skype:                 'ignore'
@@ -68,6 +78,7 @@ theme_arc:             'ignore'
 thunar:                'ignore'
 thunar_custom_actions: 'ignore'
 timemachine:           'ignore'
+urxvt:                 'ignore'
 xbacklight:            'ignore'
 xorg:                  'ignore'
 zathura:               'ignore'
@@ -99,6 +110,17 @@ hipchat_repo_dist: stretch
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
 lxdm_show_user_list: no
+
+# ---- NetworkManager ----
+network_manager_nm_applet: Yes
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2tp: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
 
 # ---- Skype ----
 # 'stable' or 'unstable'

@@ -25,10 +25,11 @@ xorg_additional_packages:
 # https://wiki.archlinux.org/index.php/Hardware_video_acceleration
 xorg_gpu_vaapi_packages:
   - i965-va-driver
-  #- libva-drm1 (provided automatically)
-  - libva-egl1
-  - libva-glx1
-  - libva-tpi1
+  - libva-dev
+  #- libva-drm[12] (provided automatically)
+  #- libva-egl1[12] (provided by libva-dev)
+  #- libva-glx1[12] (provided by libva-dev)
+  #- libva-tpi1[12] (provided by libva-dev)
   #- libva-x11-1 (provided automatically)
   - va-driver-all
   - vainfo
@@ -41,9 +42,9 @@ xorg_gpu_vaapi_tentative_packages:
 
 # VDPAU
 xorg_gpu_vdpau_packages:
-  #- libvdpau-va-gl1
-  #- libvdpau1
   - vdpau-driver-all
+  #- libvdpau-va-gl1 (provided by vdpau-driver-all)
+  #- libvdpau1
   #- vdpau-va-driver (provided by va-driver-all)
   - vdpauinfo
 

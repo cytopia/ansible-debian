@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: urxvt == 'install'
+
+- include_tasks: uninstall.yml
+  when: urxvt == 'remove'

@@ -1,0 +1,15 @@
+---
+
+- name: ensure urxvt is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ urxvt_package_name }}"
+
+- name: ensure urxvt extensions are removed
+  file:
+    state: absent
+    path: "{{ urxvt_extensions_path }}"
+  become: yes

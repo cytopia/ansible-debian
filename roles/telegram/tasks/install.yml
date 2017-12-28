@@ -29,6 +29,5 @@
     src: "{{ telegram_opt_path }}/Telegram/Telegram"
     dest: "{{ telegram_bin_path }}/Telegram"
     owner: root
-    group: root
   become: yes
 

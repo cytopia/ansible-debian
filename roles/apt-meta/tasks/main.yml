@@ -1,64 +1,24 @@
 ---
 
-#
-# Debian Stretch has a bug that some package installations via
-# apt-get will fail if python3 is used. To circumvent this
-# we are setting python2 as the default interpretor prior
-# installing any packages.
-# Afterwards the current version will be restored.
-#
 - name: ensure apt cache is up to date
   apt:
     force_apt_get: yes
     update_cache: yes
     cache_valid_time: 3600
   become: yes
-
-- name: ensure python2 is present
-  apt:
-    state: latest
-    name: python
-    force_apt_get: yes
-    update_cache: yes
-    cache_valid_time: 3600
-    install_recommends: no
-  become: yes
-  notify: clean apt
-
-- name: get default python version
-  shell: python --version 2>&1 | grep -Eo '[.0-9]+' | grep -Eo '^(2|3)'
-  register: apt_meta_python_version
-  changed_when: no
-  check_mode: no
-
-- name: ensure python2 is used to install dependencies
-  alternatives:
-    name: python
-    link: /usr/bin/python
-    path: /usr/bin/python2
-    priority: 1
-  become: yes
-  changed_when: no
-  when: apt_meta_python_version.stdout != 2
+  changed_when: False
+  check_mode: False
 
 - name: ensure apt packages are managed
   apt:
     state: "{{ apt_state }}"
     name: "{{ item }}"
+    autoclean: yes
+    autoremove: yes
     force_apt_get: yes
     update_cache: yes
     cache_valid_time: 3600
     install_recommends: no
   become: yes
   with_items: "{{ apt_packages }}"
-  notify: clean apt
-
-- name: ensure default python version is restored
-  alternatives:
-    name: python
-    link: /usr/bin/python
-    path: "/usr/bin/python{{ apt_meta_python_version.stdout }}"
-    priority: 1
-  become: yes
-  changed_when: no
-  when: apt_meta_python_version.stdout != 2
+  #notify: clean apt

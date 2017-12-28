@@ -1,0 +1,42 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - bzip2
+
+- name: ensure firefox directory exists
+  file:
+    path: "{{ firefox_path }}"
+    state: directory
+    mode: 0755
+  become: yes
+
+- name: ensure firefox is downloaded
+  unarchive:
+    src: "{{ firefox_url }}"
+    dest: "{{ firefox_path }}"
+    remote_src: yes
+    owner: root
+    group: root
+  become: yes
+
+- name: ensure firefox is symlinked to bin
+  file:
+    src: "{{ firefox_path }}/firefox/firefox"
+    dest: "{{ firefox_bin_path }}"
+    owner: root
+    group: root
+    state: link
+  become: yes
+
+- name: ensure firefox desktop application file is present
+  template:
+    src: templates/firefox-quantum.desktop.j2
+    dest: "{{ firefox_desktop_path }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes

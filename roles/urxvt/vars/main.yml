@@ -1,0 +1,13 @@
+---
+
+urxvt_package_name: rxvt-unicode-256color
+
+urxvt_additional_packages:
+  - xclip
+  - xsel
+
+urxvt_extensions_path: /usr/lib/urxvt/perl
+
+urxvt_extensions:
+  - https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size
+

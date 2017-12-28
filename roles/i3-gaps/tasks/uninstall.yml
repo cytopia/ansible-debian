@@ -1,8 +1,16 @@
 ---
 
-#- name: ensure i3-gaps is uninstalled
-#  command:
-#    make uninstall
+- name: check if i3-gaps build directory exists
+  stat:
+    path: "{{ i3_gaps_git_path }}/build"
+  register: i3_gaps_build_dir
+
+- name: ensure i3-gaps is uninstalled
+  command: make uninstall
+  args:
+    chdir: "{{ i3_gaps_git_path }}/build"
+  become: yes
+  when: i3_gaps_build_dir.stat.exists
 
 - name: ensure i3-gaps git directory is removed
   file:

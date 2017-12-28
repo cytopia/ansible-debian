@@ -12,7 +12,6 @@
     path: "{{ i3_gaps_git_path | dirname }}"
     state: directory
     mode: 0755
-  become: yes
 
 - name: fetch i3-gaps latest version
   shell: |
@@ -35,7 +34,6 @@
     recursive: yes
     update: yes
     depth: 1
-  become: yes
   notify:
     - autoreconf i3-gaps
     - configure i3-gaps

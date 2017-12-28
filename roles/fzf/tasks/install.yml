@@ -1,5 +1,12 @@
 ---
 
+- name: ensure fzf requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ fzf_shared_packages }}"
+
 - name: ensure ./local/share directory exists
   file:
     state: directory
@@ -15,13 +22,6 @@
     force: yes
     update: yes
     depth: 1
-
-- name: ensure fzf requirements are installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - "{{ fzf_shared_packages }}"
 
 - name: set fzf install command generate rc
   set_fact:

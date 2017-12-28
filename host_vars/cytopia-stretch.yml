@@ -12,13 +12,28 @@ debian_dist: stretch
 ###
 apt_repo_repositories:
   - file: debian-main
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }} main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   - file: debian-updates
-    repo: "deb http://ftp.de.debian.org/debian/ {{ debian_dist }}-updates main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   - file: debian-security
-    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}/updates main contrib non-free"
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
   - file: debian-backports
-    repo: "deb http://ftp.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
+
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+# https://github.com/Airblader/dotfiles-manjaro/blob/master/SETUP
+systemd_disabled:
+  - exim4.service
+  - ModemManager.services
+  - nfs-common.service
+  - rpcbind.service
+  - rpcbind.target
+  - binfmt-support.service
 
 
 ###
@@ -26,7 +41,6 @@ apt_repo_repositories:
 ###
 python_2: yes
 python_3: yes
-python_default: 2
 
 
 ###
@@ -71,20 +85,16 @@ apt_packages:
   # ---- audio ----
   - alsa-utils
   - alsa-oss
+  #- blueman
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
   # ---- chat ----
   - weechat
   # ---- terminal ----
-  - rxvt-unicode-256color
   - tmux
   # ---- network manager ----
-  - arping
-  - network-manager
-  - network-manager-gnome
-  - network-manager-openvpn
-  - network-manager-openvpn-gnome
+  #- arping
   # ---- codecs ----
   - x264
   - x265
@@ -104,7 +114,6 @@ apt_packages:
   - dbus
   - dbus-user-session
   - dbus-x11
-  - policykit-1
   # ---- dev ----
   - tig
   - exuberant-ctags
@@ -160,9 +169,11 @@ pip_packages:
 
 chromium:              'install'
 clipmenu:              'install'
+dbeaver:               'install'
 diff_highlight:        'install'
 docker:                'install'
 docker_compose:        'install'
+firefox:               'install'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
@@ -177,6 +188,7 @@ i3blocks_modules:      'install'
 icon_moka:             'install'
 lxdm:                  'install'
 neovim:                'install'
+network_manager:       'install'
 packer:                'install'
 ranger:                'install'
 skype:                 'install'
@@ -187,6 +199,7 @@ theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
 timemachine:           'install'
+urxvt:                 'install'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -218,6 +231,17 @@ hipchat_repo_dist: "{{ debian_dist }}"
 lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
+
+# ---- NetworkManager ----
+network_manager_nm_applet: Yes
+network_manager_plugin_openvpn: Yes
+network_manager_plugin_iodine: No
+network_manager_plugin_l2tp: No
+network_manager_plugin_openconnect: No
+network_manager_plugin_pptp: No
+network_manager_plugin_ssh: No
+network_manager_plugin_strongswan: No
+network_manager_plugin_vpnc: No
 
 # ---- Skype ----
 # 'stable' or 'unstable'

@@ -1,5 +1,21 @@
 ---
 
+- name: ensure required packages are installed
+  apt:
+    state: latest
+    name: "{{ item }}"
+    update_cache: yes
+    install_recommends: no
+  become: yes
+  with_items: "{{ apt_repo_packages }}"
+
+- name: ensure default sources.list is removed
+  file:
+    state: absent
+    path: /etc/apt/sources.list
+  become: yes
+  notify: update apt repository cache
+
 - name: ensure apt keys are managed
   apt_key:
     state: "{{ apt_repo_state }}"
