@@ -123,6 +123,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Awesome i3blocks modules</td>
   </tr>
   <tr>
+   <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
+   <td>LibreOffice 6 with MsOffice 2013 Icon theme</td>
+  </tr>
+  <tr>
    <td><a href="https://wiki.archlinux.org/index.php/LXDM">lxdm</a></td>
    <td>Leight-weight login manager</td>
   </tr>
