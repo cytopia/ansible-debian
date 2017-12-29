@@ -62,8 +62,7 @@ apt_packages:
   - firmware-linux
   - firmware-iwlwifi
   #- firmware-crystalhd (not available in debian buster)
-  # ---- i3-wm ----
-  - i3-wm
+  # ---- i3 ----
   - i3lock
   - i3blocks
   - xss-lock

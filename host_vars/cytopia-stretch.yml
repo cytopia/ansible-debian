@@ -64,8 +64,7 @@ apt_packages:
   - firmware-linux
   - firmware-iwlwifi
   - firmware-crystalhd
-  # ---- i3-wm ----
-  - i3-wm
+  # ---- i3 ----
   - i3lock
   - i3blocks
   - xss-lock
