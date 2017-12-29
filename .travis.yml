@@ -73,5 +73,5 @@ script:
             START=$((START+1));
         done;
     else
-        docker run --rm -e MY_HOST=${dist} -e random=${random} -t ansible-debian
+        docker run --rm -e MY_HOST=${dist} -e random=${random} -t ansible-debian;
     fi
