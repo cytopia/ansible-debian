@@ -45,108 +45,123 @@ python_3: yes
 ### Debian packages (add your custom packages here)
 ###
 apt_packages:
-  # ---- Fonts ----
-  - fonts-arphic-uming
+# ---- Base Utils ----
+  - dnsutils
+  - gnupg
+  - gnupg-agent
+  - htop
+  - iw
+  - keychain
+  - less
+  - lsb-release
+  - lsof
+  - man-db
+  - manpages
+  - moreutils
+  - net-tools
+  - pinentry-tty
+  - pwgen
+  - socat
+  - tmux
+  - traceroute
+  - tree
+  - wireless-tools
+# ---- Sec Tools (default) ----
+  - netcat
+  - netcat-openbsd
+  - nmap
+  - wireshark-gtk
+# ---- Sec Tools (wireless) ----
+  - aircrack-ng
+  - horst
+  - kismet
+  - kismet-plugins
+# ---- Theme tools ----
+  - lxappearance
+  - qt4-qtconfig
+# ---- Fonts ----
   - fonts-arphic-ukai
-  - fonts-ipafont-mincho
+  - fonts-arphic-uming
   - fonts-ipafont-gothic
+  - fonts-ipafont-mincho
+  - fonts-liberation
   - fonts-open-sans
   - fonts-opensymbol
   - fonts-symbola
-  #- ttf-mscorefonts-installer (use fonts-liberation instead)
-  - fonts-liberation
+  - ttf-mscorefonts-installer
   - ttf-wqy-zenhei
-  # ---- Firmwares ----
+# ---- Firmwares ----
   - intel-microcode
   - firmware-misc-nonfree
   - firmware-linux
   - firmware-iwlwifi
   #- firmware-crystalhd (not available in debian buster)
-  # ---- i3 ----
+# ---- Window Manager ----
+  - arandr
+  - compton
+  - dunst
+  - feh
   - i3lock
   - i3blocks
-  - xss-lock
-  - dunst
-  - rofi
-  - compton
-  - feh
-  - gnome-calculator
-  - iw
-  - wireless-tools
-  - keepassx
   - redshift
   - redshift-gtk
-  - arandr
-  - lxappearance
-  - qt4-qtconfig
-  # ---- audio ----
+  - rofi
+  - xss-lock
+# ---- Office / Productivity ----
+  - pinta
+  - gimp
+  #- gimp-dcraw (either dcraw or ufraw)
+  - gimp-ufraw
+  - gnome-calculator
+  - keepassx
+# ---- Video ----
+  - vlc
+  - vlc-plugin-notify
+  - vlc-plugin-samba
+  - x264
+  - x265
+# ---- Audio ----
   - alsa-utils
   - alsa-oss
-  #- blueman
+  - blueman
+  - pavucontrol
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
-  # ---- chat ----
-  - weechat
-  # ---- terminal ----
-  - tmux
-  # ---- network manager ----
-  #- arping
-  # ---- codecs ----
-  - x264
-  - x265
-  # ---- network utils ----
-  - dnsutils
+# ---- Network clients ----
   - jxplorer
   - mariadb-client
-  - net-tools
-  - netcat
-  - netcat-openbsd
   - openssh-client
   - redis-tools
-  - socat
+  - remmina
+  - remmina-plugin-nx
+  - remmina-plugin-rdp
+  - remmina-plugin-vnc
+  - remmina-plugin-xdmcp
   - swaks
-  - traceroute
-  # ---- dbus ----
-  - dbus
-  - dbus-user-session
-  - dbus-x11
-  # ---- dev ----
-  - tig
+# ---- Development ----
+  - ack
+  - ack-grep
+  - binutils
+  - devscripts
+  - dos2unix
   - exuberant-ctags
-  - shellcheck
+  - pep8
+  - php-cli
   - pylint
   - pylint3
   - python-pep8
   - python3-pep8
-  - yamllint
-  - devscripts
-  - pep8
-  - ack
-  - ack-grep
+  - shellcheck
   - silversearcher-ag
-  - dos2unix
-  - binutils
-  - php-cli
-  # ---- misc ----
-  - manpages
-  - man-db
-  - ffmpeg
-  - gawk
-  - htop
-  - tree
-  - gnupg
-  - gnupg-agent
-  - keychain
-  - pinentry-tty
-  - bzip2
-  - zip
-  - unzip
-  - lsof
-  - less
-  - lsb-release
-  - rsync
-  - moreutils
+  - tig
+  - yamllint
+# ---- chat ----
+  #- weechat
+# ---- dbus ----
+  #- dbus
+  #- dbus-user-session
+  #- dbus-x11
 
 
 ###
@@ -224,6 +239,9 @@ fzf_key_bindings: No
 # ---- HipChat ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 hipchat_repo_dist: "{{ debian_dist }}"
+
+# ---- LibreOffice ----
+libreoffice_dpi: 120
 
 # ---- LXDM ----
 lxdm_dpi: 132
