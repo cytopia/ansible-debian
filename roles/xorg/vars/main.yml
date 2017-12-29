@@ -12,6 +12,7 @@ xorg_required_packages:
 
 xorg_additional_packages:
   - fontconfig
+  - x11-xserver-utils
   - xbindkeys
   - xbindkeys-config
   - xclip
