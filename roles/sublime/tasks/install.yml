@@ -15,3 +15,14 @@
   vars:
     apt_packages:
       - sublime-text
+
+- name: ensure sublime package directory exists
+  file:
+    path: "{{ sublime_package_path }}"
+    state: directory
+    mode: 0700
+
+- name: ensure sublime package control is installed
+  get_url:
+    url: "https://packagecontrol.io/Package%20Control.sublime-package"
+    dest: "{{ sublime_package_path }}/Package Control.sublime-package"

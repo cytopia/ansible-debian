@@ -91,6 +91,10 @@
   tags: i3blocks-modules
 
 - hosts: all
+  roles: [libreoffice]
+  tags: libreoffice
+
+- hosts: all
   roles: [lxdm]
   tags: lxdm
 

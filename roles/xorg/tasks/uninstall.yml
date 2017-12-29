@@ -10,25 +10,7 @@
       - "{{ xorg_required_packages }}"
       - xserver-xorg-input-libinput
       - xserver-xorg-input-synaptics
-
-- name: ensure xorg gpu drivers are removed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_state: absent
-    apt_packages:
       - "xserver-xorg-video-{{ xorg_gpu }}"
-
-- name: ensure xorg gpu additional packages are removed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_state: absent
-    apt_packages:
-      - "{{ xorg_gpu_vaapi_packages }}"
-      - "{{ xorg_gpu_vdpau_packages }}"
-      - "{{ xorg_gpu_vulkan_packages }}"
-      - "{{ xorg_gpu_mesa_packages }}"
 
 - name: ensure xorg configuration files are removed
   file:

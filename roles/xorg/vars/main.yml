@@ -12,6 +12,7 @@ xorg_required_packages:
 
 xorg_additional_packages:
   - fontconfig
+  - x11-xserver-utils
   - xbindkeys
   - xbindkeys-config
   - xclip
@@ -59,6 +60,12 @@ xorg_gpu_mesa_packages:
   #- mesa-va-drivers (provided by va-driver-all)
   #- mesa-vdpau-drivers (provided by vdpau-driver-all)
   - mesa-vulkan-drivers
+  - libgl1-mesa-dri
+  - libgl1-mesa-glx
+  #- libglx0
+
+  # TODO: mesa-glx
+  # libglx-mesa0
 
 
 ###

@@ -86,26 +86,38 @@ RUN set -x \
 			echo "	# Random"; \
 			echo "	if [ \"\${random}\" = \"1\" ]; then"; \
 			echo "		# [INSTALL] Bootstrap roles"; \
-			echo "		ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${verbose} --diff"; \
-			echo "		ansible-playbook -i inventory playbook.yml -t bootstrap-python --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		if ! ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "			 ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		fi"; \
+			echo "		if ! ansible-playbook -i inventory playbook.yml -t bootstrap-python --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "			 ansible-playbook -i inventory playbook.yml -t bootstrap-python --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		fi"; \
 			echo; \
 			echo "		# [INSTALL] Pre-defined roles (randomized)"; \
 			for r in ${ROLES_INSTALL}; do \
-				echo "		ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} --diff"; \
+				echo "		if ! ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} --diff; then"; \
+				echo "			 ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} --diff"; \
+				echo "		fi"; \
 			done; \
 			echo; \
 			echo "		# [INSTALL] Custom apt packages"; \
-			echo "		ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		if ! ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "			 ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		fi"; \
 			echo; \
 			echo "		# [INSTALL] Default applications"; \
-			echo "		ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		if ! ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "			 ansible-playbook -i inventory playbook.yml -t xdg --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		fi"; \
 			echo; \
 			# ---------- [3] Install in normal playbook order ----------
 			echo "	# In order"; \
 			echo "	else"; \
 			echo; \
 			echo "		# [INSTALL] Normal playbook"; \
-			echo "		ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		if ! ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "			 ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "		fi"; \
 			echo "	fi"; \
 			echo; \
 			echo "	apt list --installed > install1.txt"; \
@@ -113,7 +125,9 @@ RUN set -x \
 			\
 			# ---------- Installation (full 2nd round) ----------
 			echo "	# Full install 2nd round"; \
-			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "	if ! ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff; then"; \
+			echo "		 ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff"; \
+			echo "	fi"; \
 			echo; \
 			echo "	apt list --installed > install2.txt"; \
 			echo; \
@@ -125,12 +139,18 @@ RUN set -x \
 			echo "	# [REMOVE] Pre-defined roles (randomized)"; \
 			for r in ${ROLES_REMOVE}; do \
 				del="$(echo $r | sed 's/-/_/g')=remove"; \
-				echo "	ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
-				echo "	ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
+				echo "	if ! ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff; then"; \
+				echo "		 ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
+				echo "	fi"; \
+				echo "	if ! ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff; then"; \
+				echo "		 ansible-playbook -i inventory playbook.yml -t ${r} --limit \${MY_HOST} \${verbose} -e ${del} --diff"; \
+				echo "	fi"; \
 			done; \
 			echo; \
 			echo "	# [REMOVE] Custom apt packages"; \
-			echo "	ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} -e apt_state=absent --diff"; \
+			echo "	if ! ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} -e apt_state=absent --diff; then"; \
+			echo "		 ansible-playbook -i inventory playbook.yml -t apt --limit \${MY_HOST} \${verbose} -e apt_state=absent --diff"; \
+			echo "	fi"; \
 		echo "fi"; \
 		\
 	) > run-tests.sh \
