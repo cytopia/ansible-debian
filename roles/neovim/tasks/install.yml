@@ -12,5 +12,5 @@
   include_role:
     name: python-meta
   vars:
-    python_pip_packages:
-      - neovim
+    pip2_packages: "{{ neovim_pip2_packages }}"
+    pip3_packages: "{{ neovim_pip3_packages }}"

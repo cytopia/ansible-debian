@@ -44,6 +44,16 @@ python_3: yes
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages:
+  - awscli
+  - aws-adfs
+
+pip3_packages: []
+
+
+###
 ### Debian packages (add your custom packages here)
 ###
 apt_packages:

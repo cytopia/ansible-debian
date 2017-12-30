@@ -2,8 +2,14 @@
 
 neovim_package_name: neovim
 
+# Required packages:
+# https://neovim.io/doc/user/provider.html
+
 neovim_packages:
   - xsel
 
-neovim_pip_packages:
+neovim_pip2_packages:
+  - neovim
+
+neovim_pip3_packages:
   - neovim

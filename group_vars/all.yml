@@ -28,15 +28,16 @@ python_3: yes
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+pip3_packages: []
+
+
+###
 ### Debian packages (add your custom packages here)
 ###
 apt_packages: []
-
-
-###
-### Python pip packages (add your custom packages here)
-###
-pip_packages: []
 
 
 ###

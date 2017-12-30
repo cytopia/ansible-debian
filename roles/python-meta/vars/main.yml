@@ -1,14 +1,17 @@
 ---
 
-python_2_apt_packages:
+python_2_required_apt_packages:
   - python
   - python-pip
   - python-setuptools
 
-python_3_apt_packages:
+python_3_required_apt_packages:
   - python3
   - python3-pip
   - python3-setuptools
 
-python_pip_packages:
+python_2_required_pip_packages:
+  - wheel
+
+python_3_required_pip_packages:
   - wheel
