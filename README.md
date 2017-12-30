@@ -128,7 +128,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   </tr>
   <tr>
    <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
-   <td>LibreOffice 6 with MsOffice 2013 Icon theme</td>
+   <td>LibreOffice 6 with [MsOffice 2013 Icon theme](http://www.deviantart.com/art/Office-2013-theme-for-LibreOffice-512127527)</td>
   </tr>
   <tr>
    <td><a href="https://wiki.archlinux.org/index.php/LXDM">lxdm</a></td>
