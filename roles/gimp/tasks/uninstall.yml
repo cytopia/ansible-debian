@@ -1,0 +1,15 @@
+---
+
+- name: ensure hipchat is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ gimp_package_name }}"
+      - "{{ gimp_additional_packages }}"
+
+- name: ensure gimp configuration directory is removed
+  file:
+    state: absent
+    path: "{{ gimp_config_dir }}"

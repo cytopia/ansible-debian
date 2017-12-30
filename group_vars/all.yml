@@ -28,15 +28,16 @@ python_3: yes
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+pip3_packages: []
+
+
+###
 ### Debian packages (add your custom packages here)
 ###
 apt_packages: []
-
-
-###
-### Python pip packages (add your custom packages here)
-###
-pip_packages: []
 
 
 ###
@@ -59,6 +60,7 @@ font_san_francisco:    'ignore'
 font_terminus:         'ignore'
 font_ubuntu:           'ignore'
 fzf:                   'ignore'
+gimp:                  'ignore'
 hipchat:               'ignore'
 i3_gaps:               'ignore'
 i3_utils_bin:          'ignore'
@@ -80,6 +82,7 @@ thunar:                'ignore'
 thunar_custom_actions: 'ignore'
 timemachine:           'ignore'
 urxvt:                 'ignore'
+virtualbox:            'ignore'
 xbacklight:            'ignore'
 xorg:                  'ignore'
 zathura:               'ignore'
@@ -88,6 +91,12 @@ zathura:               'ignore'
 ###
 ### Settings for packages
 ###
+
+# ---- Chromium ----
+# Only works for extensions from web store
+chromium_extensions: []
+# - dbepggeogbaibhgnhhndojpepiihcmeb
+# - pgdnlhfefecpicbbihgmbmffkjpaplco
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
@@ -138,6 +147,10 @@ sxiv_default_image_viewer: yes
 # ---- Thunar ----
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
+
+# ---- VirtualBox ----
+# 'stretch', 'jessie', 'wheezy'
+virtualbox_repo_dist: stretch
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'

@@ -88,6 +88,10 @@
     state: absent
   when: libreoffice_installed.rc == 1
 
+
+###
+### Basic config/theming
+###
 - name: ensure office2016 icon pack is copied
   copy:
     src: "files/{{ libreoffice_icon_name }}"
@@ -110,3 +114,25 @@
     dest: "{{ libreoffice_config_path }}/registrymodifications.xcu"
     mode: 0600
   when: libreoffice_installed.rc == 1
+
+
+###
+### HDPI Wrapper
+###
+
+- name: ensure dpi wrapper requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ libreoffice_required_packages }}"
+
+      #- name: ensure libreoffice wrapper is present
+      #  template:
+      #    src: templates/libreoffice6.0.j2
+      #    dest: "{{ libreoffice_bin_path }}"
+      #    owner: root
+      #    group: root
+      #    mode: 0755
+      #  become: yes
+      #

@@ -75,6 +75,10 @@
   tags: fzf
 
 - hosts: all
+  roles: [gimp]
+  tags: gimp
+
+- hosts: all
   roles: [i3-utils-bin]
   tags: i3-utils-bin
 
@@ -145,6 +149,10 @@
 - hosts: all
   roles: [urxvt]
   tags: urxvt
+
+- hosts: all
+  roles: [virtualbox]
+  tags: virtualbox
 
 - hosts: all
   roles: [xbacklight]

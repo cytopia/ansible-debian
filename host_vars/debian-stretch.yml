@@ -35,15 +35,16 @@ python_3: yes
 
 
 ###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+pip3_packages: []
+
+
+###
 ### Debian packages (add your custom packages here)
 ###
 apt_packages: []
-
-
-###
-### Python pip packages (add your custom packages here)
-###
-pip_packages: []
 
 
 ###
@@ -66,6 +67,7 @@ font_san_francisco:    'install'
 font_terminus:         'install'
 font_ubuntu:           'install'
 fzf:                   'install'
+gimp:                  'install'
 hipchat:               'install'
 i3_gaps:               'install'
 i3_utils_bin:          'install'
@@ -87,6 +89,7 @@ thunar:                'install'
 thunar_custom_actions: 'install'
 timemachine:           'install'
 urxvt:                 'install'
+virtualbox:            'install'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -95,6 +98,12 @@ zathura:               'install'
 ###
 ### Settings for packages
 ###
+
+# ---- Chromium ----
+# Only works for extensions from web store
+chromium_extensions: []
+# - dbepggeogbaibhgnhhndojpepiihcmeb
+# - pgdnlhfefecpicbbihgmbmffkjpaplco
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
@@ -145,6 +154,10 @@ sxiv_default_image_viewer: yes
 # ---- Thunar ----
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
+
+# ---- VirtualBox ----
+# 'stretch', 'jessie', 'wheezy'
+virtualbox_repo_dist: stretch
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'

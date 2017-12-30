@@ -1,6 +1,6 @@
 # Ansible Debian (buildfiles)
 
-**[TL;DR](#tldr)** | **[Features](#features)** | **[Create custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[License](#license)**
+**[TL;DR](#tldr)** | **[Features](#features)** | **[Custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[Other OS](#other-os)** | **[License](#license)**
 
 [![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
 <img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
@@ -36,7 +36,8 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     1. [Install system requirements](#install-system-requirements)
     2. [Sudo permissions](#sudo-permissions)
 7. **[Stability](#stability)**
-8. **[License](#license)**
+8. **[Other OS](#other-os)**
+9. **[License](#license)**
 
 
 ## TL;DR
@@ -72,7 +73,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
  <tbody>
   <tr>
    <td><a href="https://www.chromium.org/Home">chromium</a></td>
-   <td>Chromium from standard Debian repository and additional packages to make sure it has everything it requires to run smoothly</td>
+   <td>Sets up Chromium, additional packages as well as specified extensions from Chrome webstore</td>
   </tr>
   <tr>
    <td><a href="https://github.com/cdown/clipmenu">clipmenu</a></td>
@@ -103,6 +104,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Command line fuzzy finder</td>
   </tr>
   <tr>
+   <td><a href="https://www.gimp.org">gimp</a></td>
+   <td>Gimp with <a href="https://github.com/draekko/gimp-cc-themes">Photoshop theme and keybindings</a></td>
+  </tr>
+  <tr>
    <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
    <td>HipChat repo and package</td>
   </tr>
@@ -124,7 +129,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   </tr>
   <tr>
    <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
-   <td>LibreOffice 6 with MsOffice 2013 Icon theme</td>
+   <td>LibreOffice 6 with <a href="http://www.deviantart.com/art/Office-2013-theme-for-LibreOffice-512127527">MsOffice 2013 Icon theme</a></td>
   </tr>
   <tr>
    <td><a href="https://wiki.archlinux.org/index.php/LXDM">lxdm</a></td>
@@ -182,6 +187,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   <tr>
    <td><a href="http://rxvt.sourceforge.net">urxvt</a></td>
    <td>Small, fast and leight-weight 256 color unicode terminal emulator</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.virtualbox.org">virtualbox</a></td>
+   <td>VirtualBox upstream repository and packages</td>
   </tr>
   <tr>
    <td><a href="https://github.com/wavexx/acpilight">xbacklight</a></td>
@@ -431,6 +440,13 @@ In order to guarantee the most possible stability of this setup, extensive [trav
 * Each run is done randomized and in order as well as for each role separately
 * Each run is done for Debian stable and Debian testing
 * Each run is done against all defined profiles (repositories: main vs main, extra and non-free)
+
+
+## Other OS
+
+If you are running a different OS and still want to provision your system with Ansible, have a look at the following projects:
+
+* **[ansible-ubuntu](https://github.com/Benoth/ansible-ubuntu)**
 
 
 ## License

@@ -4,9 +4,10 @@
 python_2: yes
 python_3: yes
 
-# Array of additional pip packages to install
-pip_packages: []
+# Array of user-defined python[23] apt packaes
+python2_apt_packages: []
+python3_apt_packages: []
 
-# Array of additional python[23] apt packaes
-python_2_apt_additional_packages: []
-python_3_apt_additional_packages: []
+# Array of user-defined pip[23] packages
+pip2_packages: []
+pip3_packages: []
