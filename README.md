@@ -104,7 +104,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   </tr>
   <tr>
    <td><a href="https://www.gimp.org">gimp</a></td>
-   <td>Gimp with [Photoshop theme and keybindings](https://github.com/draekko/gimp-cc-themes)</td>
+   <td>Gimp with <a href="https://github.com/draekko/gimp-cc-themes">Photoshop theme and keybindings</a></td>
   </tr>
   <tr>
    <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
@@ -128,7 +128,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   </tr>
   <tr>
    <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
-   <td>LibreOffice 6 with [MsOffice 2013 Icon theme](http://www.deviantart.com/art/Office-2013-theme-for-LibreOffice-512127527)</td>
+   <td>LibreOffice 6 with <a href="http://www.deviantart.com/art/Office-2013-theme-for-LibreOffice-512127527">MsOffice 2013 Icon theme</a></td>
   </tr>
   <tr>
    <td><a href="https://wiki.archlinux.org/index.php/LXDM">lxdm</a></td>
