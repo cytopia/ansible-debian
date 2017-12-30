@@ -1,0 +1,13 @@
+---
+
+- name: assert that virtualbox repository distribution is set correctly
+  assert:
+    that:
+      - virtualbox_repo_dist in virtualbox_avail_repo_dists
+    msg: "virtualbox_repo_dist must be in {{ virtualbox_avail_repo_dists | join(',') }}"
+
+- include_tasks: install.yml
+  when: virtualbox == 'install'
+
+- include_tasks: uninstall.yml
+  when: virtualbox == 'remove'

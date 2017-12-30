@@ -184,6 +184,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Small, fast and leight-weight 256 color unicode terminal emulator</td>
   </tr>
   <tr>
+   <td><a href="https://www.virtualbox.org">virtualbox</a></td>
+   <td>VirtualBox upstream repository and packages</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/wavexx/acpilight">xbacklight</a></td>
    <td>Modern cross-GPU xbacklight replacement</td>
   </tr>

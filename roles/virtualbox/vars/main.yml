@@ -1,0 +1,20 @@
+---
+
+virtualbox_package_name: virtualbox-5.2
+
+virtualbox_additional_packages:
+  - dkms
+
+virtualbox_apt_repo:
+  file: virtualbox
+  repo: "deb http://download.virtualbox.org/virtualbox/debian {{ virtualbox_repo_dist }} contrib"
+
+# ID: curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --list-packets
+virtualbox_apt_key:
+  url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+  id: A2F683C52980AECF
+
+virtualbox_avail_repo_dists:
+  - wheezy
+  - jessie
+  - stretch

@@ -1,0 +1,8 @@
+---
+
+# 'install', 'remove' or 'ignore'
+virtualbox: 'ignore'
+
+# 'stretch', 'jessie', 'wheezy'
+# see vars/main.yml: virtualbox_avail_repo_dists
+virtualbox_repo_dist: stretch

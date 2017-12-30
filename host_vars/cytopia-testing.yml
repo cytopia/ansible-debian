@@ -223,6 +223,7 @@ thunar:                'install'
 thunar_custom_actions: 'install'
 timemachine:           'install'
 urxvt:                 'install'
+virtualbox:            'install'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -298,6 +299,10 @@ sxiv_default_image_viewer: yes
 # ---- Thunar ----
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
+
+# ---- VirtualBox ----
+# 'stretch', 'jessie', 'wheezy'
+virtualbox_repo_dist: stretch
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'

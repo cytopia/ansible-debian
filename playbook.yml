@@ -147,6 +147,10 @@
   tags: urxvt
 
 - hosts: all
+  roles: [virtualbox]
+  tags: virtualbox
+
+- hosts: all
   roles: [xbacklight]
   tags: xbacklight
 
