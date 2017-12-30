@@ -10,7 +10,7 @@
     - mkdir -p build
 
 - name: configure i3-gaps
-  command: ../configure --disable-sanitizers
+  command: ../configure --prefix=/usr --disable-sanitizers
   args:
     chdir: "{{ i3_gaps_git_path }}/build"
 
