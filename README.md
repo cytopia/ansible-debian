@@ -1,6 +1,6 @@
 # Ansible Debian (buildfiles)
 
-**[TL;DR](#tldr)** | **[Features](#features)** | **[Create custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[License](#license)**
+**[TL;DR](#tldr)** | **[Features](#features)** | **[Custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[Other OS](#other-os)** | **[License](#license)**
 
 [![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
 <img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
@@ -36,7 +36,8 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     1. [Install system requirements](#install-system-requirements)
     2. [Sudo permissions](#sudo-permissions)
 7. **[Stability](#stability)**
-8. **[License](#license)**
+8. **[Other OS](#other-os)**
+9. **[License](#license)**
 
 
 ## TL;DR
@@ -439,6 +440,13 @@ In order to guarantee the most possible stability of this setup, extensive [trav
 * Each run is done randomized and in order as well as for each role separately
 * Each run is done for Debian stable and Debian testing
 * Each run is done against all defined profiles (repositories: main vs main, extra and non-free)
+
+
+## Other OS
+
+If you are running a different OS and still want to provision your system with Ansible, have a look at the following projects:
+
+* **[ansible-ubuntu](https://github.com/Benoth/ansible-ubuntu)**
 
 
 ## License
