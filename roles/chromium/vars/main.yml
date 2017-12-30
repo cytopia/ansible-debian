@@ -6,3 +6,5 @@ chromium_packages:
   - upower
   - opus-tools
   - speex
+
+chromium_extensions_dir: /usr/share/chromium/extensions

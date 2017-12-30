@@ -72,7 +72,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
  <tbody>
   <tr>
    <td><a href="https://www.chromium.org/Home">chromium</a></td>
-   <td>Chromium from standard Debian repository and additional packages to make sure it has everything it requires to run smoothly</td>
+   <td>Sets up Chromium, additional packages as well as specified extensions from Chrome webstore</td>
   </tr>
   <tr>
    <td><a href="https://github.com/cdown/clipmenu">clipmenu</a></td>

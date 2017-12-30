@@ -2,3 +2,8 @@
 
 # 'install', 'remove' or 'ignore'
 chromium: 'ignore'
+
+# Only works for extensions from web store
+chromium_extensions: []
+# - dbepggeogbaibhgnhhndojpepiihcmeb
+# - pgdnlhfefecpicbbihgmbmffkjpaplco

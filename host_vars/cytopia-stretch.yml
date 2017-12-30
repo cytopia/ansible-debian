@@ -224,6 +224,20 @@ zathura:               'install'
 ### Settings for packages
 ###
 
+# ---- Chromium ----
+# Only works for extensions from web store
+chromium_extensions:
+  # vimium
+  - dbepggeogbaibhgnhhndojpepiihcmeb
+  # uBlock Origin
+  - cjpalhdlnbpafiamejdnhcphjbkeiagm
+  # uBlock Origin Extra
+  - pgdnlhfefecpicbbihgmbmffkjpaplco
+  # PrivacyBadger
+  - pkehgijcmpdhfbdbbnkijodmdjhbjlgp
+  # Github Flavored Markdown
+  - faelggnmhofdamhdegcdhhemfokkfngk
+
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 docker_repo_dist: "{{ debian_dist }}"

@@ -89,6 +89,12 @@ zathura:               'ignore'
 ### Settings for packages
 ###
 
+# ---- Chromium ----
+# Only works for extensions from web store
+chromium_extensions: []
+# - dbepggeogbaibhgnhhndojpepiihcmeb
+# - pgdnlhfefecpicbbihgmbmffkjpaplco
+
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 docker_repo_dist: stretch
