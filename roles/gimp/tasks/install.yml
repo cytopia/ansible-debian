@@ -1,0 +1,45 @@
+---
+
+- name: check if gimp is already installed
+  command: "dpkg-query -s {{ gimp_package_name }}"
+  register: gimp_installed
+  check_mode: no
+  failed_when: gimp_installed.rc > 1
+  changed_when: gimp_installed.rc == 1
+
+- name: ensure gimp is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ gimp_package_name }}"
+      - "{{ gimp_additional_packages }}"
+
+- name: ensure gimp configuration directories exist
+  file:
+    state: directory
+    path: "{{ item }}"
+    mode: 0755
+  with_items:
+    - "{{ gimp_config_dir }}"
+    - "{{ gimp_theme_dir }}"
+
+- name: ensure initial configurations are applied
+  copy:
+    src: "files/{{ item.name }}"
+    dest: "{{ gimp_config_dir }}/{{ item.name }}"
+    mode: "{{ item.mode }}"
+  when: gimp_installed.rc == 1
+  with_items:
+    - { mode: '0600', name: gimprc }
+    - { mode: '0644', name: gtkrc }
+    - { mode: '0644', name: menurc }
+    - { mode: '0600', name: sessionrc }
+    - { mode: '0600', name: toolrc }
+
+- name: ensure gimp photoshop theme is downloaded
+  unarchive:
+    src: "{{ gimp_theme_url }}"
+    dest: "{{ gimp_theme_dir }}"
+    remote_src: yes
+    #mode: 0755

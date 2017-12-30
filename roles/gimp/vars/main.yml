@@ -1,0 +1,12 @@
+---
+
+gimp_package_name: gimp
+
+gimp_additional_packages:
+  #- gimp-dcraw (either dcraw or ufraw)
+  - gimp-ufraw
+
+gimp_theme_url: https://github.com/cytopia-forked/gimp-cc-themes/releases/download/v2/Gimp-CC-Theme-Darker.tar.gz
+
+gimp_config_dir: "{{ lookup('env','HOME') }}/.gimp-2.8"
+gimp_theme_dir: "{{ gimp_config_dir }}//themes"

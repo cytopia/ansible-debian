@@ -103,6 +103,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Command line fuzzy finder</td>
   </tr>
   <tr>
+   <td><a href="https://www.gimp.org">gimp</a></td>
+   <td>Gimp with [Photoshop theme and keybindings](https://github.com/draekko/gimp-cc-themes)</td>
+  </tr>
+  <tr>
    <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
    <td>HipChat repo and package</td>
   </tr>

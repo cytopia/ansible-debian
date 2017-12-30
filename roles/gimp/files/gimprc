@@ -1,0 +1,25 @@
+# GIMP gimprc
+# 
+# This is your personal gimprc file.  Any variable defined in this file takes
+# precedence over the value defined in the system-wide gimprc:
+# /etc/gimp/2.0/gimprc
+# Most values can be set within GIMP by changing some options in the
+# Preferences dialog.
+
+(default-image
+    (width 1920)
+    (height 1080)
+    (unit pixels)
+    (xresolution 72.000000)
+    (yresolution 72.000000)
+    (resolution-unit inches)
+    (image-type rgb)
+    (fill-type background-fill)
+    (comment ""))
+(monitor-xresolution 132.000000)
+(monitor-yresolution 132.000000)
+(save-tool-options yes)
+(theme "Gimp-CC-Theme-Darker")
+
+
+# end of gimprc

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: gimp == 'install'
+
+- include_tasks: uninstall.yml
+  when: gimp == 'remove'

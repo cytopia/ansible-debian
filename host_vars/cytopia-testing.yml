@@ -119,9 +119,6 @@ apt_packages:
   - xss-lock
 # ---- Office / Productivity ----
   #- pinta (Pinta is currently not available on testing)
-  - gimp
-  #- gimp-dcraw (either dcraw or ufraw)
-  - gimp-ufraw
   - gnome-calculator
   - keepassx
 # ---- Video ----
@@ -202,6 +199,7 @@ font_san_francisco:    'install'
 font_terminus:         'install'
 font_ubuntu:           'install'
 fzf:                   'install'
+gimp:                  'install'
 hipchat:               'install'
 i3_gaps:               'install'
 i3_utils_bin:          'install'
