@@ -108,7 +108,7 @@ apt_packages:
   - rofi
   - xss-lock
 # ---- Office / Productivity ----
-  - pinta
+  #- pinta (Pinta is currently not available on testing)
   - gimp
   #- gimp-dcraw (either dcraw or ufraw)
   - gimp-ufraw
