@@ -28,7 +28,8 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     4. [Customize your profile](#customize-your-profile)
     5. [Provision your profile](#provision-your-profile)
 4. **[Test your profile](#test-your-profile)**
-    1. [Testing inside Docker](#testing-inside-docker)
+    1. [Build the Docker image](#build-the-docker-image)
+    1. [Run the Docker container](#run-the-docker-container)
 5. **[Options](#options)**
     1. [Enable / Disable Management](#enable--disable-management)
     2. [Package options](#package-options)
@@ -54,6 +55,10 @@ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-b
 ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass --check
 ```
 
+##### Provision only a specific role
+```
+ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass -t i3-gaps
+```
 
 
 ## Features
@@ -316,19 +321,35 @@ $ ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-
 
 
 ## Test your profile
-Before actually running any new profile on your own system, you can and you should test that beforehand in a **Docker container** in order to see if everything works as expected.
+Before actually running any new profile on your own system, you can and you should test that beforehand in a **Docker container** in order to see if everything works as expected. This might also be very handy in case you are creating a new role and want to see if it works.
 
-#### Testing inside Docker
-
-First build the Docker image:
+#### Build the Docker image
 ```
 docker build -t ansible-debian .
 ```
-Then you can run your profile inside a Docker container.
-```
-docker run --rm -e MY_HOST=dell-xps-i3wm -t ansible-debian
-```
+#### Run the Docker container
 
+Before running you should be aware of a few environment variables that can change the bevaviour of the test run. See the table below:
+
+| Variable  | Required | Description |
+|-----------|----------|-------------|
+| `MY_HOST` | yes      | The inventory hostname (your profile) |
+| `verbose` | no       | Ansible verbosity. Valid values: `0`, `1`, `2` or `3` |
+| `tag`     | no       | Only run this specific tag (role name) |
+| `random`  | no       | When running everything, do it in a random order. Valid values: `0` or `1` |
+
+Run a full test of profile `debian-testing`:
+```
+docker run --rm -e MY_HOST=debian-testing -t ansible-debian
+```
+Run a full test of profile `debian-testing` in a random order:
+```
+docker run --rm -e MY_HOST=debian-testing -e random=1 -t ansible-debian
+```
+Only runt `i3-gaps` role in profile `debian-stretch`
+```
+docker run --rm -e MY_HOST=debian-stretch -e tag=i3-gaps -t ansible-debian
+```
 
 
 ## Options
