@@ -132,7 +132,6 @@ apt_packages:
   - rofi
   - xss-lock
 # ---- Office / Productivity ----
-  - pinta
   - gnome-calculator
   - keepassx
 # ---- Video ----
@@ -225,6 +224,7 @@ lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'
 packer:                'install'
+pinta:                 'install'
 ranger:                'install'
 skype:                 'install'
 sublime:               'install'

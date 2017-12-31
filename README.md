@@ -154,6 +154,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>HashiCorp's packer to build automated machines</td>
   </tr>
   <tr>
+   <td><a href="https://pinta-project.com/pintaproject/pinta">pinta</a></td>
+   <td>Open source Paint.Net / MsPaint clone.</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/ranger/ranger">ranger</a></td>
    <td>Command line file manager with inline image preview (can also be used as <a href="https://www.everythingcli.org/use-ranger-as-a-file-explorer-in-vim/">vim file manager</a>)</td>
   </tr>

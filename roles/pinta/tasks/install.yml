@@ -1,0 +1,52 @@
+---
+
+- name: check if pinta exists in current repositories
+  shell: apt-cache search pinta 2>/dev/null | grep -oE '^pinta\s'
+  args:
+    executable: /bin/bash
+  check_mode: no
+  changed_when: False
+  failed_when: False
+  register: pinta_repo_avail
+
+
+###
+### Via normal repository
+###
+- name: ensure pinta is installed from repositories
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ pinta_package_name }}"
+  when: pinta_repo_avail.rc == 0
+
+
+###
+### Hacky way via stretch repository
+### TODO: FIXME once pinta is available in testing
+###
+- name: ensure debian stretch repo is present
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_repositories:
+      - "{{ pinta_repo_stretch }}"
+  when: pinta_repo_avail.rc == 1
+
+- name: ensure pinta is installed from debian stretch repository
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ pinta_package_name }}"
+  when: pinta_repo_avail.rc == 1
+
+- name: ensure debian stretch repo is absent
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_state: absent
+    apt_repo_repositories:
+      - "{{ pinta_repo_stretch }}"
+  when: pinta_repo_avail.rc == 1
