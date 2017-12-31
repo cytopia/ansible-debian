@@ -4,12 +4,22 @@
 ### Debian apt repositories
 ###
 apt_repo_repositories:
+  # main
   - file: debian-main
     repo: deb http://deb.debian.org/debian stretch main
+  - file: debian-main
+    repo: deb-src http://deb.debian.org/debian stretch main
+  # updates
   - file: debian-updates
     repo: deb http://deb.debian.org/debian stretch-updates main
+  - file: debian-updates
+    repo: deb-src http://deb.debian.org/debian stretch-updates main
+  # security
   - file: debian-security
     repo: deb http://security.debian.org stretch/updates main
+  - file: debian-security
+    repo: deb-src http://security.debian.org stretch/updates main
+
 
 
 ###

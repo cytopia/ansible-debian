@@ -11,12 +11,21 @@ debian_dist: buster
 ### Debian apt repositories
 ###
 apt_repo_repositories:
+  # main
   - file: debian-main
     repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
+  - file: debian-main
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
+  # updates
   - file: debian-updates
     repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
+  - file: debian-updates
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
+  # security
   - file: debian-security
     repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
+  - file: debian-security
+    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
 
 
 ###
