@@ -15,4 +15,5 @@ libreoffice_base_config: "{{ lookup('env','HOME') }}/.config/libreoffice"
 libreoffice_config_path: "{{ libreoffice_base_config }}/4/user"
 
 # Vars for wrapper
-libreoffice_bin_path: /usr/bin/libreoffice6.0
+libreoffice_wrapper_path: /usr/bin/libreoffice6.0
+libreoffice_bin_path: /opt/libreoffice6.0/program/soffice

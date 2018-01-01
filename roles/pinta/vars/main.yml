@@ -1,0 +1,7 @@
+---
+
+pinta_package_name: pinta
+
+pinta_repo_stretch:
+  file: pinta-repo-stretch-main
+  repo: deb http://deb.debian.org/debian stretch main

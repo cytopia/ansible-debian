@@ -11,12 +11,21 @@ debian_dist: buster
 ### Debian apt repositories
 ###
 apt_repo_repositories:
+  # main
   - file: debian-main
     repo: "deb http://deb.debian.org/debian {{ debian_dist }} main"
+  - file: debian-main
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main"
+  # updates
   - file: debian-updates
     repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main"
+  - file: debian-updates
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main"
+  # security
   - file: debian-security
     repo: "deb http://security.debian.org {{ debian_dist }}/updates main"
+  - file: debian-security
+    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main"
 
 
 ###
@@ -79,6 +88,7 @@ lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'
 packer:                'install'
+pinta:                 'install'
 ranger:                'install'
 skype:                 'install'
 sublime:               'install'

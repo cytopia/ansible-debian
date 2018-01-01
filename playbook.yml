@@ -115,6 +115,10 @@
   tags: packer
 
 - hosts: all
+  roles: [pinta]
+  tags: pinta
+
+- hosts: all
   roles: [ranger]
   tags: ranger
 

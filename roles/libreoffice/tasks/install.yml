@@ -127,12 +127,11 @@
     apt_packages:
       - "{{ libreoffice_required_packages }}"
 
-      #- name: ensure libreoffice wrapper is present
-      #  template:
-      #    src: templates/libreoffice6.0.j2
-      #    dest: "{{ libreoffice_bin_path }}"
-      #    owner: root
-      #    group: root
-      #    mode: 0755
-      #  become: yes
-      #
+- name: ensure libreoffice wrapper is present
+  template:
+    src: templates/libreoffice6.0.j2
+    dest: "{{ libreoffice_wrapper_path }}"
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
