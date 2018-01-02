@@ -1,6 +1,6 @@
 ---
 
-- name: ensure hipchat is removed
+- name: ensure gimp is removed
   include_role:
     name: apt-meta
   vars:
