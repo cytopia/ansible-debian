@@ -130,6 +130,7 @@ apt_packages:
   - redshift
   - redshift-gtk
   - rofi
+  - qalc
   - xss-lock
 # ---- Office / Productivity ----
   - gnome-calculator
