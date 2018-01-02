@@ -147,6 +147,10 @@
   tags: thunar-custom-actions
 
 - hosts: all
+  roles: [thunderbird]
+  tags: thunderbird
+
+- hosts: all
   roles: [timemachine]
   tags: timemachine
 

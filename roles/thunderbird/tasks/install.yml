@@ -1,0 +1,129 @@
+---
+
+###
+### Install Thunderbird
+###
+
+- name: check if thunderbird is already installed
+  command: "dpkg-query -s {{ thunderbird_package_name }}"
+  register: thunderbird_installed
+  check_mode: no
+  failed_when: thunderbird_installed.rc > 1
+  changed_when: thunderbird_installed.rc == 1
+
+- name: ensure thunderbird is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ thunderbird_package_name }}"
+      - "{{ thunderbird_additional_packages }}"
+
+- name: ensure thunderbird extensions directory exist
+  file:
+    state: directory
+    path: "{{ thunderbird_ext_dir }}"
+    mode: 0755
+  become: True
+
+
+###
+### Install Official Thunderbird extensions
+###
+
+- name: fetch xpi download link from official thunderbird plugin page
+  include_tasks: fetch-xpi-uri-official.yml
+  vars:
+    thunderbird_ext_url: "{{ item }}"
+  with_items:
+    - "{{ thunderbird_ext_official }}"
+
+
+###
+### Install Custom Thunderbird extensions
+###
+
+- name: fetch xpi download link from custom urls
+  include_tasks: fetch-xpi-uri-custom.yml
+  vars:
+    thunderbird_ext_url: "{{ item }}"
+  with_items:
+    - "{{ thunderbird_ext_custom }}"
+
+
+
+
+
+
+    #- name: fetch thunderbird official download page
+    #  uri:
+    #    url: "{{ item }}"
+    #    method: GET
+    #    follow_redirects: yes
+    #    return_content: yes
+    #  register: thunderbird_ext_official_raw
+    #  check_mode: no
+    #  with_items:
+    #    - "{{ thunderbird_ext_official }}"
+    #
+    #  when: thunderbird_ext_dkim_verifier
+    #
+    #- name: set dkim verifier download file
+    #  set_fact:
+    #    thunderbird_ext_dkim_verifier_xpi: "https://github.com{{ thunderbird_ext_dkim_verifier_version_raw.content | regex_search(qry) }}"
+    #  vars:
+    #    qry: '/lieser/dkim_verifier/releases/download/v[.0-9]+.*/dkim_verifier-[.0-9]+.*\.xpi'
+    #  check_mode: no
+    #  when: thunderbird_ext_dkim_verifier
+    #
+    #- name: ensure thunderbird remote xpi is installed
+    #  include_tasks: install-ext-from-uri.yml
+    #  vars:
+    #    thunderbird_xpi_url: "{{ thunderbird_ext_dkim_verifier_xpi }}"
+    #  when: thunderbird_ext_dkim_verifier
+    #
+    #
+    #
+    #
+    #
+    #- name: ensure thunderbird extension are installed
+    #  include_tasks: "{{ item }}"
+    #  with_items:
+    #    - ext-dkim-verifier.yml
+    #    #    - ext-enigmail.yml
+    #    #    - ext-exchange-ews-provier.yml
+    #    #    - ext-gnotifier.yml
+    #    #    - ext-lightning.yml
+    #    #    - ext-provider-for-google-calendar.yml
+    #    #    - ext-x-unset-support.yml
+    #
+
+# TODO:
+# ensure thunderbird extensions are exclusive!
+
+#thunderbird_ext_dkim_verifier: Yes
+#thunderbird_ext_enigmail: Yes
+#thunderbird_ext_exchange_ews_provider: Yes
+#thunderbird_ext_gnotifier: Yes
+#thunderbird_ext_lightning: Yes
+#thunderbird_ext_provider_for_google_calendar: Yes
+#thunderbird_ext_x_unset_support: Yes
+
+#- name: ensure initial configurations are applied
+#  copy:
+#    src: "files/{{ item.name }}"
+#    dest: "{{ thunderbird_config_dir }}/{{ item.name }}"
+#    mode: "{{ item.mode }}"
+#  with_items:
+#    - { mode: '0600', name: thunderbirdrc }
+#    - { mode: '0644', name: gtkrc }
+#    - { mode: '0644', name: menurc }
+#    - { mode: '0600', name: sessionrc }
+#    - { mode: '0600', name: toolrc }
+#
+#- name: ensure thunderbird photoshop theme is downloaded
+#  unarchive:
+#    src: "{{ thunderbird_theme_url }}"
+#    dest: "{{ thunderbird_theme_dir }}"
+#    remote_src: yes
+#    #mode: 0755

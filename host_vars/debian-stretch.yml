@@ -97,6 +97,7 @@ telegram:              'install'
 theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
+thunderbird:           'install'
 timemachine:           'install'
 urxvt:                 'install'
 virtualbox:            'install'
@@ -164,6 +165,20 @@ sxiv_default_image_viewer: yes
 # ---- Thunar ----
 thunar_volman_enable: yes
 thunar_archive_plugin_enable: yes
+
+# ---- Thunderbird ----
+thunderbird_ext_official: []
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+
+# List of urls pages in which an XPI download link can be found.
+# Note: The first found XPI download url will be used
+thunderbird_ext_custom: []
+#  - https://github.com/ExchangeCalendar/exchangecalendar/releases
 
 # ---- VirtualBox ----
 # 'stretch', 'jessie', 'wheezy'

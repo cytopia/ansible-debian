@@ -1,0 +1,53 @@
+---
+
+#
+# This task file installs an XPI extension by URL
+# Required input variables:
+#
+# 'thunderbird_xpi_url':  Url to xpi file
+#
+
+- name: ensure temporary download directory is created
+  tempfile:
+    state: directory
+    suffix: thunderbird
+  register: thunderbird_temp_dir
+  check_mode: False
+  changed_when: False
+
+- name: ensure xpi is downloaded
+  unarchive:
+    src: "{{ thunderbird_xpi_url }}"
+    dest: "{{ thunderbird_temp_dir.path }}"
+    remote_src: yes
+  check_mode: False
+  changed_when: False
+
+- name: ensure xpi id is retrieved
+  command: 'xmlstarlet sel -N rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns# -N em=http://www.mozilla.org/2004/em-rdf# -t -v "//rdf:Description[@about=\"urn:mozilla:install-manifest\"]/em:id" install.rdf'
+  args:
+    chdir: "{{ thunderbird_temp_dir.path }}"
+  register: thunderbird_xpi_id
+  check_mode: False
+  changed_when: No
+
+- name: ensure thunderbird extension xpi id directory exist
+  file:
+    state: directory
+    path: "{{ thunderbird_ext_dir }}/{{ thunderbird_xpi_id.stdout }}"
+    mode: 0755
+  become: True
+
+- name: ensure xpi is downloaded to thunderbird extension dir
+  unarchive:
+    src: "{{ thunderbird_xpi_url }}"
+    dest: "{{ thunderbird_ext_dir }}/{{ thunderbird_xpi_id.stdout }}"
+    remote_src: yes
+  become: True
+
+- name: ensure temporary download directory is removed
+  file:
+    state: absent
+    path: "{{ thunderbird_temp_dir.path }}"
+  check_mode: False
+  changed_when: False
