@@ -61,6 +61,8 @@ python_3: yes
 pip2_packages:
   - awscli
   - aws-adfs
+  # https://github.com/chrisallenlane/cheat
+  - cheat
 
 pip3_packages: []
 
