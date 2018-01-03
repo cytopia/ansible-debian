@@ -1,0 +1,12 @@
+---
+
+thunderbird_package_name: thunderbird
+
+thunderbird_additional_packages:
+  # Required for get-ext-id.sh to work
+  - unzip
+  - xmlstarlet
+  # wget in order to download an url and convert relative paths to absolute ones
+  - wget
+
+thunderbird_ext_dir: /usr/lib/thunderbird/extensions

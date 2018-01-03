@@ -190,6 +190,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Thunar custom actions</td>
   </tr>
   <tr>
+   <td><a href="https://www.mozilla.org/en-US/thunderbird">thunderbird</a></td>
+   <td>Thunderbird and globally defined add-ons</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/cytopia/linux-timemachine">timemachine</a></td>
    <td>OSX like timemachine for the command line</td>
   </tr>

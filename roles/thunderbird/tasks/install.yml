@@ -1,0 +1,51 @@
+---
+
+###
+### Install Thunderbird
+###
+
+- name: check if thunderbird is already installed
+  command: "dpkg-query -s {{ thunderbird_package_name }}"
+  register: thunderbird_installed
+  check_mode: no
+  failed_when: thunderbird_installed.rc > 1
+  changed_when: thunderbird_installed.rc == 1
+
+- name: ensure thunderbird is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ thunderbird_package_name }}"
+      - "{{ thunderbird_additional_packages }}"
+
+- name: ensure thunderbird extensions directory exist
+  file:
+    state: directory
+    path: "{{ thunderbird_ext_dir }}"
+    mode: 0755
+  become: True
+
+
+###
+### Install Official Thunderbird extensions
+###
+
+- name: fetch xpi download link from official thunderbird plugin page
+  include_tasks: fetch-xpi-uri-official.yml
+  vars:
+    thunderbird_ext_url: "{{ item }}"
+  with_items:
+    - "{{ thunderbird_ext_official }}"
+
+
+###
+### Install Custom Thunderbird extensions
+###
+
+- name: fetch xpi download link from custom urls
+  include_tasks: fetch-xpi-uri-custom.yml
+  vars:
+    thunderbird_ext_url: "{{ item }}"
+  with_items:
+    - "{{ thunderbird_ext_custom }}"

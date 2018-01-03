@@ -1,0 +1,18 @@
+---
+
+# 'install', 'remove' or 'ignore'
+thunderbird: 'ignore'
+
+# List of urls of official Firefox plugins
+thunderbird_ext_official: []
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+
+# List of urls pages in which an XPI download link can be found.
+# Note: The first found XPI download url will be used
+thunderbird_ext_custom: []
+#  - https://github.com/ExchangeCalendar/exchangecalendar/releases

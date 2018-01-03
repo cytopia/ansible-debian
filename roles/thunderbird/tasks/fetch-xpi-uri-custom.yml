@@ -1,0 +1,52 @@
+---
+
+#
+# This task file will fetch the XPI url from custom urls
+# It is expecting a link to an xpi file within the given url.
+#
+# Important Note:
+# ---------------
+# Only the first found xpi link will be used.
+#
+# Required input variables:
+#
+# 'thunderbird_ext_url':  Extension url.
+
+# Example value:
+# https://github.com/ExchangeCalendar/exchangecalendar/releases
+#
+
+- name: ensure temporary download directory is created
+  tempfile:
+    state: directory
+    suffix: thunderbird
+  register: thunderbird_ext_cust_temp_dir
+  check_mode: False
+  changed_when: False
+
+- name: fetch xpi download page with wget
+  command: "wget -k -O page.txt {{ thunderbird_ext_url }}"
+  args:
+    chdir: "{{ thunderbird_ext_cust_temp_dir.path }}"
+  check_mode: False
+  changed_when: No
+
+- name: set xpi download url
+  shell: grep -Eo 'http(s)?://.*\.xpi' page.txt | head -1
+  args:
+    chdir: "{{ thunderbird_ext_cust_temp_dir.path }}"
+  register: thunderbird_ext_cust_xpi_url
+  check_mode: False
+  changed_when: No
+
+- name: ensure thunderbird remote xpi is installed
+  include_tasks: install-ext-from-uri.yml
+  vars:
+    thunderbird_xpi_url: "{{ thunderbird_ext_cust_xpi_url.stdout }}"
+
+- name: ensure temporary download directory is removed
+  file:
+    state: absent
+    path: "{{ thunderbird_ext_cust_temp_dir.path }}"
+  check_mode: False
+  changed_when: False
