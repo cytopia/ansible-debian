@@ -1,22 +1,26 @@
 ---
 
+# Enable everything and fail if the service does not exist
 - name: ensure systemd services are enabled and started
-  systemd:
-    name: "{{ item }}"
-    state: started
-    enabled: True
-    masked: False
-  become: Yes
+  include_tasks: systemd.yml
+  vars:
+    systemd_item_name: "{{ item }}"
+    systemd_item_state: started
+    systemd_item_enabled: True
+    systemd_item_masked: False
+    systemd_item_fail_on_error: True
   with_items:
     - "{{ systemd_enabled }}"
 
+# Disable and mask everything, but do not fail if the
+# service does not exist
 - name: ensure systemd services are stopped and maksed
-  systemd:
-    name: "{{ item }}"
-    state: stopped
-    enabled: False
-    masked: True
-  become: Yes
+  include_tasks: systemd.yml
+  vars:
+    systemd_item_name: "{{ item }}"
+    systemd_item_state: stopped
+    systemd_item_enabled: False
+    systemd_item_masked: True
+    systemd_item_fail_on_error: False
   with_items:
     - "{{ systemd_disabled }}"
-
