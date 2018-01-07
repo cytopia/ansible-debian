@@ -9,7 +9,7 @@
   vars:
     apt_packages:
       - "{{ network_manager_package_name }}"
-      - "{{ network_manager_additional_packages }}"
+      - "{{ network_manager_shared_packages }}"
 
 
 ###

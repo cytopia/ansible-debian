@@ -2,7 +2,7 @@
 
 chromium_package_name: chromium
 
-chromium_packages:
+chromium_shared_packages:
   - upower
   - opus-tools
   - speex

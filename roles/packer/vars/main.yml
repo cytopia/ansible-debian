@@ -1,3 +1,6 @@
 ---
 
 packer_path: /usr/local/bin
+
+packer_shared_packages:
+  - unzip

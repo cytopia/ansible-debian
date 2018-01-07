@@ -6,4 +6,4 @@
   vars:
     apt_packages:
       - "{{ zathura_package_name }}"
-      - "{{ zathura_packages }}"
+      - "{{ zathura_exclusive_packages }}"

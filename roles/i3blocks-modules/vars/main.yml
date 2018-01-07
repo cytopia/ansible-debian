@@ -2,7 +2,7 @@
 
 i3blocks_modules_path: "{{ lookup('env','HOME') }}/.local/share/i3blocks-modules"
 
-i3blocks_modules_packages:
+i3blocks_modules_shared_packages:
   - acpi
   - bash
   - cpufrequtils

@@ -6,7 +6,8 @@
   vars:
     apt_packages:
       - "{{ neovim_package_name }}"
-      - "{{ neovim_packages }}"
+      - "{{ neovim_shared_packages }}"
+      - "{{ neovim_exclusive_packages }}"
 
 - name: ensure neovim python packages are installed
   include_role:

@@ -6,17 +6,7 @@
     path: "/usr/local/bin/{{ item }}"
   become: yes
   with_items:
-    - system-hibernate
-    - system-reboot
-    - system-shutdown
-    - system-suspend
-    - xcolorpick
-    - ximage
-    - xkiller
-    - xlock
-    - xscreenshot
-    - xf86-audio
-    - xf86-backlight
+    - "{{ i3_utils_bin_tools }}"
 
 - name: ensure ximage desktop file is removed
   file:

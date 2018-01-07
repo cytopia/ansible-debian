@@ -5,7 +5,7 @@
     name: apt-meta
   vars:
     apt_packages:
-      - "{{ i3_utils_bin_packages }}"
+      - "{{ i3_utils_bin_shared_packages }}"
 
 - name: ensure i3-utils-bin tools are downloaded
   get_url:
@@ -15,17 +15,7 @@
     force: yes
   become: yes
   with_items:
-    - system-hibernate
-    - system-reboot
-    - system-shutdown
-    - system-suspend
-    - xcolorpick
-    - ximage
-    - xkiller
-    - xlock
-    - xscreenshot
-    - xf86-audio
-    - xf86-backlight
+    - "{{ i3_utils_bin_tools }}"
 
 - name: ensure applications folder exist
   file:

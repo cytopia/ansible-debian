@@ -6,7 +6,7 @@
   vars:
     apt_packages:
       - "{{ chromium_package_name }}"
-      - "{{ chromium_packages }}"
+      - "{{ chromium_shared_packages }}"
 
 - name: ensure chromium extension directory exists
   file:

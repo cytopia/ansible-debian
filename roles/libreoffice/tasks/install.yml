@@ -125,7 +125,7 @@
     name: apt-meta
   vars:
     apt_packages:
-      - "{{ libreoffice_required_packages }}"
+      - "{{ libreoffice_shared_packages }}"
 
 - name: ensure libreoffice wrapper is present
   template:

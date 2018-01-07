@@ -1,12 +1,5 @@
 ---
 
-- name: ensure requirements are installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - unzip
-
 - include_tasks: install.yml
   when: packer == 'install'
 

@@ -3,7 +3,7 @@
 libreoffice_package_name: libreoffice6.0
 
 # Required for DPI wrapper
-libreoffice_required_packages:
+libreoffice_shared_packages:
   - x11-xserver-utils
 
 libreoffice_download_url: https://www.libreoffice.org/download/download/?type=deb-x86_64&version=6.0.0&lang=en-US

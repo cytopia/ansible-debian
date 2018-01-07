@@ -7,7 +7,6 @@
     apt_state: absent
     apt_packages:
       - "{{ network_manager_package_name }}"
-      - "{{ network_manager_additional_packages }}"
       - "{{ network_manager_gnome_package }}"
       # Plugin packages
       - "{{ network_manager_plugin_package_openvpn }}"

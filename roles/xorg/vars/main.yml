@@ -6,11 +6,11 @@
 
 xorg_package_name: xorg
 
-xorg_required_packages:
+xorg_exclusive_packages:
   - xinit
   - xauth
 
-xorg_additional_packages:
+xorg_shared_packages:
   - fontconfig
   - x11-xserver-utils
   - xbindkeys

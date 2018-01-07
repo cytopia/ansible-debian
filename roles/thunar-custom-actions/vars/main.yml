@@ -2,7 +2,7 @@
 
 thunar_custom_actions_bin_path: /usr/local/bin/
 
-thunar_custom_actions_packages:
+thunar_custom_actions_shared_packages:
   - curl
   - ffmpeg
   - gawk

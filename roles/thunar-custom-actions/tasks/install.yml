@@ -5,7 +5,7 @@
     name: apt-meta
   vars:
     apt_packages:
-      - "{{ thunar_custom_actions_packages }}"
+      - "{{ thunar_custom_actions_shared_packages }}"
 
 - name: ensure thunar custom actions are downloaded
   get_url:
