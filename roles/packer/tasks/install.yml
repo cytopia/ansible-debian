@@ -5,7 +5,7 @@
     name: apt-meta
   vars:
     apt_packages:
-      - unzip
+      - "{{ packer_shared_packages }}"
 
 - name: fetch packer info
   uri:

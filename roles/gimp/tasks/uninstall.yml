@@ -7,7 +7,7 @@
     apt_state: absent
     apt_packages:
       - "{{ gimp_package_name }}"
-      - "{{ gimp_additional_packages }}"
+      - "{{ gimp_required_packages }}"
 
 - name: ensure gimp configuration directory is removed
   file:

@@ -17,7 +17,7 @@
   vars:
     apt_packages:
       - "{{ thunderbird_package_name }}"
-      - "{{ thunderbird_additional_packages }}"
+      - "{{ thunderbird_shared_packages }}"
 
 - name: ensure thunderbird extensions directory exist
   file:

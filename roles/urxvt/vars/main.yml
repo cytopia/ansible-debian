@@ -2,7 +2,7 @@
 
 urxvt_package_name: rxvt-unicode-256color
 
-urxvt_additional_packages:
+urxvt_shared_packages:
   - xclip
   - xsel
 

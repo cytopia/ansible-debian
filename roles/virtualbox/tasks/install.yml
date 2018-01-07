@@ -15,4 +15,4 @@
   vars:
     apt_packages:
       - "{{ virtualbox_package_name }}"
-      - "{{ virtualbox_additional_packages }}"
+      - "{{ virtualbox_shared_packages }}"

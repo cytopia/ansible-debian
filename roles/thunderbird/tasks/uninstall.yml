@@ -7,7 +7,6 @@
     apt_state: absent
     apt_packages:
       - "{{ thunderbird_package_name }}"
-      - "{{ thunderbird_additional_packages }}"
 
 - name: ensure thunderbird extensions directory is removed
   file:

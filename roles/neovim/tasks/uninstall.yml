@@ -7,3 +7,4 @@
     apt_state: absent
     apt_packages:
       - "{{ neovim_package_name }}"
+      - "{{ neovim_exclusive_packages }}"

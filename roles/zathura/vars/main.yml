@@ -2,6 +2,6 @@
 
 zathura_package_name: zathura
 
-zathura_packages:
+zathura_exclusive_packages:
   - zathura-pdf-poppler
   - zathura-ps

@@ -2,7 +2,7 @@
 
 virtualbox_package_name: virtualbox-5.2
 
-virtualbox_additional_packages:
+virtualbox_shared_packages:
   - dkms
 
 virtualbox_apt_repo:

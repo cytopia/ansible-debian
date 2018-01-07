@@ -1,6 +1,6 @@
 ---
 
-i3_utils_bin_packages:
+i3_utils_bin_shared_packages:
   - alsa-utils
   - dbus
   - exiv2
@@ -17,3 +17,17 @@ i3_utils_bin_packages:
   - x11-utils
   - xdotool
   - zenity
+
+# These tools will be downloaded to /usr/local/bin
+i3_utils_bin_tools:
+  - system-hibernate
+  - system-reboot
+  - system-shutdown
+  - system-suspend
+  - xcolorpick
+  - ximage
+  - xkiller
+  - xlock
+  - xscreenshot
+  - xf86-audio
+  - xf86-backlight

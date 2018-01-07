@@ -1,6 +1,6 @@
 ---
 
-i3_utils_systemd_packages:
+i3_utils_systemd_shared_packages:
   - alsa-utils
   - i3lock
   - imagemagick

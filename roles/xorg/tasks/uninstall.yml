@@ -7,7 +7,7 @@
     apt_state: absent
     apt_packages:
       - "{{ xorg_package_name }}"
-      - "{{ xorg_required_packages }}"
+      - "{{ xorg_exclusive_packages }}"
       - xserver-xorg-input-libinput
       - xserver-xorg-input-synaptics
       - "xserver-xorg-video-{{ xorg_gpu }}"

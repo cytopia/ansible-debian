@@ -2,7 +2,7 @@
 
 thunderbird_package_name: thunderbird
 
-thunderbird_additional_packages:
+thunderbird_shared_packages:
   # Required for get-ext-id.sh to work
   - unzip
   - xmlstarlet

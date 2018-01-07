@@ -6,7 +6,7 @@
   vars:
     apt_packages:
       - "{{ urxvt_package_name }}"
-      - "{{ urxvt_additional_packages }}"
+      - "{{ urxvt_shared_packages }}"
 
 - name: ensure urxvt extensions directory is present
   file:

@@ -5,8 +5,11 @@ neovim_package_name: neovim
 # Required packages:
 # https://neovim.io/doc/user/provider.html
 
-neovim_packages:
+neovim_shared_packages:
   - xsel
+
+neovim_exclusive_packages:
+  - lua-nvim
 
 neovim_pip2_packages:
   - neovim

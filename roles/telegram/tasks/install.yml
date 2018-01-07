@@ -6,7 +6,7 @@
   vars:
     apt_packages:
       - xz-utils
-      - "{{ telegram_required_packages }}"
+      - "{{ telegram_shared_packages }}"
 
 - name: ensure opt directory exists
   file:

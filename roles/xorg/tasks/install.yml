@@ -9,8 +9,8 @@
   vars:
     apt_packages:
       - "{{ xorg_package_name }}"
-      - "{{ xorg_required_packages }}"
-      - "{{ xorg_additional_packages }}"
+      - "{{ xorg_exclusive_packages }}"
+      - "{{ xorg_shared_packages }}"
 
 - name: ensure xorg config dir exists
   file:

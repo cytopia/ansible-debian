@@ -7,4 +7,4 @@
     apt_state: absent
     apt_packages:
       - "{{ zathura_package_name }}"
-      - "{{ zathura_packages }}"
+      - "{{ zathura_exclusive_packages }}"

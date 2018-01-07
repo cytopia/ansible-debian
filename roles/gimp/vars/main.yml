@@ -2,7 +2,7 @@
 
 gimp_package_name: gimp
 
-gimp_additional_packages:
+gimp_required_packages:
   #- gimp-dcraw (either dcraw or ufraw)
   - gimp-ufraw
 

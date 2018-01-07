@@ -6,7 +6,7 @@
   vars:
     apt_state: absent
     apt_packages:
-      - "{{ sxiv_package }}"
+      - "{{ sxiv_package_name }}"
 
 - name: ensure sxiv wrapper is removed
   file:

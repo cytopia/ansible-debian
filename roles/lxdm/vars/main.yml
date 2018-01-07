@@ -1,6 +1,4 @@
 ---
 
-lxdm_packages:
+lxdm_shared_packages:
   - librsvg2-2
-
-
