@@ -6,4 +6,3 @@
   vars:
     apt_packages:
       - "{{ icon_moka_package_name }}"
-      - "{{ icon_moka_packages }}"

@@ -6,4 +6,3 @@
   vars:
     apt_packages:
       - "{{ theme_arc_package_name }}"
-      - "{{ theme_arc_packages }}"
