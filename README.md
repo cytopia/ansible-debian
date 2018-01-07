@@ -38,7 +38,8 @@ It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manag
     2. [Sudo permissions](#sudo-permissions)
 7. **[Stability](#stability)**
 8. **[Other OS](#other-os)**
-9. **[License](#license)**
+9. **[Contributing](#contributing)**
+10. **[License](#license)**
 
 
 ## TL;DR
@@ -476,6 +477,11 @@ In order to guarantee the most possible stability of this setup, extensive [trav
 If you are running a different OS and still want to provision your system with Ansible, have a look at the following projects:
 
 * **[ansible-ubuntu](https://github.com/Benoth/ansible-ubuntu)**
+
+
+## Contributing
+
+Please feel free to contribute and add new roles as desired. When doing so have a look at **[CONTRIBUTING.md](CONTRIBUTING.md)** for required best-practices.
 
 
 ## License
