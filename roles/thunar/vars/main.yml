@@ -23,7 +23,6 @@ thunar_volman_shared_packages:
   - fuseiso9660
   - fusesmb
   # Handle block devices (encrypted drives etc)
-  - libblockdev2
   - libblockdev-plugins-all
   - udisks2
   - udisks2-lvm2
