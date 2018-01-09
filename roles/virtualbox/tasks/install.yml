@@ -18,12 +18,14 @@
       - "{{ virtualbox_shared_packages }}"
 
 - name: set username
-  set_fact:
-    virtualbox_username: "{{ lookup('env','USER') }}"
+  command: whoami
+  register: virtualbox_username
+  check_mode: no
+  changed_when: False
 
 - name: ensure user is added to vboxusers group
   user:
-    name: "{{ virtualbox_username }}"
+    name: "{{ virtualbox_username.stdout }}"
     groups: vboxusers
     append: yes
     update_password: on_create
