@@ -16,3 +16,15 @@
     apt_packages:
       - "{{ virtualbox_package_name }}"
       - "{{ virtualbox_shared_packages }}"
+
+- name: set username
+  set_fact:
+    virtualbox_username: "{{ lookup('env','USER') }}"
+
+- name: ensure user is added to vboxusers group
+  user:
+    name: "{{ virtualbox_username }}"
+    groups: vboxusers
+    append: yes
+    update_password: on_create
+  become: yes
