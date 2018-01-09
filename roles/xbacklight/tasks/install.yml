@@ -43,7 +43,7 @@
 
 - name: set username
   set_fact:
-    xbacklight_username: "User={{ lookup('env','USER') }}"
+    xbacklight_username: "{{ lookup('env','USER') }}"
 
 - name: ensure user is added to video group
   user:
