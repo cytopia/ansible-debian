@@ -4,6 +4,7 @@ virtualbox_package_name: virtualbox-5.2
 
 virtualbox_shared_packages:
   - dkms
+  - linux-headers-amd64
 
 virtualbox_apt_repo:
   file: virtualbox

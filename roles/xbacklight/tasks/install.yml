@@ -42,12 +42,14 @@
   become: yes
 
 - name: set username
-  set_fact:
-    xbacklight_username: "User={{ lookup('env','USER') }}"
+  command: whoami
+  register: xbacklight_username
+  check_mode: no
+  changed_when: False
 
 - name: ensure user is added to video group
   user:
-    name: "{{ xbacklight_username }}"
+    name: "{{ xbacklight_username.stdout }}"
     groups: video
     append: yes
     update_password: on_create

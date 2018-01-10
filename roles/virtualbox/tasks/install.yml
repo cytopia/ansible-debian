@@ -16,3 +16,17 @@
     apt_packages:
       - "{{ virtualbox_package_name }}"
       - "{{ virtualbox_shared_packages }}"
+
+- name: set username
+  command: whoami
+  register: virtualbox_username
+  check_mode: no
+  changed_when: False
+
+- name: ensure user is added to vboxusers group
+  user:
+    name: "{{ virtualbox_username.stdout }}"
+    groups: vboxusers
+    append: yes
+    update_password: on_create
+  become: yes

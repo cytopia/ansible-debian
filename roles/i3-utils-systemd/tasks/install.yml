@@ -51,11 +51,17 @@
   changed_when: False
   check_mode: no
 
+- name: set username
+  command: whoami
+  register: i3_utils_systemd_username
+  check_mode: no
+  changed_when: False
+
 - name: ensure i3-utils-systemd suspend is using correct username
   lineinfile:
     path: "{{ i3_utils_systemd_tmp.path }}"
     regexp: '^User=REPLACE_ME$'
-    line: "User={{ lookup('env','USER') }}"
+    line: "User={{ i3_utils_systemd_username.stdout }}"
   changed_when: False
   check_mode: no
 
