@@ -117,6 +117,10 @@ apt_packages:
   - firmware-linux
   - firmware-iwlwifi
   #- firmware-crystalhd (not available in debian buster)
+# ---- Block devices ----
+  - libblockdev-plugins-all
+  - udisks2-btrfs
+  - udisks2-lvm2
 # ---- Window Manager ----
   - arandr
   - compton
