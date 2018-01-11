@@ -13,6 +13,11 @@
     dest: "{{ font_droid_sans_mono_font_path }}/{{ item | basename | replace('%20', ' ') }}"
     mode: 0644
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   with_items:
     - "{{ font_droid_sans_mono_urls }}"
   notify: update font-cache

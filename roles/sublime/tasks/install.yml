@@ -26,3 +26,8 @@
   get_url:
     url: "https://packagecontrol.io/Package%20Control.sublime-package"
     dest: "{{ sublime_package_path }}/Package Control.sublime-package"
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
