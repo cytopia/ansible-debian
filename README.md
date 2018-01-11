@@ -474,9 +474,11 @@ In order to guarantee the most possible stability of this setup, extensive [trav
 
 ## Other OS
 
-If you are running a different OS and still want to provision your system with Ansible, have a look at the following projects:
+If you are running a different OS and still want to provision your system with Ansible, have a look at the following similar projects:
 
-* **[ansible-ubuntu](https://github.com/Benoth/ansible-ubuntu)**
+* Ubuntu - **[ansible-linux-laptop](https://github.com/dyindude/ansible-linux-laptop)**
+* Ubuntu - **[ansible-ubuntu](https://github.com/Benoth/ansible-ubuntu)**
+* Fedora - **[laptop_install](https://github.com/e-minguez/laptop_install)**
 
 
 ## Contributing
