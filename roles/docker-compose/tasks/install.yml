@@ -18,4 +18,9 @@
     dest: "{{ docker_compose_path }}"
     mode: 0755
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   become: yes

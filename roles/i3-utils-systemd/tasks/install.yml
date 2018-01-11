@@ -13,6 +13,11 @@
     dest: /usr/local/bin/xlock
     mode: 0755
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   become: yes
 
 - name: ensure systemd directories exist
@@ -31,6 +36,11 @@
     dest: /usr/lib/systemd/logind.conf.d/70-close_lid.conf
     mode: 0644
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   become: yes
 
 # suspend.service requires the current user to be set
@@ -48,6 +58,11 @@
     dest: "{{ i3_utils_systemd_tmp.path }}"
     mode: 0644
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   changed_when: False
   check_mode: no
 

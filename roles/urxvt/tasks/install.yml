@@ -23,6 +23,11 @@
     dest: "{{ urxvt_extensions_path }}/{{ item | basename }}"
     mode: 0755
     force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
   become: yes
   with_items:
     - "{{ urxvt_extensions }}"
