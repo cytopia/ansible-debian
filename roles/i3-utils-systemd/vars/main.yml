@@ -4,6 +4,7 @@ i3_utils_systemd_shared_packages:
   - alsa-utils
   - i3lock
   - imagemagick
+  - libpam-systemd
   - libnotify-bin
   - procps
   - scrot
