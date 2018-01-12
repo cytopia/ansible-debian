@@ -42,6 +42,7 @@
   retries: 10
   delay: 5
   become: yes
+  notify: reload systemd
 
 # suspend.service requires the current user to be set
 - name: create temporary file
@@ -86,6 +87,7 @@
     dest: "{{ i3_utils_systemd_systemd_base_path }}/system/suspend.service"
     mode: 0644
   become: yes
+  notify: reload systemd
 
 - name: ensure temp file is removed
   file:
@@ -93,3 +95,9 @@
     path: "{{ i3_utils_systemd_tmp.path }}"
   changed_when: False
   check_mode: no
+
+- name: ensure systemd suspend service is enabled
+  systemd:
+    name: suspend.service
+    enabled: Yes
+  become: Yes
