@@ -10,7 +10,7 @@ Well-tested and customizable **[Ansible](https://www.ansible.com)** setup to pro
 
 Get your system back under control. Manage packages not provided by default and keep track of repositories as well as of installed software. Any bundled package offers the possibility to fully manage them, i.e. make sure they are installed or removed. Of course you can also simply ignore them, in case you want to manage them yourself.
 
-It is designed to be a generic **buildfiles** (as opposed to **dotfiles**) manager. You can add as many profiles as you want (e.g.: for different hardware on different notebooks) and also have the choice to provision it locally or over the network.
+It is designed to be a generic **buildfiles** (as opposed to **[dotfiles](https://github.com/cytopia/dotfiles)**) manager. You can add as many profiles as you want (e.g.: for different hardware on different notebooks) and also have the choice to provision it locally or over the network.
 
 [![asciicast](https://asciinema.org/a/153924.png)](https://asciinema.org/a/153924)
 
@@ -66,7 +66,7 @@ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-b
 
 This Ansible repository allows you to provision your Debian machines and keeping them up-to-date. It allows you to create different profiles for different machines and offers packages that are not available by any Debian repository.
 
-This is a base idempotent provisioning with sensible defaults that can be slightly adjusted. It is only meant as a **buildfiles** bootstrap. In order to customize the applications itself, you will still have to apply your personal **dotfiles** on top of that.
+This is a base idempotent provisioning with sensible defaults that can be slightly adjusted. It is only meant as a **buildfiles** bootstrap. In order to customize the applications itself, you will still have to apply your personal **[dotfiles](https://github.com/cytopia/dotfiles)** on top of that.
 
 #### Available tools 
 <table>
