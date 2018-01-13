@@ -99,5 +99,6 @@
 - name: ensure systemd suspend service is enabled
   systemd:
     name: suspend.service
+    daemon_reload: Yes
     enabled: Yes
   become: Yes

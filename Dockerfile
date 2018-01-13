@@ -11,6 +11,7 @@ RUN set -x \
 		python-pip \
 		python-setuptools \
 		sudo \
+		systemd \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get purge -y --autoremove
 
@@ -156,4 +157,6 @@ RUN set -x \
 	) > run-tests.sh \
 	&& chmod +x run-tests.sh
 
-ENTRYPOINT ["./run-tests.sh"]
+# Switch to root user for entrypoint
+USER root
+ENTRYPOINT ["/bin/systemd"]
