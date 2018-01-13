@@ -320,11 +320,11 @@ If you want to test your profile in a Docker container prior actually provisioni
 
 Run the following command to see what would happen:
 ```shell
-$ ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass --check
+ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass --check
 ```
 Run the following command to actually apply your profile:
 ```shell
-$ ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass
+ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass
 ```
 
 
