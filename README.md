@@ -332,6 +332,8 @@ ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-be
 ## Test your profile
 Before actually running any new profile on your own system, you can and you should test that beforehand in a **Docker container** in order to see if everything works as expected. This might also be very handy in case you are creating a new role and want to see if it works.
 
+**Note:** This Docker image is built with full systemd support in order to elaborately test against a *real* environment. A systemd Docker container is started in a more complex way. That's why there is also a helper script for easy usage: [docker-run.sh](docker-run.sh).
+
 #### Build the Docker image
 ```
 docker build -t ansible-debian .
@@ -340,24 +342,76 @@ docker build -t ansible-debian .
 
 Before running you should be aware of a few environment variables that can change the bevaviour of the test run. See the table below:
 
-| Variable  | Required | Description |
-|-----------|----------|-------------|
-| `MY_HOST` | yes      | The inventory hostname (your profile) |
-| `verbose` | no       | Ansible verbosity. Valid values: `0`, `1`, `2` or `3` |
-| `tag`     | no       | Only run this specific tag (role name) |
-| `random`  | no       | When running everything, do it in a random order. Valid values: `0` or `1` |
+| Docker Variable | Script arg | Required | Description |
+|-----------------|------------|----------|-------------|
+| `MY_HOST`       | `-l`       | yes      | The inventory hostname (your profile) |
+| `verbose`       | `-v`       | no       | Ansible verbosity. Valid values: `0`, `1`, `2` or `3` |
+| `tag`           | `-t`       | no       | Only run this specific tag (role name) |
+| `random`        | `-r`       | no       | When running everything, do it in a random order. Valid values: `0` or `1` |
 
-Run a full test of profile `debian-testing`:
+##### Run a full test of profile `debian-testing`:
 ```
-docker run --rm -e MY_HOST=debian-testing -t ansible-debian
+# 1. Run Container in background (systemd is the foreground service)
+docker run \
+  --privileged \
+  --detach \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  -e MY_HOST=debian-testing \
+  -t ansible-debian
+
+# 2. Attach and execute ansible
+docker exec -it --user=cytopia <DOCKER_ID> ./run-tests.sh
+
+# 3. Stop docker container after tests
+docker stop <DOCKER_ID>
 ```
-Run a full test of profile `debian-testing` in a random order:
 ```
-docker run --rm -e MY_HOST=debian-testing -e random=1 -t ansible-debian
+# Alternatively to all three above steps, use the wrapper script:
+./docker-run.sh -l debian-testing
 ```
-Only runt `i3-gaps` role in profile `debian-stretch`
+
+##### Run a full test of profile `debian-testing` in a random order:
 ```
-docker run --rm -e MY_HOST=debian-stretch -e tag=i3-gaps -t ansible-debian
+# 1. Run Container in background (systemd is the foreground service)
+docker run \
+  --privileged \
+  --detach \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  -e MY_HOST=debian-testing \
+  -e random=1 \
+  -t ansible-debian
+
+# 2. Attach and execute ansible
+docker exec -it --user=cytopia <DOCKER_ID> ./run-tests.sh
+
+# 3. Stop docker container after tests
+docker stop <DOCKER_ID>
+```
+```
+# Alternatively to all three above steps, use the wrapper script:
+./docker-run.sh -l debian-testing -r 1
+```
+
+##### Only runt `i3-gaps` role in profile `debian-stretch`
+```
+# 1. Run Container in background (systemd is the foreground service)
+docker run \
+  --privileged \
+  --detach \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  -e MY_HOST=debian-stretch \
+  -e tag=i3-gaps \
+  -t ansible-debian
+
+# 2. Attach and execute ansible
+docker exec -it --user=cytopia <DOCKER_ID> ./run-tests.sh
+
+# # 3. Stop docker container after tests
+docker stop <DOCKER_ID>
+```
+```
+# Alternatively to all three above steps, use the wrapper script:
+./docker-run.sh -l debian-stretch -t i3-gaps
 ```
 
 
