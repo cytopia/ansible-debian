@@ -76,6 +76,7 @@ RUN set -x \
 		echo; \
 		# ---------- [1] Only run a specific tag ----------
 		echo "if [ \"\${tag}\" != \"\" ]; then"; \
+			echo "	echo \"[CASE-1] Running specific tag: \${tag}\""; \
 			echo "	role=\"\$( echo \"\${tag}\" | sed 's/-/_/g' )\""; \
 			echo "	# [install] (only tag)"; \
 			echo "	ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff -t bootstrap-system-apt-repo"; \
@@ -86,6 +87,7 @@ RUN set -x \
 			# ---------- [2] Install in random order ----------
 			echo "	# Random"; \
 			echo "	if [ \"\${random}\" = \"1\" ]; then"; \
+			echo "		echo \"[CASE-2] Running in random order\""; \
 			echo "		# [INSTALL] Bootstrap roles"; \
 			echo "		if ! ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${verbose} --diff; then"; \
 			echo "			 ansible-playbook -i inventory playbook.yml -t bootstrap-system --limit \${MY_HOST} \${verbose} --diff"; \
@@ -114,6 +116,7 @@ RUN set -x \
 			# ---------- [3] Install in normal playbook order ----------
 			echo "	# In order"; \
 			echo "	else"; \
+			echo "		echo \"[CASE-3] Running in normal order\""; \
 			echo; \
 			echo "		# [INSTALL] Normal playbook"; \
 			echo "		if ! ansible-playbook -i inventory playbook.yml --limit \${MY_HOST} \${verbose} --diff; then"; \
