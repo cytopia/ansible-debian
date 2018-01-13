@@ -285,7 +285,7 @@ hipchat_repo_dist: "{{ debian_dist }}"
 libreoffice_dpi: 120
 
 # ---- LXDM ----
-lxdm_dpi: 132
+lxdm_dpi: 128
 lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: no
 
