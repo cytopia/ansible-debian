@@ -7,3 +7,6 @@ i3_utils_systemd_shared_packages:
   - libnotify-bin
   - procps
   - scrot
+
+i3_utils_systemd_systemd_base_path: /usr/lib/systemd
+#i3_utils_systemd_systemd_base_path: /etc/systemd

@@ -27,13 +27,13 @@
     mode: 0755
   become: yes
   with_items:
-    - /usr/lib/systemd/system
-    - /usr/lib/systemd/logind.conf.d/
+    - "{{ i3_utils_systemd_systemd_base_path }}/system"
+    - "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d"
 
 - name: ensure i3-utils-systemd close-lid is downloaded
   get_url:
     url: https://raw.githubusercontent.com/cytopia/i3-utils-systemd/master/systemd/logind.conf.d/70-close_lid.conf
-    dest: /usr/lib/systemd/logind.conf.d/70-close_lid.conf
+    dest: "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d/70-close_lid.conf"
     mode: 0644
     force: yes
     timeout: 30
@@ -83,7 +83,7 @@
 - name: ensure i3-utils-systemd suspend is in place
   copy:
     src: "{{ i3_utils_systemd_tmp.path }}"
-    dest: /usr/lib/systemd/system/suspend.service
+    dest: "{{ i3_utils_systemd_systemd_base_path }}/system/suspend.service"
     mode: 0644
   become: yes
 
