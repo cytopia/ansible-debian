@@ -1,0 +1,7 @@
+---
+
+autorunner_bin_path: /usr/local/bin
+
+autorunner_shared_packages:
+  - procps
+  - libnotify-bin

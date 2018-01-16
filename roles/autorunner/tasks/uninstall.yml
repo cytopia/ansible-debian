@@ -1,0 +1,7 @@
+---
+
+- name: ensure autorunner is removed
+  file:
+    state: absent
+    path: "{{ autorunner_bin_path }}/autorunner"
+  become: yes

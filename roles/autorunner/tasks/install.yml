@@ -1,0 +1,21 @@
+---
+
+- name: ensure autorunner requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ autorunner_shared_packages }}"
+
+- name: ensure autorunner is downloaded
+  get_url:
+    url: https://raw.githubusercontent.com/cytopia/autorunner/master/autorunner
+    dest: "{{ autorunner_bin_path }}/autorunner"
+    mode: 0755
+    force: yes
+    timeout: 30
+  register: task_result
+  until: task_result | succeeded
+  retries: 10
+  delay: 5
+  become: yes

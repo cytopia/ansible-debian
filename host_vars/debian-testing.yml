@@ -63,6 +63,7 @@ apt_packages: []
 ### 'remove':  Uninstall the package
 ### Any other value will ignore the package (neither install nor uninstall)
 
+autorunner:            'install'
 chromium:              'install'
 clipmenu:              'install'
 dbeaver:               'install'

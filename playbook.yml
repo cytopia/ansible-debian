@@ -39,6 +39,10 @@
 ### Install Role Packages
 ###
 - hosts: all
+  roles: [autorunner]
+  tags: autorunner
+
+- hosts: all
   roles: [chromium]
   tags: chromium
 
