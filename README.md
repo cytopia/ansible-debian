@@ -78,6 +78,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
  </thead>
  <tbody>
   <tr>
+   <td><a href="https://github.com/cytopia/autorunner">autorunner</a></td>
+   <td>Configurable and notification aware autostart helper for minimalistic window managers like i3, openbox and others</td>
+  </tr>
+  <tr>
    <td><a href="https://www.chromium.org/Home">chromium</a></td>
    <td>Sets up Chromium, additional packages as well as specified extensions from Chrome webstore</td>
   </tr>
