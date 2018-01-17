@@ -2,6 +2,9 @@
 
 hipchat_package_name: hipchat4
 
+hipchat_shared_packages:
+  - libssl1.0-dev
+
 hipchat_apt_repo:
   file: hipchat
   repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ hipchat_repo_dist }} main"
