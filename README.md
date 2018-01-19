@@ -106,6 +106,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Downloads latest <code>docker-compose</code> binary</td>
   </tr>
   <tr>
+   <td><a href="https://github.com/cytopia/ffscreencast">ffscreencast</a></td>
+   <td>FFmpeg wrapper for desktop-recording with video overlay and multi monitor support</td>
+  </tr>
+  <tr>
    <td><a href="https://www.mozilla.org/en-US/firefox/new">firefox</a></td>
    <td>Firefox Quantum</td>
   </tr>

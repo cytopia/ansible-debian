@@ -1,0 +1,12 @@
+---
+
+ffscreencast_bin_path: /usr/local/bin
+
+ffscreencast_shared_packages:
+  - ffmpeg
+  # arecord: Required for linux to list sound devices
+  - alsa-utils
+  # xdpyinfo: Required for linux to list screends
+  - x11-utils
+  # v4l2-ctl: Required for linux to list camera devices
+  - v4l-utils
