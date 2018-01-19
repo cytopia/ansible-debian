@@ -6,6 +6,8 @@ network_manager_shared_packages:
   - iputils-arping
   - isc-dhcp-client
   - wpasupplicant
+  # Fix "The name org.a11y.Bus was not provided by any .service files":
+  - at-spi2-core
 
 # Required for nm-applet for passwords to be stored in gnome keyring
 network_manager_shared_gnome_packages:
