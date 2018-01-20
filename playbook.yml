@@ -67,6 +67,10 @@
   tags: docker-compose
 
 - hosts: all
+  roles: [ffscreencast]
+  tags: ffscreencast
+
+- hosts: all
   roles: [firefox]
   tags: firefox
 
