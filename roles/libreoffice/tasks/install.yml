@@ -46,7 +46,7 @@
   set_fact:
     libreoffice_download_link: "{{ libreoffice_mirror_page_raw.content | regex_search(qry) }}"
   vars:
-    qry: 'http://download.documentfoundation.org/libreoffice/testing/[.0-9]+/deb/x86_64/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
+    qry: 'http://download.documentfoundation.org/libreoffice/.*/[.0-9]+/deb/x86_64/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
   check_mode: no
   when: libreoffice_installed.rc == 1
 
