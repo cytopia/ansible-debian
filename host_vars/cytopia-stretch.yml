@@ -169,6 +169,7 @@ apt_packages:
   - devscripts
   - dos2unix
   - exuberant-ctags
+  - jq
   - pep8
   - php-cli
   - pylint
