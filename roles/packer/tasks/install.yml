@@ -15,6 +15,9 @@
     return_content: yes
   register: packer_info_raw
   check_mode: no
+  until: packer_info_raw | succeeded
+  retries: 10
+  delay: 5
 
 - name: set packer download url
   set_fact:

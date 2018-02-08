@@ -46,15 +46,7 @@
   set_fact:
     libreoffice_download_link: "{{ libreoffice_mirror_page_raw.content | regex_search(qry) }}"
   vars:
-    qry: 'http://download.documentfoundation.org/libreoffice/testing/[.0-9]+/deb/x86_64/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
-  check_mode: no
-  when: libreoffice_installed.rc == 1
-
-- name: extract libreoffice download name
-  set_fact:
-    libreoffice_download_name: "{{ libreoffice_mirror_page_raw.content | regex_search(qry) }}"
-  vars:
-    qry: 'LibreOffice_[.0-9]+_Linux_x86-64_deb'
+    qry: 'http://download.documentfoundation.org/libreoffice/.*/[.0-9]+/deb/x86_64/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
   check_mode: no
   when: libreoffice_installed.rc == 1
 
@@ -67,17 +59,17 @@
 
 - name: find libreoffice deb files
   find:
-    path: "{{ libreoffice_tmp_dir.path }}/{{ libreoffice_download_name }}/DEBS"
-    pattern: '^lib.*\_amd64\.deb$'
+    path: "{{ libreoffice_tmp_dir.path }}"
+    pattern: '.*lib.*\_amd64\.deb$'
     file_type: file
     use_regex: yes
+    recurse: yes
   register: libreoffice_deb
   when: libreoffice_installed.rc == 1
 
 - name: ensure libreoffice deb files are installed
-  shell: 'dpkg -i *.deb'
+  shell: "dpkg -i {% for item in libreoffice_deb['files'] %}{{ item['path'] }} {% endfor %}"
   args:
-    chdir: "{{ libreoffice_tmp_dir.path }}/{{ libreoffice_download_name }}/DEBS"
     executable: /bin/bash
   become: yes
   when: libreoffice_installed.rc == 1

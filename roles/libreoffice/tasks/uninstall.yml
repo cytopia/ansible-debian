@@ -1,5 +1,12 @@
 ---
 
+- name: check if libreoffice is still installed
+  command: "dpkg-query -W {{ libreoffice_package_name }}"
+  register: libreoffice_installed
+  check_mode: no
+  failed_when: libreoffice_installed.rc > 1
+  changed_when: libreoffice_installed.rc == 0
+
 - name: ensure libreoffice is uninstalled
   include_role:
     name: apt-meta
@@ -7,6 +14,7 @@
     apt_state: absent
     apt_packages:
       - "{{ libreoffice_package_name }}*"
+  when: libreoffice_installed.rc == 0
 
 - name: ensure libreoffice config directory is removed
   file:
