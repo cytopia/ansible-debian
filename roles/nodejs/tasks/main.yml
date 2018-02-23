@@ -1,0 +1,13 @@
+---
+
+- name: assert that nodejs repository distribution is set correctly
+  assert:
+    that:
+      - nodejs_repo_dist == 'jessie' or nodejs_repo_dist == 'stretch' or nodejs_repo_dist == 'buster'
+    msg: nodejs_repo_dist must be 'jessie', 'stretch' or 'buster'
+
+- include_tasks: install.yml
+  when: nodejs == 'install'
+
+- include_tasks: uninstall.yml
+  when: nodejs == 'remove'

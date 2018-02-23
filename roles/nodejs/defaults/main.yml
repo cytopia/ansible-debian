@@ -1,0 +1,7 @@
+---
+
+# 'install', 'remove' or 'ignore'
+nodejs: 'ignore'
+
+# 'buster', 'stretch', 'jessie'
+nodejs_repo_dist: stretch

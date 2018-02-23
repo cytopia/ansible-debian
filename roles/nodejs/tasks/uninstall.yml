@@ -1,0 +1,19 @@
+---
+
+- name: ensure nodejs is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ nodejs_package_name }}"
+
+- name: ensure nodejs repo is removed
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_state: absent
+    apt_repo_keys:
+      - "{{ nodejs_apt_key }}"
+    apt_repo_repositories:
+      - "{{ nodejs_apt_repo }}"

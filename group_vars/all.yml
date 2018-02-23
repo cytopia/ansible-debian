@@ -83,6 +83,7 @@ libreoffice:           'ignore'
 lxdm:                  'ignore'
 neovim:                'ignore'
 network_manager:       'ignore'
+nodejs:                'ignore'
 packer:                'ignore'
 pinta:                 'ignore'
 ranger:                'ignore'
@@ -145,6 +146,9 @@ network_manager_plugin_pptp: No
 network_manager_plugin_ssh: No
 network_manager_plugin_strongswan: No
 network_manager_plugin_vpnc: No
+
+# ---- NodeJS ----
+nodejs_repo_dist: stretch
 
 # ---- Skype ----
 # 'stable' or 'unstable'

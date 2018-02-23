@@ -229,6 +229,7 @@ libreoffice:           'install'
 lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'
+nodejs:                'install'
 packer:                'install'
 pinta:                 'install'
 ranger:                'install'
@@ -302,6 +303,9 @@ network_manager_plugin_pptp: No
 network_manager_plugin_ssh: No
 network_manager_plugin_strongswan: No
 network_manager_plugin_vpnc: No
+
+# ---- NodeJS ----
+nodejs_repo_dist: stretch
 
 # ---- Skype ----
 # 'stable' or 'unstable'

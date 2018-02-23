@@ -1,0 +1,12 @@
+---
+
+nodejs_package_name: nodejs
+
+nodejs_apt_repo:
+  file: nodejs
+  repo: "deb https://deb.nodesource.com/node_8.x {{ nodejs_repo_dist }} main"
+
+# ID: curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --list-packets
+nodejs_apt_key:
+  url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  id: 1655A0AB68576280

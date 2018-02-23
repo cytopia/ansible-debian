@@ -1,0 +1,17 @@
+---
+
+- name: ensure nodejs repo is present
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_keys:
+      - "{{ nodejs_apt_key }}"
+    apt_repo_repositories:
+      - "{{ nodejs_apt_repo }}"
+
+- name: ensure nodejs is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages:
+      - "{{ nodejs_package_name }}"
