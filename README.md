@@ -163,6 +163,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>HashiCorp's packer to build automated machines</td>
   </tr>
   <tr>
+   <td><a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></td>
+   <td>A delightful community-driven framework for managing your zsh configuration.</td>
+  </tr>
+  <tr>
    <td><a href="https://pinta-project.com/pintaproject/pinta">pinta</a></td>
    <td>Open source Paint.Net / MsPaint clone.</td>
   </tr>
