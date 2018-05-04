@@ -1,0 +1,7 @@
+---
+
+oh_my_zsh_shared_packages:
+  - git-core
+  - zsh
+
+zsh_theme: steeef

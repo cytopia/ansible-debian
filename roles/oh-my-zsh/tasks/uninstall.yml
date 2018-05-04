@@ -1,0 +1,23 @@
+---
+- name: reset bash as default shell
+  user: name=root shell=/bin/bash
+
+- name: ensure requirements are removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ oh_my_zsh_shared_packages }}"
+
+- name: remove zshrc and oh-my-zsh base path
+  file: path=/root/.oh-my-zsh state=absent
+
+- name: remove oh-my-zsh-conf path
+  file: path=/root/conf state=absent
+
+- name: remove oh-my-zsh-rc symlink
+  file: path=/root/.zshrc state=absent
+
+- name: remove oh-my-zsh-history file
+  file: path=/root/.zsh_history state=absent
