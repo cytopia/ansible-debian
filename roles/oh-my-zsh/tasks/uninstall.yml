@@ -1,6 +1,7 @@
 ---
 - name: reset bash as default shell
   user: name=root shell=/bin/bash
+  become: yes
 
 - name: ensure requirements are removed
   include_role:
