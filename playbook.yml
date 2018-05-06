@@ -119,6 +119,10 @@
   tags: network-manager
 
 - hosts: all
+  roles: [oh-my-zsh]
+  tags: oh-my-zsh
+
+- hosts: all
   roles: [packer]
   tags: packer
 

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: oh_my_zsh == 'install'
+
+- include_tasks: uninstall.yml
+  when: oh_my_zsh == 'remove'
