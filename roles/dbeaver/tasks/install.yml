@@ -21,7 +21,7 @@
     force: yes
     timeout: 30
   register: task_result
-  until: task_result | succeeded
+  until: task_result is succeeded
   retries: 10
   delay: 5
   notify: install dbeaver

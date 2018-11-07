@@ -15,7 +15,7 @@
     return_content: yes
   register: packer_info_raw
   check_mode: no
-  until: packer_info_raw | succeeded
+  until: packer_info_raw is succeeded
   retries: 10
   delay: 5
 

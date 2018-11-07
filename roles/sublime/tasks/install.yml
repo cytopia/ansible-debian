@@ -28,6 +28,6 @@
     dest: "{{ sublime_package_path }}/Package Control.sublime-package"
     timeout: 30
   register: task_result
-  until: task_result | succeeded
+  until: task_result is succeeded
   retries: 10
   delay: 5
