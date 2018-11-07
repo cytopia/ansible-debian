@@ -149,7 +149,6 @@ lxdm_show_user_list: no
 # ---- NetworkManager ----
 network_manager_nm_applet: Yes
 network_manager_plugin_openvpn: Yes
-network_manager_plugin_iodine: Yes
 network_manager_plugin_l2tp: Yes
 network_manager_plugin_openconnect: Yes
 network_manager_plugin_pptp: Yes

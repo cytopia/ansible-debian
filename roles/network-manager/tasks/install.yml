@@ -46,15 +46,6 @@
       - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_openvpn }}{% else %}[]{% endif %}"
   when: network_manager_plugin_openvpn
 
-- name: ensure network-manager iodine plugin is installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - "{{ network_manager_plugin_package_iodine }}"
-      - "{% if network_manager_nm_applet %}{{ network_manager_plugin_gnome_package_iodine }}{% else %}[]{% endif %}"
-  when: network_manager_plugin_iodine
-
 - name: ensure network-manager l2tp plugin is installed
   include_role:
     name: apt-meta
