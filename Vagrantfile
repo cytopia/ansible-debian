@@ -68,7 +68,8 @@ Vagrant.configure("2") do |config|
       sudo apt-get update -qq
 	  sudo apt-get install --no-install-recommends --no-install-suggests -y make
 	  sudo make deploy-init
-	  sudo make deploy-dist-upgrade PROFILE=#{ENV['PROFILE']}
-	  sudo make deploy-tools PROFILE=#{ENV['PROFILE']}
+	  make deploy-apt-sources PROFILE=#{ENV['PROFILE']}
+	  sudo make deploy-dist-upgrade
+	  make deploy-tools PROFILE=#{ENV['PROFILE']}
   SHELL
 end

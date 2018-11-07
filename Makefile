@@ -6,6 +6,7 @@ TAG = latest
 # Ansible variables
 VERBOSE=
 PROFILE=cytopia-t470p
+ARG=
 
 .PHONY: help build-docker test-docker-full test-docker-random test-docker-single itest-docker-full itest-docker-random itest-docker-single
 
@@ -90,8 +91,11 @@ test-vagrant:
 # Deploy Targets
 #--------------------------------------------------------------------------------------------------
 
-# (Step 1/3) Ensure required software is present
+# (Step 1/4) [requires root] Ensure required software is present
 deploy-init:
+ifneq ($(USER),root)
+	$(error Target 'deploy-init' must be run as root or with sudo)
+endif
 	DEBIAN_FRONTEND=noninteractive apt-get update -qq
 	DEBIAN_FRONTEND=noninteractive apt-get install -qq -q --no-install-recommends --no-install-suggests \
 		python-apt \
@@ -102,12 +106,55 @@ deploy-init:
 	pip install wheel
 	pip install ansible
 
-# (Step 2/3) Add new Debian sources and dist-upgrade your system
-deploy-dist-upgrade:
+# (Step 2/4) Add new Debian sources
+deploy-apt-sources:
+ifeq ($(USER),root)
+	$(error Target 'deploy-apt-sources' must be run as normal user without sudo)
+endif
 	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff -t bootstrap-system --ask-become-pass
+
+# (Step 3/4) [requires root] Adist-upgrade your system
+deploy-dist-upgrade:
+ifneq ($(USER),root)
+	$(error Target 'deploy-dist-upgrade' must be run as root or with sudo)
+endif
 	DEBIAN_FRONTEND=noninteractive apt-get update -qq
 	DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -qq -y
 
-# (Step 3/3) Deploy your system
+# (Step 4/4) Deploy your system
 deploy-tools:
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass
+ifeq ($(USER),root)
+	$(error Target 'deploy-tools' must be run as normal user without sudo)
+endif
+ifndef ROLE
+ifndef IGNORE
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG)
+else
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) --skip-tags=$(IGNORE)
+endif
+else
+ifndef IGNORE
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) -t $(ROLE)
+else
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
+endif
+endif
+
+# Checkmode to test against currently installed tools
+diff-tools:
+ifeq ($(USER),root)
+	$(error Target 'diff-tools' must be run as normal user without sudo)
+endif
+ifndef ROLE
+ifndef IGNORE
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG)
+else
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) --skip-tags=$(IGNORE)
+endif
+else
+ifndef IGNORE
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) -t $(ROLE)
+else
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
+endif
+endif

@@ -37,11 +37,14 @@ cd ansible-debian-testing
 ### Deploy
 ###
 
-# (Step 1/3) Ensure required software is present
+# (Step 1/4) Ensure required software is present
 sudo make deploy-init
 
-# (Step 2/3) Add new Debian sources and dist-upgrade your system
-sudo make deploy-dist-upgrade PROFILE=${PROFILE}
+# (Step 2/4) Add new Debian sources
+make deploy-apt-sources PROFILE=${PROFILE}
+
+# (Step 3/4) dist-upgrade your system
+sudo make deploy-dist-upgrade
 
 # (Step 3/3) Deploy your system
-sudo make deploy-tools PROFILE=${PROFILE}
+make deploy-tools PROFILE=${PROFILE}

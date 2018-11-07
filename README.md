@@ -71,19 +71,25 @@ cd ansible-debian-testing
 # 2. Add your profile 'bob' (See 'Create custom profiles' section of this README)
 
 # 3. Provision your system (with profile 'bob')
+# Note when to use sudo and when not
 sudo make deploy-init
-sudo make deploy-dist-upgrade PROFILE=bob
-sudo make deploy-tools PROFILE=bob
+make deploy-apt-sources PROFILE=bob
+sudo make deploy-dist-upgrade
+make deploy-tools PROFILE=bob
 ```
 
 #### Dry-run the tools installation
 
 ```bash
-# Dry-run everything for profile 'generic-all'
-ansible-playbook -i inventory playbook.yml --diff --limit generic-all --ask-become-pass --check
 
-# Dry-run a specific role 'i3-gaps'
-ansible-playbook -i inventory playbook.yml --diff --limit generic-all --ask-become-pass -t i3-gaps
+# Dry-run everything for profile 'generic-all'
+make diff-tools PROFILE=generic-all
+
+# Dry-run everything for profile 'generic-all' without role 'systemd'
+make diff-tools PROFILE=generic-all IGNORE=systemd
+
+# Dry-run a specific role 'i3-gaps' 
+make diff-tools PROFILE=generic-all ROLE=i3-gaps
 ```
 
 
