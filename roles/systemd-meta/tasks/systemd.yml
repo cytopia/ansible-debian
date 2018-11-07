@@ -1,6 +1,6 @@
 ---
 
-- name: check if systemd service exists
+- name: "check if systemd service exists: {{ systemd_item_name }}"
   shell: "systemctl list-unit-files --type=service | grep '^{{ systemd_item_name }}'"
   args:
     executable: /bin/bash
@@ -9,7 +9,7 @@
   failed_when: False
   register: systemd_service_available
 
-- name: ensure systemd service is managed
+- name: "ensure systemd service is managed: {{ systemd_item_name }}"
   systemd:
     name: "{{ systemd_item_name }}"
     state: "{{ systemd_item_state }}"
