@@ -126,6 +126,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>HipChat repo and package</td>
   </tr>
   <tr>
+   <td><a href="https://github.com/i3/i3">i3</a></td>
+   <td>i3wm</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/Airblader/i3">i3-gaps</a></td>
    <td>i3wm on steroids</td>
   </tr>

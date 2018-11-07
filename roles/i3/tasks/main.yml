@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: i3 == 'install'
+
+- include_tasks: uninstall.yml
+  when: i3 == 'remove'

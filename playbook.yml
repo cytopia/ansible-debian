@@ -91,6 +91,10 @@
   tags: i3-utils-bin
 
 - hosts: all
+  roles: [i3]
+  tags: i3
+
+- hosts: all
   roles: [i3-gaps]
   tags: i3-gaps
 

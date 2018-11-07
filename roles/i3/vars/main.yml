@@ -1,0 +1,9 @@
+---
+
+i3_package_name: i3-wm
+
+i3_shared_packages:
+  - i3blocks
+  - i3lock
+  - i3status
+  - suckless-tools
