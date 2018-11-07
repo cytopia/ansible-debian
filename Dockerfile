@@ -2,7 +2,7 @@
 FROM debian:stretch
 MAINTAINER "cytopia" <cytopia@everythingcli.org>
 
-RUN set -x \
+RUN set -eux \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		python-apt \
@@ -14,18 +14,18 @@ RUN set -x \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get purge -y --autoremove
 
-RUN set -x \
+RUN set -eux \
 	&& pip install wheel \
 	&& pip install ansible
 
 # Add user with password-less sudo
-RUN set -x \
+RUN set -eux \
 	&& useradd -m -s /bin/bash cytopia \
 	&& echo "cytopia ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/cytopia
 
 # Copy files
 COPY ./ /home/cytopia/ansible
-RUN set -x \
+RUN set -eux \
 	&& chown -R cytopia:cytopia /home/cytopia/ansible
 
 # Switch to user
@@ -35,12 +35,12 @@ USER cytopia
 WORKDIR /home/cytopia/ansible
 
 # Systemd cannot be checked inside Docker, so replace it with a dummy role
-RUN set -x \
+RUN set -eux \
 	&& mkdir roles/dummy \
 	&& sed -i'' 's/systemd-meta/dummy/g' playbook.yml
 
 # Randomize roles to install each time the container is build (each travis run)
-RUN set -x \
+RUN set -eux \
 	&& ROLES_INSTALL="$( for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
 	&& ROLES_REMOVE="$(  for d in $(/bin/ls roles/); do if [ -d roles/${d} ]; then echo $d; fi done | grep -vE '*-meta$' | sort -R )" \
 	\
