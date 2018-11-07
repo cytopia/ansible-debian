@@ -74,11 +74,14 @@ font_ubuntu:           'ignore'
 fzf:                   'ignore'
 gimp:                  'ignore'
 hipchat:               'ignore'
+i3:                    'ignore'
 i3_gaps:               'ignore'
 i3_utils_bin:          'ignore'
 i3_utils_systemd:      'ignore'
 i3blocks_modules:      'ignore'
 icon_moka:             'ignore'
+kops:                  'ignore'
+kubectl:               'ignore'
 libreoffice:           'ignore'
 lxdm:                  'ignore'
 neovim:                'ignore'
@@ -91,6 +94,7 @@ skype:                 'ignore'
 sublime:               'ignore'
 sxiv:                  'ignore'
 telegram:              'ignore'
+terraform:             'ignore'
 theme_arc:             'ignore'
 thunar:                'ignore'
 thunar_custom_actions: 'ignore'
@@ -176,10 +180,6 @@ thunderbird_ext_official: []
 # Note: The first found XPI download url will be used
 thunderbird_ext_custom: []
 #  - https://github.com/ExchangeCalendar/exchangecalendar/releases
-
-# ---- VirtualBox ----
-# 'stretch', 'jessie', 'wheezy'
-virtualbox_repo_dist: stretch
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'

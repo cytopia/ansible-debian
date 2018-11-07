@@ -18,21 +18,17 @@
 ### * No contrib; No non-free repository
 ### * No custom packages
 ###
-[debian]
-# $ ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass
-# $ ansible-playbook -i inventory playbook.yml --diff --limit debian-testing --ask-become-pass
-debian-stretch ansible_connection=local
-debian-testing ansible_connection=local
+[generic]
+# $ ansible-playbook -i inventory playbook.yml --diff --limit generic-all --ask-become-pass
+generic-all ansible_connection=local
 
 
 ###
 ### Cytopia's profile
 ###
 [cytopia]
-# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-stretch --ask-become-pass
-# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-testing --ask-become-pass
-cytopia-stretch ansible_connection=local
-cytopia-testing ansible_connection=local
+# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-t470p --ask-become-pass
+cytopia-t470p ansible_connection=local
 
 
 ###
