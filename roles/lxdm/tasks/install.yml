@@ -4,9 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - lxdm
-      - "{{ lxdm_shared_packages }}"
+    apt_packages: "{{ ['lxdm'] + lxdm_shared_packages }}"
 
 - name: ensure lxdm.conf is present
   template:

@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "Xft.dpi:{{ libreoffice_dpi }}" | xrdb -merge
-exec {{ libreoffice_bin_path }} "$@"

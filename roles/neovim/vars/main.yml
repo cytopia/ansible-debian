@@ -11,8 +11,8 @@ neovim_shared_packages:
 neovim_exclusive_packages:
   - lua-nvim
 
-neovim_pip2_packages:
-  - neovim
+neovim_python2_packages:
+  - python-neovim
 
-neovim_pip3_packages:
-  - neovim
+neovim_python3_packages:
+  - python3-neovim

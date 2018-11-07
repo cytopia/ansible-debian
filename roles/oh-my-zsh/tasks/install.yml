@@ -1,10 +1,10 @@
 ---
+
 - name: ensure requirements are installed
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ oh_my_zsh_shared_packages }}"
+    apt_packages: "{{ oh_my_zsh_shared_packages }}"
 
 - name: Clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/root/.oh-my-zsh

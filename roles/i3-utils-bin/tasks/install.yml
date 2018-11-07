@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3_utils_bin_shared_packages }}"
+    apt_packages: "{{ i3_utils_bin_shared_packages }}"
 
 - name: ensure i3-utils-bin tools are downloaded
   get_url:

@@ -11,9 +11,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ gimp_package_name }}"
-      - "{{ gimp_required_packages }}"
+    apt_packages: "{{ [gimp_package_name] + gimp_required_packages }}"
 
 - name: ensure gimp configuration directories exist
   file:

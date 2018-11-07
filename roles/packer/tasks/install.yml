@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ packer_shared_packages }}"
+    apt_packages: "{{ packer_shared_packages }}"
 
 - name: fetch packer info
   uri:
@@ -32,4 +31,15 @@
     dest: "{{ packer_path }}"
     remote_src: yes
     mode: 0755
+  become: yes
+
+
+###
+### Add bash completion
+###
+- name: ensure packer bash completion is available
+  template:
+    src: bash-completion.j2
+    dest: "{{ packer_bash_completion_path }}/packer"
+    mode: 0644
   become: yes

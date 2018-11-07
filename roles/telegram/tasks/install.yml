@@ -4,9 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - xz-utils
-      - "{{ telegram_shared_packages }}"
+    apt_packages: "{{ ['xz-utils'] + telegram_shared_packages }}"
 
 - name: ensure opt directory exists
   file:

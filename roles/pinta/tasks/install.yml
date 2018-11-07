@@ -38,8 +38,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ pinta_package_name }}"
+    apt_packages: "{{ pinta_package_name }}"
   when: pinta_repo_avail.rc == 1
 
 - name: ensure debian stretch repo is absent

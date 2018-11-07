@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ clipmenu_shared_packages }}"
+    apt_packages: "{{ clipmenu_shared_packages }}"
 
 - name: ensure clipmenu is downloaded
   get_url:

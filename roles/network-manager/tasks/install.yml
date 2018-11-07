@@ -7,9 +7,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ network_manager_package_name }}"
-      - "{{ network_manager_shared_packages }}"
+    apt_packages: "{{ [network_manager_package_name] + network_manager_shared_packages }}"
 
 
 ###
@@ -32,9 +30,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ network_manager_gnome_package }}"
-      - "{{ network_manager_shared_gnome_packages }}"
+    apt_packages: "{{ [network_manager_gnome_package] + network_manager_shared_gnome_packages }}"
   when: network_manager_nm_applet
 
 

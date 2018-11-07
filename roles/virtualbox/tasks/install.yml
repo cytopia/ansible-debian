@@ -1,21 +1,10 @@
 ---
 
-- name: ensure virtualbox repo is present
-  include_role:
-    name: apt-repo-meta
-  vars:
-    apt_repo_keys:
-      - "{{ virtualbox_apt_key }}"
-    apt_repo_repositories:
-      - "{{ virtualbox_apt_repo }}"
-
 - name: ensure virtualbox is installed
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ virtualbox_package_name }}"
-      - "{{ virtualbox_shared_packages }}"
+    apt_packages: "{{ [virtualbox_package_name] + virtualbox_exclusive_packages + virtualbox_shared_packages }}"
 
 - name: set username
   command: whoami

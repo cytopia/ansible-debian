@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ autorunner_shared_packages }}"
+    apt_packages: "{{ autorunner_shared_packages }}"
 
 - name: ensure autorunner is downloaded
   get_url:

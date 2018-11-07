@@ -13,8 +13,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ docker_package_name }}"
+    apt_packages: "{{ [docker_package_name] }}"
 
 - name: set username
   command: whoami

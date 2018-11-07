@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ hipchat_shared_packages }}"
+    apt_packages: "{{ hipchat_shared_packages }}"
 
 - name: ensure hipchat repo is present
   include_role:

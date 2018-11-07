@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ ffscreencast_shared_packages }}"
+    apt_packages: "{{ ffscreencast_shared_packages }}"
 
 - name: ensure ffscreencast is downloaded
   get_url:

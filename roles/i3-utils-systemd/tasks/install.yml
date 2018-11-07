@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3_utils_systemd_shared_packages }}"
+    apt_packages: "{{ i3_utils_systemd_shared_packages }}"
 
 - name: ensure xlock is downloaded
   get_url:

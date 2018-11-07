@@ -1,4 +1,5 @@
 ---
+
 - name: reset bash as default shell
   user: name=root shell=/bin/bash
   become: yes
@@ -8,8 +9,7 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ oh_my_zsh_shared_packages }}"
+    apt_packages: "{{ oh_my_zsh_shared_packages }}"
 
 - name: remove zshrc and oh-my-zsh base path
   file: path=/root/.oh-my-zsh state=absent

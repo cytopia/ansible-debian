@@ -4,9 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3_gaps_shared_packages }}"
-      - "{{ i3_gaps_build_dependencies }}"
+    apt_packages: "{{ i3_gaps_shared_packages + i3_gaps_build_dependencies }}"
 
 - name: ensure git parent path exists
   file:

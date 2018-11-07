@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3blocks_modules_shared_packages }}"
+    apt_packages: "{{ i3blocks_modules_shared_packages }}"
 
 - name: ensure ./local/share directory exists
   file:

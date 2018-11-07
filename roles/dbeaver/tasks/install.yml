@@ -4,8 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ dbeaver_shared_packages }}"
+    apt_packages: "{{ dbeaver_shared_packages }}"
 
 - name: ensure dbeaver deb path exists
   file:

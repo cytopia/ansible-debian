@@ -5,9 +5,7 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ gimp_package_name }}"
-      - "{{ gimp_required_packages }}"
+    apt_packages: "{{ [gimp_package_name] + gimp_required_packages }}"
 
 - name: ensure gimp configuration directory is removed
   file:

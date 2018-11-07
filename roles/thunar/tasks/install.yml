@@ -11,16 +11,12 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ thunar_volman_package_name }}"
-      - "{{ thunar_volman_shared_packages }}"
-  when: thunar_volman_enable == yes
+    apt_packages: "{{ [thunar_volman_package_name] + thunar_volman_shared_packages }}"
+  when: thunar_volman_enable == True
 
 - name: ensure thunar archive plugin is installed
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ thunar_archive_plugin_package_name }}"
-      - "{{ thunar_archive_plugin_shared_packages }}"
-  when: thunar_archive_plugin_enable == yes
+    apt_packages: "{{ [thunar_archive_plugin_package_name] + thunar_archive_plugin_shared_packages }}"
+  when: thunar_archive_plugin_enable == True

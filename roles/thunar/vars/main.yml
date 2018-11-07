@@ -1,11 +1,9 @@
 ---
 
-thunar_package_name:
-  - thunar
+thunar_package_name: thunar
 
 # Volman
-thunar_volman_package_name:
-  - thunar-volman
+thunar_volman_package_name: thunar-volman
 thunar_volman_shared_packages:
   - eject
   # ---- gvfs
@@ -21,10 +19,10 @@ thunar_volman_shared_packages:
   # ---- Fuse
   - fuse
   - fuse2fs
-  - fuseext2
-  - fusefat
+  #- fuseext2    # Does not seem to be available anymore
+  #- fusefat     # Does not seem to be available anymore
   - fuseiso
-  - fuseiso9660
+  #- fuseiso9660 # Does not seem to be available anymore
   - fusesmb
   # ---- Filesystem tools
   - btrfs-progs
@@ -40,8 +38,7 @@ thunar_volman_shared_packages:
   - keyutils
 
 # Archiver Plugin
-thunar_archive_plugin_package_name:
-  - thunar-archive-plugin
+thunar_archive_plugin_package_name: thunar-archive-plugin
 thunar_archive_plugin_shared_packages:
   - xarchiver
   - bzip2

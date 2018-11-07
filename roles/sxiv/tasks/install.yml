@@ -4,9 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ sxiv_package_name }}"
-      - "{{ sxiv_shared_packages }}"
+    apt_packages: "{{ [sxiv_package_name] + sxiv_shared_packages }}"
 
 - name: ensure sxiv wrapper is downloaded
   get_url:

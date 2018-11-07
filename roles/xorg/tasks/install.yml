@@ -7,10 +7,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ xorg_package_name }}"
-      - "{{ xorg_exclusive_packages }}"
-      - "{{ xorg_shared_packages }}"
+    apt_packages: "{{ [xorg_package_name] + xorg_exclusive_packages + xorg_shared_packages }}"
 
 - name: ensure xorg config dir exists
   file:
@@ -36,11 +33,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ xorg_gpu_vaapi_packages }}"
-      - "{{ xorg_gpu_vdpau_packages }}"
-      - "{{ xorg_gpu_vulkan_packages }}"
-      - "{{ xorg_gpu_mesa_packages }}"
+    apt_packages: "{{ xorg_gpu_vaapi_packages + xorg_gpu_vdpau_packages + xorg_gpu_vulkan_packages + xorg_gpu_mesa_packages }}"
 
 - name: gather tentative gpu vaapi packages
   shell: "apt search {{ item }} 2>/dev/null | grep -o '^{{ item }}/' | awk -F '/' '{print $1}'"
@@ -54,9 +47,8 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      # Filters .stdout into list and removes any empty items (which are non-existing packages)
-      - "{{ reg_xorg_tentative_packages | json_query('results[*].stdout') | difference(['']) }}"
+    # Filters .stdout into list and removes any empty items (which are non-existing packages)
+    apt_packages: "{{ reg_xorg_tentative_packages | json_query('results[*].stdout') | difference(['']) }}"
 
 - name: ensure xorg gpu config is present
   template:
