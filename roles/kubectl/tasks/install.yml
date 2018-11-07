@@ -10,10 +10,10 @@
   uri:
     url: "{{ kubectl_version_url }}"
     method: GET
-    follow_redirects: yes
-    return_content: yes
+    follow_redirects: True
+    return_content: True
   register: kubectl_info_raw
-  check_mode: no
+  check_mode: False
   until: kubectl_info_raw is succeeded
   retries: 10
   delay: 5
@@ -23,13 +23,13 @@
     url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_info_raw.content | trim }}/bin/linux/amd64/kubectl"
     dest: "{{ kubectl_path }}/kubectl"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
   until: task_result is succeeded
   retries: 10
   delay: 5
-  become: yes
+  become: True
 
 
 ###
@@ -46,4 +46,4 @@
     dest: "{{ kubectl_bash_completion_path }}/kubectl"
     mode: 0644
   changed_when: task_result.changed and task_result is succeeded
-  become: yes
+  become: True

@@ -10,10 +10,10 @@
   uri:
     url: https://www.terraform.io/downloads.html
     method: GET
-    follow_redirects: yes
-    return_content: yes
+    follow_redirects: True
+    return_content: True
   register: terraform_info_raw
-  check_mode: no
+  check_mode: False
   until: terraform_info_raw is succeeded
   retries: 10
   delay: 5
@@ -23,15 +23,15 @@
     terraform_zip: "{{ terraform_info_raw.content | regex_search(qry) }}"
   vars:
     qry: 'https://releases.*linux_amd64\.zip'
-  check_mode: no
+  check_mode: False
 
 - name: ensure terraform is downloaded
   unarchive:
     src: "{{ terraform_zip }}"
     dest: "{{ terraform_path }}"
-    remote_src: yes
+    remote_src: True
     mode: 0755
-  become: yes
+  become: True
 
 
 ###
@@ -42,4 +42,4 @@
     src: bash-completion.j2
     dest: "{{ terraform_bash_completion_path }}/terraform"
     mode: 0644
-  become: yes
+  become: True

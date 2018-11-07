@@ -13,19 +13,19 @@ debian_dist: buster
 apt_repo_repositories:
   # main
   - file: debian-main
-    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   - file: debian-main
-    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main"
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   # updates
   - file: debian-updates
-    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   - file: debian-updates
-    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main"
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   # security
   - file: debian-security
-    repo: "deb http://security.debian.org {{ debian_dist }}/updates main"
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
   - file: debian-security
-    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main"
+    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
 
 
 ###
@@ -39,8 +39,8 @@ systemd_disabled: []
 ###
 ### System Python versions
 ###
-python_2: yes
-python_3: yes
+python_2: True
+python_3: True
 
 
 ###
@@ -131,11 +131,11 @@ docker_repo_channel: edge
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
-fzf_update_rc: Yes
+fzf_update_rc: True
 # Enable/Disable fuzzy completion (bash & zsh)?
-fzf_completion: No
+fzf_completion: False
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
-fzf_key_bindings: No
+fzf_key_bindings: False
 
 # ---- HipChat ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
@@ -144,17 +144,17 @@ hipchat_repo_dist: "{{ debian_dist }}"
 # ---- LXDM ----
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
-lxdm_show_user_list: no
+lxdm_show_user_list: False
 
 # ---- NetworkManager ----
-network_manager_nm_applet: Yes
-network_manager_plugin_openvpn: Yes
-network_manager_plugin_l2tp: Yes
-network_manager_plugin_openconnect: Yes
-network_manager_plugin_pptp: Yes
-network_manager_plugin_ssh: Yes
-network_manager_plugin_strongswan: Yes
-network_manager_plugin_vpnc: Yes
+network_manager_nm_applet: True
+network_manager_plugin_openvpn: True
+network_manager_plugin_l2tp: True
+network_manager_plugin_openconnect: True
+network_manager_plugin_pptp: True
+network_manager_plugin_ssh: True
+network_manager_plugin_strongswan: True
+network_manager_plugin_vpnc: True
 
 # ---- Skype ----
 # 'stable' or 'unstable'
@@ -166,11 +166,11 @@ sublime_repo_channel: stable
 
 # ---- sxiv ----
 # Make sxiv default program for pictures
-sxiv_default_image_viewer: yes
+sxiv_default_image_viewer: True
 
 # ---- Thunar ----
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
+thunar_volman_enable: True
+thunar_archive_plugin_enable: True
 
 # ---- Thunderbird ----
 thunderbird_ext_official: []
@@ -192,9 +192,9 @@ xorg_gpu: modesetting
 # Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
 xorg_gpu_accel_method: glamor
 # Enable VDPAU_DRIVER=va_gl systemwide
-xorg_gpu_vdpau_va_gl_enable: yes
+xorg_gpu_vdpau_va_gl_enable: True
 # 'libinput' or 'synaptics'
-xorg_touchpad_enable: yes
+xorg_touchpad_enable: True
 xorg_touchpad_driver: 'synaptics'
 
 

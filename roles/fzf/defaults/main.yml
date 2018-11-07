@@ -4,10 +4,10 @@
 fzf: 'ignore'
 
 # Add sourcing ~/.fzf.bash to your normal shell config?
-fzf_update_rc: Yes
+fzf_update_rc: True
 
 # Enable/Disable fuzzy completion (bash & zsh)?
-fzf_completion: No
+fzf_completion: False
 
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
-fzf_key_bindings: No
+fzf_key_bindings: False

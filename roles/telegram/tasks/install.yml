@@ -11,15 +11,15 @@
     path: "{{ telegram_opt_path }}"
     state: directory
     mode: 0755
-  become: yes
+  become: True
 
 - name: ensure telegram is downloaded
   unarchive:
     src: "{{ telegram_download_url }}"
     dest: "{{ telegram_opt_path }}"
-    remote_src: yes
+    remote_src: True
     mode: 0755
-  become: yes
+  become: True
 
 - name: ensure telegram is symlinked to bin path
   file:
@@ -27,5 +27,5 @@
     src: "{{ telegram_opt_path }}/Telegram/Telegram"
     dest: "{{ telegram_bin_path }}/Telegram"
     owner: root
-  become: yes
+  become: True
 

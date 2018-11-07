@@ -11,4 +11,4 @@
   file:
     path: "/usr/local/bin/{{ sxiv_wrapper_name }}"
     state: absent
-  become: yes
+  become: True

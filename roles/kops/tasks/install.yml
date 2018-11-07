@@ -10,10 +10,10 @@
   uri:
     url: "{{ kops_version_url }}"
     method: GET
-    follow_redirects: yes
-    return_content: yes
+    follow_redirects: True
+    return_content: True
   register: kops_info_raw
-  check_mode: no
+  check_mode: False
   until: kops_info_raw is succeeded
   retries: 10
   delay: 5
@@ -26,13 +26,13 @@
     url: "https://github.com/kubernetes/kops/releases/download/{{ kops_info_raw.json.tag_name }}/kops-linux-amd64"
     dest: "{{ kops_path }}/kops"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
   until: task_result is succeeded
   retries: 10
   delay: 5
-  become: yes
+  become: True
 
 
 ###
@@ -49,4 +49,4 @@
     dest: "{{ kops_bash_completion_path }}/kops"
     mode: 0644
   changed_when: task_result.changed and task_result is succeeded
-  become: yes
+  become: True

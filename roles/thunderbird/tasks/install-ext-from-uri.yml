@@ -19,7 +19,7 @@
   unarchive:
     src: "{{ thunderbird_xpi_url }}"
     dest: "{{ thunderbird_temp_dir.path }}"
-    remote_src: yes
+    remote_src: True
   check_mode: False
   changed_when: False
 
@@ -29,7 +29,7 @@
     chdir: "{{ thunderbird_temp_dir.path }}"
   register: thunderbird_xpi_id
   check_mode: False
-  changed_when: No
+  changed_when: False
 
 - name: ensure thunderbird extension xpi id directory exist
   file:
@@ -42,7 +42,7 @@
   unarchive:
     src: "{{ thunderbird_xpi_url }}"
     dest: "{{ thunderbird_ext_dir }}/{{ thunderbird_xpi_id.stdout }}"
-    remote_src: yes
+    remote_src: True
   become: True
 
 - name: ensure temporary download directory is removed

@@ -17,7 +17,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 - name: ensure config directory exists
   file:

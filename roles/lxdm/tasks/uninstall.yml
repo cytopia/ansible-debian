@@ -12,4 +12,4 @@
   file:
     state: absent
     path: /etc/lxdm/lxdm.conf
-  become: yes
+  become: True

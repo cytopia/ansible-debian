@@ -7,7 +7,7 @@
 - name: check if thunderbird is already installed
   command: "dpkg-query -s {{ thunderbird_package_name }}"
   register: thunderbird_installed
-  check_mode: no
+  check_mode: False
   failed_when: thunderbird_installed.rc > 1
   changed_when: thunderbird_installed.rc == 1
 

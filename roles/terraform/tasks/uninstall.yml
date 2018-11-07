@@ -7,4 +7,4 @@
   with_items:
     - "{{ terraform_path }}/terraform"
     - "{{ terraform_bash_completion_path }}/terraform"
-  become: yes
+  become: True

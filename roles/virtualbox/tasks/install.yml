@@ -9,13 +9,13 @@
 - name: set username
   command: whoami
   register: virtualbox_username
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure user is added to vboxusers group
   user:
     name: "{{ virtualbox_username.stdout }}"
     groups: vboxusers
-    append: yes
+    append: True
     update_password: on_create
-  become: yes
+  become: True

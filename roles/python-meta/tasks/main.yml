@@ -25,7 +25,7 @@
     state: latest
     name: "{{ python_2_required_pip_packages + pip2_packages }}"
     executable: pip2
-  become: yes
+  become: True
   when: python_2
 
 - name: ensure python3 pip packages are installed
@@ -33,5 +33,5 @@
     state: latest
     name: "{{ python_3_required_pip_packages + pip3_packages }}"
     executable: pip3
-  become: yes
+  become: True
   when: python_3

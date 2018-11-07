@@ -11,10 +11,10 @@
     url: https://raw.githubusercontent.com/cytopia/ffscreencast/master/bin/ffscreencast
     dest: "{{ ffscreencast_bin_path }}/ffscreencast"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
   until: task_result is succeeded
   retries: 10
   delay: 5
-  become: yes
+  become: True

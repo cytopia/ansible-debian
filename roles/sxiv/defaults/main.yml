@@ -3,7 +3,7 @@
 # 'install', 'remove' or 'ignore'
 sxiv: 'ignore'
 
-sxiv_default_image_viewer: yes
+sxiv_default_image_viewer: True
 
 # Mime types sxiv should be the default image editor
 sxiv_default_mime_types:

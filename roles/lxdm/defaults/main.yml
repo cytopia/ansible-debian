@@ -17,4 +17,4 @@ lxdm_theme: Industrial
 lxdm_gtk_theme: Clearlooks
 
 # Show users instead of having to type the username
-lxdm_show_user_list: yes
+lxdm_show_user_list: True

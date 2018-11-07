@@ -11,12 +11,12 @@
     url: "https://raw.githubusercontent.com/cytopia/thunar-custom-actions/master/{{ item }}"
     dest: "{{ thunar_custom_actions_bin_path }}/{{ item }}"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
   until: task_result is succeeded
   retries: 10
   delay: 5
-  become: yes
+  become: True
   with_items:
     - "{{ thunar_custom_actions_tools }}"

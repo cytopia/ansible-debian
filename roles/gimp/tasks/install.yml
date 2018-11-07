@@ -3,7 +3,7 @@
 - name: check if gimp is already installed
   command: "dpkg-query -s {{ gimp_package_name }}"
   register: gimp_installed
-  check_mode: no
+  check_mode: False
   failed_when: gimp_installed.rc > 1
   changed_when: gimp_installed.rc == 1
 
@@ -39,5 +39,5 @@
   unarchive:
     src: "{{ gimp_theme_url }}"
     dest: "{{ gimp_theme_dir }}"
-    remote_src: yes
+    remote_src: True
     #mode: 0755

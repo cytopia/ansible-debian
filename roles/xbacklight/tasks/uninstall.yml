@@ -4,10 +4,10 @@
   file:
     state: absent
     path: "{{ xbacklight_path }}"
-  become: yes
+  become: True
 
 - name: ensure udev rules are removed
   file:
     state: absent
     path: "{{ xbacklight_udev_rules_dir }}/90-backlight.rules"
-  become: yes
+  become: True

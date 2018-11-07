@@ -5,7 +5,7 @@
     path: "{{ font_ubuntu_font_path }}"
     pattern: '^ubuntu-font-family-[.0-9]+$'
     file_type: directory
-    use_regex: yes
+    use_regex: True
   register: font_ubuntu_font_dirs
 
 - name: ensure ubuntu font directory is removed

@@ -4,16 +4,16 @@
   file:
     path: "{{ firefox_path }}/firefox"
     state: absent
-  become: yes
+  become: True
 
 - name: ensure firefox symlink is removed
   file:
     path: "{{ firefox_bin_path }}"
     state: absent
-  become: yes
+  become: True
 
 - name: ensure firefox desktop application file is removed
   file:
     path: "{{ firefox_desktop_path }}"
     state: absent
-  become: yes
+  become: True

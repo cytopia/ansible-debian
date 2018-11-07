@@ -13,19 +13,19 @@
     mode: 0755
     owner: root
     group: root
-  become: yes
+  become: True
 
 - name: ensure urxvt extensions are downloaded
   get_url:
     url: "{{ item }}"
     dest: "{{ urxvt_extensions_path }}/{{ item | basename }}"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
   until: task_result is succeeded
   retries: 10
   delay: 5
-  become: yes
+  become: True
   with_items:
     - "{{ urxvt_extensions }}"

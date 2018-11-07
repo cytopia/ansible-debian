@@ -11,31 +11,31 @@
     state: directory
     path: "{{ fzf_path }}"
     mode: 0755
-  check_mode: no
+  check_mode: False
 
 - name: ensure fzf is cloned
   git:
     repo: https://github.com/junegunn/fzf
-    clone: yes
+    clone: True
     dest: "{{ fzf_path }}"
-    force: yes
-    update: yes
+    force: True
+    update: True
     depth: 1
 
 - name: set fzf install command generate rc
   set_fact:
     fzf_cmd_rc: "{% if fzf_update_rc %}--update-rc{% else %}--no-update-rc{% endif %}"
-  check_mode: no
+  check_mode: False
 
 - name: set fzf install command shell completion
   set_fact:
     fzf_cmd_comp: "{% if fzf_completion %}--completion{% else %}--no-completion{% endif %}"
-  check_mode: no
+  check_mode: False
 
 - name: set fzf install command key bindings
   set_fact:
     fzf_cmd_key: "{% if fzf_key_bindings %}--key-bindings{% else %}--no-key-bindings{% endif %}"
-  check_mode: no
+  check_mode: False
 
 - name: ensure fzf install script is run
   command: "{{ fzf_path }}/install --bin --64"

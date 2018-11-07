@@ -11,4 +11,4 @@
   file:
     state: absent
     path: "{{ thunderbird_ext_dir }}"
-  become: Yes
+  become: True

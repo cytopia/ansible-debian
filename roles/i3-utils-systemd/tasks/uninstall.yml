@@ -4,10 +4,10 @@
   file:
     state: absent
     path: "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d/70-close_lid.conf"
-  become: yes
+  become: True
 
 - name: ensure i3-utils-systemd suspend is removed
   file:
     state: absent
     path: "{{ i3_utils_systemd_systemd_base_path }}/system/suspend.service"
-  become: yes
+  become: True

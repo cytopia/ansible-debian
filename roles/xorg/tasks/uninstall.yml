@@ -22,7 +22,7 @@
   file:
     state: absent
     path: "{{ item }}"
-  become: yes
+  become: True
   with_items:
     - "{{ xorg_config_dir }}/{{ xorg_config_gpu }}"
     - "{{ xorg_config_dir }}/{{ xorg_config_keyboard }}"

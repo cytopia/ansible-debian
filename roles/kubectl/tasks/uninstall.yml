@@ -7,4 +7,4 @@
   with_items:
     - "{{ kubectl_path }}/kubectl"
     - "{{ kubectl_bash_completion_path }}/kubectl"
-  become: yes
+  become: True

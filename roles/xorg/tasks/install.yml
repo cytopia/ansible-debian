@@ -16,7 +16,7 @@
     mode: 0755
     owner: root
     group: root
-  become: yes
+  become: True
 
 
 ###
@@ -40,7 +40,7 @@
   register: reg_xorg_tentative_packages
   with_items:
     - "{{ xorg_gpu_vaapi_tentative_packages }}"
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure tentative gpu vaapi packages are installed
@@ -57,7 +57,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 - name: ensure xorg gpu VDPAU_DRIVER va_gl session config is present
   template:
@@ -66,7 +66,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 
 ###
@@ -79,7 +79,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 
 ###
@@ -109,7 +109,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
   when: xorg_touchpad_enable == True
 
 
@@ -139,6 +139,6 @@
   file:
     state: absent
     path: "{{ item }}"
-  become: yes
+  become: True
   with_items:
     - "{{ xorg_remove_config_files_abs }}"

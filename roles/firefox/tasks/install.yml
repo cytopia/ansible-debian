@@ -12,16 +12,16 @@
     path: "{{ firefox_path }}"
     state: directory
     mode: 0755
-  become: yes
+  become: True
 
 - name: ensure firefox is downloaded
   unarchive:
     src: "{{ firefox_url }}"
     dest: "{{ firefox_path }}"
-    remote_src: yes
+    remote_src: True
     owner: root
     group: root
-  become: yes
+  become: True
 
 - name: ensure firefox is symlinked to bin
   file:
@@ -30,7 +30,7 @@
     owner: root
     group: root
     state: link
-  become: yes
+  become: True
 
 - name: ensure firefox desktop application file is present
   template:
@@ -39,4 +39,4 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True

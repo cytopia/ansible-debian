@@ -11,17 +11,17 @@
   uri:
     url: https://design.ubuntu.com/font/
     method: GET
-    follow_redirects: yes
-    return_content: yes
+    follow_redirects: True
+    return_content: True
   register: font_ubuntu_raw
-  check_mode: no
+  check_mode: False
 
 - name: set ubuntu font url
   set_fact:
     font_ubuntu_zip: "{{ font_ubuntu_raw.content | regex_search(qry) }}"
   vars:
     qry: 'https://assets.ubuntu.com/.*-ubuntu-font-family-[.0-9]+\.zip'
-  check_mode: no
+  check_mode: False
 
 - name: ensure font directory exists
   file:
@@ -36,20 +36,20 @@
 - name: get current user
   shell: "whoami"
   register: font_ubuntu_user
-  check_mode: no
+  check_mode: False
   changed_when: False
 - name: get current user group
   shell: "getent group {{ font_ubuntu_user.stdout }} | awk -F ':' '{print $1}'"
   register: font_ubuntu_group
-  check_mode: no
+  check_mode: False
   changed_when: False
 - name: ensure ubuntu font is downloaded
   unarchive:
     src: "{{ font_ubuntu_zip }}"
     dest: "{{ font_ubuntu_font_path }}"
-    remote_src: yes
+    remote_src: True
     owner: "{{ font_ubuntu_user.stdout }}"
     group: "{{ font_ubuntu_group.stdout }}"
     #mode: 0755
-  become: yes
+  become: True
   notify: update font-cache

@@ -4,7 +4,7 @@
   shell: apt-cache search pinta 2>/dev/null | grep -oE '^pinta\s'
   args:
     executable: /bin/bash
-  check_mode: no
+  check_mode: False
   changed_when: False
   failed_when: False
   register: pinta_repo_avail
