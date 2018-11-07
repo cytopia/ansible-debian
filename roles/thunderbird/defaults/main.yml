@@ -16,3 +16,8 @@ thunderbird_ext_official: []
 # Note: The first found XPI download url will be used
 thunderbird_ext_custom: []
 #  - https://github.com/ExchangeCalendar/exchangecalendar/releases
+
+# Install extensions via apt-get
+thunderbird_ext_apt: []
+#  - lightning
+#  - enigmail

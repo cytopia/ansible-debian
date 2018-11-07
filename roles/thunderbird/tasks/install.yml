@@ -15,7 +15,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages: "{{ [thunderbird_package_name] + thunderbird_shared_packages }}"
+    apt_packages: "{{ [thunderbird_package_name] + thunderbird_shared_packages + thunderbird_ext_apt }}"
 
 - name: ensure thunderbird extensions directory exist
   file:
