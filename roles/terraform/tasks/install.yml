@@ -1,0 +1,45 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ terraform_shared_packages }}"
+
+- name: fetch terraform info
+  uri:
+    url: https://www.terraform.io/downloads.html
+    method: GET
+    follow_redirects: yes
+    return_content: yes
+  register: terraform_info_raw
+  check_mode: no
+  until: terraform_info_raw is succeeded
+  retries: 10
+  delay: 5
+
+- name: set terraform download url
+  set_fact:
+    terraform_zip: "{{ terraform_info_raw.content | regex_search(qry) }}"
+  vars:
+    qry: 'https://releases.*linux_amd64\.zip'
+  check_mode: no
+
+- name: ensure terraform is downloaded
+  unarchive:
+    src: "{{ terraform_zip }}"
+    dest: "{{ terraform_path }}"
+    remote_src: yes
+    mode: 0755
+  become: yes
+
+
+###
+### Add bash completion
+###
+- name: ensure terraform bash completion is available
+  template:
+    src: bash-completion.j2
+    dest: "{{ terraform_bash_completion_path }}/terraform"
+    mode: 0644
+  become: yes

@@ -163,6 +163,10 @@
   tags: telegram
 
 - hosts: all
+  roles: [terraform]
+  tags: terraform
+
+- hosts: all
   roles: [thunar]
   tags: thunar
 

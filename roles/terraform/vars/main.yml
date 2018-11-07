@@ -1,0 +1,9 @@
+---
+
+terraform_path: /usr/local/bin
+
+terraform_bash_completion_path: /usr/share/bash-completion/completions
+
+terraform_shared_packages:
+  - bash-completion
+  - unzip

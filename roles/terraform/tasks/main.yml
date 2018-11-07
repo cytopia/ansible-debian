@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: terraform == 'install'
+
+- include_tasks: uninstall.yml
+  when: terraform == 'remove'

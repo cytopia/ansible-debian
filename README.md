@@ -207,6 +207,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Telegram desktop repo and package</td>
   </tr>
   <tr>
+   <td><a href="https://www.terraform.io">terraform</a></td>
+   <td>HashiCorp's Infrastructure as Code provisioner</td>
+  </tr>
+  <tr>
    <td><a href="https://wiki.archlinux.org/index.php/Thunar">thunar</a></td>
    <td>Thunar and its requirements to handle external disks as well as encrypted disks</td>
   </tr>
