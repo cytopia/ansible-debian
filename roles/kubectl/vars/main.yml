@@ -1,0 +1,10 @@
+---
+
+kubectl_path: /usr/local/bin
+
+kubectl_version_url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+
+kubectl_bash_completion_path: /usr/share/bash-completion/completions
+
+kubectl_shared_packages:
+  - bash-completion
