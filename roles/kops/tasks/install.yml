@@ -1,0 +1,52 @@
+---
+
+- name: ensure kops requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ kops_shared_packages }}"
+
+- name: fetch kops version info
+  uri:
+    url: "{{ kops_version_url }}"
+    method: GET
+    follow_redirects: yes
+    return_content: yes
+  register: kops_info_raw
+  check_mode: no
+  until: kops_info_raw is succeeded
+  retries: 10
+  delay: 5
+
+- debug:
+    msg: "{{ kops_info_raw }}"
+
+- name: ensure kops is downloaded
+  get_url:
+    url: "https://github.com/kubernetes/kops/releases/download/{{ kops_info_raw.json.tag_name }}/kops-linux-amd64"
+    dest: "{{ kops_path }}/kops"
+    mode: 0755
+    force: yes
+    timeout: 30
+  register: task_result
+  until: task_result is succeeded
+  retries: 10
+  delay: 5
+  become: yes
+
+
+###
+### Add bash completion
+###
+- name: generate kops bash completion
+  command: kops completion bash
+  changed_when: task_result.changed and task_result is succeeded
+  register: kops_completion
+
+- name: ensure kops bash completion is available
+  copy:
+    content: "{{ kops_completion.stdout }}"
+    dest: "{{ kops_bash_completion_path }}/kops"
+    mode: 0644
+  changed_when: task_result.changed and task_result is succeeded
+  become: yes

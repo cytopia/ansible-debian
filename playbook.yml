@@ -107,6 +107,14 @@
   tags: i3blocks-modules
 
 - hosts: all
+  roles: [kops]
+  tags: kops
+
+- hosts: all
+  roles: [kubectl]
+  tags: kubectl
+
+- hosts: all
   roles: [libreoffice]
   tags: libreoffice
 

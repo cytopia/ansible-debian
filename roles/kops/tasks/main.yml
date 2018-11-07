@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: kops == 'install'
+
+- include_tasks: uninstall.yml
+  when: kops == 'remove'

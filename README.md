@@ -146,6 +146,14 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Awesome i3blocks modules</td>
   </tr>
   <tr>
+   <td><a href="https://github.com/kubernetes/kops">kops</a></td>
+   <td>Kubernetes operations command line tool</td>
+  </tr>
+  <tr>
+   <td><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a></td>
+   <td>Kubernetes command line tool</td>
+  </tr>
+  <tr>
    <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
    <td>LibreOffice 6 with <a href="http://www.deviantart.com/art/Office-2013-theme-for-LibreOffice-512127527">MsOffice 2013 Icon theme</a></td>
   </tr>

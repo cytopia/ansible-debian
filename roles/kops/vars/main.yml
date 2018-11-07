@@ -1,0 +1,10 @@
+---
+
+kops_path: /usr/local/bin
+
+kops_version_url: https://api.github.com/repos/kubernetes/kops/releases/latest
+
+kops_bash_completion_path: /usr/share/bash-completion/completions
+
+kops_shared_packages:
+  - bash-completion
