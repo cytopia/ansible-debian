@@ -53,10 +53,10 @@ The only requirements are `bash` and `sudo`, everything else will be installed a
 
 ```bash
 # Provision default profile
-curl https://raw.githubusercontent.com/cytopia/ansible-debian-testing/master/bootstrap | bash
+curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash
 
 # Provision profile 'generic-all'
-curl https://raw.githubusercontent.com/cytopia/ansible-debian-testing/master/bootstrap | bash -s generic-all
+curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash -s generic-all
 ```
 
 #### Manually provision your system from scratch
@@ -65,8 +65,8 @@ Use this to provision your system from scratch, when you don't have a profile su
 
 ```bash
 # 1. Clone this project
-git clone https://github.com/cytopia/ansible-debian-testing
-cd ansible-debian-testing
+git clone https://github.com/cytopia/ansible-debian
+cd ansible-debian
 
 # 2. Add your profile 'bob' (See 'Create custom profiles' section of this README)
 

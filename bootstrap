@@ -29,8 +29,8 @@ sudo apt-get install --no-install-recommends --no-install-suggests -y \
 ###
 ### Download GitHub repository
 ###
-git clone https://github.com/cytopia/ansible-debian-testing
-cd ansible-debian-testing
+git clone https://github.com/cytopia/ansible-debian
+cd ansible-debian
 
 
 ###
