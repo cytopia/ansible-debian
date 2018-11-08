@@ -153,10 +153,6 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Gimp with <a href="https://github.com/draekko/gimp-cc-themes">Photoshop theme and keybindings</a></td>
   </tr>
   <tr>
-   <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
-   <td>HipChat repo and package</td>
-  </tr>
-  <tr>
    <td><a href="https://github.com/i3/i3">i3</a></td>
    <td>i3wm</td>
   </tr>
@@ -442,7 +438,6 @@ docker:           'remove'
 docker_compose:   'remove'
 skype:            'ignore'
 sublime:          'ignore'
-hipchat:          'ignore'
 ...
 ```
 #### Package options

@@ -73,7 +73,6 @@ font_terminus:         'ignore'
 font_ubuntu:           'ignore'
 fzf:                   'ignore'
 gimp:                  'ignore'
-hipchat:               'ignore'
 i3:                    'ignore'
 i3_gaps:               'ignore'
 i3_utils_bin:          'ignore'
@@ -130,10 +129,6 @@ fzf_update_rc: True
 fzf_completion: False
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
 fzf_key_bindings: False
-
-# ---- HipChat ----
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: stretch
 
 # ---- LXDM ----
 lxdm_dpi: 96

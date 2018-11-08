@@ -1,7 +1,0 @@
----
-
-# 'install', 'remove' or 'ignore'
-hipchat: 'ignore'
-
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: stretch
