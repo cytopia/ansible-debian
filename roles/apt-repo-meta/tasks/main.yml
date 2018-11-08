@@ -6,6 +6,10 @@
     name: "{{ apt_repo_packages }}"
     update_cache: True
     install_recommends: False
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
   become: True
 
 - name: ensure default sources.list is removed
@@ -23,6 +27,10 @@
     keyserver: "{{ item.keyserver | default(omit) }}"
     url: "{{ item.url | default(omit) }}"
     validate_certs: True
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
   become: True
   with_items:
     - "{{ apt_repo_keys }}"
@@ -35,6 +43,10 @@
     filename: "{{ item.file }}"
     validate_certs: True
     update_cache: True
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
   become: True
   with_items:
     - "{{ apt_repo_repositories }}"
