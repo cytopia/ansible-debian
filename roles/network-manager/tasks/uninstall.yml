@@ -10,7 +10,6 @@
       - "{{ network_manager_gnome_package }}"
       # Plugin packages
       - "{{ network_manager_plugin_package_openvpn }}"
-      - "{{ network_manager_plugin_package_iodine }}"
       - "{{ network_manager_plugin_package_l2tp }}"
       - "{{ network_manager_plugin_package_openconnect }}"
       - "{{ network_manager_plugin_package_pptp }}"
@@ -19,7 +18,6 @@
       - "{{ network_manager_plugin_package_vpnc }}"
       # Plugin Gnome packages
       - "{{ network_manager_plugin_gnome_package_openvpn }}"
-      - "{{ network_manager_plugin_gnome_package_iodine }}"
       - "{{ network_manager_plugin_gnome_package_l2tp }}"
       - "{{ network_manager_plugin_gnome_package_openconnect }}"
       - "{{ network_manager_plugin_gnome_package_pptp }}"

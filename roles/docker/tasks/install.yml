@@ -13,19 +13,18 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ docker_package_name }}"
+    apt_packages: "{{ [docker_package_name] }}"
 
 - name: set username
   command: whoami
   register: docker_username
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure user is added to docker group
   user:
     name: "{{ docker_username.stdout }}"
     groups: docker
-    append: yes
+    append: True
     update_password: on_create
-  become: yes
+  become: True

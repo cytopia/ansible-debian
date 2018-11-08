@@ -1,31 +1,31 @@
 ---
+
 - name: ensure requirements are installed
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ oh_my_zsh_shared_packages }}"
+    apt_packages: "{{ oh_my_zsh_shared_packages }}"
 
 - name: Clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/root/.oh-my-zsh
-  become: yes
+  become: True
 
 - name: Create conf folder in home directory
   file: path=/root/conf/ state=directory owner=root
-  become: yes
+  become: True
 
 - name: deploy .zshrc
   template: src=../files/zshrc.in dest=/root/conf/zshrc owner=root
-  become: yes
+  become: True
 
 - name: remove standard zshrc
   file: path=/root/.zshrc state=absent
-  become: yes
+  become: True
 
 - name: symlink zshrc
   file: path=/root/.zshrc src=/root/conf/zshrc state=link owner=root force=true
-  become: yes
+  become: True
 
 - name: Set zsh as default shell
   user: name=root shell=/bin/zsh
-  become: yes
+  become: True

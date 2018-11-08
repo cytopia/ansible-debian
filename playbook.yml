@@ -75,10 +75,6 @@
   tags: firefox
 
 - hosts: all
-  roles: [hipchat]
-  tags: hipchat
-
-- hosts: all
   roles: [fzf]
   tags: fzf
 
@@ -91,6 +87,10 @@
   tags: i3-utils-bin
 
 - hosts: all
+  roles: [i3]
+  tags: i3
+
+- hosts: all
   roles: [i3-gaps]
   tags: i3-gaps
 
@@ -101,6 +101,14 @@
 - hosts: all
   roles: [i3blocks-modules]
   tags: i3blocks-modules
+
+- hosts: all
+  roles: [kops]
+  tags: kops
+
+- hosts: all
+  roles: [kubectl]
+  tags: kubectl
 
 - hosts: all
   roles: [libreoffice]
@@ -149,6 +157,10 @@
 - hosts: all
   roles: [telegram]
   tags: telegram
+
+- hosts: all
+  roles: [terraform]
+  tags: terraform
 
 - hosts: all
   roles: [thunar]

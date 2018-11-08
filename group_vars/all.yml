@@ -33,8 +33,8 @@ systemd_disabled: []
 ###
 ### System Python versions
 ###
-python_2: yes
-python_3: yes
+python_2: True
+python_3: True
 
 
 ###
@@ -73,12 +73,14 @@ font_terminus:         'ignore'
 font_ubuntu:           'ignore'
 fzf:                   'ignore'
 gimp:                  'ignore'
-hipchat:               'ignore'
+i3:                    'ignore'
 i3_gaps:               'ignore'
 i3_utils_bin:          'ignore'
 i3_utils_systemd:      'ignore'
 i3blocks_modules:      'ignore'
 icon_moka:             'ignore'
+kops:                  'ignore'
+kubectl:               'ignore'
 libreoffice:           'ignore'
 lxdm:                  'ignore'
 neovim:                'ignore'
@@ -91,6 +93,7 @@ skype:                 'ignore'
 sublime:               'ignore'
 sxiv:                  'ignore'
 telegram:              'ignore'
+terraform:             'ignore'
 theme_arc:             'ignore'
 thunar:                'ignore'
 thunar_custom_actions: 'ignore'
@@ -121,31 +124,26 @@ docker_repo_channel: stable
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
-fzf_update_rc: Yes
+fzf_update_rc: True
 # Enable/Disable fuzzy completion (bash & zsh)?
-fzf_completion: No
+fzf_completion: False
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
-fzf_key_bindings: No
-
-# ---- HipChat ----
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: stretch
+fzf_key_bindings: False
 
 # ---- LXDM ----
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
-lxdm_show_user_list: no
+lxdm_show_user_list: False
 
 # ---- NetworkManager ----
-network_manager_nm_applet: Yes
-network_manager_plugin_openvpn: Yes
-network_manager_plugin_iodine: No
-network_manager_plugin_l2tp: No
-network_manager_plugin_openconnect: No
-network_manager_plugin_pptp: No
-network_manager_plugin_ssh: No
-network_manager_plugin_strongswan: No
-network_manager_plugin_vpnc: No
+network_manager_nm_applet: True
+network_manager_plugin_openvpn: True
+network_manager_plugin_l2tp: False
+network_manager_plugin_openconnect: False
+network_manager_plugin_pptp: False
+network_manager_plugin_ssh: False
+network_manager_plugin_strongswan: False
+network_manager_plugin_vpnc: False
 
 # ---- Skype ----
 # 'stable' or 'unstable'
@@ -157,11 +155,11 @@ sublime_repo_channel: stable
 
 # ---- sxiv ----
 # Make sxiv default program for pictures
-sxiv_default_image_viewer: yes
+sxiv_default_image_viewer: True
 
 # ---- Thunar ----
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
+thunar_volman_enable: True
+thunar_archive_plugin_enable: True
 
 # ---- Thunderbird ----
 thunderbird_ext_official: []
@@ -177,19 +175,15 @@ thunderbird_ext_official: []
 thunderbird_ext_custom: []
 #  - https://github.com/ExchangeCalendar/exchangecalendar/releases
 
-# ---- VirtualBox ----
-# 'stretch', 'jessie', 'wheezy'
-virtualbox_repo_dist: stretch
-
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
 xorg_gpu: modesetting
 # Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
 xorg_gpu_accel_method: glamor
 # Enable VDPAU_DRIVER=va_gl systemwide
-xorg_gpu_vdpau_va_gl_enable: yes
+xorg_gpu_vdpau_va_gl_enable: True
 # 'libinput' or 'synaptics'
-xorg_touchpad_enable: yes
+xorg_touchpad_enable: True
 xorg_touchpad_driver: 'synaptics'
 
 

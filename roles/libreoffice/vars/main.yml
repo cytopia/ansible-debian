@@ -1,19 +1,9 @@
 ---
 
-libreoffice_package_name: libreoffice6.0
-
-# Required for DPI wrapper
-libreoffice_shared_packages:
-  - x11-xserver-utils
-
-libreoffice_download_url: https://www.libreoffice.org/download/download/?type=deb-x86_64&version=6.0.0&lang=en-US
+libreoffice_package_name: libreoffice
 
 libreoffice_icon_name: images_office2013.zip
-libreoffice_icon_path: /opt/libreoffice6.0/share/config
+libreoffice_icon_path: /usr/share/libreoffice/share/config
 
 libreoffice_base_config: "{{ lookup('env','HOME') }}/.config/libreoffice"
 libreoffice_config_path: "{{ libreoffice_base_config }}/4/user"
-
-# Vars for wrapper
-libreoffice_wrapper_path: /usr/bin/libreoffice6.0
-libreoffice_bin_path: /opt/libreoffice6.0/program/soffice

@@ -12,4 +12,4 @@
   file:
     state: absent
     path: "{{ urxvt_extensions_path }}"
-  become: yes
+  become: True

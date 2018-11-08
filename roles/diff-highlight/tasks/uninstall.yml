@@ -4,4 +4,4 @@
   file:
     state: absent
     path: "{{ diff_highlight_path }}"
-  become: yes
+  become: True

@@ -10,38 +10,28 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ python_2_required_apt_packages }}"
-      - "{{ python2_apt_packages }}"
+    apt_packages: "{{ python_2_required_apt_packages + python2_apt_packages }}"
   when: python_2
 
 - name: ensure python3 packages are installed
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ python_3_required_apt_packages }}"
-      - "{{ python3_apt_packages }}"
+    apt_packages: "{{ python_3_required_apt_packages + python3_apt_packages }}"
   when: python_3
 
 - name: ensure python2 pip packages are installed
   pip:
     state: latest
-    name: "{{ item }}"
+    name: "{{ python_2_required_pip_packages + pip2_packages }}"
     executable: pip2
-  become: yes
+  become: True
   when: python_2
-  with_items:
-    - "{{ python_2_required_pip_packages }}"
-    - "{{ pip2_packages }}"
 
 - name: ensure python3 pip packages are installed
   pip:
     state: latest
-    name: "{{ item }}"
+    name: "{{ python_3_required_pip_packages + pip3_packages }}"
     executable: pip3
-  become: yes
+  become: True
   when: python_3
-  with_items:
-    - "{{ python_3_required_pip_packages }}"
-    - "{{ pip3_packages }}"

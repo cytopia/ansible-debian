@@ -5,11 +5,10 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ sxiv_package_name }}"
+    apt_packages: "{{ sxiv_package_name }}"
 
 - name: ensure sxiv wrapper is removed
   file:
     path: "/usr/local/bin/{{ sxiv_wrapper_name }}"
     state: absent
-  become: yes
+  become: True

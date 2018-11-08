@@ -1,0 +1,10 @@
+---
+
+- name: ensure kops is removed
+  file:
+    state: absent
+    path: "{{ item }}"
+  with_items:
+    - "{{ kops_path }}/kops"
+    - "{{ kops_bash_completion_path }}/kops"
+  become: True

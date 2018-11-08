@@ -15,7 +15,7 @@ xorg_gpu: modesetting
 xorg_gpu_accel_method: glamor
 
 # Enable VDPAU_DRIVER=va_gl systemwide
-xorg_gpu_vdpau_va_gl_enable: yes
+xorg_gpu_vdpau_va_gl_enable: True
 
 
 ###
@@ -23,5 +23,5 @@ xorg_gpu_vdpau_va_gl_enable: yes
 ###
 
 # 'libinput' or 'synaptics'
-xorg_touchpad_enable: yes
+xorg_touchpad_enable: True
 xorg_touchpad_driver: 'synaptics'

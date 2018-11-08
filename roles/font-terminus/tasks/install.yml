@@ -12,12 +12,12 @@
     url: "{{ item }}"
     dest: "{{ font_terminus_font_path }}/{{ item | basename | replace('%20', ' ') }}"
     mode: 0644
-    force: yes
+    force: True
     timeout: 30
   register: task_result
-  until: task_result | succeeded
-  retries: 10
-  delay: 5
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
   with_items:
     - "{{ font_terminus_bold_urls }}"
     - "{{ font_terminus_bold_italic_urls }}"

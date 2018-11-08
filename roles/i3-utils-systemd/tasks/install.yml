@@ -4,28 +4,27 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3_utils_systemd_shared_packages }}"
+    apt_packages: "{{ i3_utils_systemd_shared_packages }}"
 
 - name: ensure xlock is downloaded
   get_url:
     url: https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/bin/xlock
     dest: /usr/local/bin/xlock
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
-  until: task_result | succeeded
-  retries: 10
-  delay: 5
-  become: yes
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+  become: True
 
 - name: ensure systemd directories exist
   file:
     state: directory
     path: "{{ item }}"
     mode: 0755
-  become: yes
+  become: True
   with_items:
     - "{{ i3_utils_systemd_systemd_base_path }}/system"
     - "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d"
@@ -35,13 +34,13 @@
     url: https://raw.githubusercontent.com/cytopia/i3-utils-systemd/master/systemd/logind.conf.d/70-close_lid.conf
     dest: "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d/70-close_lid.conf"
     mode: 0644
-    force: yes
+    force: True
     timeout: 30
   register: task_result
-  until: task_result | succeeded
-  retries: 10
-  delay: 5
-  become: yes
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+  become: True
 
 # suspend.service requires the current user to be set
 - name: create temporary file
@@ -49,7 +48,7 @@
     state: file
     suffix: temp
   changed_when: False
-  check_mode: no
+  check_mode: False
   register: i3_utils_systemd_tmp
 
 - name: ensure i3-utils-systemd suspend is downloaded
@@ -57,19 +56,19 @@
     url: https://github.com/cytopia/i3-utils-systemd/raw/master/systemd/system/suspend.service
     dest: "{{ i3_utils_systemd_tmp.path }}"
     mode: 0644
-    force: yes
+    force: True
     timeout: 30
   register: task_result
-  until: task_result | succeeded
-  retries: 10
-  delay: 5
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
   changed_when: False
-  check_mode: no
+  check_mode: False
 
 - name: set username
   command: whoami
   register: i3_utils_systemd_username
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure i3-utils-systemd suspend is using correct username
@@ -78,18 +77,18 @@
     regexp: '^User=REPLACE_ME$'
     line: "User={{ i3_utils_systemd_username.stdout }}"
   changed_when: False
-  check_mode: no
+  check_mode: False
 
 - name: ensure i3-utils-systemd suspend is in place
   copy:
     src: "{{ i3_utils_systemd_tmp.path }}"
     dest: "{{ i3_utils_systemd_systemd_base_path }}/system/suspend.service"
     mode: 0644
-  become: yes
+  become: True
 
 - name: ensure temp file is removed
   file:
     state: absent
     path: "{{ i3_utils_systemd_tmp.path }}"
   changed_when: False
-  check_mode: no
+  check_mode: False

@@ -3,7 +3,7 @@
 - name: check if gimp is already installed
   command: "dpkg-query -s {{ gimp_package_name }}"
   register: gimp_installed
-  check_mode: no
+  check_mode: False
   failed_when: gimp_installed.rc > 1
   changed_when: gimp_installed.rc == 1
 
@@ -11,9 +11,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ gimp_package_name }}"
-      - "{{ gimp_required_packages }}"
+    apt_packages: "{{ [gimp_package_name] + gimp_required_packages }}"
 
 - name: ensure gimp configuration directories exist
   file:
@@ -41,5 +39,5 @@
   unarchive:
     src: "{{ gimp_theme_url }}"
     dest: "{{ gimp_theme_dir }}"
-    remote_src: yes
+    remote_src: True
     #mode: 0755

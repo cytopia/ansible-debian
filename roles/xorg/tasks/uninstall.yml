@@ -7,16 +7,22 @@
     apt_state: absent
     apt_packages:
       - "{{ xorg_package_name }}"
-      - "{{ xorg_exclusive_packages }}"
-      - xserver-xorg-input-libinput
-      - xserver-xorg-input-synaptics
+      - "xserver-xorg-input-libinput"
+      - "xserver-xorg-input-synaptics"
       - "xserver-xorg-video-{{ xorg_gpu }}"
+
+- name: ensure xorg and its components are removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages: "{{ xorg_exclusive_packages }}"
 
 - name: ensure xorg configuration files are removed
   file:
     state: absent
     path: "{{ item }}"
-  become: yes
+  become: True
   with_items:
     - "{{ xorg_config_dir }}/{{ xorg_config_gpu }}"
     - "{{ xorg_config_dir }}/{{ xorg_config_keyboard }}"

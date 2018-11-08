@@ -1,24 +1,24 @@
 ---
 
-- name: ensure apt cache is up to date
-  apt:
-    force_apt_get: yes
-    update_cache: yes
-    cache_valid_time: 3600
-  become: yes
-  changed_when: False
-  check_mode: False
+#- name: ensure apt cache is up to date
+#  apt:
+#    force_apt_get: True
+#    update_cache: True
+#    cache_valid_time: 3600
+#  changed_when: False
+#  check_mode: False
+#  become: True
 
 - name: ensure apt packages are managed
   apt:
     state: "{{ apt_state }}"
-    name: "{{ item }}"
-    autoclean: yes
-    autoremove: yes
-    force_apt_get: yes
-    update_cache: yes
+    name: "{{ packages }}"
+    autoclean: True
+    autoremove: True
+    force_apt_get: True
+    update_cache: True
     cache_valid_time: 3600
-    install_recommends: no
-  become: yes
-  with_items: "{{ apt_packages }}"
-  #notify: clean apt
+    install_recommends: False
+  vars:
+    packages: "{{ apt_packages }}"
+  become: True

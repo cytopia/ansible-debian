@@ -4,14 +4,11 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ neovim_package_name }}"
-      - "{{ neovim_shared_packages }}"
-      - "{{ neovim_exclusive_packages }}"
+    apt_packages: "{{ [neovim_package_name] + neovim_shared_packages + neovim_exclusive_packages }}"
 
 - name: ensure neovim python packages are installed
   include_role:
     name: python-meta
   vars:
-    pip2_packages: "{{ neovim_pip2_packages }}"
-    pip3_packages: "{{ neovim_pip3_packages }}"
+    python_2_apt_packages: "{{ neovim_python2_packages }}"
+    python_3_apt_packages: "{{ neovim_python3_packages }}"

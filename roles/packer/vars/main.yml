@@ -2,5 +2,8 @@
 
 packer_path: /usr/local/bin
 
+packer_bash_completion_path: /usr/share/bash-completion/completions
+
 packer_shared_packages:
+  - bash-completion
   - unzip

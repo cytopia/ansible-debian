@@ -29,7 +29,7 @@
   args:
     chdir: "{{ thunderbird_ext_cust_temp_dir.path }}"
   check_mode: False
-  changed_when: No
+  changed_when: False
 
 - name: set xpi download url
   shell: grep -Eo 'http(s)?://.*\.xpi' page.txt | head -1
@@ -37,7 +37,7 @@
     chdir: "{{ thunderbird_ext_cust_temp_dir.path }}"
   register: thunderbird_ext_cust_xpi_url
   check_mode: False
-  changed_when: No
+  changed_when: False
 
 - name: ensure thunderbird remote xpi is installed
   include_tasks: install-ext-from-uri.yml

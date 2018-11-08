@@ -5,6 +5,4 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ zathura_package_name }}"
-      - "{{ zathura_exclusive_packages }}"
+    apt_packages: "{{ [zathura_package_name] + zathura_exclusive_packages }}"

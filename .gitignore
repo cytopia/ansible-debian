@@ -15,6 +15,7 @@
 
 # Add repo specific stuff here...
 validate.sh
+.vagrant
 
 ######################################
 # GENERIC

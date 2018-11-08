@@ -1,8 +1,8 @@
 ---
 
 # Python versions to enable
-python_2: yes
-python_3: yes
+python_2: True
+python_3: True
 
 # Array of user-defined python[23] apt packaes
 python2_apt_packages: []

@@ -1,0 +1,50 @@
+#!/bin/sh
+
+set -eu
+
+# Default profile to use
+# Overwrite via command line argument
+PROFILE="${1:-cytopia-t470p}"
+
+if ! command -v sudo >/dev/null 2>&1; then
+	>&2 echo "This script requires 'sudo' binary to be installed"
+	exit 1
+fi
+
+if [ "$(id -u)" -eq "0" ]; then
+	>&2 echo "This script must be run as normal user"
+	exit 1
+fi
+
+
+###
+### Install requirements to use this repository
+###
+sudo DEBIAN_FRONTEND=noninteractive apt update -qq
+sudo apt-get install --no-install-recommends --no-install-suggests -y \
+	git \
+	make
+
+
+###
+### Download GitHub repository
+###
+git clone https://github.com/cytopia/ansible-debian
+cd ansible-debian
+
+
+###
+### Deploy
+###
+
+# (Step 1/4) Ensure required software is present
+sudo make deploy-init
+
+# (Step 2/4) Add new Debian sources
+make deploy-apt-sources PROFILE=${PROFILE}
+
+# (Step 3/4) dist-upgrade your system
+sudo make deploy-dist-upgrade
+
+# (Step 3/3) Deploy your system
+make deploy-tools PROFILE=${PROFILE}

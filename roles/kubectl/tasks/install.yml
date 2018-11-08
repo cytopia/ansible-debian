@@ -1,0 +1,49 @@
+---
+
+- name: ensure kubectl requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ kubectl_shared_packages }}"
+
+- name: fetch kubectl version info
+  uri:
+    url: "{{ kubectl_version_url }}"
+    method: GET
+    follow_redirects: True
+    return_content: True
+  register: kubectl_info_raw
+  check_mode: False
+  until: kubectl_info_raw is succeeded
+  retries: 30
+  delay: 10
+
+- name: ensure kubectl is downloaded
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_info_raw.content | trim }}/bin/linux/amd64/kubectl"
+    dest: "{{ kubectl_path }}/kubectl"
+    mode: 0755
+    force: True
+    timeout: 30
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+  become: True
+
+
+###
+### Add bash completion
+###
+- name: generate kubectl bash completion
+  command: kubectl completion bash
+  changed_when: task_result.changed and task_result is succeeded
+  register: kubectl_completion
+
+- name: ensure kubectl bash completion is available
+  copy:
+    content: "{{ kubectl_completion.stdout }}"
+    dest: "{{ kubectl_bash_completion_path }}/kubectl"
+    mode: 0644
+  changed_when: task_result.changed and task_result is succeeded
+  become: True

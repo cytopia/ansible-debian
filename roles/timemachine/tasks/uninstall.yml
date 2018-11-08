@@ -4,4 +4,4 @@
   file:
     state: absent
     path: "{{ timemachine_path }}"
-  become: yes
+  become: True

@@ -1,0 +1,8 @@
+---
+
+- name: ensure i3-wm is removed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages: "{{ i3_package_name }}"

@@ -23,4 +23,4 @@
   command: make install
   args:
     chdir: "{{ i3_gaps_git_path }}/build"
-  become: yes
+  become: True

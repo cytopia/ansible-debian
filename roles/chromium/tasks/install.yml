@@ -4,17 +4,15 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ chromium_package_name }}"
-      - "{{ chromium_shared_packages }}"
+    apt_packages: "{{ [chromium_package_name] + chromium_shared_packages }}"
 
 - name: ensure chromium extension directory exists
   file:
     state: directory
     path: "{{ chromium_extensions_dir }}"
     mode: 0755
-  check_mode: no
-  become: Yes
+  check_mode: False
+  become: True
 
 - name: ensure chromium extension configs are copied
   copy:
@@ -23,7 +21,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
   with_items:
     - "{{ chromium_extensions }}"
 
@@ -31,31 +29,31 @@
   find:
     paths: "{{ chromium_extensions_dir }}"
     file_type: any
-  check_mode: no
+  check_mode: False
   register: chromium_all_extension_files
 
 - name: set chromium wanted extensions
   set_fact:
     chromium_extensions_abs: "{{ chromium_extensions_abs | default([]) + [chromium_extensions_dir + '/' + item + '.json'] }}"
-  check_mode: no
+  check_mode: False
   with_items:
     - "{{ chromium_extensions }}"
 
 - name: set chromium wanted extensions
   set_fact:
     chromium_extensions_abs: []
-  check_mode: no
+  check_mode: False
   when: not chromium_extensions
 
 - name: get array of unmanaged chrome extension files to remove
   set_fact:
     chromium_extensions_to_remove: "{{ chromium_all_extension_files.files | default([]) | json_query('[].path') | difference(chromium_extensions_abs) }}"
-  check_mode: no
+  check_mode: False
 
 - name: ensure unwanted chromium extension configs are removed
   file:
     state: absent
     path: "{{ item }}"
-  become: yes
+  become: True
   with_items:
     - "{{ chromium_extensions_to_remove }}"

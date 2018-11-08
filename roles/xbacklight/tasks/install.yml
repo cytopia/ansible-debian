@@ -13,13 +13,13 @@
     url: https://raw.githubusercontent.com/wavexx/acpilight/master/xbacklight
     dest: "{{ xbacklight_path }}"
     mode: 0755
-    force: yes
+    force: True
     timeout: 30
   register: task_result
-  until: task_result | succeeded
-  retries: 10
-  delay: 5
-  become: yes
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+  become: True
 
 - name: ensure udev is installed
   include_role:
@@ -35,7 +35,7 @@
     owner: root
     group: root
     mode: 0755
-  become: yes
+  become: True
 
 - name: ensure udev rules are present
   copy:
@@ -44,18 +44,18 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 - name: set username
   command: whoami
   register: xbacklight_username
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure user is added to video group
   user:
     name: "{{ xbacklight_username.stdout }}"
     groups: video
-    append: yes
+    append: True
     update_password: on_create
-  become: yes
+  become: True

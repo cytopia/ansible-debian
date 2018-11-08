@@ -1,0 +1,7 @@
+---
+
+- name: ensure i3-wm is installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ [i3_package_name] + i3_shared_packages }}"

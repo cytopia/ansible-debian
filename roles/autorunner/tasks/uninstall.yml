@@ -4,4 +4,4 @@
   file:
     state: absent
     path: "{{ autorunner_bin_path }}/autorunner"
-  become: yes
+  become: True

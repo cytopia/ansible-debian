@@ -28,8 +28,8 @@ It is designed to be a generic **buildfiles** (as opposed to **[dotfiles](https:
     4. [Customize your profile](#customize-your-profile)
     5. [Provision your profile](#provision-your-profile)
 4. **[Test your profile](#test-your-profile)**
-    1. [Build the Docker image](#build-the-docker-image)
-    1. [Run the Docker container](#run-the-docker-container)
+    1. [Docker](#docker)
+    1. [Vagrant](#vagrant)
 5. **[Options](#options)**
     1. [Enable / Disable Management](#enable--disable-management)
     2. [Package options](#package-options)
@@ -46,19 +46,50 @@ It is designed to be a generic **buildfiles** (as opposed to **[dotfiles](https:
 
 Make sure your system meets the **[requirements](#requirements)** before you start.
 
-##### Provision your system
-```
-ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass
+#### Fully provision your system from scratch
+
+Use this to provision your system from scratch, when you have already submitted your profile upstream.
+The only requirements are `bash` and `sudo`, everything else will be installed automatically.
+
+```bash
+# Provision default profile
+curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash
+
+# Provision profile 'generic-all'
+curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash -s generic-all
 ```
 
-##### See what would change (dry-run)
-```
-ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass --check
+#### Manually provision your system from scratch
+
+Use this to provision your system from scratch, when you don't have a profile submitted to upstream yet.
+
+```bash
+# 1. Clone this project
+git clone https://github.com/cytopia/ansible-debian
+cd ansible-debian
+
+# 2. Add your profile 'bob' (See 'Create custom profiles' section of this README)
+
+# 3. Provision your system (with profile 'bob')
+# Note when to use sudo and when not
+sudo make deploy-init
+make deploy-apt-sources PROFILE=bob
+sudo make deploy-dist-upgrade
+make deploy-tools PROFILE=bob
 ```
 
-##### Provision only a specific role
-```
-ansible-playbook -i inventory playbook.yml --diff --limit debian-stretch --ask-become-pass -t i3-gaps
+#### Dry-run the tools installation
+
+```bash
+
+# Dry-run everything for profile 'generic-all'
+make diff-tools PROFILE=generic-all
+
+# Dry-run everything for profile 'generic-all' without role 'systemd'
+make diff-tools PROFILE=generic-all IGNORE=systemd
+
+# Dry-run a specific role 'i3-gaps' 
+make diff-tools PROFILE=generic-all ROLE=i3-gaps
 ```
 
 
@@ -122,8 +153,8 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Gimp with <a href="https://github.com/draekko/gimp-cc-themes">Photoshop theme and keybindings</a></td>
   </tr>
   <tr>
-   <td><a href="https://www.hipchat.com/downloads">hipchat</a></td>
-   <td>HipChat repo and package</td>
+   <td><a href="https://github.com/i3/i3">i3</a></td>
+   <td>i3wm</td>
   </tr>
   <tr>
    <td><a href="https://github.com/Airblader/i3">i3-gaps</a></td>
@@ -140,6 +171,14 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   <tr>
    <td><a href="https://github.com/cytopia/i3blocks-modules">i3blocks-modules</a></td>
    <td>Awesome i3blocks modules</td>
+  </tr>
+  <tr>
+   <td><a href="https://github.com/kubernetes/kops">kops</a></td>
+   <td>Kubernetes operations command line tool</td>
+  </tr>
+  <tr>
+   <td><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a></td>
+   <td>Kubernetes command line tool</td>
   </tr>
   <tr>
    <td><a href="https://www.libreoffice.org/">libreoffice</a></td>
@@ -159,12 +198,12 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Gnome's LAN and WIFI network manager with optional system tray</td>
   </tr>
   <tr>
-   <td><a href="https://www.packer.io">packer</a></td>
-   <td>HashiCorp's packer to build automated machines</td>
-  </tr>
-  <tr>
    <td><a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></td>
    <td>A delightful community-driven framework for managing your zsh configuration.</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.packer.io">packer</a></td>
+   <td>HashiCorp's packer to build automated machines</td>
   </tr>
   <tr>
    <td><a href="https://pinta-project.com/pintaproject/pinta">pinta</a></td>
@@ -193,6 +232,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
   <tr>
    <td><a href="https://telegram.org">telegram</a></td>
    <td>Telegram desktop repo and package</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.terraform.io">terraform</a></td>
+   <td>HashiCorp's Infrastructure as Code provisioner</td>
   </tr>
   <tr>
    <td><a href="https://wiki.archlinux.org/index.php/Thunar">thunar</a></td>
@@ -287,8 +330,7 @@ Additionally you can (but don't have to) manage the following:
 * Custom apt packages can be added per profile
 * Custom pip packages can be added per profile
 * Custom Debian repositories can be added per profile
-* Debian distribution (stable or testing)
-
+* Debian distribution (stable is upgraded to testing)
 
 
 ## Create custom profiles
@@ -297,7 +339,7 @@ In order to customize your workstation or Debian infrastructure, you can create 
 
 By the way Ansible works, each profile inherits all settings from [group_vars/all.yml](group_vars/all.yml). This file holds a sane default showing you all available options and with all packages unmanaged.
 
-In order to actually **customize your profile**, you will have to create a file in [host_vars/](host_vars/) by the same name you have specified in [inventory](inventory). You can copy [group_vars/all.yml](group_vars/all.yml) directly or use an already existing profile from `host_vars`, such as [host_vars/debian-stretch.yml](host_vars/debian-stretch.yml).
+In order to actually **customize your profile**, you will have to create a file in [host_vars/](host_vars/) by the same name you have specified in [inventory](inventory). You can copy [group_vars/all.yml](group_vars/all.yml) directly or use an already existing profile from `host_vars`, such as [host_vars/generic-all.yml](host_vars/generic-all.yml).
 
 To better understand how it works, you can follow this step-by-step example for creating a new profile:
 
@@ -306,7 +348,7 @@ For the sake of this example, let's assume your profile is called `dell-xps-i3wm
 
 #### Add a new profile
 Add the following line to the bottom of [inventory](inventory):
-```
+```bash
 dell-xps-i3wm    ansible_connection=local
 ```
 
@@ -316,12 +358,12 @@ dell-xps-i3wm    ansible_connection=local
 As already mentioned earlier, you can copy [group_vars/all.yml](group_vars/all.yml) or an already existing `host_vars` file.
 
 Use group_vars/all.yml as a default template:
-```
+```bash
 cp group_vars/all.yml host_vars/dell-xps-i3wm.yml
 ```
 Use an already existing host_vars file as a default template:
-```
-cp host_vars/debian-stretch.yml host_vars/dell-xps-i3wm.yml
+```bash
+cp host_vars/generic-all.yml host_vars/dell-xps-i3wm.yml
 ```
 
 #### Customize your profile
@@ -331,45 +373,51 @@ Simply edit `host_vars/dell-xps-i3wm.yml` and adjust the values to your needs. I
 If you want to test your profile in a Docker container prior actually provisioning your own system, skip to the next section, otherwise just run the following commands.
 
 Run the following command to see what would happen:
-```shell
+```bash
 ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass --check
 ```
 Run the following command to actually apply your profile:
-```shell
+```bash
 ansible-playbook -i inventory playbook.yml --diff --limit dell-xps-i3wm --ask-become-pass
 ```
 
 
 
 ## Test your profile
-Before actually running any new profile on your own system, you can and you should test that beforehand in a **Docker container** in order to see if everything works as expected. This might also be very handy in case you are creating a new role and want to see if it works.
 
-#### Build the Docker image
-```
-docker build -t ansible-debian .
-```
-#### Run the Docker container
+Before actually running any new profile on your own system, you can and you should test that beforehand. This can be done in a **Docker container** or in a **Vagrant box** in order to see if everything works as expected. This might also be very handy in case you are creating a new role and want to see if it works.
 
-Before running you should be aware of a few environment variables that can change the bevaviour of the test run. See the table below:
+#### Docker
+
+**Note:** The Docker image will always be auto-build before running the tests.
+
+Before running you should be aware of a few arguments that can be applied to the `make` commands. See the table below:
 
 | Variable  | Required | Description |
 |-----------|----------|-------------|
-| `MY_HOST` | yes      | The inventory hostname (your profile) |
-| `verbose` | no       | Ansible verbosity. Valid values: `0`, `1`, `2` or `3` |
-| `tag`     | no       | Only run this specific tag (role name) |
-| `random`  | no       | When running everything, do it in a random order. Valid values: `0` or `1` |
+| `PROFILE` | yes      | The inventory hostname (your profile) |
+| `VERBOSE` | no       | Ansible verbosity. Valid values: `0`, `1`, `2` or `3` |
+| `ROLE`    | no       | Only run this specific tag (role name) |
 
-Run a full test of profile `debian-testing`:
+Run a full test of profile `generic-all`:
+```bash
+make test-docker-full PROFILE=generic-all
 ```
-docker run --rm -e MY_HOST=debian-testing -t ansible-debian
+Run a full test of profile `generic-all` in a random order:
+```bash
+make test-docker-random PROFILE=generic-all
 ```
-Run a full test of profile `debian-testing` in a random order:
+Only run `i3-gaps` role in profile `generic-all`
+```bash
+make test-docker-single PROFILE=generic-all ROLE=i3-gaps
 ```
-docker run --rm -e MY_HOST=debian-testing -e random=1 -t ansible-debian
-```
-Only runt `i3-gaps` role in profile `debian-stretch`
-```
-docker run --rm -e MY_HOST=debian-stretch -e tag=i3-gaps -t ansible-debian
+
+#### Vagrant
+
+If you don't trust the tests in Docker and want to see the end results graphically in a VM, you can also use Vagrant to do the same.
+
+```bash
+make test-vagrant PROFILE=generic-all
 ```
 
 
@@ -378,9 +426,10 @@ docker run --rm -e MY_HOST=debian-stretch -e tag=i3-gaps -t ansible-debian
 #### Enable / Disable Management
 
 Look for the package section and set them to a desired state. `install` or `remove` or any other value to ignore them.
-```yml
+```bash
 $ vi host_vars/<name>.yml
-
+```
+```yml
 ...
 i3-gaps:          'install'
 font_ubuntu:      'install'
@@ -389,15 +438,15 @@ docker:           'remove'
 docker_compose:   'remove'
 skype:            'ignore'
 sublime:          'ignore'
-hipchat:          'ignore'
 ...
 ```
 #### Package options
 
 Many packages also come with options that you can tweak. You can for example define the Python version your system should provide:
-```yml
+```bash
 $ vi host_vars/<name>.yml
-
+```
+```yml
 ...
 python_2: yes
 python_3: yes
@@ -405,9 +454,10 @@ python_3: yes
 ```
 
 Another customization could be the default program to use when opening speficif file types:
-```yml
+```bash
 $ vi host_vars/<name>.yml
-
+```
+```yml
 ...
 xdg_mime_defaults:
   - desktop_file: chromium.desktop
@@ -422,9 +472,10 @@ xdg_mime_defaults:
 ```
 
 Or to set your **DPI** and other options for `lxdm`
-```yml
+```bash
 $ vi host_vars/<name>.yml
-
+```
+```yml
 ...
 lxdm_dpi: 132
 lxdm_gtk_theme: Arc-Darker
@@ -433,9 +484,10 @@ lxdm_show_user_list: no
 ```
 
 Choose your GPU and touchpad driver:
-```yml
+```bash
 $ vi host_vars/<name>.yml
-
+```
+```yml
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
 xorg_gpu: modesetting
 # Enable VDPAU_DRIVER=va_gl systemwide
@@ -456,15 +508,8 @@ Before you can start there are a few tools required that must be present on the 
 ```
 apt-get update
 apt-get install --no-install-recommends --no-install-suggests -y \
-  python-apt \
-  python-dev \
-  python-jmespath \
-  python-pip \
-  python-setuptools \
+  make \
   sudo
-
-pip install wheel
-pip install ansible
 ```
 
 #### Sudo permissions
@@ -480,7 +525,7 @@ usermod -aG sudo <username>
 In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/cytopia/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside a Docker container. The following test cases have been defined:
 
 * Each run is done randomized and in order as well as for each role separately
-* Each run is done for Debian stable and Debian testing
+* Each run is done for Debian stable and upgraded to testing
 * Each run is done against all defined profiles (repositories: main vs main, extra and non-free)
 
 
@@ -500,6 +545,6 @@ Please feel free to contribute and add new roles as desired. When doing so have 
 
 ## License
 
-[MIT License](LICENSE.md)
+**[MIT License](LICENSE.md)**
 
 Copyright (c) 2017 [cytopia](https://github.com/cytopia)

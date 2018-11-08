@@ -4,9 +4,7 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ i3_gaps_shared_packages }}"
-      - "{{ i3_gaps_build_dependencies }}"
+    apt_packages: "{{ i3_gaps_shared_packages + i3_gaps_build_dependencies }}"
 
 - name: ensure git parent path exists
   file:
@@ -22,7 +20,7 @@
     | sort -V \
     | tail -1
   register: i3_gaps_release_tag
-  check_mode: no
+  check_mode: False
   changed_when: False
 
 - name: ensure i3-gaps is cloned
@@ -30,10 +28,10 @@
     repo: "{{ i3_gaps_git_url }}"
     dest: "{{ i3_gaps_git_path }}"
     version: "{{ i3_gaps_release_tag.stdout }}"
-    clone: yes
-    force: yes
-    recursive: yes
-    update: yes
+    clone: True
+    force: True
+    recursive: True
+    update: True
     depth: 1
   notify:
     - autoreconf i3-gaps

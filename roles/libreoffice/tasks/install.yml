@@ -1,84 +1,10 @@
 ---
 
-- name: check if libreoffice is already installed
-  command: "dpkg-query -W {{ libreoffice_package_name }}"
-  register: libreoffice_installed
-  check_mode: no
-  failed_when: libreoffice_installed.rc > 1
-  changed_when: libreoffice_installed.rc == 1
-
-- name: create temporary download directory
-  tempfile:
-    state: directory
-    suffix: build
-  register: libreoffice_tmp_dir
-  when: libreoffice_installed.rc == 1
-
-- name: fetch libreoffice download page
-  uri:
-    url: "{{ libreoffice_download_url }}"
-    method: GET
-    follow_redirects: yes
-    return_content: yes
-  register: libreoffice_download_page_raw
-  check_mode: no
-  when: libreoffice_installed.rc == 1
-
-- name: extract libreoffice mirror url
-  set_fact:
-    libreoffice_mirror_url: "{{ libreoffice_download_page_raw.content | regex_search(qry) }}"
+- name: ensure libreoffice is installed
+  include_role:
+    name: apt-meta
   vars:
-    qry: 'https://www.libreoffice.org/donate/dl/deb-x86_64/[.0-9]+/en-US/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
-  check_mode: no
-  when: libreoffice_installed.rc == 1
-
-- name: fetch libreoffice mirror page
-  uri:
-    url: "{{ libreoffice_mirror_url }}"
-    method: GET
-    follow_redirects: yes
-    return_content: yes
-  register: libreoffice_mirror_page_raw
-  check_mode: no
-  when: libreoffice_installed.rc == 1
-
-- name: extract libreoffice real download link
-  set_fact:
-    libreoffice_download_link_base: "{{ libreoffice_mirror_page_raw.content | regex_search(qry) }}"
-  vars:
-    qry: 'download.documentfoundation.org/libreoffice/.*/[.0-9]+/deb/x86_64/LibreOffice_[.0-9]+_Linux_x86-64_deb.tar.gz'
-  check_mode: no
-  when: libreoffice_installed.rc == 1
-
-- name: ensure libreoffice is downloaded
-  unarchive:
-    src: "https://{{ libreoffice_download_link_base }}"
-    dest: "{{ libreoffice_tmp_dir.path }}"
-    remote_src: yes
-  when: libreoffice_installed.rc == 1
-
-- name: find libreoffice deb files
-  find:
-    path: "{{ libreoffice_tmp_dir.path }}"
-    pattern: '.*lib.*\_amd64\.deb$'
-    file_type: file
-    use_regex: yes
-    recurse: yes
-  register: libreoffice_deb
-  when: libreoffice_installed.rc == 1
-
-- name: ensure libreoffice deb files are installed
-  shell: "dpkg -i {% for item in libreoffice_deb['files'] %}{{ item['path'] }} {% endfor %}"
-  args:
-    executable: /bin/bash
-  become: yes
-  when: libreoffice_installed.rc == 1
-
-- name: ensure libreoffice tmp directory is removed
-  file:
-    path: "{{ libreoffice_tmp_dir.path }}"
-    state: absent
-  when: libreoffice_installed.rc == 1
+    apt_packages: "{{ [libreoffice_package_name] }}"
 
 
 ###
@@ -91,39 +17,16 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 - name: ensure config directory exists
   file:
     path: "{{ libreoffice_config_path }}"
     state: directory
     mode: 0700
-  when: libreoffice_installed.rc == 1
 
 - name: ensure libreoffice base config is copied once
   copy:
     src: "files/registrymodifications.xcu"
     dest: "{{ libreoffice_config_path }}/registrymodifications.xcu"
     mode: 0600
-  when: libreoffice_installed.rc == 1
-
-
-###
-### HDPI Wrapper
-###
-
-- name: ensure dpi wrapper requirements are installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages:
-      - "{{ libreoffice_shared_packages }}"
-
-- name: ensure libreoffice wrapper is present
-  template:
-    src: templates/libreoffice6.0.j2
-    dest: "{{ libreoffice_wrapper_path }}"
-    owner: root
-    group: root
-    mode: 0755
-  become: yes

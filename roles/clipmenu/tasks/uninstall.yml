@@ -4,7 +4,7 @@
   file:
     state: absent
     path: "{{ clipmenu_bin_path }}/{{ item }}"
-  become: yes
+  become: True
   with_items:
     - clipmenu
     - clipmenud

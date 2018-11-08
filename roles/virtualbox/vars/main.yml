@@ -1,21 +1,17 @@
 ---
 
-virtualbox_package_name: virtualbox-5.2
+virtualbox_package_name: virtualbox
+
+virtualbox_exclusive_packages:
+  - virtualbox-dkms
+  - virtualbox-ext-pack
+  - virtualbox-guest-additions-iso
+  - virtualbox-guest-dkms
+  - virtualbox-guest-utils
+  - virtualbox-guest-x11
+  - virtualbox-qt
 
 virtualbox_shared_packages:
   - dkms
   - linux-headers-amd64
-
-virtualbox_apt_repo:
-  file: virtualbox
-  repo: "deb http://download.virtualbox.org/virtualbox/debian {{ virtualbox_repo_dist }} contrib"
-
-# ID: curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --list-packets
-virtualbox_apt_key:
-  url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-  id: A2F683C52980AECF
-
-virtualbox_avail_repo_dists:
-  - wheezy
-  - jessie
-  - stretch
+  - xmount

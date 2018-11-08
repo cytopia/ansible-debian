@@ -5,6 +5,4 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ ranger_package_name }}"
-      - "{{ ranger_exclusive_packages }}"
+    apt_packages: "{{ [ranger_package_name] + ranger_exclusive_packages }}"

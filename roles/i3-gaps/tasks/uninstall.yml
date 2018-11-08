@@ -9,7 +9,7 @@
   command: make uninstall
   args:
     chdir: "{{ i3_gaps_git_path }}/build"
-  become: yes
+  become: True
   when: i3_gaps_build_dir.stat.exists
 
 - name: ensure i3-gaps git directory is removed

@@ -8,24 +8,24 @@
 # 'thunderbird_ext_url':  Extension url.
 
 # Example value:
-# https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+# https://addons.thunderbird.net/en-US/thunderbird/addon/x-unsent-support/
 #
 
 - name: fetch xpi download page
   uri:
     url: "{{ thunderbird_ext_url }}"
     method: GET
-    follow_redirects: yes
-    return_content: yes
+    follow_redirects: True
+    return_content: True
   register: thunderbird_ext_page_raw
-  check_mode: no
+  check_mode: False
 
 - name: set xpi download url
   set_fact:
     thunderbird_ext_xpi_url: "{{ thunderbird_ext_page_raw.content | regex_search(qry) }}"
   vars:
-    qry: 'https://addons.mozilla.org/thunderbird/downloads/file/[0-9]+/.*.xpi'
-  check_mode: no
+    qry: 'https://addons\.(.+?)/thunderbird/downloads/file/[0-9]+/(.+?)\.xpi'
+  check_mode: False
 
 - name: ensure thunderbird remote xpi is installed
   include_tasks: install-ext-from-uri.yml

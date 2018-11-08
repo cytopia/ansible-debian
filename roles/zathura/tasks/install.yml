@@ -4,6 +4,4 @@
   include_role:
     name: apt-meta
   vars:
-    apt_packages:
-      - "{{ zathura_package_name }}"
-      - "{{ zathura_exclusive_packages }}"
+    apt_packages: "{{ [zathura_package_name] + zathura_exclusive_packages }}"

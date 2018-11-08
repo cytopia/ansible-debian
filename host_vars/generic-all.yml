@@ -13,19 +13,19 @@ debian_dist: buster
 apt_repo_repositories:
   # main
   - file: debian-main
-    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   - file: debian-main
-    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main"
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
   # updates
   - file: debian-updates
-    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main"
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   - file: debian-updates
-    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main"
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   # security
   - file: debian-security
-    repo: "deb http://security.debian.org {{ debian_dist }}/updates main"
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
   - file: debian-security
-    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main"
+    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
 
 
 ###
@@ -39,8 +39,8 @@ systemd_disabled: []
 ###
 ### System Python versions
 ###
-python_2: yes
-python_3: yes
+python_2: True
+python_3: True
 
 
 ###
@@ -79,12 +79,14 @@ font_terminus:         'install'
 font_ubuntu:           'install'
 fzf:                   'install'
 gimp:                  'install'
-hipchat:               'install'
+i3:                    'noop'
 i3_gaps:               'install'
 i3_utils_bin:          'install'
 i3_utils_systemd:      'install'
 i3blocks_modules:      'install'
 icon_moka:             'install'
+kops:                  'install'
+kubectl:               'install'
 libreoffice:           'install'
 lxdm:                  'install'
 neovim:                'install'
@@ -97,6 +99,7 @@ skype:                 'install'
 sublime:               'install'
 sxiv:                  'install'
 telegram:              'install'
+terraform:             'install'
 theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
@@ -127,31 +130,26 @@ docker_repo_channel: edge
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
-fzf_update_rc: Yes
+fzf_update_rc: True
 # Enable/Disable fuzzy completion (bash & zsh)?
-fzf_completion: No
+fzf_completion: False
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
-fzf_key_bindings: No
-
-# ---- HipChat ----
-# 'wheezy', 'jessie', 'stretch' or 'buster'
-hipchat_repo_dist: "{{ debian_dist }}"
+fzf_key_bindings: False
 
 # ---- LXDM ----
 lxdm_dpi: 96
 lxdm_gtk_theme: Industrial
-lxdm_show_user_list: no
+lxdm_show_user_list: False
 
 # ---- NetworkManager ----
-network_manager_nm_applet: Yes
-network_manager_plugin_openvpn: Yes
-network_manager_plugin_iodine: No
-network_manager_plugin_l2tp: No
-network_manager_plugin_openconnect: No
-network_manager_plugin_pptp: No
-network_manager_plugin_ssh: No
-network_manager_plugin_strongswan: No
-network_manager_plugin_vpnc: No
+network_manager_nm_applet: True
+network_manager_plugin_openvpn: True
+network_manager_plugin_l2tp: True
+network_manager_plugin_openconnect: True
+network_manager_plugin_pptp: True
+network_manager_plugin_ssh: True
+network_manager_plugin_strongswan: True
+network_manager_plugin_vpnc: True
 
 # ---- Skype ----
 # 'stable' or 'unstable'
@@ -163,11 +161,11 @@ sublime_repo_channel: stable
 
 # ---- sxiv ----
 # Make sxiv default program for pictures
-sxiv_default_image_viewer: yes
+sxiv_default_image_viewer: True
 
 # ---- Thunar ----
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
+thunar_volman_enable: True
+thunar_archive_plugin_enable: True
 
 # ---- Thunderbird ----
 thunderbird_ext_official: []
@@ -183,19 +181,15 @@ thunderbird_ext_official: []
 thunderbird_ext_custom: []
 #  - https://github.com/ExchangeCalendar/exchangecalendar/releases
 
-# ---- VirtualBox ----
-# 'stretch', 'jessie', 'wheezy'
-virtualbox_repo_dist: stretch
-
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
 xorg_gpu: modesetting
 # Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
 xorg_gpu_accel_method: glamor
 # Enable VDPAU_DRIVER=va_gl systemwide
-xorg_gpu_vdpau_va_gl_enable: yes
+xorg_gpu_vdpau_va_gl_enable: True
 # 'libinput' or 'synaptics'
-xorg_touchpad_enable: yes
+xorg_touchpad_enable: True
 xorg_touchpad_driver: 'synaptics'
 
 

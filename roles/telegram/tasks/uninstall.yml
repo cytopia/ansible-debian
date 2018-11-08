@@ -4,10 +4,10 @@
   file:
     state: absent
     path: "{{ telegram_bin_path }}/Telegram"
-  become: yes
+  become: True
 
 - name: ensure telegram is removed
   file:
     state: absent
     path: "{{ telegram_opt_path }}/Telegram"
-  become: yes
+  become: True

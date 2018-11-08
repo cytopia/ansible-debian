@@ -4,4 +4,4 @@
   file:
     state: absent
     path: "{{ ffscreencast_bin_path }}/ffscreencast"
-  become: yes
+  become: True

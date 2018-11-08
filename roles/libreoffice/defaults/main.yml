@@ -2,5 +2,3 @@
 
 # 'install', 'remove' or 'ignore'
 libreoffice: 'ignore'
-
-libreoffice_dpi: 96

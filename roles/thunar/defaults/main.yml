@@ -4,5 +4,5 @@
 thunar: 'ignore'
 
 # Enable Thunar plugins
-thunar_volman_enable: yes
-thunar_archive_plugin_enable: yes
+thunar_volman_enable: True
+thunar_archive_plugin_enable: True

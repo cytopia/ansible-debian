@@ -5,11 +5,10 @@
     name: apt-meta
   vars:
     apt_state: absent
-    apt_packages:
-      - "{{ thunderbird_package_name }}"
+    apt_packages: "{{ [thunderbird_package_name] + thunderbird_ext_apt }}"
 
 - name: ensure thunderbird extensions directory is removed
   file:
     state: absent
     path: "{{ thunderbird_ext_dir }}"
-  become: Yes
+  become: True
