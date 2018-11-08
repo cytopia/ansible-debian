@@ -5,28 +5,3 @@
     name: apt-meta
   vars:
     apt_packages: "{{ [docker_compose_package_name] }}"
-
-#- name: fetch docker compose info
-#  uri:
-#    url: https://api.github.com/repos/docker/compose/releases/latest
-#    method: GET
-#  register: docker_json
-#  check_mode: False
-#
-#- name: set latest docker compose version
-#  set_fact:
-#    docker_compose_version: "{{ docker_json.json.name }}"
-#  check_mode: False
-#
-#- name: ensure docker compose is downloaded
-#  get_url:
-#    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
-#    dest: "{{ docker_compose_path }}"
-#    mode: 0755
-#    force: True
-#    timeout: 30
-#  register: task_result
-#  until: task_result is succeeded
-#  retries: 10
-#  delay: 5
-#  become: True

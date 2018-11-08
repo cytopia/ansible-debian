@@ -15,8 +15,8 @@
   register: terraform_info_raw
   check_mode: False
   until: terraform_info_raw is succeeded
-  retries: 10
-  delay: 5
+  retries: 30
+  delay: 10
 
 - name: set terraform download url
   set_fact:

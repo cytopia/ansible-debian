@@ -15,8 +15,8 @@
   register: packer_info_raw
   check_mode: False
   until: packer_info_raw is succeeded
-  retries: 10
-  delay: 5
+  retries: 30
+  delay: 10
 
 - name: set packer download url
   set_fact:
