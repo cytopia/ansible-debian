@@ -30,6 +30,12 @@ generic-all ansible_connection=local
 # $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-t470p --ask-become-pass
 cytopia-t470p ansible_connection=local
 
+###
+### Ed's profiles
+###
+[Lab VMs]
+# $ ansible-playbook -i inventory playbook.yml --diff --limit headless-vm --ask-become-pass
+headless-vm ansible_connection=local
 
 ###
 ### Example for customization:
