@@ -3,9 +3,9 @@
 font_font_awesome_font_path: "{{ lookup('env','HOME') }}/.local/share/fonts/font-awesome"
 
 font_font_awesome_urls:
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/web-fonts-with-css/webfonts/fa-brands-400.ttf
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/web-fonts-with-css/webfonts/fa-regular-400.ttf
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/web-fonts-with-css/webfonts/fa-solid-900.ttf
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/use-on-desktop/Font%20Awesome%205%20Brands-Regular-400.otf
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/use-on-desktop/Font%20Awesome%205%20Free-Regular-400.otf
-  - https://github.com/FortAwesome/Font-Awesome/raw/master/use-on-desktop/Font%20Awesome%205%20Free-Solid-900.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/webfonts/fa-brands-400.ttf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/webfonts/fa-regular-400.ttf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/webfonts/fa-solid-900.ttf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Brands-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Solid-900.otf
