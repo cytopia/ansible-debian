@@ -2,7 +2,7 @@
 
 **[TL;DR](#tldr)** | **[Features](#features)** | **[Custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[Other OS](#other-os)** | **[License](#license)**
 
-[![travis](https://travis-ci.org/mo6020/ansible-debian.svg?branch=master)](https://travis-ci.org/mo6020/ansible-debian)
+[![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
 <img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
 <img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/debian.png" alt="Debian" title="Debian" />
 
