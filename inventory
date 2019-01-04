@@ -33,7 +33,7 @@ cytopia-t470p ansible_connection=local
 ###
 ### Ed's profiles
 ###
-[ed]
+[Lab VMs]
 # $ ansible-playbook -i inventory playbook.yml --diff --limit headless-vm --ask-become-pass
 headless-vm ansible_connection=local
 
