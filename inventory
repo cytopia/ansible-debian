@@ -32,6 +32,14 @@ cytopia-t470p ansible_connection=local
 
 
 ###
+### kalos's profile
+###
+[kalos]
+# $ ansible-playbook -i inventory playbook.yml --diff --limit kalos-jiji --ask-become-pass
+kalos-jiji ansible_connection=local
+
+
+###
 ### Example for customization:
 ###
 #

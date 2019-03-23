@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
-FROM debian:stretch
-MAINTAINER "cytopia" <cytopia@everythingcli.org>
+FROM debian:buster
+LABEL maintainer="cytopia <cytopia@everythingcli.org>, kalos <kalos@nerdrug.org>"
 
 RUN set -eux \
 	&& apt-get update \
