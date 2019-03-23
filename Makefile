@@ -29,13 +29,13 @@ help:
 	@echo
 	@echo "build-docker                 Build the testing Docker image (happens automatically during tests)"
 	@echo
-	@echo "test-docker-docker-full      Run a full test in a Docker (requires PROFILE)"
-	@echo "test-docker-docker-random    Run a full randomized test in a Docker (requires PROFILE)"
-	@echo "test-docker-docker-single    Run the test on a single role in a Docker (requires PROFILE and ROLE)"
+	@echo "test-docker-full             Run a full test in a Docker (requires PROFILE)"
+	@echo "test-docker-random           Run a full randomized test in a Docker (requires PROFILE)"
+	@echo "test-docker-single           Run the test on a single role in a Docker (requires PROFILE and ROLE)"
 	@echo
-	@echo "itest-docker-docker-full     Interactive version of test-docker-full (requires PROFILE)"
-	@echo "itest-docker-docker-random   Interactive version of test-docker-random (requires PROFILE)"
-	@echo "itest-docker-docker-single   Interactive version of test-docker-single (requires PROFILE and ROLE)"
+	@echo "itest-docker-full            Interactive version of test-docker-full (requires PROFILE)"
+	@echo "itest-docker-random          Interactive version of test-docker-random (requires PROFILE)"
+	@echo "itest-docker-single          Interactive version of test-docker-single (requires PROFILE and ROLE)"
 	@echo
 	@echo
 	@echo "------------------------------------------------------------"
