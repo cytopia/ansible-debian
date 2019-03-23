@@ -128,15 +128,15 @@ ifeq ($(USER),root)
 endif
 ifndef ROLE
 ifndef IGNORE
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff $(ARG)
 else
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) --skip-tags=$(IGNORE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff $(ARG) --skip-tags=$(IGNORE)
 endif
 else
 ifndef IGNORE
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) -t $(ROLE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff $(ARG) -t $(ROLE)
 else
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --ask-become-pass $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
 endif
 endif
 
@@ -147,14 +147,14 @@ ifeq ($(USER),root)
 endif
 ifndef ROLE
 ifndef IGNORE
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check $(ARG)
 else
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) --skip-tags=$(IGNORE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check $(ARG) --skip-tags=$(IGNORE)
 endif
 else
 ifndef IGNORE
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) -t $(ROLE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check $(ARG) -t $(ROLE)
 else
-	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check --ask-become-pass $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
+	ansible-playbook -i inventory playbook.yml --limit ${PROFILE} --diff --check $(ARG) -t $(ROLE) --skip-tags=$(IGNORE)
 endif
 endif
