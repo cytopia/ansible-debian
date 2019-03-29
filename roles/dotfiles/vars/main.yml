@@ -1,0 +1,5 @@
+---
+
+dotfiles_shared_packages:
+  - git-core
+

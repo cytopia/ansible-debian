@@ -137,6 +137,10 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Downloads latest <code>docker-compose</code> binary</td>
   </tr>
   <tr>
+   <td><a href="https://github.com/kalos/dotfiles">dotfiles</a></td>
+   <td>Install personal dotfiles</td>
+  </tr>
+  <tr>
    <td><a href="https://github.com/cytopia/ffscreencast">ffscreencast</a></td>
    <td>FFmpeg wrapper for desktop-recording with video overlay and multi monitor support</td>
   </tr>

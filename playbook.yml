@@ -198,6 +198,10 @@
   roles: [zathura]
   tags: zathura
 
+- hosts: all
+  roles: [dotfiles]
+  tags: dotfiles
+
 
 ###
 ### Install fonts

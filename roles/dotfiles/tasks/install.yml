@@ -1,0 +1,12 @@
+---
+
+- name: ensure dotfiles requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ dotfiles_shared_packages }}"
+
+- name: pull all dotfiles
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_dest }}"

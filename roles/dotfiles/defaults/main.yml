@@ -1,0 +1,8 @@
+---
+
+# 'install', 'remove' or 'ignore'
+dotfiles: 'ignore'
+
+# Choose 'stable' or 'unstable' channel
+dotfiles_repo: 'git@github.com:kalos/dotfiles.git'
+dotfiles_dest: '/home/kalos/.dotfiles'

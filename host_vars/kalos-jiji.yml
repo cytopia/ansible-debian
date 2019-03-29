@@ -141,7 +141,7 @@ apt_packages:
 #  - pulseaudio-module-bluetooth
 #  - pulseaudio-utils
 # ---- Network clients ----
-  - jxplorer
+#  - jxplorer
   - mariadb-client
   - openssh-client
 #  - redis-tools
@@ -189,8 +189,9 @@ chromium:              'ignore'
 clipmenu:              'ignore'
 dbeaver:               'ignore'
 diff_highlight:        'ignore'
-docker:                'ignore'
+docker:                'install'
 docker_compose:        'ignore'
+dotfiles:              'install'
 ffscreencast:          'ignore'
 firefox:               'ignore'
 font_font_awesome:     'ignore'
