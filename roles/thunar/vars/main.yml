@@ -17,7 +17,7 @@ thunar_volman_shared_packages:
   # ---- Udisk
   - udisks2
   # ---- Fuse
-  - fuse
+  - fuse3
   - fuse2fs
   #- fuseext2    # Does not seem to be available anymore
   #- fusefat     # Does not seem to be available anymore
