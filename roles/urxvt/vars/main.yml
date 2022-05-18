@@ -1,6 +1,6 @@
 ---
 
-urxvt_package_name: rxvt-unicode-256color
+urxvt_package_name: rxvt-unicode
 
 urxvt_shared_packages:
   - xclip
