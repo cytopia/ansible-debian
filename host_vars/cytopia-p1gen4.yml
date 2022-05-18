@@ -86,7 +86,7 @@ apt_packages:
   - wireless-tools
   - xxd
   # ---- Sec Tools (default) ----
-  - netcat
+#  - netcat
   - nmap
   - wireshark-gtk
   # ---- Sec Tools (wireless) ----
@@ -149,10 +149,10 @@ apt_packages:
   - openssh-client
   - redis-tools
   - remmina
-  - remmina-plugin-nx
+#  - remmina-plugin-nx
   - remmina-plugin-rdp
   - remmina-plugin-vnc
-  - remmina-plugin-xdmcp
+#  - remmina-plugin-xdmcp
   - swaks
   # ---- Development ----
   - ack
@@ -162,11 +162,11 @@ apt_packages:
   - dos2unix
   - exuberant-ctags
   - jq
-  - pep8
+#  - pep8
   - php-cli
   - pylint
-  - pylint3
-  - python-pep8
+#  - pylint3
+#  - python-pep8
   - python3-pep8
   - shellcheck
   - silversearcher-ag
