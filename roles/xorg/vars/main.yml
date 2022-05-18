@@ -52,7 +52,7 @@ xorg_gpu_vdpau_packages:
 
 # Vulkan
 xorg_gpu_vulkan_packages:
-  - vulkan-utils
+  - vulkan-tools
 
 # Mesa
 xorg_gpu_mesa_packages:
