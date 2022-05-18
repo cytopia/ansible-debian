@@ -2,9 +2,9 @@
 
 gimp_package_name: gimp
 
-gimp_required_packages:
+gimp_required_packages: []
   #- gimp-dcraw (either dcraw or ufraw)
-  - gimp-ufraw
+  #- gimp-ufraw
 
 gimp_theme_url: https://github.com/cytopia-forked/gimp-cc-themes/releases/download/v2/Gimp-CC-Theme-Darker.tar.gz
 
