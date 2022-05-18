@@ -45,16 +45,16 @@ systemd_disabled:
 ###
 ### System Python versions
 ###
-python_2: True
+python_2: False
 python_3: True
 
 
 ###
 ### Python pip packages (add your custom packages here)
 ###
-pip2_packages:
-  - awscli
-  - aws-adfs
+pip2_packages: []
+#  - awscli
+#  - aws-adfs
 
 pip3_packages: []
 
