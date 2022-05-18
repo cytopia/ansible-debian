@@ -28,7 +28,7 @@ thunar_volman_shared_packages:
   - btrfs-progs
   - dosfstools
   - e2fsprogs
-  - exfat-utils
+  #- exfat-utils
   - ntfs-3g
   - reiserfsprogs
   - udftools
