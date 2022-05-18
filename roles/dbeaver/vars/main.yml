@@ -3,7 +3,7 @@
 dbeaver_package_name: dbeaver-ce
 
 dbeaver_shared_packages:
-  - defaullt-jre-headless
+  - default-jre-headless
 
 dbeaver_deb: dbeaver-ce_latest_amd64.deb
 dbeaver_deb_path: "{{ lookup('env','HOME') }}/.cache/dbeaver/{{ dbeaver_deb }}"
