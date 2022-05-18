@@ -23,7 +23,7 @@ thunar_volman_shared_packages:
   #- fusefat     # Does not seem to be available anymore
   - fuseiso
   #- fuseiso9660 # Does not seem to be available anymore
-  - fusesmb
+  #- fusesmb
   # ---- Filesystem tools
   - btrfs-progs
   - dosfstools
