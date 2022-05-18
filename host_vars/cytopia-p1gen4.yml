@@ -96,7 +96,7 @@ apt_packages:
 #  - kismet-plugins
   # ---- Theme tools ----
   - lxappearance
-  - qt4-qtconfig
+#  - qt4-qtconfig
   # ---- Fonts ----
   - fonts-arphic-ukai
   - fonts-arphic-uming
