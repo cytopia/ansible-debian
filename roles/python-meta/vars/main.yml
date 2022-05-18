@@ -1,7 +1,7 @@
 ---
 
 python_2_required_apt_packages:
-  - python
+  - python2
   - python-pip
   - python-setuptools
 
