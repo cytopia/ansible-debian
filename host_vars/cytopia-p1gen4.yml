@@ -92,8 +92,8 @@ apt_packages:
   # ---- Sec Tools (wireless) ----
   - aircrack-ng
   - horst
-  - kismet
-  - kismet-plugins
+#  - kismet
+#  - kismet-plugins
   # ---- Theme tools ----
   - lxappearance
   - qt4-qtconfig
