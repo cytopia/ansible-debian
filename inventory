@@ -29,6 +29,7 @@ generic-all ansible_connection=local
 [cytopia]
 # $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-t470p --ask-become-pass
 cytopia-t470p ansible_connection=local
+cytopia-p1gen4 ansible_connection=local
 
 
 ###

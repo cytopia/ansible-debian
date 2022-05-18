@@ -8,7 +8,7 @@
 
 - name: ensure autorunner is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/autorunner/master/autorunner
+    url: https://raw.githubusercontent.com/cytopia/autorunner/master/bin/autorunner
     dest: "{{ autorunner_bin_path }}/autorunner"
     mode: 0755
     force: True

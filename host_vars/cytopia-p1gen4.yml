@@ -3,8 +3,7 @@
 ###
 ### Custom variables
 ###
-debian_dist: buster
-
+debian_dist: bookworm
 
 
 ###
@@ -33,7 +32,14 @@ apt_repo_repositories:
 ###
 systemd_enabled: []
 
-systemd_disabled: []
+# https://github.com/Airblader/dotfiles-manjaro/blob/master/SETUP
+systemd_disabled:
+  - exim4.service
+  - ModemManager.services
+  - nfs-common.service
+  - rpcbind.service
+  - rpcbind.target
+  - binfmt-support.service
 
 
 ###
@@ -46,14 +52,130 @@ python_3: True
 ###
 ### Python pip packages (add your custom packages here)
 ###
-pip2_packages: []
+pip2_packages:
+  - awscli
+  - aws-adfs
+
 pip3_packages: []
 
 
 ###
 ### Debian packages (add your custom packages here)
 ###
-apt_packages: []
+apt_packages:
+  # ---- Base Utils ----
+  - dnsutils
+  - gnupg
+  - gnupg-agent
+  - htop
+  - iw
+  - keychain
+  - less
+  - lsb-release
+  - lsof
+  - man-db
+  - manpages
+  - moreutils
+  - net-tools
+  - pinentry-tty
+  - pwgen
+  - socat
+  - tmux
+  - traceroute
+  - tree
+  - wireless-tools
+  - xxd
+  # ---- Sec Tools (default) ----
+  - netcat
+  - nmap
+  - wireshark-gtk
+  # ---- Sec Tools (wireless) ----
+  - aircrack-ng
+  - horst
+  - kismet
+  - kismet-plugins
+  # ---- Theme tools ----
+  - lxappearance
+  - qt4-qtconfig
+  # ---- Fonts ----
+  - fonts-arphic-ukai
+  - fonts-arphic-uming
+  - fonts-ipafont-gothic
+  - fonts-ipafont-mincho
+  - fonts-liberation
+  - fonts-open-sans
+  - fonts-opensymbol
+  - fonts-symbola
+  - ttf-mscorefonts-installer
+  - ttf-wqy-zenhei
+  # ---- Firmwares ----
+  - intel-microcode
+  - firmware-misc-nonfree
+  - firmware-linux
+  - firmware-iwlwifi
+  #- firmware-crystalhd (not available in debian buster)
+  # ---- Block devices ----
+  - libblockdev-plugins-all
+  - udisks2-btrfs
+  - udisks2-lvm2
+  # ---- Window Manager ----
+  - arandr
+  - compton
+  - dunst
+  - feh
+  - redshift
+  - redshift-gtk
+  - rofi
+  - xss-lock
+  # ---- Office / Productivity ----
+  - keepassxc
+  # ---- Video ----
+  - vlc
+  - vlc-plugin-notify
+  - vlc-plugin-samba
+  - x264
+  - x265
+  # ---- Audio ----
+  - alsa-utils
+  - alsa-oss
+  - blueman
+  - pavucontrol
+  - pulseaudio
+  - pulseaudio-module-bluetooth
+  - pulseaudio-utils
+  # ---- Network clients ----
+  - jxplorer
+  - mariadb-client
+  - openssh-client
+  - redis-tools
+  - remmina
+  - remmina-plugin-nx
+  - remmina-plugin-rdp
+  - remmina-plugin-vnc
+  - remmina-plugin-xdmcp
+  - swaks
+  # ---- Development ----
+  - ack
+  - ack-grep
+  - binutils
+  - devscripts
+  - dos2unix
+  - exuberant-ctags
+  - jq
+  - pep8
+  - php-cli
+  - pylint
+  - pylint3
+  - python-pep8
+  - python3-pep8
+  - shellcheck
+  - silversearcher-ag
+  - yamllint
+  # ---- chat ----
+  # ---- dbus ----
+  #- dbus
+  #- dbus-user-session
+  #- dbus-x11
 
 
 ###
@@ -72,7 +194,7 @@ diff_highlight:        'install'
 docker:                'install'
 docker_compose:        'install'
 ffscreencast:          'install'
-firefox:               'install'
+firefox:               'noop'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
@@ -80,34 +202,34 @@ font_terminus:         'install'
 font_ubuntu:           'install'
 fzf:                   'install'
 gimp:                  'install'
-i3:                    'noop'
-i3_gaps:               'install'
+i3:                    'install'
+i3_gaps:               'noop'
 i3_utils_bin:          'install'
 i3_utils_systemd:      'install'
 i3blocks_modules:      'install'
 icon_moka:             'install'
 kops:                  'install'
 kubectl:               'install'
-libreoffice:           'install'
+libreoffice:           'noop'
 lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'
-oh_my_zsh:             'install'
+oh_my_zsh:             'noop'
 packer:                'install'
 pinta:                 'install'
-ranger:                'install'
-skype:                 'install'
-sublime:               'install'
+ranger:                'noop'
+skype:                 'noop'
+sublime:               'noop'
 sxiv:                  'install'
 telegram:              'install'
 terraform:             'install'
 theme_arc:             'install'
 thunar:                'install'
-thunar_custom_actions: 'install'
+thunar_custom_actions: 'noop'
 thunderbird:           'install'
 timemachine:           'install'
 urxvt:                 'install'
-virtualbox:            'install'
+virtualbox:            'noop'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -119,15 +241,23 @@ zathura:               'install'
 
 # ---- Chromium ----
 # Only works for extensions from web store
-chromium_extensions: []
-# - dbepggeogbaibhgnhhndojpepiihcmeb
-# - pgdnlhfefecpicbbihgmbmffkjpaplco
+chromium_extensions:
+  # vimium
+  - dbepggeogbaibhgnhhndojpepiihcmeb
+  # uBlock Origin
+  - cjpalhdlnbpafiamejdnhcphjbkeiagm
+  # uBlock Origin Extra
+  - pgdnlhfefecpicbbihgmbmffkjpaplco
+  # PrivacyBadger
+  - pkehgijcmpdhfbdbbnkijodmdjhbjlgp
+  # Github Flavored Markdown
+  - faelggnmhofdamhdegcdhhemfokkfngk
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_repo_dist: "{{ debian_dist }}"
+docker_repo_dist: "bullseye"
 # 'stable' or 'edge'
-docker_repo_channel: edge
+docker_repo_channel: stable
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
@@ -138,19 +268,19 @@ fzf_completion: False
 fzf_key_bindings: False
 
 # ---- LXDM ----
-lxdm_dpi: 96
-lxdm_gtk_theme: Industrial
+lxdm_dpi: 128
+lxdm_gtk_theme: Arc-Darker
 lxdm_show_user_list: False
 
 # ---- NetworkManager ----
 network_manager_nm_applet: True
 network_manager_plugin_openvpn: True
-network_manager_plugin_l2tp: True
-network_manager_plugin_openconnect: True
-network_manager_plugin_pptp: True
-network_manager_plugin_ssh: True
-network_manager_plugin_strongswan: True
-network_manager_plugin_vpnc: True
+network_manager_plugin_l2tp: False
+network_manager_plugin_openconnect: False
+network_manager_plugin_pptp: False
+network_manager_plugin_ssh: False
+network_manager_plugin_strongswan: False
+network_manager_plugin_vpnc: False
 
 # ---- Skype ----
 # 'stable' or 'unstable'
@@ -169,18 +299,22 @@ thunar_volman_enable: True
 thunar_archive_plugin_enable: True
 
 # ---- Thunderbird ----
-thunderbird_ext_official: []
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
+thunderbird_ext_apt:
+  - lightning
+  - enigmail
+
+thunderbird_ext_official:
+  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
 #  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
 #  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
 
 # List of urls pages in which an XPI download link can be found.
 # Note: The first found XPI download url will be used
-thunderbird_ext_custom: []
-#  - https://github.com/ExchangeCalendar/exchangecalendar/releases
+thunderbird_ext_custom:
+  - https://github.com/ExchangeCalendar/exchangecalendar/releases
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'

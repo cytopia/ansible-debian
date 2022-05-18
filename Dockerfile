@@ -1,22 +1,22 @@
 # vim:set ft=dockerfile:
-FROM debian:stretch
+FROM debian:bookworm
 MAINTAINER "cytopia" <cytopia@everythingcli.org>
 
 RUN set -eux \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		python-apt \
-		python-dev \
-		python-jmespath \
-		python-pip \
-		python-setuptools \
+		python3-apt \
+		python3-dev \
+		python3-jmespath \
+		python3-pip \
+		python3-setuptools \
 		sudo \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get purge -y --autoremove
 
 RUN set -eux \
-	&& pip install wheel \
-	&& pip install ansible
+	&& pip3 install wheel \
+	&& pip3 install ansible
 
 # Add user with password-less sudo
 RUN set -eux \

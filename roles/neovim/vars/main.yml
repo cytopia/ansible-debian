@@ -7,6 +7,8 @@ neovim_package_name: neovim
 
 neovim_shared_packages:
   - xsel
+  - cmake
+  - g++
 
 neovim_exclusive_packages:
   - lua-nvim

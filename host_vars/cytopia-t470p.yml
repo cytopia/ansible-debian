@@ -193,6 +193,7 @@ apt_packages:
 autorunner:            'install'
 chromium:              'install'
 clipmenu:              'install'
+cups:                  'noop'
 dbeaver:               'install'
 diff_highlight:        'install'
 docker:                'install'
