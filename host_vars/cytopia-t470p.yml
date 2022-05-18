@@ -304,7 +304,7 @@ thunar_archive_plugin_enable: True
 
 # ---- Thunderbird ----
 thunderbird_ext_apt:
-  - lightning
+#  - lightning
   - enigmail
 
 thunderbird_ext_official:
