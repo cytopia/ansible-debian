@@ -51,10 +51,6 @@
   tags: clipmenu
 
 - hosts: all
-  roles: [cups]
-  tags: cups
-
-- hosts: all
   roles: [dbeaver]
   tags: dbeaver
 
