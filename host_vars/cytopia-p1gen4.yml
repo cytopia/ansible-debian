@@ -65,6 +65,7 @@ pip3_packages: []
 apt_packages:
   # ---- Base Utils ----
   - dnsutils
+  - fzf
   - gnupg
   - gnupg-agent
   - htop
@@ -77,6 +78,7 @@ apt_packages:
   - manpages
   - moreutils
   - net-tools
+  - pinentry-gtk2
   - pinentry-tty
   - pwgen
   - socat
@@ -85,15 +87,19 @@ apt_packages:
   - tree
   - wireless-tools
   - xxd
+
   # ---- Sec Tools (default) ----
   - ncat
   - nmap
   - wireshark-gtk
+
   # ---- Sec Tools (wireless) ----
   - aircrack-ng
   - horst
+
   # ---- Theme tools ----
   - lxappearance
+
   # ---- Fonts ----
   - fonts-arphic-ukai
   - fonts-arphic-uming
@@ -105,6 +111,7 @@ apt_packages:
   - fonts-symbola
   - ttf-mscorefonts-installer
   - ttf-wqy-zenhei
+
   # ---- Firmwares: General ----
   - intel-microcode
   - firmware-misc-nonfree
@@ -113,10 +120,12 @@ apt_packages:
   - firmware-iwlwifi
   # ---- Firmwares: Sound ----
   - firmware-sof-signed
+
   # ---- Block devices ----
   - libblockdev-plugins-all
   - udisks2-btrfs
   - udisks2-lvm2
+
   # ---- Window Manager ----
   - arandr
   - compton
@@ -126,14 +135,18 @@ apt_packages:
   - redshift-gtk
   - rofi
   - xss-lock
+
   # ---- Office / Productivity ----
   - keepassxc
+  - ristretto
+
   # ---- Video ----
   - vlc
   - vlc-plugin-notify
   - vlc-plugin-samba
   - x264
   - x265
+
   # ---- Audio ----
   - alsa-utils
   - alsa-oss
@@ -142,6 +155,7 @@ apt_packages:
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
+
   # ---- Network clients ----
   - jxplorer
   - mariadb-client
@@ -151,6 +165,7 @@ apt_packages:
   - remmina-plugin-rdp
   - remmina-plugin-vnc
   - swaks
+
   # ---- Development ----
   - ack
   - ack-grep
@@ -165,11 +180,10 @@ apt_packages:
   - shellcheck
   - silversearcher-ag
   - yamllint
-  # ---- chat ----
-  # ---- dbus ----
-  #- dbus
-  #- dbus-user-session
-  #- dbus-x11
+
+  # ---- Phone - android ----
+  - adb
+  - fastboot
 
 
 ###
@@ -213,7 +227,7 @@ pinta:                 'install'
 ranger:                'noop'
 skype:                 'noop'
 sublime:               'noop'
-sxiv:                  'install'
+sxiv:                  'noop'
 telegram:              'install'
 terraform:             'noop'
 theme_arc:             'install'
