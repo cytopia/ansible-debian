@@ -113,6 +113,8 @@ apt_packages:
   - firmware-misc-nonfree
   - firmware-linux
   - firmware-iwlwifi
+  # Sound
+  - firmware-sof-signed
   #- firmware-crystalhd (not available in debian buster)
   # ---- Block devices ----
   - libblockdev-plugins-all
