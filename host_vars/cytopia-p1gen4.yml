@@ -86,17 +86,14 @@ apt_packages:
   - wireless-tools
   - xxd
   # ---- Sec Tools (default) ----
-#  - netcat
+  - ncat
   - nmap
   - wireshark-gtk
   # ---- Sec Tools (wireless) ----
   - aircrack-ng
   - horst
-#  - kismet
-#  - kismet-plugins
   # ---- Theme tools ----
   - lxappearance
-#  - qt4-qtconfig
   # ---- Fonts ----
   - fonts-arphic-ukai
   - fonts-arphic-uming
@@ -108,14 +105,14 @@ apt_packages:
   - fonts-symbola
   - ttf-mscorefonts-installer
   - ttf-wqy-zenhei
-  # ---- Firmwares ----
+  # ---- Firmwares: General ----
   - intel-microcode
   - firmware-misc-nonfree
   - firmware-linux
+  # ---- Firmwares: WiFi ----
   - firmware-iwlwifi
-  # Sound
+  # ---- Firmwares: Sound ----
   - firmware-sof-signed
-  #- firmware-crystalhd (not available in debian buster)
   # ---- Block devices ----
   - libblockdev-plugins-all
   - udisks2-btrfs
@@ -151,10 +148,8 @@ apt_packages:
   - openssh-client
   - redis-tools
   - remmina
-#  - remmina-plugin-nx
   - remmina-plugin-rdp
   - remmina-plugin-vnc
-#  - remmina-plugin-xdmcp
   - swaks
   # ---- Development ----
   - ack
@@ -164,11 +159,8 @@ apt_packages:
   - dos2unix
   - exuberant-ctags
   - jq
-#  - pep8
   - php-cli
   - pylint
-#  - pylint3
-#  - python-pep8
   - python3-pep8
   - shellcheck
   - silversearcher-ag
@@ -211,7 +203,7 @@ i3blocks_modules:      'install'
 icon_moka:             'install'
 kops:                  'install'
 kubectl:               'install'
-libreoffice:           'noop'
+libreoffice:           'install'
 lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'

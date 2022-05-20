@@ -1,0 +1,15 @@
+---
+
+libreoffice_package_name: libreoffice
+
+# Required for DPI wrapper
+libreoffice_shared_packages:
+  - x11-xserver-utils
+
+# Icons
+libreoffice_icon_name: images_office2013.zip
+libreoffice_icon_path: /usr/share/libreoffice/share/config
+
+# User config
+libreoffice_base_config: "{{ lookup('env','HOME') }}/.config/libreoffice"
+libreoffice_config_path: "{{ libreoffice_base_config }}/4/user"

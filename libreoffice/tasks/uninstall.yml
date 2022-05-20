@@ -1,0 +1,14 @@
+---
+
+- name: ensure libreoffice is uninstalled
+  include_role:
+    name: apt-meta
+  vars:
+    apt_state: absent
+    apt_packages:
+      - "{{ libreoffice_package_name }}*"
+
+- name: ensure libreoffice config directory is removed
+  file:
+    state: absent
+    path: "{{ libreoffice_base_config }}"

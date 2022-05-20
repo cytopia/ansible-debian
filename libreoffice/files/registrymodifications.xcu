@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:items xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<item oor:path="/org.openoffice.Office.Calc/Calculate/IterativeReference"><prop oor:name="Iteration" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/IterativeReference"><prop oor:name="MinimumChange" oor:op="fuse"><value>0.001</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/IterativeReference"><prop oor:name="Steps" oor:op="fuse"><value>100</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="CaseSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other/Date"><prop oor:name="DD" oor:op="fuse"><value>30</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other/Date"><prop oor:name="MM" oor:op="fuse"><value>12</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other/Date"><prop oor:name="YY" oor:op="fuse"><value>1899</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="DecimalPlaces" oor:op="fuse"><value>65535</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="FindLabel" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="Precision" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="RegularExpressions" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="SearchCriteria" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Calculate/Other"><prop oor:name="Wildcards" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Compatibility/KeyBindings"><prop oor:name="BaseGroup" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="Anchor" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="Chart" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="DrawingObject" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="Formula" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="NoteTag" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="ObjectGraphic" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="TextOverflow" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="ValueHighlighting" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Display"><prop oor:name="ZeroValue" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Content/Update"><prop oor:name="Link" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option"><prop oor:name="SizeToGrid" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option"><prop oor:name="SnapToGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option"><prop oor:name="Synchronize" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option"><prop oor:name="VisibleGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option/XAxis"><prop oor:name="NonMetric" oor:op="fuse"><value>1270</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Option/YAxis"><prop oor:name="NonMetric" oor:op="fuse"><value>1270</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Resolution/XAxis"><prop oor:name="NonMetric" oor:op="fuse"><value>1270</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Resolution/YAxis"><prop oor:name="NonMetric" oor:op="fuse"><value>1270</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Subdivision"><prop oor:name="XAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Grid/Subdivision"><prop oor:name="YAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Input"><prop oor:name="AutoInput" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Input"><prop oor:name="DetectiveAuto" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Input"><prop oor:name="LastFunctions" oor:op="fuse"><value>224 226 222 223 6</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Line"><prop oor:name="GridLine" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Line"><prop oor:name="GridLineColor" oor:op="fuse"><value>12632256</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Line"><prop oor:name="GridOnColoredCells" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Line"><prop oor:name="Guide" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Line"><prop oor:name="PageBreak" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Other/MeasureUnit"><prop oor:name="NonMetric" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Other"><prop oor:name="StatusbarFunction" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Other"><prop oor:name="StatusbarMultiFunction" oor:op="fuse"><value>514</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Other/TabStop"><prop oor:name="NonMetric" oor:op="fuse"><value>1270</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Window"><prop oor:name="ColumnRowHeader" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Window"><prop oor:name="HorizontalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Window"><prop oor:name="OutlineSymbol" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Window"><prop oor:name="SheetTab" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Window"><prop oor:name="VerticalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Zoom"><prop oor:name="Synchronize" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Zoom"><prop oor:name="Type" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Layout/Zoom"><prop oor:name="Value" oor:op="fuse"><value>100</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Misc/DefaultObjectSize"><prop oor:name="Height" oor:op="fuse"><value>5000</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Misc/DefaultObjectSize"><prop oor:name="Width" oor:op="fuse"><value>8000</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Misc/SharedDocument"><prop oor:name="ShowWarning" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Revision/Color"><prop oor:name="Change" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Revision/Color"><prop oor:name="Deletion" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Revision/Color"><prop oor:name="Insertion" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/Revision/Color"><prop oor:name="MovedEntry" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Calc/SortList"><prop oor:name="List" oor:op="fuse"><value><it>Mon,Tue,Wed,Thu,Fri,Sat,Sun</it><it>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</it><it>Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec</it><it>January,February,March,April,May,June,July,August,September,October,November,December</it><it>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Shabbat</it><it>Nissan,Iyar,Sivan,Tammuz,Av,Elul,Tishri,Heshvan,Kislev,Tevet,Shevat,Adar,Adar B</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="AutoDetectSystemHC" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="IsAllowAnimatedGraphics" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="IsAllowAnimatedText" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="IsAutomaticFontColor" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="IsForPagePreviews" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Accessibility"><prop oor:name="IsSelectionInReadonly" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Font/SourceViewFont"><prop oor:name="FontName" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Font/Substitution"><prop oor:name="Replacement" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="DisableUICustomization" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="ExperimentalMode" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="FirstRun" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="MacroRecorderMode" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="NotebookbarIconSize" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Persona" oor:op="fuse"><value>no</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="PersonaSettings" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="PluginsEnabled" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="ShowLinkWarningDialog" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SidebarIconSize" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SymbolSet" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SymbolStyle" oor:op="fuse"><value>office2013</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="ToolboxStyle" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="UseOpenCL" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="UseSystemFileDialog" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="UseSystemPrintDialog" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/UserColors"><prop oor:name="RecentColor" oor:op="fuse"><value>12632256</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/UserColors"><prop oor:name="RecentColorName" oor:op="fuse"><value><it>Grid color</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,2</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']/UIName"><value xml:lang="en-US">Formatting</value></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/formatobjectbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']/UIName"><value xml:lang="en-US">Standard</value></item>
+<item oor:path="/org.openoffice.Office.UI.CalcWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']/UIName"><value xml:lang="en-US">Standard</value></item>
+<item oor:path="/org.openoffice.Office.UI.DrawWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Visible" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="DockPos" oor:op="fuse"><value>1,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']/UIName"><value xml:lang="en-US">Presentation</value></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/commontaskbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']/UIName"><value xml:lang="en-US">Standard</value></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,1</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']/UIName"><value xml:lang="en-US">Drawing</value></item>
+<item oor:path="/org.openoffice.Office.UI.ImpressWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']/UIName"><value xml:lang="en-US">Standard</value></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Visible" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="DockPos" oor:op="fuse"><value>1,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']/UIName"><value xml:lang="en-US">Tools</value></item>
+<item oor:path="/org.openoffice.Office.UI.MathWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/toolbar']"><prop oor:name="Visible" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Notebookbar/Applications/org.openoffice.Office.UI.Notebookbar:Application['Calc']/Implementations/org.openoffice.Office.UI.Notebookbar:Implementation['Tabbed']"><prop oor:name="HasMenubar" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Notebookbar/Applications/org.openoffice.Office.UI.Notebookbar:Application['Impress']/Implementations/org.openoffice.Office.UI.Notebookbar:Implementation['Tabbed']"><prop oor:name="HasMenubar" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Notebookbar/Applications/org.openoffice.Office.UI.Notebookbar:Application['Writer']/Implementations/org.openoffice.Office.UI.Notebookbar:Implementation['Tabbed']"><prop oor:name="HasMenubar" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/DeckList/org.openoffice.Office.UI.Sidebar:Deck['GalleryDeck']"><prop oor:name="ContextList" oor:op="fuse"><value><it>any, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/DeckList/org.openoffice.Office.UI.Sidebar:Deck['NavigatorDeck']"><prop oor:name="ContextList" oor:op="fuse"><value><it>any, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/DeckList/org.openoffice.Office.UI.Sidebar:Deck['PropertyDeck']"><prop oor:name="ContextList" oor:op="fuse"><value><it>any, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/DeckList/org.openoffice.Office.UI.Sidebar:Deck['ScFunctionsDeck']"><prop oor:name="ContextList" oor:op="fuse"><value><it>com.sun.star.sheet.SpreadsheetDocument, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/DeckList/org.openoffice.Office.UI.Sidebar:Deck['StyleListDeck']"><prop oor:name="ContextList" oor:op="fuse"><value><it>any, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content"><prop oor:name="LastActiveDeck" oor:op="fuse"><value><it>any,PropertyDeck</it><it>com.sun.star.sheet.SpreadsheetDocument,PropertyDeck</it><it>com.sun.star.text.TextDocument,PropertyDeck</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.Sidebar/Content/PanelList/org.openoffice.Office.UI.Sidebar:Panel['GalleryPanel']"><prop oor:name="ContextList" oor:op="fuse"><value><it>any, any, visible</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Calc']"><prop oor:name="Active" oor:op="fuse"><value>Notebookbar</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Calc']/Modes/org.openoffice.Office.UI.ToolbarMode:ModeEntry['Default']"><prop oor:name="UserToolbars" oor:op="fuse"><value><it>private:resource/toolbar/standardbar</it><it>private:resource/toolbar/formatobjectbar</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Impress']"><prop oor:name="Active" oor:op="fuse"><value>Notebookbar</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Impress']/Modes/org.openoffice.Office.UI.ToolbarMode:ModeEntry['Default']"><prop oor:name="UserToolbars" oor:op="fuse"><value><it>private:resource/toolbar/standardbar</it><it>private:resource/toolbar/commontaskbar</it><it>private:resource/toolbar/toolbar</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Writer']"><prop oor:name="Active" oor:op="fuse"><value>Notebookbar</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.ToolbarMode/Applications/org.openoffice.Office.UI.ToolbarMode:Application['Writer']/Modes/org.openoffice.Office.UI.ToolbarMode:ModeEntry['Default']"><prop oor:name="UserToolbars" oor:op="fuse"><value><it>private:resource/toolbar/standardbar</it><it>private:resource/toolbar/textobjectbar</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']/UIName"><value xml:lang="en-US">Logo</value></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/addon_LibreLogo.OfficeToolBar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']/UIName"><value xml:lang="en-US">Standard</value></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/standardbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="ContextActive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="ContextSensitive" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="DockPos" oor:op="fuse"><value>0,1</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Docked" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="DockingArea" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="HideFromToolbarMenu" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Locked" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="NoClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Pos" oor:op="fuse"><value>2147483647,2147483647</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Size" oor:op="fuse"><value>0,0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="SoftClose" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Style" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']/UIName"><value xml:lang="en-US">Formatting</value></item>
+<item oor:path="/org.openoffice.Office.UI.WriterWindowState/UIElements/States/org.openoffice.Office.UI.WindowState:WindowStateType['private:resource/toolbar/textobjectbar']"><prop oor:name="Visible" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Dialogs"><node oor:name="cui/ui/optionsdialog/OptionsDialog" oor:op="replace"><node oor:name="UserData"></node><prop oor:name="WindowState" oor:op="fuse"><value>1420,391,,;;,,,;</value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/TabDialogs"><node oor:name="modules/swriter/ui/templatedialog8/TemplateDialog8" oor:op="replace"><prop oor:name="PageID" oor:op="fuse"><value>2</value></prop><node oor:name="UserData"></node><prop oor:name="WindowState" oor:op="fuse"><value>1304,408,,;;,,,;</value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/TabPages"><node oor:name="10249" oor:op="replace"><node oor:name="UserData"><prop oor:name="page data" oor:op="fuse" oor:type="xs:string"><value>54</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/TabPages"><node oor:name="10349" oor:op="replace"><node oor:name="UserData"><prop oor:name="page data" oor:op="fuse" oor:type="xs:string"><value>220;1</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/TabPages"><node oor:name="12006" oor:op="replace"><node oor:name="UserData"><prop oor:name="page data" oor:op="fuse" oor:type="xs:string"><value>135;1</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/TabPages"><node oor:name="17117" oor:op="replace"><node oor:name="UserData"><prop oor:name="page data" oor:op="fuse" oor:type="xs:string"><value>0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow0" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow1" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow2" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,0,1,10336</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="SplitWindow3" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="UserItem" oor:op="fuse" oor:type="xs:string"><value>V1,2,0</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value xsi:nil="true"/></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['scalc/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,V,0,AL:(5,16,0/0/36/450,36;450)</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['scalc/10336']"><prop oor:name="WindowState" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="scalc/10365" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,V,128</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value></value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="scalc/26100" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,V,20</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value></value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['swriter/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,V,0,AL:(5,16,0/0/400/450,400;1254)</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['swriter/10336']"><prop oor:name="WindowState" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="swriter/10365" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,V,128</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value></value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Views/Windows"><node oor:name="swriter/10366" oor:op="replace"><prop oor:name="Visible" oor:op="fuse"><value xsi:nil="true"/></prop><node oor:name="UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,H,128,AL:(16,4,0/0/270/240,270;240)</value></prop></node><prop oor:name="WindowState" oor:op="fuse"><value>1033,39,349,380;1;0,0,0,0;</value></prop></node></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="DrawingControl" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="FieldCode" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="GraphicObject" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="Note" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="ShowContentTips" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Display"><prop oor:name="Table" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="Break" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="HiddenCharacter" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="HiddenParagraph" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="HiddenText" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="MetaCharacters" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="OptionalHyphen" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="ParagraphEnd" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="ProtectedSpace" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="Space" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/NonprintingCharacter"><prop oor:name="Tab" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Update"><prop oor:name="Chart" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Update"><prop oor:name="Field" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Content/Update"><prop oor:name="Link" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Cursor/DirectCursor"><prop oor:name="Insert" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Cursor/DirectCursor"><prop oor:name="UseDirectCursor" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Cursor/Option"><prop oor:name="ProtectedArea" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/DefaultFont"><prop oor:name="Document" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/FileOutput/FileName"><prop oor:name="FromDatabaseField" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/FileOutput/FileName"><prop oor:name="FromManualSetting" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/FileOutput/FileName"><prop oor:name="Generation" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/FileOutput"><prop oor:name="Path" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/MailingOutput"><prop oor:name="Format" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/PrintOutput"><prop oor:name="AskForMerge" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/FormLetter/PrintOutput"><prop oor:name="SinglePrintJobs" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Option"><prop oor:name="SnapToGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Option"><prop oor:name="Synchronize" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Option"><prop oor:name="VisibleGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Resolution"><prop oor:name="XAxis" oor:op="fuse"><value>1000</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Resolution"><prop oor:name="YAxis" oor:op="fuse"><value>1000</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Subdivision"><prop oor:name="XAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Grid/Subdivision"><prop oor:name="YAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Index"><prop oor:name="ShowPreview" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption"><prop oor:name="Automatic" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption"><prop oor:name="CaptionOrderNumberingFirst" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Calc/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Chart/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Draw/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Formula/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/Impress/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/OfficeObject/OLEMisc/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings/Category"><value xml:lang="en-US">Text</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Frame/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="ApplyAttributes" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings/CaptionText"><value xml:lang="en-US">: </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings/Category"><value xml:lang="en-US">Illustration</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Graphic/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table"><prop oor:name="Enable" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings/CaptionText"><value xml:lang="en-US"></value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings/Category"><value xml:lang="en-US">Table</value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings"><prop oor:name="CharacterStyle" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings"><prop oor:name="Delimiter" oor:op="fuse"><value>.</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings"><prop oor:name="Level" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings"><prop oor:name="Numbering" oor:op="fuse"><value>4</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings/NumberingSeparator"><value xml:lang="en-US">. </value></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Caption/WriterObject/Table/Settings"><prop oor:name="Position" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Table"><prop oor:name="Border" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Table"><prop oor:name="Header" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Table"><prop oor:name="RepeatHeader" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Insert/Table"><prop oor:name="Split" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Line"><prop oor:name="Guide" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="ApplyCharUnit" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="IsAlignMathObjectsToBaseline" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="IsSquaredPageMode" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="MeasureUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="TabStop" oor:op="fuse"><value>1251</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/ViewLayout"><prop oor:name="BookMode" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/ViewLayout"><prop oor:name="Columns" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="HorizontalRuler" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="HorizontalRulerUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="HorizontalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="IsVerticalRulerRight" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="ShowRulers" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="ShowScrollBarTips" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="SmoothScroll" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="VerticalRuler" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="VerticalRulerUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="VerticalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Zoom"><prop oor:name="Type" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Layout/Zoom"><prop oor:name="Value" oor:op="fuse"><value>140</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="AddressBlockSettings" oor:op="fuse"><value><it>&lt;0&gt;\n&lt;1&gt; &lt;2&gt;\n&lt;4&gt;\n&lt;8&gt; &lt;6&gt;</it><it>&lt;0&gt;\n&lt;1&gt; &lt;2&gt;\n&lt;4&gt;\n&lt;8&gt; &lt;6&gt;\n&lt;9&gt;</it><it>&lt;3&gt;\n&lt;1&gt; &lt;2&gt;\n&lt;4&gt;\n&lt;8&gt; &lt;6&gt;</it><it>&lt;3&gt;\n&lt;1&gt; &lt;2&gt;\n&lt;4&gt;\n&lt;8&gt; &lt;6&gt;\n&lt;9&gt;</it></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="CurrentAddressBlock" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="CurrentFemaleGreeting" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="CurrentMaleGreeting" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="CurrentNeutralGreeting" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/DataSource"><prop oor:name="DataCommandType" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/DataSource"><prop oor:name="DataSourceName" oor:op="fuse"><value>EvolutionLocal</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/DataSource"><prop oor:name="DataTableName" oor:op="fuse"><value>Personal</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="EMailSupported" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="ExcludeCountry" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="FemaleGenderValue" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/FemaleGreetingLines"><value xml:lang="en-US"><it>Dear Mrs. &lt;2&gt;,</it></value></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="Filter" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="InServerIsPOP" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="InServerName" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="InServerPassword" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="InServerPort" oor:op="fuse"><value>110</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="InServerUserName" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IncludeCountry" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsAddressBlock" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsAuthentication" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsEMailGreetingLine" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsEMailIndividualGreetingLine" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsGreetingLine" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsHideEmptyParagraphs" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsIndividualGreetingLine" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsMailReplyTo" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsSMPTAfterPOP" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="IsSecureConnection" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailAddress" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailDisplayName" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailPassword" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailPort" oor:op="fuse"><value xsi:nil="true"/></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailReplyTo" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailServer" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="MailUserName" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/MaleGreetingLines"><value xml:lang="en-US"><it>Dear Mr. &lt;2&gt;,</it></value></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard/NeutralGreetingLines"><value xml:lang="en-US"><it>To whom it may concern,</it><it>Dear Friends,</it><it>Dear Sir or Madam,</it><it>Hello,</it></value></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="OutputToLetter" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/MailMergeWizard"><prop oor:name="SavedDocuments" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Misc"><prop oor:name="GraphicToGalleryAsLink" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Numbering/Graphic"><prop oor:name="KeepRatio" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/LinesChanged"><prop oor:name="Color" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/LinesChanged"><prop oor:name="Mark" oor:op="fuse"><value>3</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/ChangedAttribute"><prop oor:name="Attribute" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/ChangedAttribute"><prop oor:name="Color" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/Delete"><prop oor:name="Attribute" oor:op="fuse"><value>3</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/Delete"><prop oor:name="Color" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/Insert"><prop oor:name="Attribute" oor:op="fuse"><value>3</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Revision/TextDisplay/Insert"><prop oor:name="Color" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.Writer/Statistics/WordNumber"><prop oor:name="Delimiter" oor:op="fuse"><value>() \t\n\xff</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Background"><prop oor:name="Color" oor:op="fuse"><value>-1</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/Display"><prop oor:name="DrawingControl" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/Display"><prop oor:name="FieldCode" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/Display"><prop oor:name="GraphicObject" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/Display"><prop oor:name="Note" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/Display"><prop oor:name="Table" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="Break" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="MetaCharacters" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="OptionalHyphen" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="ParagraphEnd" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="ProtectedSpace" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Content/NonprintingCharacter"><prop oor:name="Space" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Option"><prop oor:name="SnapToGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Option"><prop oor:name="Synchronize" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Option"><prop oor:name="VisibleGrid" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Resolution"><prop oor:name="XAxis" oor:op="fuse"><value>1000</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Resolution"><prop oor:name="YAxis" oor:op="fuse"><value>1000</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Subdivision"><prop oor:name="XAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Grid/Subdivision"><prop oor:name="YAxis" oor:op="fuse"><value>1</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Line"><prop oor:name="Guide" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Other"><prop oor:name="IsAlignMathObjectsToBaseline" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Other"><prop oor:name="MeasureUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="HorizontalRuler" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="HorizontalRulerUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="HorizontalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="ShowRulers" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="SmoothScroll" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="VerticalRuler" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="VerticalRulerUnit" oor:op="fuse"><value>2</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Window"><prop oor:name="VerticalScroll" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Zoom"><prop oor:name="Type" oor:op="fuse"><value>0</value></prop></item>
+<item oor:path="/org.openoffice.Office.WriterWeb/Layout/Zoom"><prop oor:name="Value" oor:op="fuse"><value>100</value></prop></item>
+<item oor:path="/org.openoffice.Setup/L10N"><prop oor:name="ooLocale" oor:op="fuse"><value>en-US</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.frame.StartModule']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>1286,39,1268,1395;1;0,0,0,0;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>57,50,2445,1340;5;1286,39,1268,1395;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.text.TextDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>1286,39,1268,1395;1;0,0,0,0;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="LastCompatibilityCheckID" oor:op="fuse"><value>d2bec56d7865f05a1003dc88449f2b0fdd85309a</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="OfficeRestartInProgress" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office"><prop oor:name="ooSetupInstCompleted" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="c" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="encryptionkey" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="encrypttoself" oor:op="fuse"><value>true</value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="facsimiletelephonenumber" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="givenname" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="homephone" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="initials" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="l" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="mail" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="o" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="position" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="postalcode" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="signingkey" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="sn" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="st" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="street" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="telephonenumber" oor:op="fuse"><value></value></prop></item>
+<item oor:path="/org.openoffice.UserProfile/Data"><prop oor:name="title" oor:op="fuse"><value></value></prop></item>
+</oor:items>
