@@ -7,3 +7,7 @@ clipmenu_shared_packages:
   # dmenu
   - suckless-tools
   - xsel
+  # Required to compile clipnotify
+  - x11proto-core-dev
+  - libx11-dev
+  - libxfixes-dev
