@@ -11,3 +11,4 @@ clipmenu_shared_packages:
   - x11proto-core-dev
   - libx11-dev
   - libxfixes-dev
+  - gcc
