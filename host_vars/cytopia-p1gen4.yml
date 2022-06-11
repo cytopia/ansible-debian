@@ -3,7 +3,7 @@
 ###
 ### Custom variables
 ###
-debian_dist: bookworm
+debian_dist: bullseye
 
 
 ###

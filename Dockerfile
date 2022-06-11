@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-FROM debian:bookworm
+FROM debian:bullseye
 MAINTAINER "cytopia" <cytopia@everythingcli.org>
 
 RUN set -eux \
