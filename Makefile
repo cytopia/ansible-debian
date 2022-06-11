@@ -5,7 +5,7 @@ TAG = latest
 
 # Ansible variables
 VERBOSE=
-PROFILE=cytopia-t470p
+PROFILE=cytopia-p1gen4
 ARG=
 
 .PHONY: help build-docker test-docker-full test-docker-random test-docker-single itest-docker-full itest-docker-random itest-docker-single
@@ -98,13 +98,13 @@ ifneq ($(USER),root)
 endif
 	DEBIAN_FRONTEND=noninteractive apt-get update -qq
 	DEBIAN_FRONTEND=noninteractive apt-get install -qq -q --no-install-recommends --no-install-suggests \
-		python-apt \
-		python-dev \
-		python-jmespath \
-		python-pip \
-		python-setuptools
-	pip install wheel
-	pip install ansible
+		python3-apt \
+		python3-dev \
+		python3-jmespath \
+		python3-pip \
+		python3-setuptools
+	pip3 install wheel
+	pip3 install ansible
 
 # (Step 2/4) Add new Debian sources
 deploy-apt-sources:

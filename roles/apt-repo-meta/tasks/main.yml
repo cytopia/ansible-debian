@@ -8,8 +8,8 @@
     install_recommends: False
   register: task_result
   until: task_result is succeeded
-  retries: 30
-  delay: 10
+  retries: 3
+  delay: 5
   become: True
 
 - name: ensure default sources.list is removed
@@ -29,8 +29,8 @@
     validate_certs: True
   register: task_result
   until: task_result is succeeded
-  retries: 30
-  delay: 10
+  retries: 3
+  delay: 5
   become: True
   with_items:
     - "{{ apt_repo_keys }}"
@@ -45,8 +45,8 @@
     update_cache: True
   register: task_result
   until: task_result is succeeded
-  retries: 30
-  delay: 10
+  retries: 3
+  delay: 5
   become: True
   with_items:
     - "{{ apt_repo_repositories }}"

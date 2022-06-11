@@ -9,7 +9,7 @@ thunar_volman_shared_packages:
   # ---- gvfs
   - gvfs
   - gvfs-backends
-  - gvfs-bin
+  #- gvfs-bin
   - gvfs-common
   - gvfs-daemons
   - gvfs-fuse
@@ -17,18 +17,18 @@ thunar_volman_shared_packages:
   # ---- Udisk
   - udisks2
   # ---- Fuse
-  - fuse
+  - fuse3
   - fuse2fs
   #- fuseext2    # Does not seem to be available anymore
   #- fusefat     # Does not seem to be available anymore
   - fuseiso
   #- fuseiso9660 # Does not seem to be available anymore
-  - fusesmb
+  #- fusesmb
   # ---- Filesystem tools
   - btrfs-progs
   - dosfstools
   - e2fsprogs
-  - exfat-utils
+  #- exfat-utils
   - ntfs-3g
   - reiserfsprogs
   - udftools

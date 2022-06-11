@@ -6,6 +6,42 @@
   vars:
     apt_packages: "{{ clipmenu_shared_packages }}"
 
+- name: ensure temporary build directory exists
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: build
+  register: clipmenu_tempdir
+
+- name: ensure clipnotify is downloaded
+  get_url:
+    url: "https://raw.githubusercontent.com/cdown/clipnotify/master/{{ item }}"
+    dest: "{{ clipmenu_tempdir.path }}/{{ item }}"
+    mode: 0755
+    force: True
+    timeout: 30
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+  become: True
+  with_items:
+    - Makefile
+    - clipnotify.c
+
+# You can also use the 'cmd' parameter instead of free form format.
+- name: ensure clipnotify is compiled
+  ansible.builtin.shell:
+    cmd: make all
+    chdir: "{{ clipmenu_tempdir.path }}"
+    creates: clipnotify
+
+- name: ensure clipnotify is moved to bin path
+  ansible.builtin.copy:
+    src: "{{ clipmenu_tempdir.path }}/clipnotify"
+    dest: "{{ clipmenu_bin_path }}/clipnotify"
+    mode: '0755'
+  become: True
+
 - name: ensure clipmenu is downloaded
   get_url:
     url: "https://raw.githubusercontent.com/cdown/clipmenu/develop/{{ item }}"
@@ -21,3 +57,6 @@
   with_items:
     - clipmenu
     - clipmenud
+    - clipctl
+    - clipdel
+    - clipfsck

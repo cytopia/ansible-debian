@@ -9,8 +9,8 @@
 - name: assert that docker repository distribution is set correctly
   assert:
     that:
-      - docker_repo_channel == 'wheezy' or docker_repo_dist == 'jessie' or docker_repo_dist == 'stretch' or docker_repo_dist == 'buster'
-    msg: docker_repo_dist must be 'wheezy', 'jessie', 'stretch' or 'buster'
+      - docker_repo_channel == 'wheezy' or docker_repo_dist == 'jessie' or docker_repo_dist == 'stretch' or docker_repo_dist == 'buster' or docker_repo_dist == 'bullseye'
+    msg: docker_repo_dist must be 'wheezy', 'jessie', 'stretch' 'stretch' or 'bullseye'
 
 - include_tasks: install.yml
   when: docker == 'install'

@@ -7,12 +7,16 @@ neovim_package_name: neovim
 
 neovim_shared_packages:
   - xsel
+  - cmake
+  - g++
 
 neovim_exclusive_packages:
   - lua-nvim
+  - ruby-neovim
 
 neovim_python2_packages:
   - python-neovim
 
 neovim_python3_packages:
   - python3-neovim
+  - python3-pynvim

@@ -3,8 +3,7 @@
 ###
 ### Custom variables
 ###
-debian_dist: buster
-
+debian_dist: bullseye
 
 
 ###
@@ -23,9 +22,9 @@ apt_repo_repositories:
     repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
   # security
   - file: debian-security
-    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
+    repo: "deb http://security.debian.org/debian-security {{ debian_dist }}-security main contrib non-free"
   - file: debian-security
-    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
+    repo: "deb-src http://security.debian.org/debian-security {{ debian_dist }}-security main contrib non-free"
 
 
 ###
@@ -46,18 +45,16 @@ systemd_disabled:
 ###
 ### System Python versions
 ###
-python_2: True
+python_2: False
 python_3: True
 
 
 ###
 ### Python pip packages (add your custom packages here)
 ###
-pip2_packages:
-  - awscli
-  - aws-adfs
-  # https://github.com/chrisallenlane/cheat
-  - cheat
+pip2_packages: []
+#  - awscli
+#  - aws-adfs
 
 pip3_packages: []
 
@@ -66,8 +63,9 @@ pip3_packages: []
 ### Debian packages (add your custom packages here)
 ###
 apt_packages:
-# ---- Base Utils ----
+  # ---- Base Utils ----
   - dnsutils
+  - fzf
   - gnupg
   - gnupg-agent
   - htop
@@ -80,6 +78,7 @@ apt_packages:
   - manpages
   - moreutils
   - net-tools
+  - pinentry-gtk2
   - pinentry-tty
   - pwgen
   - socat
@@ -88,19 +87,20 @@ apt_packages:
   - tree
   - wireless-tools
   - xxd
-# ---- Sec Tools (default) ----
-  - netcat
+
+  # ---- Sec Tools (default) ----
+  - ncat
   - nmap
   - wireshark-gtk
-# ---- Sec Tools (wireless) ----
+
+  # ---- Sec Tools (wireless) ----
   - aircrack-ng
   - horst
-#  - kismet
-#  - kismet-plugins
-# ---- Theme tools ----
+
+  # ---- Theme tools ----
   - lxappearance
-#  - qt4-qtconfig
-# ---- Fonts ----
+
+  # ---- Fonts ----
   - fonts-arphic-ukai
   - fonts-arphic-uming
   - fonts-ipafont-gothic
@@ -111,17 +111,22 @@ apt_packages:
   - fonts-symbola
   - ttf-mscorefonts-installer
   - ttf-wqy-zenhei
-# ---- Firmwares ----
+
+  # ---- Firmwares: General ----
   - intel-microcode
   - firmware-misc-nonfree
   - firmware-linux
+  # ---- Firmwares: WiFi ----
   - firmware-iwlwifi
-  #- firmware-crystalhd (not available in debian buster)
-# ---- Block devices ----
+  # ---- Firmwares: Sound ----
+  - firmware-sof-signed
+
+  # ---- Block devices ----
   - libblockdev-plugins-all
   - udisks2-btrfs
   - udisks2-lvm2
-# ---- Window Manager ----
+
+  # ---- Window Manager ----
   - arandr
   - compton
   - dunst
@@ -130,15 +135,19 @@ apt_packages:
   - redshift-gtk
   - rofi
   - xss-lock
-# ---- Office / Productivity ----
-  - keepassx
-# ---- Video ----
+
+  # ---- Office / Productivity ----
+  - keepassxc
+  - ristretto
+
+  # ---- Video ----
   - vlc
   - vlc-plugin-notify
   - vlc-plugin-samba
   - x264
   - x265
-# ---- Audio ----
+
+  # ---- Audio ----
   - alsa-utils
   - alsa-oss
   - blueman
@@ -146,18 +155,18 @@ apt_packages:
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
-# ---- Network clients ----
+
+  # ---- Network clients ----
   - jxplorer
   - mariadb-client
   - openssh-client
   - redis-tools
   - remmina
-  - remmina-plugin-nx
   - remmina-plugin-rdp
   - remmina-plugin-vnc
-  - remmina-plugin-xdmcp
   - swaks
-# ---- Development ----
+
+  # ---- Development ----
   - ack
   - ack-grep
   - binutils
@@ -165,22 +174,16 @@ apt_packages:
   - dos2unix
   - exuberant-ctags
   - jq
-  - pep8
   - php-cli
   - pylint
-  - pylint3
-  - python-pep8
   - python3-pep8
   - shellcheck
   - silversearcher-ag
-  - tig
   - yamllint
-# ---- chat ----
-  #- weechat
-# ---- dbus ----
-  #- dbus
-  #- dbus-user-session
-  #- dbus-x11
+
+  # ---- Phone - android ----
+  - adb
+  - fastboot
 
 
 ###
@@ -198,13 +201,13 @@ diff_highlight:        'install'
 docker:                'install'
 docker_compose:        'install'
 ffscreencast:          'install'
-firefox:               'install'
+firefox:               'noop'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
 font_terminus:         'install'
-font_ubuntu:           'install'
-fzf:                   'install'
+font_ubuntu:           'noop'
+fzf:                   'noop'
 gimp:                  'install'
 i3:                    'install'
 i3_gaps:               'noop'
@@ -219,21 +222,21 @@ lxdm:                  'install'
 neovim:                'install'
 network_manager:       'install'
 oh_my_zsh:             'noop'
-packer:                'install'
+packer:                'noop'
 pinta:                 'install'
-ranger:                'install'
-skype:                 'install'
-sublime:               'install'
-sxiv:                  'install'
+ranger:                'noop'
+skype:                 'noop'
+sublime:               'noop'
+sxiv:                  'noop'
 telegram:              'install'
-terraform:             'install'
+terraform:             'noop'
 theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'noop'
 thunderbird:           'install'
 timemachine:           'install'
 urxvt:                 'install'
-virtualbox:            'install'
+virtualbox:            'noop'
 xbacklight:            'install'
 xorg:                  'install'
 zathura:               'install'
@@ -259,9 +262,9 @@ chromium_extensions:
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_repo_dist: "{{ debian_dist }}"
+docker_repo_dist: "bullseye"
 # 'stable' or 'edge'
-docker_repo_channel: edge
+docker_repo_channel: stable
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
@@ -307,18 +310,18 @@ thunderbird_ext_apt: []
 #  - lightning
 #  - enigmail
 
-thunderbird_ext_official:
-  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
-  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
-#  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
-  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
-  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+thunderbird_ext_official: []
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
+##  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
+##  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
 
 # List of urls pages in which an XPI download link can be found.
 # Note: The first found XPI download url will be used
-thunderbird_ext_custom:
-  - https://github.com/ExchangeCalendar/exchangecalendar/releases
+thunderbird_ext_custom: []
+#  - https://github.com/ExchangeCalendar/exchangecalendar/releases
 
 # ---- Xorg ----
 # Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
