@@ -30,6 +30,10 @@ apt_repo_repositories:
     repo: "deb http://deb.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
   - file: debian-backports
     repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-backports main contrib non-free"
+  - file: debian-backports
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-backports-sloppy main contrib non-free"
+  - file: debian-backports
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-backports-sloppy main contrib non-free"
 
 
 ###
